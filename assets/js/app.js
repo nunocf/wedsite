@@ -1,8 +1,5 @@
-// We need to import the CSS so that webpack will load it.
-// The MiniCssExtractPlugin is used to separate it out into
-// its own CSS file.
-import css from "../css/app.css"
 
+import "tachyons"
 // webpack automatically bundles all modules in your
 // entry points. Those entry points can be configured
 // in "webpack.config.js".
@@ -17,6 +14,18 @@ import "phoenix_html"
 // import socket from "./socket"
 import { Elm } from "../elm/src/Main.elm"
 
-console.log(Elm)
 
-Elm.Main.init({ node: document.getElementById("elm-main") });
+const app = Elm.Main.init({
+    flags: { language: getLanguage() },
+    node: document.getElementById("elm-main")
+});
+
+app.ports.storeLanguageInLocalStorage.subscribe((language) => {
+    localStorage.setItem("elm-i18n-example-language", language)
+})
+
+function getLanguage() {
+    return localStorage.getItem("elm-i18n-example-language") ||
+        navigator.language ||
+        navigator.userLanguage
+}

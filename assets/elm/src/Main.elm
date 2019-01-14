@@ -1,56 +1,17 @@
-module Main exposing (..)
+module Main exposing (main)
 
 import Browser
-import Html exposing (Html, text, div, h1, img)
-import Html.Attributes exposing (src)
+import Model exposing (Flags, Model)
+import Msg exposing (Msg)
+import Update
+import View
 
 
----- MODEL ----
-
-
-type alias Model =
-    {}
-
-
-init : ( Model, Cmd Msg )
-init =
-    ( {}, Cmd.none )
-
-
-
----- UPDATE ----
-
-
-type Msg
-    = NoOp
-
-
-update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    ( model, Cmd.none )
-
-
-
----- VIEW ----
-
-
-view : Model -> Html Msg
-view model =
-    div []
-        [ img [ src "/images/logo.svg" ] []
-        , h1 [] [ text "THIS IS GOING TO BE OUR WEDDING WEBSITE BAE!!!!!" ]
-        ]
-
-
-
----- PROGRAM ----
-
-
-main : Program () Model Msg
+main : Program Flags Model Msg
 main =
-    Browser.element
-        { view = view
-        , init = \_ -> init
-        , update = update
+    Browser.document
+        { init = Model.init
+        , update = Update.update
+        , view = View.view
         , subscriptions = always Sub.none
         }
