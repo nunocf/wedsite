@@ -1,11 +1,14 @@
 
-import "tachyons"
 // webpack automatically bundles all modules in your
 // entry points. Those entry points can be configured
 // in "webpack.config.js".
 //
 // Import dependencies
 //
+// import "../css/debug.css"
+import "../css/grid.css"
+import "../scss/main.scss"
+import "../css/styles.css"
 import "phoenix_html"
 
 // Import local files

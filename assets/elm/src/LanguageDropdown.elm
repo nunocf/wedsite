@@ -59,3 +59,32 @@ dropdownListItem language =
         [ span []
             [ text (Language.langToString language) ]
         ]
+
+
+view2 : Model -> Html Msg
+view2 { currentLanguage, showAvailableLanguages } =
+    div [ class "dropdown is-active" ]
+        [ div [ class "dropdown-trigger" ]
+            [ button [ button ]
+                [ span
+                    [ Events.custom "click"
+                        (Decode.succeed
+                            { message = Msg.ShowAvailableLanguages
+                            , stopPropagation = True
+                            , preventDefault = False
+                            }
+                        )
+                    ]
+                    [ text (Language.langToString currentLanguage) ]
+                , span [ class "icon is-small" ]
+                    [ i [ class "fas fa-angle-down" ] []
+                    ]
+                ]
+            ]
+        , div [ class "dropdown-menu" ]
+            [ div [ class "dropdown-content" ]
+                [ a [ class "dropdown-item" ] [ text "aaaaa" ]
+                , a [ class "dropdown-item" ] [ text "bbbb" ]
+                ]
+            ]
+        ]
