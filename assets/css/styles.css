@@ -22,3 +22,22 @@
 		display: none;
 	}
 }
+
+.dn * {
+	display: none;
+}
+
+.dropdown {
+	width: 27%;
+  
+	.dropdown-trigger {
+	  width: 100%
+	}
+  
+	.button {
+	  display: flex;
+	  width: 100%;
+	  justify-content: space-between
+	}
+  
+  }

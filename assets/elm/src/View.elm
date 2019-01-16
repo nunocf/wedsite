@@ -28,7 +28,7 @@ view : Model -> Document Msg
 view model =
     { title = model.title
     , body =
-        [ main_ []
+        [ main_ [ onClick Msg.CloseAvailableLanguages ]
             [ hero model
             ]
         ]
@@ -73,8 +73,8 @@ heroHead model =
                 , p [ class "navbar-item has-text-black" ] [ text "Location" ]
                 , p [ class "navbar-item has-text-black" ] [ text "Schedule" ]
                 ]
-            , div [ class "column right level" ]
-                [ LanguageDropdown.view2 model
+            , div [ class "column right" ]
+                [ LanguageDropdown.view model
                 , figure [ class "navbar-item image has-text-black center" ]
                     [ i
                         [ class " fas fa-bars fa-lg"
@@ -147,15 +147,14 @@ dropdownTest =
         ]
 
 
-content : Lang -> Html Msg
-content language =
-    article [ class Styles.article ]
-        [ div [ class Styles.articleContainer ]
-            [ heading language ]
-        ]
 
-
-heading : Lang -> Html Msg
-heading language =
-    h1 [ class Styles.heading ]
-        [ text (Translations.verticallyCenteringInCssIsEasy language) ]
+-- content : Lang -> Html Msg
+-- content language =
+--     article [ class Styles.article ]
+--         [ div [ class Styles.articleContainer ]
+--             [ heading language ]
+--         ]
+-- heading : Lang -> Html Msg
+-- heading language =
+--     h1 [ class Styles.heading ]
+--         [ text (Translations.verticallyCenteringInCssIsEasy language) ]
