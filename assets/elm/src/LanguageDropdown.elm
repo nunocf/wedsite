@@ -5,14 +5,13 @@ import Html.Attributes exposing (class, id, style)
 import Html.Events as Events exposing (onClick)
 import Json.Decode as Decode
 import Language
-import Model exposing (Model)
 import Msg exposing (Msg)
 import Styles
 import Translations exposing (Lang)
 
 
-view : Model -> Html Msg
-view { currentLanguage, showAvailableLanguages } =
+view : Lang -> Bool -> Html Msg
+view currentLanguage showAvailableLanguages =
     let
         selectableLanguages =
             List.filter

@@ -7,7 +7,7 @@
 #grid {
     display: grid;
     grid-template-areas:
-        "a b c d";
+        "a d c";
 
     grid-row-gap: 1rem;
 }
@@ -16,6 +16,7 @@
     #grid {
         grid-template-areas:
             "a b c"
-            "d d d";
+            "d d d"
+            ;
     }
 }

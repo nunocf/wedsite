@@ -1,4 +1,4 @@
-module Styles exposing (currentSelection, dropdownContainer, dropdownContent, dropdownList, dropdownListItem, dropdownTrigger, header, main_, nav, navLink, subtitle, title)
+module Styles exposing (currentSelection, dropdownContainer, dropdownContent, dropdownList, dropdownListItem, dropdownTrigger, hero, ourStory)
 
 
 currentSelection : String
@@ -47,75 +47,13 @@ dropdownListItem =
     "dropdown-item"
 
 
-main_ : String
-main_ =
-    [ "bg-dark-pink"
-    , "pt3"
-    , "overflow-container"
-    , "sans-serif"
-    , "vh-100"
-    , "white"
-    ]
+hero : String
+hero =
+    [ "hero", "is-fullheight", "has-background-primary" ]
         |> String.join " "
 
 
-header : String
-header =
-    [ "bg-white"
-    , "black-80"
-    , "tc"
-    , "pv4"
-    , "avenir"
-    ]
-        |> String.join " "
-
-
-nav : String
-nav =
-    [ "bt"
-    , "bb"
-    , "tc"
-    , "mw7"
-    , "center"
-    , "mt4"
-    ]
-        |> String.join " "
-
-
-navLink : String
-navLink =
-    [ "f6"
-    , "f5-l"
-    , "link"
-    , "bg-animate"
-    , "black-80"
-    , "hover-bg-lightest-blue"
-    , "dib"
-    , "pa3"
-    , "ph4-l"
-    ]
-        |> String.join " "
-
-
-title : String
-title =
-    [ "mt2"
-    , "mb0"
-    , "baskerville"
-    , "i"
-    , "fw1"
-    , "f1"
-    ]
-        |> String.join " "
-
-
-subtitle : String
-subtitle =
-    [ "mt2"
-    , "mb0"
-    , "f6"
-    , "fw4"
-    , "ttu"
-    , "tracked"
-    ]
+ourStory : String
+ourStory =
+    [ "hero", "is-fullheight", "has-background-grey" ]
         |> String.join " "
