@@ -6,14 +6,16 @@ import Html.Attributes exposing (..)
 import LanguageDropdown
 import Msg exposing (Msg)
 import OurStorySection
+import ScheduleSection
 import Styles
 import Translations exposing (Lang)
 
 
-view : Lang -> Bool -> List (Html Msg)
-view currentLanguage showAvailableLanguages =
+view : Lang -> Bool -> Bool -> List (Html Msg)
+view currentLanguage showAvailableLanguages showFullPoem =
     [ hero currentLanguage showAvailableLanguages
-    , OurStorySection.view currentLanguage
+    , OurStorySection.view currentLanguage showFullPoem
+    , ScheduleSection.view currentLanguage
     ]
 
 

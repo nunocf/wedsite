@@ -1,7 +1,7 @@
 {
     "title": "Nuno & Oli's Wedsite",
     "verticallyCenteringInCssIsEasy": "Centrar elementos verticalmente em CSS é fácil!",
-    "ourStoryTitle": "A nossa estória",
+    "ourStoryTitle": "Como é que isto nos aconteceu?",
     "ourStory": [
         "Portuguese verse 0",
         "Portuguese verse 1",
@@ -28,5 +28,24 @@
         "Portuguese verse 22",
         "Portuguese verse 23",
         "Portuguese verse 24"
-    ]
+    ],
+    "scheduleTitle": "O que esperar no dia?",
+    "scheduleSubtitle": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
+    "elevenAM": "11h",
+    "elevenAMDesc": "",
+    "twelveAM": "12h",
+    "twelveAMDesc": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula, odio a posuere semper, eros nibh efficitur metus, non sagittis nunc lectus ac felis. Morbi nec tincidunt quam, fringilla fermentum magna.",
+        "Mauris elementum velit in nisi posuere ultrices. Vestibulum condimentum leo est, elementum pretium enim tristique a. Donec nec lobortis felis, ac eleifend augue."
+    ],
+    "twoPM": "14h",
+    "twoPMDesc": "Cerimónia de igreja @ Igreja da Aparição da Virgem Maria",
+    "fourPM": "16h",
+    "fourPMDesc": "Cerimónia civil",
+    "sevenPM": "19h",
+    "sevenPMDesc": "Jantar",
+    "ninePM": "21h",
+    "ninePMDesc": "Bolo de casamento",
+    "elevenPM": "23h",
+    "elevenPMDesc": "Segundo jantar"
 }

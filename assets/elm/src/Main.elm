@@ -23,6 +23,7 @@ type alias Model =
     { currentLanguage : Lang
     , showAvailableLanguages : Bool
     , title : String
+    , showFullPoem : Bool
     }
 
 
@@ -37,6 +38,7 @@ init flags =
     ( { currentLanguage = language
       , showAvailableLanguages = False
       , title = Translations.title language
+      , showFullPoem = False
       }
     , Cmd.none
     )
@@ -68,6 +70,9 @@ update msg model =
             , Cmd.none
             )
 
+        Msg.ShowPoem value ->
+            ( { model | showFullPoem = value }, Cmd.none )
+
 
 
 -- VIEW
@@ -81,6 +86,7 @@ view model =
             (MainPage.view
                 model.currentLanguage
                 model.showAvailableLanguages
+                model.showFullPoem
             )
         ]
     }

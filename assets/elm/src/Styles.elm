@@ -1,4 +1,14 @@
-module Styles exposing (currentSelection, dropdownContainer, dropdownContent, dropdownList, dropdownListItem, dropdownTrigger, hero, ourStory)
+module Styles exposing
+    ( currentSelection
+    , dropdownContainer
+    , dropdownContent
+    , dropdownList
+    , dropdownListItem
+    , dropdownTrigger
+    , hero
+    , ourStory
+    , scheduleSection
+    )
 
 
 currentSelection : String
@@ -49,11 +59,17 @@ dropdownListItem =
 
 hero : String
 hero =
-    [ "hero", "is-fullheight", "has-background-primary" ]
+    [ "hero", "is-fullheight", "has-background-info" ]
         |> String.join " "
 
 
 ourStory : String
 ourStory =
     [ "hero", "is-fullheight", "has-background-grey" ]
+        |> String.join " "
+
+
+scheduleSection : String
+scheduleSection =
+    [ "hero", "is-fullheight", "has-background-primary" ]
         |> String.join " "

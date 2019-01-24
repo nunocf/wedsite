@@ -9,3 +9,4 @@ type Msg
     = CloseAvailableLanguages
     | ShowAvailableLanguages
     | ChangeLanguage Lang
+    | ShowPoem Bool
