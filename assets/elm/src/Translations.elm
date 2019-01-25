@@ -349,6 +349,13 @@ travellingSubtitle1 lang  =
       Pt -> "Se por algum motivo não tiveres acesso a tal aparelho, existem opçōes de transporte mais rudimentares:"
       Rs -> "Se por algum motivo não tiveres acesso a tal aparelho, existem opçōes de transporte mais rudimentares:"
 
+coordinates: Lang -> String
+coordinates lang  =
+  case lang of 
+      En -> "45.3816° N, 20.3686° E"
+      Pt -> "45.3816° N, 20.3686° E"
+      Rs -> "45.3816° N, 20.3686° E"
+
 airplane: Lang -> String
 airplane lang  =
   case lang of 
@@ -377,12 +384,12 @@ belgradeAirport lang  =
       Pt -> "aeroporto Nikola Tesla"
       Rs -> "aeroporto Nikola Tesla"
 
-in: Lang -> String
-in lang  =
+em: Lang -> String
+em lang  =
   case lang of 
-      En -> "em"
-      Pt -> "em"
-      Rs -> "em"
+      En -> " in "
+      Pt -> " em "
+      Rs -> " em "
 
 belgrade: Lang -> String
 belgrade lang  =
@@ -464,14 +471,9 @@ mainAirportSecondParagraph0 lang  =
 mainAirportSecondParagraph1: Lang -> String
 mainAirportSecondParagraph1 lang  =
   case lang of 
-      En -> "London Heathrow  "
+      En -> "several cities in Germany "
       Pt -> "várias cidades na Alemanha "
       Rs -> "várias cidades na Alemanha "
-
-mainAirportSecondParagraph2: Lang -> String
-mainAirportSecondParagraph2 lang  =
-  case lang of 
-      En -> "several cities in Germany "
 
 etc: Lang -> String
 etc lang  =
@@ -525,21 +527,21 @@ otherAirports lang  =
 romaniaAirportDistance: Lang -> String
 romaniaAirportDistance lang  =
   case lang of 
-      En -> "(120 km from the destination) and"
-      Pt -> "(120km do destino) e "
-      Rs -> "(120km do destino) e "
+      En -> " (120 km from the destination) and "
+      Pt -> " (120km do destino) e "
+      Rs -> " (120km do destino) e "
 
 budapestAirportDistance: Lang -> String
 budapestAirportDistance lang  =
   case lang of 
-      En -> "(330km from the destination)."
-      Pt -> "(330km do destino)."
-      Rs -> "(330km do destino)."
+      En -> " (330km from the destination)."
+      Pt -> " (330km do destino)."
+      Rs -> " (330km do destino)."
 
 publicTravelFromAirport: Lang -> String
 publicTravelFromAirport lang  =
   case lang of 
-      En -> " In both cases keep in mind that you will need additional transportation service to reach Serbia with fixed price of 15e from Timisoara and 25e from Budapest when using "
+      En -> " In both cases keep in mind that you will need additional transportation service to reach Serbia with fixed price of 15€ from Timisoara and 25€ from Budapest when using "
       Pt -> " Em ambos os casos é necessário transporte adicional para chegar à Sérvia, com preço fixo de 15€ de Timisoara e 25€ de Budapeste pela companhia "
       Rs -> " Em ambos os casos é necessário transporte adicional para chegar à Sérvia, com preço fixo de 15€ de Timisoara e 25€ de Budapeste pela companhia "
 
@@ -588,7 +590,7 @@ bus0 lang  =
 bus1: Lang -> String
 bus1 lang  =
   case lang of 
-      En -> "As for the train, we recommend arriving at either Novi Sad or Belgrade."
+      En -> "As for the train, we recommend arriving at either Novi Sad or Belgrade. "
       Pt -> "Tal como os comboios, tens de chegar a Belgrado ou Novi Sad."
       Rs -> "Tal como os comboios, tens de chegar a Belgrado ou Novi Sad."
 
@@ -602,14 +604,14 @@ bus2 lang  =
 bus3: Lang -> String
 bus3 lang  =
   case lang of 
-      En -> "of the Novi Sad bus stop.  "
+      En -> " of the Novi Sad bus stop. "
       Pt -> "da estação de camionagem de Novi Sad.  "
       Rs -> "da estação de camionagem de Novi Sad.  "
 
 bus4: Lang -> String
 bus4 lang  =
   case lang of 
-      En -> "As there’s no English website choose the date of travel from the drop down menu and specify are you looking for arrivals to Novi Sad (DOLASCI) or departures from Novi Sad (POLASCI) and start typing the name of the city you are interested in."
+      En -> "As there’s no English website choose the date of travel from the drop down menu and specify are you looking for arrivals to Novi Sad (DOLASCI) or departures from Novi Sad (POLASCI) and start typing the name of the city you are interested in. "
       Pt -> "Se não fores fluente em sérvio (compreensível!), para usares o site escolhe a data da viagem e seleciona Chegadas (DOLASCI) ou Partidas (POLASCI) para Novi Sad e escolhe a cidade para que pretendes viajar. "
       Rs -> "Se não fores fluente em sérvio (compreensível!), para usares o site escolhe a data da viagem e seleciona Chegadas (DOLASCI) ou Partidas (POLASCI) para Novi Sad e escolhe a cidade para que pretendes viajar. "
 
@@ -658,7 +660,7 @@ timetable lang  =
 carTitle: Lang -> String
 carTitle lang  =
   case lang of 
-      En -> "Carro"
+      En -> "Car"
       Pt -> "Carro"
       Rs -> "Carro"
 
@@ -700,14 +702,9 @@ motorbike1 lang  =
 motorbike2: Lang -> String
 motorbike2 lang  =
   case lang of 
-      En -> "Paramedics and sugary water will be available upon reaching the destination. And all the glory of course, we love bikes! 🏍"
+      En -> "Paramedics and sugary water will be available upon reaching the destination. And all the glory of course, we love bikes! 🏍 Don't forget to show us the pictures!"
       Pt -> "Garantimos médicos, água com açúcar e Rakia para ajudar com a recuperação motoqueira, juntamente com um incrível respeito. Não te esqueças de mostrar as fotos. Nós adoramos motas! 🏍"
       Rs -> "Garantimos médicos, água com açúcar e Rakia para ajudar com a recuperação motoqueira, juntamente com um incrível respeito. Não te esqueças de mostrar as fotos. Nós adoramos motas! 🏍"
-
-motorbike3: Lang -> String
-motorbike3 lang  =
-  case lang of 
-      En -> "Dont forget to send us pictures!"
 
 walkAndSwimTitle: Lang -> String
 walkAndSwimTitle lang  =
@@ -771,6 +768,13 @@ carRental4 lang  =
       En -> "Select your car and email/WhatsApp them with the details of your trip and they will guide you through the entire process."
       Pt -> "Escolhe o carro que queres e manda-lhes um mail/WhatsApp com informaçaão sobre a tua viagem e eles ajudam te no processo todo."
       Rs -> "Escolhe o carro que queres e manda-lhes um mail/WhatsApp com informaçaão sobre a tua viagem e eles ajudam te no processo todo."
+
+novaRent: Lang -> String
+novaRent lang  =
+  case lang of 
+      En -> "Nova rent. "
+      Pt -> "Nova rent. "
+      Rs -> "Nova rent. "
 
 travellingFinal: Lang -> String
 travellingFinal lang  =
@@ -957,12 +961,13 @@ rsvp0 lang  =
 rsvp1: Lang -> String
 rsvp1 lang  =
   case lang of 
-      En -> "Kindly provide dietary requirements/allergies in the NOTES section, as well as will you be needing transportation services to and from the airport/train station and on the day of the wedding (brides house - church - restaurant)."
+      En -> "Kindly provide dietary requirements/allergies in the NOTES section. "
       Pt -> "Se tiveres alergias ou dietas alternativas, informa-nos na secção das Notas. "
       Rs -> "Se tiveres alergias ou dietas alternativas, informa-nos na secção das Notas. "
 
 rsvp2: Lang -> String
 rsvp2 lang  =
   case lang of 
+      En -> " Also let us know if you will you be needing transportation services to and from the airport/train station and on the day of the wedding (brides house - church - restaurant)."
       Pt -> "Avisa-nos também se precisas de transporte, para tentarmos organizar forma de te ir buscar ao aeroporto/estação, ou dar-te boleia para qualquer um dos lugares da festa (Casa do noivo - casa da noiva - Castelo)"
       Rs -> "Avisa-nos também se precisas de transporte, para tentarmos organizar forma de te ir buscar ao aeroporto/estação, ou dar-te boleia para qualquer um dos lugares da festa (Casa do noivo - casa da noiva - Castelo)"

@@ -53,13 +53,14 @@
         "If you don't suffer from time-space travel nausea, we recommend using your favourite teleportation device and input these coordinates:",
         "Se por algum motivo não tiveres acesso a tal aparelho, existem opçōes de transporte mais rudimentares:"
     ],
+    "coordinates": "45.3816° N, 20.3686° E",
     "airplane": "Avião",
     "mainAirport": [
         "Tens 3 aeroportos na proximidade, sendo o mais conveniente o",
         "a 85km do destino."
     ],
     "belgradeAirport": "aeroporto Nikola Tesla",
-    "in": "em",
+    "em": " em ",
     "belgrade": "Belgrado",
     "londonLuton": "Londres Luton",
     "londonHeathrow": "Londres Heathrow",
@@ -81,8 +82,8 @@
     "hungary": "Hungria",
     "budapestAirport": "aeroporto Ferenc Liszt",
     "otherAirports": "Outros aeroportos de interesse são ",
-    "romaniaAirportDistance": "(120km do destino) e ",
-    "budapestAirportDistance": "(330km do destino).",
+    "romaniaAirportDistance": " (120km do destino) e ",
+    "budapestAirportDistance": " (330km do destino).",
     "publicTravelFromAirport": " Em ambos os casos é necessário transporte adicional para chegar à Sérvia, com preço fixo de 15€ de Timisoara e 25€ de Budapeste pela companhia ",
     "geaTravel": " GeaTravel Services",
     "trainsTitle": "Comboios",
@@ -128,6 +129,7 @@
         "Além disso, podes passar fronteiras (tanto dentro e fora da UE) sem limites de quilometragem. ",
         "Escolhe o carro que queres e manda-lhes um mail/WhatsApp com informaçaão sobre a tua viagem e eles ajudam te no processo todo."
     ],
+    "novaRent": "Nova rent. ",
     "travellingFinal": "Qualquer que seja a tua preferência de transporte, contacta-nos que temos todo o gosto em ajudar-te a organizar tudo.",
     "accomodationTitle": "Onde posso ficar?",
     "accomodationDesc": "a cidade de Zrenjanin oferece várias opçōes de alojamento para vários orçamentos.",

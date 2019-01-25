@@ -53,13 +53,14 @@
         "If you don't suffer from time-space travel nausea, we recommend using your favourite teleportation device and input these coordinates:",
         "If by any chance, you are unable to get your hands on one, here are more rudimentary means of transportation:"
     ],
+    "coordinates": "45.3816° N, 20.3686° E",
     "airplane": "Airplane",
     "mainAirport": [
         "There are 3 airports nearby, with the most convenient being ",
         "(85 km from the venue)."
     ],
     "belgradeAirport": "Nikola Tesla Airport",
-    "in": "em",
+    "em": " in ",
     "belgrade": "Belgrade",
     "londonLuton": "London Luton",
     "londonHeathrow": "London Heathrow",
@@ -72,7 +73,6 @@
     "parisBeauvais": "Paris Beauvais",
     "mainAirportSecondParagraph": [
         "Direct flights are available from ",
-        "London Heathrow  ",
         "several cities in Germany "
     ],
     "etc": "etc.",
@@ -82,9 +82,9 @@
     "hungary": "Hungary",
     "budapestAirport": "Ferenc Liszt Airport",
     "otherAirports": "Other airports of interest are ",
-    "romaniaAirportDistance": "(120 km from the destination) and",
-    "budapestAirportDistance": "(330km from the destination).",
-    "publicTravelFromAirport": " In both cases keep in mind that you will need additional transportation service to reach Serbia with fixed price of 15e from Timisoara and 25e from Budapest when using ",
+    "romaniaAirportDistance": " (120 km from the destination) and ",
+    "budapestAirportDistance": " (330km from the destination).",
+    "publicTravelFromAirport": " In both cases keep in mind that you will need additional transportation service to reach Serbia with fixed price of 15€ from Timisoara and 25€ from Budapest when using ",
     "geaTravel": " GeaTravel Services",
     "trainsTitle": "Trains",
     "trains": [
@@ -94,10 +94,10 @@
     "busTitle": "Bus",
     "bus": [
         "If you are not a big fan of the gentle rocking of the train and prefer to stay on the road, consider checking out the bus service. ",
-        "As for the train, we recommend arriving at either Novi Sad or Belgrade.",
+        "As for the train, we recommend arriving at either Novi Sad or Belgrade. ",
         "You can have a look at the ",
-        "of the Novi Sad bus stop.  ",
-        "As there’s no English website choose the date of travel from the drop down menu and specify are you looking for arrivals to Novi Sad (DOLASCI) or departures from Novi Sad (POLASCI) and start typing the name of the city you are interested in.",
+        " of the Novi Sad bus stop. ",
+        "As there’s no English website choose the date of travel from the drop down menu and specify are you looking for arrivals to Novi Sad (DOLASCI) or departures from Novi Sad (POLASCI) and start typing the name of the city you are interested in. ",
         "Keep in mind that not all destinations are served daily and that the price is given for one direction in RSD (Serbian dinars). ",
         "You can check the ",
         " of the Belgrade bus stop as well, choose whether you need arrivals or departures, specific date and country and start typing the city’s name in the remaining box. ",
@@ -105,7 +105,7 @@
         "Unfortunately this site won’t provide you with the ticket price (Serbia is a lovely country, and people still really like to give everyone a call), so in case you find something you think will work for you, let us know and we’ll get the price information. "
     ],
     "timetable": "timetable",
-    "carTitle": "Carro",
+    "carTitle": "Car",
     "car": [
         "If you decide to drive we recommend taking some extra time to make stops at some interesting destinations. ",
         "Depending on where are you traveling from it will take you around two full days of driving, if coming from west Europe (eg. London - Zrenjanin distance 2000 km) or a very intense one day if coming from central Europe (eg. Frankfurt - Zrenjanin distance 1200km)."
@@ -114,8 +114,7 @@
     "motorbike": [
         "If feeling super enthusiastic venture out with your two wheeled best friend! ",
         "Weather in September is warm and dry in the most of Europe and this could easily be a week long trip to tell the grandkids about. ",
-        "Paramedics and sugary water will be available upon reaching the destination. And all the glory of course, we love bikes! 🏍",
-        "Dont forget to send us pictures!"
+        "Paramedics and sugary water will be available upon reaching the destination. And all the glory of course, we love bikes! 🏍 Don't forget to show us the pictures!"
     ],
     "walkAndSwimTitle": "Walk & swim",
     "walkAndSwim": [
@@ -130,6 +129,7 @@
         "Plus side is that you can also use it to travel around Balkans and EU with no distance limitations. ",
         "Select your car and email/WhatsApp them with the details of your trip and they will guide you through the entire process."
     ],
+    "novaRent": "Nova rent. ",
     "travellingFinal": "Whatever your preference of transportation is, let us know and we will happily help with arranging the details.",
     "accomodationTitle": "Where can you stay?",
     "accomodationDesc": "City and the surrounding area offer several accommodation places that can work a range of needs and budgets.",
@@ -157,6 +157,7 @@
     "rsvpTitle": "RSVP",
     "rsvp": [
         "Please RSVP no later than the 1st of July.",
-        "Kindly provide dietary requirements/allergies in the NOTES section, as well as will you be needing transportation services to and from the airport/train station and on the day of the wedding (brides house - church - restaurant)."
+        "Kindly provide dietary requirements/allergies in the NOTES section. ",
+        " Also let us know if you will you be needing transportation services to and from the airport/train station and on the day of the wedding (brides house - church - restaurant)."
     ]
 }

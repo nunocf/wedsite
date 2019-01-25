@@ -7,7 +7,10 @@ module Styles exposing
     , dropdownTrigger
     , hero
     , ourStory
+    , rsvpSection
     , scheduleSection
+    , transportSubtitle
+    , travellingSection
     )
 
 
@@ -72,4 +75,22 @@ ourStory =
 scheduleSection : String
 scheduleSection =
     [ "hero", "is-fullheight", "has-background-primary" ]
+        |> String.join " "
+
+
+travellingSection : String
+travellingSection =
+    [ "hero", "is-fullheight", "has-background-info" ]
+        |> String.join " "
+
+
+transportSubtitle : String
+transportSubtitle =
+    [ "subtitle", "has-text-weight-semi-bold", "is-size-2", "font-penna" ]
+        |> String.join " "
+
+
+rsvpSection : String
+rsvpSection =
+    [ "hero", "is-fullheight", "has-background-grey" ]
         |> String.join " "
