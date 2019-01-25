@@ -47,5 +47,115 @@
     "ninePM": "21h",
     "ninePMDesc": "Bolo de casamento",
     "elevenPM": "23h",
-    "elevenPMDesc": "Segundo jantar"
+    "elevenPMDesc": "Segundo jantar",
+    "travellingHeader": "Como chegar até nós?",
+    "travellingSubtitle": [
+        "If you don't suffer from time-space travel nausea, we recommend using your favourite teleportation device and input these coordinates:",
+        "Se por algum motivo não tiveres acesso a tal aparelho, existem opçōes de transporte mais rudimentares:"
+    ],
+    "airplane": "Avião",
+    "mainAirport": [
+        "Tens 3 aeroportos na proximidade, sendo o mais conveniente o",
+        "a 85km do destino."
+    ],
+    "belgradeAirport": "aeroporto Nikola Tesla",
+    "in": "em",
+    "belgrade": "Belgrado",
+    "londonLuton": "Londres Luton",
+    "londonHeathrow": "Londres Heathrow",
+    "easyJet": "EasyJet",
+    "wizzAir": "WizzAir",
+    "airSerbia": "AirSerbia",
+    "brussels": "Bruxelas",
+    "eindhoven": "Eindhoven",
+    "luqa": "Luqa",
+    "parisBeauvais": "Paris Beauvais",
+    "mainAirportSecondParagraph": [
+        "Voos directos disponíveis de ",
+        "várias cidades na Alemanha "
+    ],
+    "etc": "etc.",
+    "timisoaraAirport": "aeroporto Traian Vuia Timisoara",
+    "romania": "Roménia",
+    "budapest": "Budapeste",
+    "hungary": "Hungria",
+    "budapestAirport": "aeroporto Ferenc Liszt",
+    "otherAirports": "Outros aeroportos de interesse são ",
+    "romaniaAirportDistance": "(120km do destino) e ",
+    "budapestAirportDistance": "(330km do destino).",
+    "publicTravelFromAirport": " Em ambos os casos é necessário transporte adicional para chegar à Sérvia, com preço fixo de 15€ de Timisoara e 25€ de Budapeste pela companhia ",
+    "geaTravel": " GeaTravel Services",
+    "trainsTitle": "Comboios",
+    "trains": [
+        "Para melhor coordenação, dá uma olhadela no horário da Rede Ferroviária da Sérvia para comboios que te levem para Novi Sad ou Beograd Centar.",
+        "Há comboios directos de Viena, Austria e Budapeste, Hungria para Novi Sad e de Ljubljana, Eslovénia e Zagreb, Croácia para Belgrado."
+    ],
+    "busTitle": "Camionetas",
+    "bus": [
+        "Se não gostas de comboios e preferes andar na estrada, existe a possibilidade de viajar numa camioneta. ",
+        "Tal como os comboios, tens de chegar a Belgrado ou Novi Sad.",
+        "Podes consultar o ",
+        "da estação de camionagem de Novi Sad.  ",
+        "Se não fores fluente em sérvio (compreensível!), para usares o site escolhe a data da viagem e seleciona Chegadas (DOLASCI) ou Partidas (POLASCI) para Novi Sad e escolhe a cidade para que pretendes viajar. ",
+        "Tem em consideração que nem todas as viagens acontecem diáriamente e que o preço está em Dinaras Sérvias (RSD). ",
+        "Podes ver o ",
+        " da central de Belgrado também, escolhe partidas ou chegadas, escolhe a data de viagem, país destino e começa a escrever o nome da cidade no campo restante. ",
+        "Os nomes dos países estão em sérvio, portanto se tiveres dúvidas e precisares de ajuda/tradutores avisa-nos, estamos aqui para ajudar. ",
+        "Infelizmente esta pagina não tem informação de preços dos bilhetes. Na amável Sérvia, as pessoas ainda preferem telefonar para saber informaçōes, e podemos fazer isso por ti, claro!"
+    ],
+    "timetable": "horário",
+    "carTitle": "Carro",
+    "car": [
+        "Se decidires conduzir, o melhor é mesmo tirar uns dias e parar em sítios de interesse, a viagem é longa.",
+        "Se viajares do Porto são 3000km e demorará cerca de 3-4 dias longos a conduzir."
+    ],
+    "motorbikeTitle": "Mota",
+    "motorbike": [
+        "É sempre uma boa idea vires na amiga de duas rodas! ",
+        "O tempo em setembro costuma ser bom, e é a desculpa perfeita para uma aventura para contar aos netos! ",
+        "Garantimos médicos, água com açúcar e Rakia para ajudar com a recuperação motoqueira, juntamente com um incrível respeito. Não te esqueças de mostrar as fotos. Nós adoramos motas! 🏍"
+    ],
+    "walkAndSwimTitle": "A pé e a nado",
+    "walkAndSwim": [
+        "Tu é que és maluco, chefe! ",
+        "Bem, mas se quiseres mesmo, confirma o RSVP e toca a despachar, senão chegas atrasado!"
+    ],
+    "carRentalTitle": "Não vives sem o teu carro?",
+    "carRental": [
+        "Não há problema! ",
+        "Se chegares a Belgrado nós recomendamos ",
+        "O site está em sérvio, mas toda a equipa fala inglês. Os preços são bons e eles entregam te o carro a qualquer altura do dia. ",
+        "Além disso, podes passar fronteiras (tanto dentro e fora da UE) sem limites de quilometragem. ",
+        "Escolhe o carro que queres e manda-lhes um mail/WhatsApp com informaçaão sobre a tua viagem e eles ajudam te no processo todo."
+    ],
+    "travellingFinal": "Qualquer que seja a tua preferência de transporte, contacta-nos que temos todo o gosto em ajudar-te a organizar tudo.",
+    "accomodationTitle": "Onde posso ficar?",
+    "accomodationDesc": "a cidade de Zrenjanin oferece várias opçōes de alojamento para vários orçamentos.",
+    "dvoracKastel": "Dvorac Kaštel",
+    "dvoracKastelDesc": "O casório é aqui! Existem 38 quartos e 7 suites de 40€ até 90€ por noite (preço por quarto). Se quiseres reservar, diz-lhes que vais estar lá na nossa festa e tens 15% de desconto por 2 noites. ",
+    "hotelVojvodina": "Hotel Vojvodina",
+    "hotelVojvodinaDesc": "Situado no centro de Zrenjanin, a 8km do sítio da festa, este hotel foi renovado recentemente e oferece quartos duplos e suites. Preços deste 40€. ",
+    "luxotel": "Luxotel",
+    "luxotelDesc": "Um pequeno negócio de família, a located 12km da nossa festa. Tem quartos duplos e triplos com preços desde 25€ por pessoa.",
+    "accomodationFinal": "Todas estas opçōes oferecem estacionamento gratuito, mas o pequeno almoço não está incluído. ",
+    "apartments": "Apartamentos de S. George",
+    "apartmentsDesc": "Apartmentos no centro da cidade, preços desde (ADD PRICE HERE)",
+    "villa": "Villa Filadelija",
+    "villaDesc": "Também no centro, a 8km da nossa festa, tem vários quartos desde 16€ por noite",
+    "hostelZrenjanin": "Hostel Zrenjanin",
+    "hostelZrenjaninDesc": "O estabelecimento mais económico, com preço por noite desde ",
+    "airbnb": "Airbnb",
+    "airbnbDesc": "Há várias opçōes entre 15€-40€ por noite espalhadas pela cidade. Procura por alojamento em Zrenjanin.",
+    "booking": "Booking.com",
+    "bookingDesc": "Várias opçōes para todos os preços.",
+    "limba": "Limba",
+    "limbaDesc": "Versão sérvia do booking.com, com site em Inglês.",
+    "apartmani": "Apartmani ZR",
+    "apartmaniDesc": "Infelizmente, o site está em sérvio, mas oferecem vários quartos e apartamentos no centro com preços desde (PRECO AQUI). Contacta-os por email.",
+    "rsvpTitle": "RSVP",
+    "rsvp": [
+        "Preenche o RSVP até dia 1 de Julho, por favor.",
+        "Se tiveres alergias ou dietas alternativas, informa-nos na secção das Notas. ",
+        "Avisa-nos também se precisas de transporte, para tentarmos organizar forma de te ir buscar ao aeroporto/estação, ou dar-te boleia para qualquer um dos lugares da festa (Casa do noivo - casa da noiva - Castelo)"
+    ]
 }

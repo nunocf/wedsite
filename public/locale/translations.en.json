@@ -47,5 +47,116 @@
     "ninePM": "9pm",
     "ninePMDesc": "Cake",
     "elevenPM": "11pm",
-    "elevenPMDesc": "Second dinner"
+    "elevenPMDesc": "Second dinner",
+    "travellingHeader": "How to get to us?",
+    "travellingSubtitle": [
+        "If you don't suffer from time-space travel nausea, we recommend using your favourite teleportation device and input these coordinates:",
+        "If by any chance, you are unable to get your hands on one, here are more rudimentary means of transportation:"
+    ],
+    "airplane": "Airplane",
+    "mainAirport": [
+        "There are 3 airports nearby, with the most convenient being ",
+        "(85 km from the venue)."
+    ],
+    "belgradeAirport": "Nikola Tesla Airport",
+    "in": "em",
+    "belgrade": "Belgrade",
+    "londonLuton": "London Luton",
+    "londonHeathrow": "London Heathrow",
+    "easyJet": "EasyJet",
+    "wizzAir": "WizzAir",
+    "airSerbia": "AirSerbia",
+    "brussels": "Brussels",
+    "eindhoven": "Eindhoven",
+    "luqa": "Luqa",
+    "parisBeauvais": "Paris Beauvais",
+    "mainAirportSecondParagraph": [
+        "Direct flights are available from ",
+        "London Heathrow  ",
+        "several cities in Germany "
+    ],
+    "etc": "etc.",
+    "timisoaraAirport": "Traian Vuia Timisoara Airport",
+    "romania": "Romania",
+    "budapest": "Budapest",
+    "hungary": "Hungary",
+    "budapestAirport": "Ferenc Liszt Airport",
+    "otherAirports": "Other airports of interest are ",
+    "romaniaAirportDistance": "(120 km from the destination) and",
+    "budapestAirportDistance": "(330km from the destination).",
+    "publicTravelFromAirport": " In both cases keep in mind that you will need additional transportation service to reach Serbia with fixed price of 15e from Timisoara and 25e from Budapest when using ",
+    "geaTravel": " GeaTravel Services",
+    "trainsTitle": "Trains",
+    "trains": [
+        "For easiest coordination please visit the Serbian Railway timetable and check trains that take you either to Novi Sad or Beograd Centar.",
+        "Direct connections are available from Vienna, Austria to Novi Sad (ADD PRICE HERE), from Budapest,Hungary to Novi Sad and from Ljubljana, Slovenia and Zagreb, Croatia to Belgrade."
+    ],
+    "busTitle": "Bus",
+    "bus": [
+        "If you are not a big fan of the gentle rocking of the train and prefer to stay on the road, consider checking out the bus service. ",
+        "As for the train, we recommend arriving at either Novi Sad or Belgrade.",
+        "You can have a look at the ",
+        "of the Novi Sad bus stop.  ",
+        "As there’s no English website choose the date of travel from the drop down menu and specify are you looking for arrivals to Novi Sad (DOLASCI) or departures from Novi Sad (POLASCI) and start typing the name of the city you are interested in.",
+        "Keep in mind that not all destinations are served daily and that the price is given for one direction in RSD (Serbian dinars). ",
+        "You can check the ",
+        " of the Belgrade bus stop as well, choose whether you need arrivals or departures, specific date and country and start typing the city’s name in the remaining box. ",
+        "Country names are given in Serbian and if you have trouble understanding/translating let us know. ",
+        "Unfortunately this site won’t provide you with the ticket price (Serbia is a lovely country, and people still really like to give everyone a call), so in case you find something you think will work for you, let us know and we’ll get the price information. "
+    ],
+    "timetable": "timetable",
+    "carTitle": "Carro",
+    "car": [
+        "If you decide to drive we recommend taking some extra time to make stops at some interesting destinations. ",
+        "Depending on where are you traveling from it will take you around two full days of driving, if coming from west Europe (eg. London - Zrenjanin distance 2000 km) or a very intense one day if coming from central Europe (eg. Frankfurt - Zrenjanin distance 1200km)."
+    ],
+    "motorbikeTitle": "Motorbike",
+    "motorbike": [
+        "If feeling super enthusiastic venture out with your two wheeled best friend! ",
+        "Weather in September is warm and dry in the most of Europe and this could easily be a week long trip to tell the grandkids about. ",
+        "Paramedics and sugary water will be available upon reaching the destination. And all the glory of course, we love bikes! 🏍",
+        "Dont forget to send us pictures!"
+    ],
+    "walkAndSwimTitle": "Walk & swim",
+    "walkAndSwim": [
+        "Aren't you the enthusiast of the party? ",
+        "If this is how you like it, only thing we can say is scroll down to the RSVP page, confirm your arrival, and get going, you don't want to be late!"
+    ],
+    "carRentalTitle": "Can't live without your car?",
+    "carRental": [
+        "Not a problem! ",
+        "If you are arriving in Belgrade (by plane, train or bus) we are happy to recommend ",
+        "Their website may not be, but they are very English friendly, decently priced and will bring the car to you at any time. ",
+        "Plus side is that you can also use it to travel around Balkans and EU with no distance limitations. ",
+        "Select your car and email/WhatsApp them with the details of your trip and they will guide you through the entire process."
+    ],
+    "travellingFinal": "Whatever your preference of transportation is, let us know and we will happily help with arranging the details.",
+    "accomodationTitle": "Where can you stay?",
+    "accomodationDesc": "City and the surrounding area offer several accommodation places that can work a range of needs and budgets.",
+    "dvoracKastel": "Dvorac Kaštel",
+    "dvoracKastelDesc": "This is our venue! They offer 38 rooms and 7 suites ranging from 40€ to 90€ a night. If you decide to book, mention you are in out wedding party and you will receive complimentary 15% discount for 2 nights. ",
+    "hotelVojvodina": "Hotel Vojvodina",
+    "hotelVojvodinaDesc": "Located in the city center of Zrenjanin, 8km from our venue, this hotel is newly renovated and offers double and twin rooms as well as suites. Prices start from 40€. ",
+    "luxotel": "Luxotel",
+    "luxotelDesc": "Small, family owned and operated hotel, located 12km from our venue. It is equipped with double, twin and triple rooms with prices starting at 25€ per person.",
+    "accomodationFinal": "All options come with complimentary parking and optional breakfast. ",
+    "apartments": "St. George's apartments",
+    "apartmentsDesc": "etho styled apartments in the city center, priced at (ADD PRICE HERE)",
+    "villa": "Villa Filadelija",
+    "villaDesc": "located in the wider city center area, 8km from the venue, with several rooms and price starting at 16€ a night",
+    "hostelZrenjanin": "Hostel Zrenjanin",
+    "hostelZrenjaninDesc": "most affordable accommodation option with price per bed at ",
+    "airbnb": "Airbnb",
+    "airbnbDesc": "if you are looking for a more home like option, there are several options ranging 15-40€ a night scattered around the city. Type in Zrenjanin, Serbia as location.",
+    "booking": "Booking.com",
+    "bookingDesc": "varying prices and accommodation types.",
+    "limba": "Limba",
+    "limbaDesc": "local version of booking.com, thankfully English friendly.",
+    "apartmani": "Apartmani ZR",
+    "apartmaniDesc": "unfortunately not an ENglish friendly website. They offer several rooms, studios and apartments in the pedestrian zone starting at. Feel free to drop them an email inquiry.",
+    "rsvpTitle": "RSVP",
+    "rsvp": [
+        "Please RSVP no later than the 1st of July.",
+        "Kindly provide dietary requirements/allergies in the NOTES section, as well as will you be needing transportation services to and from the airport/train station and on the day of the wedding (brides house - church - restaurant)."
+    ]
 }
