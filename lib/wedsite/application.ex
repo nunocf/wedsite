@@ -9,9 +9,8 @@ defmodule Wedsite.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      WedsiteWeb.Endpoint
-      # Starts a worker by calling: Wedsite.Worker.start_link(arg)
-      # {Wedsite.Worker, arg},
+      WedsiteWeb.Endpoint,
+      Wedsite.Repo
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

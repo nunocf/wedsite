@@ -5,6 +5,10 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = (env, options) => ({
+  watchOptions: {
+    aggregateTimeout: 300,
+    poll: 1000
+  },
   optimization: {
     minimizer: [
       new UglifyJsPlugin({ cache: true, parallel: true, sourceMap: false }),
@@ -34,11 +38,16 @@ module.exports = (env, options) => ({
       {
         test: /\.elm$/,
         exclude: ["/elm-stuff/", "/node_modules"],
-        loader: "elm-webpack-loader",
-        options: {
-          debug: true,
-          cwd: path.resolve(__dirname, "elm")
-        }
+        use: [
+          { loader: 'elm-hot-webpack-loader' },
+          {
+            loader: 'elm-webpack-loader',
+            options: {
+              debug: true,
+              cwd: path.resolve(__dirname, "elm")
+            }
+          }
+        ]
       }
     ]
   },

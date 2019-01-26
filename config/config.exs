@@ -7,6 +7,14 @@
 # General application configuration
 use Mix.Config
 
+config :wedsite, Wedsite.Repo,
+  database: "wedsite",
+  username: "postgres",
+  password: "postgres",
+  hostname: "db"
+
+config :wedsite, ecto_repos: [Wedsite.Repo]
+
 # Configures the endpoint
 config :wedsite, WedsiteWeb.Endpoint,
   url: [host: "localhost"],
