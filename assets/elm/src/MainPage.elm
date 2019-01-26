@@ -1,5 +1,6 @@
 module MainPage exposing (view)
 
+import AccomodationSection
 import Browser exposing (Document)
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -19,6 +20,7 @@ view currentLanguage showAvailableLanguages showFullPoem =
     , OurStorySection.view currentLanguage showFullPoem
     , ScheduleSection.view currentLanguage
     , TravellingSection.view currentLanguage
+    , AccomodationSection.view currentLanguage
     , RSVPSection.view currentLanguage
     ]
 

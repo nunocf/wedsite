@@ -1,5 +1,6 @@
 module Styles exposing
-    ( currentSelection
+    ( accomodationSection
+    , currentSelection
     , dropdownContainer
     , dropdownContent
     , dropdownList
@@ -84,6 +85,11 @@ travellingSection =
         |> String.join " "
 
 
+accomodationSection : String
+accomodationSection =
+    [ "hero", "is-fullheight", "has-background-grey" ] |> String.join " "
+
+
 transportSubtitle : String
 transportSubtitle =
     [ "subtitle", "has-text-weight-semi-bold", "is-size-2", "font-penna" ]
@@ -92,5 +98,5 @@ transportSubtitle =
 
 rsvpSection : String
 rsvpSection =
-    [ "hero", "is-fullheight", "has-background-grey" ]
+    [ "hero", "is-fullheight", "has-background-primary" ]
         |> String.join " "
