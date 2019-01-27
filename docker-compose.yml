@@ -9,6 +9,7 @@ services:
     command: yarn run watch
     volumes:
       - ".:/app"
+      - "/app/assets/elm/elm-stuff"
       - "static:/app/priv/static"
 
   # Our Phoenix container
