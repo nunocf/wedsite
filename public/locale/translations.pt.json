@@ -27,27 +27,55 @@
         "Portuguese verse 21",
         "Portuguese verse 22",
         "Portuguese verse 23",
-        "Portuguese verse 24"
+        "Portuguese verse 24",
+        "Portuguese verse 25",
+        "Portuguese verse 26",
+        "Portuguese verse 27",
+        "Portuguese verse 28",
+        "Portuguese verse 29"
     ],
     "scheduleTitle": "O que esperar no dia?",
     "scheduleSubtitle": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
     "elevenAM": "11h",
-    "elevenAMDesc": "",
+    "elevenAMDesc": [
+        "Festa na casa do Noivo",
+        "",
+        ""
+    ],
     "twelveAM": "12h",
     "twelveAMDesc": [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula, odio a posuere semper, eros nibh efficitur metus, non sagittis nunc lectus ac felis. Morbi nec tincidunt quam, fringilla fermentum magna.",
-        "Mauris elementum velit in nisi posuere ultrices. Vestibulum condimentum leo est, elementum pretium enim tristique a. Donec nec lobortis felis, ac eleifend augue."
+        "Mauris elementum velit in nisi posuere ultrices. Vestibulum condimentum leo est, elementum pretium enim tristique a. Donec nec lobortis felis, ac eleifend augue.",
+        ""
     ],
     "twoPM": "14h",
-    "twoPMDesc": "Cerimónia de igreja @ Igreja da Aparição da Virgem Maria",
+    "twoPMDesc": [
+        "Cerimónia de igreja @ Igreja da Aparição da Virgem Maria",
+        "",
+        "",
+        ""
+    ],
     "fourPM": "16h",
-    "fourPMDesc": "Cerimónia civil",
+    "fourPMDesc": [
+        "Cerimónia civil",
+        "",
+        ""
+    ],
     "sevenPM": "19h",
-    "sevenPMDesc": "Jantar",
+    "sevenPMDesc": [
+        "Jantar",
+        ""
+    ],
     "ninePM": "21h",
-    "ninePMDesc": "Bolo de casamento",
+    "ninePMDesc": [
+        "Bolo de casamento",
+        ""
+    ],
     "elevenPM": "23h",
-    "elevenPMDesc": "Segundo jantar",
+    "elevenPMDesc": [
+        "Segundo jantar",
+        ""
+    ],
     "travellingHeader": "Como chegar até nós?",
     "travellingSubtitle": [
         "If you don't suffer from time-space travel nausea, we recommend using your favourite teleportation device and input these coordinates:",
@@ -104,7 +132,10 @@
         "Os nomes dos países estão em sérvio, portanto se tiveres dúvidas e precisares de ajuda/tradutores avisa-nos, estamos aqui para ajudar. ",
         "Infelizmente esta pagina não tem informação de preços dos bilhetes. Na amável Sérvia, as pessoas ainda preferem telefonar para saber informaçōes, e podemos fazer isso por ti, claro!"
     ],
-    "timetable": "horário",
+    "timetableNoviSad": "horário",
+    "timetableBelgrade": "horário",
+    "timetableNoviSadUrl": "http://www.gspns.co.rs/red-voznje-medjumesni",
+    "timetableBelgradeUrl": "http://www.bas.rs/basweb_lat/RedVoznje.aspx?lng=sl&idDrzave=70",
     "carTitle": "Carro",
     "car": [
         "Se decidires conduzir, o melhor é mesmo tirar uns dias e parar em sítios de interesse, a viagem é longa.",
@@ -144,8 +175,6 @@
     "apartmentsDesc": "Apartmentos no centro da cidade, preços desde (ADD PRICE HERE)",
     "villa": "Villa Filadelija",
     "villaDesc": "Também no centro, a 8km da nossa festa, tem vários quartos desde 16€ por noite",
-    "hostelZrenjanin": "Hostel Zrenjanin",
-    "hostelZrenjaninDesc": "O estabelecimento mais económico, com preço por noite desde ",
     "airbnb": "Airbnb",
     "airbnbDesc": "Há várias opçōes entre 15€-40€ por noite espalhadas pela cidade. Procura por alojamento em Zrenjanin.",
     "booking": "Booking.com",
@@ -159,5 +188,7 @@
         "Preenche o RSVP até dia 1 de Julho, por favor.",
         "Se tiveres alergias ou dietas alternativas, informa-nos na secção das Notas. ",
         "Avisa-nos também se precisas de transporte, para tentarmos organizar forma de te ir buscar ao aeroporto/estação, ou dar-te boleia para qualquer um dos lugares da festa (Casa do noivo - casa da noiva - Castelo)"
-    ]
+    ],
+    "showMore": "Ver mais",
+    "showLess": "Ver menos"
 }

@@ -38,7 +38,7 @@ init flags =
     ( { currentLanguage = language
       , showAvailableLanguages = False
       , title = Translations.title language
-      , showFullPoem = False
+      , showFullPoem = True
       }
     , Cmd.none
     )

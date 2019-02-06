@@ -34,7 +34,7 @@ content lang =
 header : Lang -> Html msg
 header lang =
     div []
-        [ p [ class "title has-text-weight-semi-bold is-size-1 font-penna" ]
+        [ p [ class "title has-text-weight-semi-bold is-size-1 font-heading" ]
             [ text <| Translations.rsvpTitle lang
             ]
         ]

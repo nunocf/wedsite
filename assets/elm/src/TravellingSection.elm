@@ -1,7 +1,7 @@
 module TravellingSection exposing (view)
 
 import Html exposing (Html, a, div, p, text)
-import Html.Attributes exposing (class)
+import Html.Attributes exposing (class, href)
 import Styles
 import Translations exposing (Lang)
 
@@ -40,7 +40,7 @@ content lang =
 header : Lang -> Html msg
 header lang =
     div []
-        [ p [ class "title has-text-weight-semi-bold is-size-1 font-penna" ]
+        [ p [ class "title has-text-weight-semi-bold is-size-1 font-heading" ]
             [ text <| Translations.travellingHeader lang
             ]
         , p [ class "subtitle is-size-5" ]
@@ -173,13 +173,15 @@ busTravelText lang =
                 Translations.bus0 lang
                     ++ Translations.bus1 lang
                     ++ Translations.bus2 lang
-            , a [] [ text <| Translations.timetable lang ]
+            , a [ href <| Translations.timetableNoviSadUrl lang ]
+                [ text <| Translations.timetableNoviSad lang ]
             , text <|
                 Translations.bus3 lang
                     ++ Translations.bus4 lang
                     ++ Translations.bus5 lang
                     ++ Translations.bus6 lang
-            , a [] [ text <| Translations.timetable lang ]
+            , a [ href <| Translations.timetableBelgradeUrl lang ]
+                [ text <| Translations.timetableBelgrade lang ]
             , text <|
                 Translations.bus7 lang
                     ++ Translations.bus8 lang

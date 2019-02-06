@@ -39,51 +39,54 @@
     "elevenAM": "11h",
     "elevenAMDesc": [
         "Skup mladoženjinih svatova",
-        "Brigadira Ristića B2 L9 (map)",
+        "Brigadira Ristića B2 L9",
         "Ako se priključujete veselju sa mladoženjine strane, ovde ćete započeti svoj dan. Uživajte u pogledu na tu zanosnu bradu i pružite trubi Vaših kola zadovoljstvo da peva iz sveg glasa!"
-        ],
+    ],
     "twelveAM": "12h",
     "twelveAMDesc": [
         "Stižemo po mladu",
-        "Prvomajska 64 (map)",
-    "Bez obzira sa čije ste strane, verujemo da ćete uživati u mladoženjinim pokušajima da se iscenjka za tatinu mezimicu. Dobrodošli ste da učestvujete u nadmetanju na bilo čijoj strani."
+        "Prvomajska 64",
+        "Bez obzira sa čije ste strane, verujemo da ćete uživati u mladoženjinim pokušajima da se iscenjka za tatinu mezimicu. Dobrodošli ste da učestvujete u nadmetanju na bilo čijoj strani."
     ],
     "twoPM": "14h",
     "twoPMDesc": [
         "Venčanje u crkvi",
-    "Vavedenska crkva",
-    "Cara Dušana 82 (map)",
-    "Prvi zvanični zajednički koraci će biti načinjeni u ovoj simpatičnoj pravoslavnoj crkvi podignutoj u XVIII veku. Skrećemo pažnju da bi dame trebale da uđu u crkvu pokrivenih ramena i leđa i da se postave sa leve strane oltara, dok gospoda trebaju da se pojave u pantalonama koje pokrivaju kolena i da zauzmu mesta sa desne strane oltara."
-     ],
-        "fourPM": "16h",
+        "Vavedenska crkva",
+        "Cara Dušana 82",
+        "Prvi zvanični zajednički koraci će biti načinjeni u ovoj simpatičnoj pravoslavnoj crkvi podignutoj u XVIII veku. Skrećemo pažnju da bi dame trebale da uđu u crkvu pokrivenih ramena i leđa i da se postave sa leve strane oltara, dok gospoda trebaju da se pojave u pantalonama koje pokrivaju kolena i da zauzmu mesta sa desne strane oltara."
+    ],
+    "fourPM": "16h",
     "fourPMDesc": [
         "Opštinsko venčanje",
-    "Dvorac Kaštel, Ečka (map)",
-    "Nakon državne ceremonije uz nezaboravne stihove Duška Radovića, nadoknadite izgubljenu snagu predjelo i pokrenite proslavu dok se mladenci i sulikaju koji put da bi imali čime da se hvale unucima jednog lepog dana."
-     ],
-        "sevenPM": "19h",
+        "Dvorac Kaštel, Ečka",
+        "Nakon državne ceremonije uz nezaboravne stihove Duška Radovića, nadoknadite izgubljenu snagu predjelo i pokrenite proslavu dok se mladenci i sulikaju koji put da bi imali čime da se hvale unucima jednog lepog dana."
+    ],
+    "sevenPM": "19h",
     "sevenPMDesc": [
         "Prvi ples i večera",
-    "Priključite se mladencima u prvom plesu i dobro zasluženoj večeri!"
-     ],
-        "ninePM": "21h",
+        "Priključite se mladencima u prvom plesu i dobro zasluženoj večeri!"
+    ],
+    "ninePM": "21h",
     "ninePMDesc": [
         "Torta",
-    "Slatkiša nikad dosta! Prvo vešto dekorisana mladenačka torta, a zatim i materina pogača koji će Vam mladenci, nadajmo se uspešno, podeliti i top prilikom se i slikati s Vama."
-     ],
-        "elevenPM": "23h",
+        "Slatkiša nikad dosta! Prvo vešto dekorisana mladenačka torta, a zatim i materina pogača koji će Vam mladenci, nadajmo se uspešno, podeliti i top prilikom se i slikati s Vama."
+    ],
+    "elevenPM": "23h",
     "elevenPMDesc": [
         "Druga večera",
-    "Red je i da popunimo energetske rezerve kako bi veselje moglo nesmetano da se nastavi!"
-     ],
-        "travellingHeader": "Kako stići do nas?",
+        "Red je i da popunimo energetske rezerve kako bi veselje moglo nesmetano da se nastavi!"
+    ],
+    "travellingHeader": "Kako stići do nas?",
     "travellingSubtitle": [
         "Ukoliko ne patite od mučnine izazvane promenama u prostor-vremenu, preporučujemo upotrebu uređaja za teleportaciju koristeći sledeće koordinate:",
         "Ako, kojim slučajem, niste u mogućnosti da pribavite takav uređaj, slobodno se poslužite nekim od zastarelih sistema transporta:"
     ],
     "coordinates": "45.3816° N, 20.3686° E",
     "airplane": "",
-    "mainAirport": [],
+    "mainAirport": [
+        "",
+        ""
+    ],
     "belgradeAirport": "",
     "em": "",
     "belgrade": "",
@@ -96,7 +99,10 @@
     "eindhoven": "",
     "luqa": "",
     "parisBeauvais": "",
-    "mainAirportSecondParagraph": [],
+    "mainAirportSecondParagraph": [
+        "",
+        ""
+    ],
     "etc": "",
     "timisoaraAirport": "",
     "romania": "",
@@ -110,29 +116,50 @@
     "geaTravel": "",
     "trainsTitle": "Vozovi",
     "trains": [
-        "Raspored vozova možete proveriti na sajtu Železnica Srbije. Direktne linije će Vas dovesti iz Kikinde, Novog Sada i Beograda."
+        "Raspored vozova možete proveriti na sajtu Železnica Srbije. Direktne linije će Vas dovesti iz Kikinde, Novog Sada i Beograda.",
+        ""
     ],
     "busTitle": "Autobusi",
     "bus": [
         "Najsigurniji način provere rasporeda autobusa je ili preko sajta",
-        "SECTION WITH LINKS",
-        "u zavisnosti iz kog pravca dolazite. Autobuski prevoz je čest (na od prilike svakih 60-90min) iz oba grada, a do Zrenjanina će Vam trebati nešto vise od sat vremena putovanja. Alternativno, možete koristiti usluge “divljih taksija” koji se obično nalaze ispred autobuske stanice u Novom Sadu ili kod cvetne pijace u Borči."
-            ],
-    "timetable": "NOT SURE :)",
+        "ili",
+        "u zavisnosti iz kog pravca dolazite. Autobuski prevoz je čest (na od prilike svakih 60-90min) iz oba grada, a do Zrenjanina će Vam trebati nešto vise od sat vremena putovanja. Alternativno, možete koristiti usluge “divljih taksija” koji se obično nalaze ispred autobuske stanice u Novom Sadu ili kod cvetne pijace u Borči.",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+    ],
+    "timetableNoviSad": "novosadske autobuske stanice",
+    "timetableBelgrade": "BAS-ove stanice u Beogradu",
+    "timetableNoviSadUrl": "http://www.gspns.co.rs/red-voznje-medjumesni",
+    "timetableBelgradeUrl": "http://www.bas.rs/basweb_lat/RedVoznje.aspx?lng=sl&idDrzave=70",
     "carTitle": "Automobil",
     "car": [
-        "Ako se odlučite da povedete svog mezimca u vožnju, sigurni smo da će biti vrlo srećan jer će osim aktivnog dana dobiti i veselu cvetnu dekoraciju! Zrenjanin se nalazi na 50km of Novog Sada i 80km od Beograda."
+        "Ako se odlučite da povedete svog mezimca u vožnju, sigurni smo da će biti vrlo srećan jer će osim aktivnog dana dobiti i veselu cvetnu dekoraciju! Zrenjanin se nalazi na 50km of Novog Sada i 80km od Beograda.",
+        ""
     ],
     "motorbikeTitle": "Motocikl & Bicikl",
     "motorbike": [
-        "Ako ste avanturističkog duha ovo može biti odlična opcija! Vreme u septembru je generalno toplo i suvo tako da će i sam put biti prijatan. Po dolasku Vas očekuju brufen, voda i šećer u neograničenim količinama. Naravno i sva slava ovakovog poduhvata, jer i mi volimo dvotočkaše svih oblika!🏍🏍🏍"
+        "Ako ste avanturističkog duha ovo može biti odlična opcija! Vreme u septembru je generalno toplo i suvo tako da će i sam put biti prijatan. Po dolasku Vas očekuju brufen, voda i šećer u neograničenim količinama. Naravno i sva slava ovakovog poduhvata, jer i mi volimo dvotočkaše svih oblika!🏍🏍🏍",
+        "",
+        ""
     ],
     "walkAndSwimTitle": "Pešice",
     "walkAndSwim": [
-        "Hvale vredan podvig! Nemamo šta da dodamo, osim da na vreme potvrdite dolazak pa put pod noge, da ne zakasnite!"
+        "Hvale vredan podvig! Nemamo šta da dodamo, osim da na vreme potvrdite dolazak pa put pod noge, da ne zakasnite!",
+        ""
     ],
     "carRentalTitle": "",
-    "carRental": [],
+    "carRental": [
+        "",
+        "",
+        "",
+        "",
+        ""
+    ],
     "novaRent": "",
     "travellingFinal": "Ukoliko su Vam potrebne bilo kakve informacije ili pomoć vezana za transport stojimo Vam na raspolaganju.",
     "accomodationTitle": "Potrebno Vam je prenoćište?",
@@ -159,6 +186,9 @@
     "rsvpTitle": "Potvrdite svoj dolazak",
     "rsvp": [
         "Molimo Vas da potvrdite svoj dolazak najkasnije do 1. jula.",
-        "Prilikom potvrde dolaska obavestite nas o mogućim alregijama, intolerancijama ili posebnim dijetama o kojima bi trebali da vodimo računa, kao i da li su Vam potrebne usluge transporta na dan venčanja (skup svatova - crkva - restoran)."
-    ]
+        "Prilikom potvrde dolaska obavestite nas o mogućim alregijama, intolerancijama ili posebnim dijetama o kojima bi trebali da vodimo računa, kao i da li su Vam potrebne usluge transporta na dan venčanja (skup svatova - crkva - restoran).",
+        ""
+    ],
+    "showMore": "Više",
+    "showLess": "Manji"
 }

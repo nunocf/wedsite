@@ -42,9 +42,114 @@
 }
 
 
-.font-penna {
-		font-family: 'PennaRegular'; 
-		font-weight: normal; 
-		font-style: normal; 
+.font-heading {
+	font-family: 'Annie Use Your Telescope', cursive;
+	font-weight: normal; 
+	font-style: normal; 
+	font-size: 4rem;
 }
 
+
+.color-heading {
+	color: rgba(0, 0, 173, 1);
+}
+
+.font-text {
+	font-family: 'Fira Sans', sans-serif;
+	font-weight: normal; 
+	font-style: normal;
+}
+
+.font-text-size {
+	font-size: 1.5rem;
+}
+
+.font-text-align {
+	text-align: left;
+}
+
+.font-amatic {
+	font-family: 'Amatic SC', cursive;
+}
+
+.amatic-subheader-size {
+	font-size: 2.5rem;
+}
+
+.fira-italic {
+	font-family: 'Fira Sans', sans-serif;
+	font-style: italic;
+}
+
+
+.ourStoryImg {
+	float: right;
+}
+
+.pt-3 {
+	padding-top: 3rem;
+}
+
+.pb-1 {
+	padding-bottom: 1rem;
+}
+
+.mb-4 {
+	margin-bottom: 4rem;
+}
+
+.background {
+	background-color: rgba(227, 182, 107, 0.7);
+}
+
+.vab {
+	vertical-align: bottom;
+}
+
+.mb-2 {
+	margin-bottom: 2rem;
+}
+
+
+.ourStoryContainer {
+	display: grid;
+	
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+
+	grid-gap: 2rem;
+	grid-column-gap: 3rem;
+}
+
+.scheduleContainer {
+	display: grid;
+	
+	grid-template-columns: 1fr 1fr 2fr;
+}
+
+.board-wrapper {
+	justify-self: center;
+	align-self: center;
+ }
+
+@media only screen and (max-width: 600px) {
+	.ourStoryContainer {
+			grid-gap: 2rem;
+			grid-template-columns: 1fr;
+			grid-template-rows: 1fr 1fr 1fr;
+			padding: 0rem 1.5rem 0rem 1.5rem;
+
+	}
+
+	.font-heading {
+		font-size: 3rem;
+	}
+
+	.font-text-size {
+		font-size: 1rem;
+	}
+
+	.font-text-align {
+		text-align: center;
+	}
+}

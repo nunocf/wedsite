@@ -2,6 +2,7 @@ module MainPage exposing (view)
 
 import AccomodationSection
 import Browser exposing (Document)
+import Element exposing (Device)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import LanguageDropdown

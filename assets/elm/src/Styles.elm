@@ -6,12 +6,16 @@ module Styles exposing
     , dropdownList
     , dropdownListItem
     , dropdownTrigger
+    , headingFormatting
     , hero
     , ourStory
     , rsvpSection
     , scheduleSection
+    , scheduleTimeHeader
+    , textFont
     , transportSubtitle
     , travellingSection
+    , scheduleTimeSubHeader
     )
 
 
@@ -69,7 +73,7 @@ hero =
 
 ourStory : String
 ourStory =
-    [ "hero", "is-fullheight", "has-background-grey" ]
+    [ "hero", "is-fullheight", "background" ]
         |> String.join " "
 
 
@@ -92,11 +96,46 @@ accomodationSection =
 
 transportSubtitle : String
 transportSubtitle =
-    [ "subtitle", "has-text-weight-semi-bold", "is-size-2", "font-penna" ]
+    [ "subtitle", "has-text-weight-semi-bold", "is-size-2", "font-heading" ]
         |> String.join " "
 
 
 rsvpSection : String
 rsvpSection =
     [ "hero", "is-fullheight", "has-background-primary" ]
+        |> String.join " "
+
+
+headingFormatting : String
+headingFormatting =
+    [ "title"
+    , "has-text-weight-semibold"
+    , "font-heading"
+    , "color-heading"
+    , "pb-1"
+    , "pt-3"
+    , "mb-4"
+    ]
+        |> String.join " "
+
+
+textFont : String
+textFont =
+    [ "font-text"
+    , "font-text-size"
+    , "font-text-align"
+    ]
+        |> String.join " "
+
+
+scheduleTimeHeader : String
+scheduleTimeHeader =
+    [ "font-amatic"
+    , "amatic-subheader-size"
+    ]
+        |> String.join " "
+
+scheduleTimeSubHeader : String
+scheduleTimeSubHeader =
+    ["fira-italic"]
         |> String.join " "

@@ -25,14 +25,7 @@ content lang =
         [ div [ class "columns is-centered" ]
             [ div [ class "column is-three-quarters-desktop" ]
                 ([ header lang ]
-                    ++ -- , stGeorge lang
-                       -- , villa lang
-                       -- , hostel lang
-                       -- , airbnb lang
-                       -- , booking lang
-                       -- , limba lang
-                       -- , apartmany lang
-                       ([ ( Translations.dvoracKastel, Translations.dvoracKastelDesc )
+                    ++ ([ ( Translations.dvoracKastel, Translations.dvoracKastelDesc )
                         , ( Translations.hotelVojvodina, Translations.hotelVojvodinaDesc )
                         , ( Translations.luxotel, Translations.luxotelDesc )
                         ]
@@ -41,7 +34,6 @@ content lang =
                     ++ [ p [] [ text <| Translations.accomodationFinal lang ] ]
                     ++ ([ ( Translations.apartments, Translations.apartmentsDesc )
                         , ( Translations.villa, Translations.villaDesc )
-                        , ( Translations.hostelZrenjanin, Translations.hostelZrenjaninDesc )
                         , ( Translations.airbnb, Translations.airbnbDesc )
                         , ( Translations.booking, Translations.bookingDesc )
                         , ( Translations.limba, Translations.limbaDesc )
@@ -57,7 +49,7 @@ content lang =
 header : Lang -> Html msg
 header lang =
     div []
-        [ p [ class "title has-text-weight-semi-bold is-size-1 font-penna" ]
+        [ p [ class "title has-text-weight-semi-bold is-size-1 font-heading" ]
             [ text <| Translations.accomodationTitle lang
             ]
         , p [ class "subtitle is-size-5" ]

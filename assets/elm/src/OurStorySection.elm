@@ -1,7 +1,7 @@
 module OurStorySection exposing (view)
 
-import Html exposing (Html, br, div, h1, p, section, span, text)
-import Html.Attributes exposing (class, id)
+import Html exposing (Html, br, div, h1, img, p, section, span, text)
+import Html.Attributes exposing (class, id, src)
 import Html.Events exposing (onClick)
 import Msg exposing (Msg)
 import Styles
@@ -11,94 +11,180 @@ import Translations exposing (Lang)
 view : Lang -> Bool -> Html Msg
 view language showFullPoem =
     div [ class Styles.ourStory ]
-        [ div [ class "container" ]
-            [ div [ class "columns is-centered" ]
-                [ div [ class "column is-two-thirds-desktop" ]
-                    [ content language showFullPoem
-                    ]
-                ]
-            ]
-        ]
-
-
-content : Lang -> Bool -> Html Msg
-content language showFullPoem =
-    let
-        showAllText =
-            if showFullPoem then
-                "Show less"
-
-            else
-                "Show more"
-    in
-    div [ class "notification" ]
-        [ div [ class "columns is-centered" ]
-            [ div [ class "column is-three-quarters-desktop" ]
+        [ div [ class "container mb-2" ]
+            [ div [ class "has-text-centered" ]
                 [ header language
-                , poem language showFullPoem
-                , div [ onClick <| Msg.ShowPoem (not showFullPoem) ] [ text showAllText ]
                 ]
+            , div [ class "ourStoryContainer" ]
+                [ div [] [ poem1 language ]
+                , div [ class "is-hidden-mobile" ]
+                    [ img [ src "https://via.placeholder.com/600x450" ] [] ]
+                , div [] [ poem2 language ]
+                , div [] [ poem3 language ]
+                ]
+
+            -- , div [ class "columns is-centered" ]
+            --     [ div [ class "column" ]
+            --         [ content language showFullPoem
+            --         ]
+            --     , div [ class "column" ]
+            --         [ div [ class "is-hidden-mobile" ]
+            --             [
+            --             ]
+            --         ]
+            --     ]
             ]
+
+        -- , div [ class "container" ]
+        --     [ div [ class "columns is-centered" ]
+        --         [ div [ class "column" ]
+        --             [ showPoemThirdSection showFullPoem language
+        --             ]
+        --         , div [ class "column" ]
+        --             [ showPoemSecondSection showFullPoem language
+        --             ]
+        --         ]
+        --     ]
         ]
 
 
-header : Lang -> Html msg
-header language =
-    p [ class "title has-text-weight-semibold is-size-1 font-penna" ]
-        [ text <| Translations.ourStoryTitle language
-        ]
-
-
-poem : Lang -> Bool -> Html msg
-poem language show =
-    let
-        contentList =
-            if show then
-                [ firstParagraph
-
-                -- , secondParagraph
-                , thirdParagraph
-                , readMoreContent
-                ]
-
-            else
-                [ firstParagraph
-
-                -- , secondParagraph
-                , thirdParagraph
-                , readMoreIndicator
-                ]
-    in
-    p [ class "is-size-5" ]
-        (contentList
-            |> List.map (\function -> function language)
+poem2 : Lang -> Html msg
+poem2 lang =
+    p []
+        ([ fourthParagraph
+         , fifthParagraph
+         , sixthParagraph
+         ]
+            |> List.map (\function -> function lang)
             |> List.intersperse (br [] [])
         )
 
 
-readMoreIndicator : Lang -> Html msg
-readMoreIndicator language =
-    span [ id "dots" ] [ text "..." ]
-
-
-readMoreContent : Lang -> Html msg
-readMoreContent language =
-    span [ id "more" ]
-        ([ fourthParagraph
-         , fifthParagraph
-         , sixthParagraph
-         , seventhParagraph
+poem3 : Lang -> Html msg
+poem3 lang =
+    p []
+        ([ seventhParagraph
          , eighthParagraph
          , ninethParagraph
+         ]
+            |> List.map (\function -> function lang)
+            |> List.intersperse (br [] [])
+        )
+
+
+
+-- showPoemThirdSection : Bool -> Lang -> Html Msg
+-- showPoemThirdSection showPoem lang =
+--     let
+--         contentList =
+--             if showPoem then
+--                 [ --      firstParagraph
+--                   -- , secondParagraph
+--                   -- , thirdParagraph
+--                   fourthParagraph
+--                 , fifthParagraph
+--                 , sixthParagraph
+--                 , readMoreContent
+--                 ]
+--             else
+--                 [ --     firstParagraph
+--                   -- , secondParagraph
+--                   -- , thirdParagraph
+--                   fourthParagraph
+--                 , fifthParagraph
+--                 , sixthParagraph
+--                 , readMoreIndicator
+--                 ]
+--     in
+--     p [ class "font-text-size" ]
+--         (contentList
+--             |> List.map (\function -> function lang)
+--             |> List.intersperse (br [] [])
+--         )
+-- content : Lang -> Bool -> Html Msg
+-- content lang showFullPoem =
+--     let
+--         showMore =
+--             case showFullPoem of
+--                 True ->
+--                     div [] []
+--                 False ->
+--                     showMoreButton lang
+--     in
+--     div []
+--         [ poem lang showFullPoem
+--         , showMore
+--         ]
+-- showMoreButton : Lang -> Html Msg
+-- showMoreButton lang =
+--     div
+--         [ class "is-hidden-desktop"
+--         , onClick <| Msg.ShowPoem True
+--         ]
+--         [ text <| Translations.showMore lang ]
+-- showLessButton : Lang -> Html Msg
+-- showLessButton lang =
+--     div
+--         [ class "is-hidden-desktop"
+--         , onClick <| Msg.ShowPoem False
+--         ]
+--         [ text <| Translations.showLess lang ]
+-- showPoemSecondSection : Bool -> Lang -> Html Msg
+-- showPoemSecondSection showSection lang =
+--     let
+--         contentList =
+--             case showSection of
+--                 True ->
+--                     [ seventhParagraph
+--                     , eighthParagraph
+--                     , ninethParagraph
+--                     , showLessButton
+--                     ]
+--                 False ->
+--                     []
+--     in
+--     p [ class "vab" ]
+--         (contentList
+--             |> List.map (\function -> function lang)
+--             |> List.intersperse (br [] [])
+--         )
+
+
+header : Lang -> Html msg
+header language =
+    h1 [ class Styles.headingFormatting ]
+        [ text <| Translations.ourStoryTitle language
+        ]
+
+
+poem1 : Lang -> Html msg
+poem1 language =
+    p []
+        ([ firstParagraph
+         , secondParagraph
+         , thirdParagraph
          ]
             |> List.map (\function -> function language)
             |> List.intersperse (br [] [])
         )
 
 
+
+-- readMoreIndicator : Lang -> Html msg
+-- readMoreIndicator language =
+--     span [ id "dots" ] [ text "..." ]
+-- readMoreContent : Lang -> Html msg
+-- readMoreContent language =
+--     span [ id "more" ]
+--         ([]
+--             |> List.map (\function -> function language)
+--             |> List.intersperse (br [] [])
+--         )
+
+
 firstParagraph : Lang -> Html msg
 firstParagraph language =
-    p []
+    p [ class Styles.textFont ]
         ([ text <| Translations.ourStory0 language
          , text <| Translations.ourStory1 language
          , text <| Translations.ourStory2 language
@@ -109,20 +195,23 @@ firstParagraph language =
         )
 
 
-
--- secondParagraph : Lang -> Html msg
--- secondParagraph language =
---     p []
---         [ text <| Translations.ourStory4 language
---         ]
+secondParagraph : Lang -> Html msg
+secondParagraph language =
+    p [ class Styles.textFont ]
+        ([ text <| Translations.ourStory5 language
+         , text <| Translations.ourStory6 language
+         ]
+            |> List.intersperse (br [] [])
+        )
 
 
 thirdParagraph : Lang -> Html msg
 thirdParagraph language =
-    p []
-        ([ text <| Translations.ourStory5 language
-         , text <| Translations.ourStory6 language
-         , text <| Translations.ourStory7 language
+    p [ class Styles.textFont ]
+        ([ text <| Translations.ourStory7 language
+         , text <| Translations.ourStory8 language
+         , text <| Translations.ourStory9 language
+         , text <| Translations.ourStory10 language
          ]
             |> List.intersperse (br [] [])
         )
@@ -130,12 +219,12 @@ thirdParagraph language =
 
 fourthParagraph : Lang -> Html msg
 fourthParagraph language =
-    p []
-        ([ text <| Translations.ourStory8 language
-         , text <| Translations.ourStory9 language
-         , text <| Translations.ourStory10 language
-         , text <| Translations.ourStory11 language
+    p [ class Styles.textFont ]
+        ([ text <| Translations.ourStory11 language
          , text <| Translations.ourStory12 language
+         , text <| Translations.ourStory13 language
+         , text <| Translations.ourStory14 language
+         , text <| Translations.ourStory15 language
          ]
             |> List.intersperse (br [] [])
         )
@@ -143,17 +232,18 @@ fourthParagraph language =
 
 fifthParagraph : Lang -> Html msg
 fifthParagraph language =
-    p []
-        [ text <| Translations.ourStory13 language
+    p [ class Styles.textFont ]
+        [ text <| Translations.ourStory16 language
         ]
 
 
 sixthParagraph : Lang -> Html msg
 sixthParagraph language =
-    p []
-        ([ text <| Translations.ourStory14 language
-         , text <| Translations.ourStory15 language
-         , text <| Translations.ourStory16 language
+    p [ class Styles.textFont ]
+        ([ text <| Translations.ourStory17 language
+         , text <| Translations.ourStory18 language
+         , text <| Translations.ourStory19 language
+         , text <| Translations.ourStory20 language
          ]
             |> List.intersperse (br [] [])
         )
@@ -161,13 +251,14 @@ sixthParagraph language =
 
 seventhParagraph : Lang -> Html msg
 seventhParagraph language =
-    p []
-        ([ text <| Translations.ourStory17 language
-         , text <| Translations.ourStory18 language
-         , text <| Translations.ourStory19 language
-         , text <| Translations.ourStory20 language
-         , text <| Translations.ourStory21 language
+    p [ class Styles.textFont ]
+        ([ text <| Translations.ourStory21 language
          , text <| Translations.ourStory22 language
+         , text <| Translations.ourStory23 language
+         , text <| Translations.ourStory24 language
+         , text <| Translations.ourStory25 language
+         , text <| Translations.ourStory26 language
+         , text <| Translations.ourStory27 language
          ]
             |> List.intersperse (br [] [])
         )
@@ -175,13 +266,13 @@ seventhParagraph language =
 
 eighthParagraph : Lang -> Html msg
 eighthParagraph language =
-    p []
-        [ text <| Translations.ourStory23 language
+    p [ class Styles.textFont ]
+        [ text <| Translations.ourStory28 language
         ]
 
 
 ninethParagraph : Lang -> Html msg
 ninethParagraph language =
-    p []
-        [ text <| Translations.ourStory24 language
+    p [ class Styles.textFont ]
+        [ text <| Translations.ourStory29 language
         ]

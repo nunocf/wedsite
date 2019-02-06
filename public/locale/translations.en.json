@@ -21,7 +21,7 @@
         "Where could she possibly find such mighty power?",
         "Help arrives from somewhere unexpected.",
         "The boy who was also her weightlifting buddy.",
-        "Not only was he the second cousin", 
+        "Not only was he the second cousin",
         "on the maternal side of Hercules,",
         "he also had the ability to do Terminal magic.",
         "Several sleepless nights later",
@@ -38,45 +38,44 @@
     "scheduleSubtitle": "On this Holy day of spiritual entanglement many festivities await, behold in wonderment!",
     "elevenAM": "11am",
     "elevenAMDesc": [
-    "Groom’s side meetup",
-    "Brigadira Ristica B2 L9 (map)",
-    "If you are on the Groom’s side this is where you start your day. Marvel at his glorious suit and head over to the Bride’s hoonking all the way!"
+        "Groom’s side meetup",
+        "Brigadira Ristica B2 L9",
+        "If you are on the Groom’s side this is where you start your day. Marvel at his glorious suit and head over to the Bride’s hoonking all the way!"
     ],
     "twelveAM": "12am",
     "twelveAMDesc": [
         "Bride pickup",
-        "Prvomajska 64 (map)",
-        "Weather you are on Bride’s side starting your day here or you’ve just arrived with the Groom you’ll be able to witness the rowdy haggling where the Best Man and Grooms’ brother try to outsmart the Bride's family to lower her purchasing price. You are welcome to participate with witty ideas for either side."
+        "Prvomajska 64",
+        "Whether you are on Bride’s side starting your day here or you’ve just arrived with the Groom you’ll be able to witness the rowdy haggling where the Best Man and Grooms’ brother try to outsmart the Bride's family to lower her purchasing price. You are welcome to participate with witty ideas for either side."
     ],
     "twoPM": "2pm",
     "twoPMDesc": [
-        "Church wedding", 
+        "Church wedding",
         "Church of Presentation of Blessed Virgin Mary",
-        "Cara Dušana 82 (map)",
+        "Cara Dušana 82",
         "Here our couple to be will saying their first “I DOs” of the day in a lovely orthodox church from 1700s. A word of advice, if you are a lady it is respectful to enter with covered shoulders and back and if you are gentleman have sleeves and trousers covering knees. When entering the church women stay on the left side and men on the right."
-   
-     ],
+    ],
     "fourPM": "4pm",
     "fourPMDesc": [
         "Civil Cerimony",
-        "Caste Kaštel, Ečka (map)",
+        "Caste Kaštel, Ečka",
         "Continuing in the “I DO” fashion, our couple becomes joint in the eyes of the state as well. Get the party going while they take some very artistic photos in the gardens and enjoy the traditional appetizers."
-     ],
+    ],
     "sevenPM": "7pm",
     "sevenPMDesc": [
         "First dance & Dinner",
         "Try not to laugh too hard as we bust a move as Mr&Ms Ferreira and enjoy your well earned dinner."
-     ],
+    ],
     "ninePM": "9pm",
     "ninePMDesc": [
         "Cake time",
         "We do have a bit of a sweet tooth so we are ceremonially cutting two cakes! Our wedding cake, clearly fitting the theme with all those sunflowers and the traditional “Mother’s cake” which we will come and serve to all of you, also taking the opportunity of taking a pic with you which you can later purchase from the photo team."
-     ],
+    ],
     "elevenPM": "11pm",
     "elevenPMDesc": [
         "Second dinner",
         "Does dancing get you tired? No worries, we have a super energy dense second diner that will keep you going for hours!"
-     ],
+    ],
     "travellingHeader": "How to get to us?",
     "travellingSubtitle": [
         "If you don't suffer from time-space travel nausea, we recommend using your favourite teleportation device and input these coordinates:",
@@ -133,7 +132,10 @@
         "Country names are given in Serbian and if you have trouble understanding/translating let us know. ",
         "Unfortunately this site won’t provide you with the ticket price (Serbia is a lovely country, and people still really like to give everyone a call), so in case you find something you think will work for you, let us know and we’ll get the price information. "
     ],
-    "timetable": "timetable",
+    "timetableNoviSad": "timetable",
+    "timetableBelgrade": "timetable",
+    "timetableNoviSadUrl": "http://www.gspns.co.rs/red-voznje-medjumesni",
+    "timetableBelgradeUrl": "http://www.bas.rs/basweb_lat/RedVoznje.aspx?lng=sl&idDrzave=70",
     "carTitle": "Car",
     "car": [
         "If you decide to drive we recommend taking some extra time to make stops at some interesting destinations. ",
@@ -186,5 +188,7 @@
         "Please RSVP no later than the 1st of July.",
         "Kindly provide dietary requirements/allergies in the NOTES section. ",
         " Also let us know if you will you be needing transportation services to and from the airport/train station and on the day of the wedding (brides house - church - restaurant)."
-    ]
+    ],
+    "showMore": "Show more",
+    "showLess": "Show less"
 }
