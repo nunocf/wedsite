@@ -40,10 +40,10 @@ dropdownTrigger =
 
 
 dropdownList : Bool -> String
-dropdownList showAvailableLanguages =
+dropdownList showLanguages =
     let
         displayClasses =
-            if showAvailableLanguages then
+            if showLanguages then
                 []
 
             else

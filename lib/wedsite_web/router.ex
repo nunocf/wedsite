@@ -17,10 +17,17 @@ defmodule WedsiteWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    get "/rsvp", PageController, :code
+    get "/rsvp/:invitation", PageController, :form
+    get "/complete", PageController, :complete
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", WedsiteWeb do
-  #   pipe_through :api
-  # end
+
+  scope "/api", WedsiteWeb do
+    pipe_through :api
+
+    post "/code", ApiController, :code
+    post "/rsvp", ApiController, :rsvp
+  end
 end

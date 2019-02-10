@@ -1,4 +1,4 @@
-module AccomodationSection exposing (view)
+module Page.Home.Accomodation exposing (view)
 
 import Html exposing (Html, a, div, p, text)
 import Html.Attributes exposing (class)
@@ -8,19 +8,6 @@ import Translations exposing (Lang)
 
 view : Lang -> Html msg
 view lang =
-    div [ class Styles.accomodationSection ]
-        [ div [ class "container" ]
-            [ div [ class "columns is-centered" ]
-                [ div [ class "column is-two-thirds-desktop" ]
-                    [ content lang
-                    ]
-                ]
-            ]
-        ]
-
-
-content : Lang -> Html msg
-content lang =
     div [ class "notification" ]
         [ div [ class "columns is-centered" ]
             [ div [ class "column is-three-quarters-desktop" ]

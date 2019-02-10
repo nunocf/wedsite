@@ -1,4 +1,4 @@
-module TravellingSection exposing (view)
+module Page.Home.Travelling exposing (view)
 
 import Html exposing (Html, a, div, p, text)
 import Html.Attributes exposing (class, href)
@@ -8,19 +8,6 @@ import Translations exposing (Lang)
 
 view : Lang -> Html msg
 view lang =
-    div [ class Styles.travellingSection ]
-        [ div [ class "container" ]
-            [ div [ class "columns is-centered" ]
-                [ div [ class "column is-two-thirds-desktop" ]
-                    [ content lang
-                    ]
-                ]
-            ]
-        ]
-
-
-content : Lang -> Html msg
-content lang =
     div [ class "notification" ]
         [ div [ class "columns is-centered" ]
             [ div [ class "column is-three-quarters-desktop" ]
