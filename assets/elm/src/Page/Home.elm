@@ -1,7 +1,7 @@
 module Page.Home exposing (Model, Msg, init, subscriptions, toSession, update, view)
 
 import Html exposing (..)
-import Html.Attributes exposing (class, src, style)
+import Html.Attributes exposing (attribute, class, src, style, type_)
 import Json.Decode as Decode
 import Page.Home.Accomodation as Accomodation
 import Page.Home.Gmaps as Gmaps exposing (addMarkers, mapMoved, moveMap)
@@ -81,7 +81,9 @@ viewOurStory lang =
     div [ class Styles.ourStory ]
         [ div [ class "mb-2" ]
             [ div [ class "ourStoryContainer" ]
-                [ div [ class "flowerSideLeft" ] [ SvgShapes.flowerStripLeft ]
+                [ div [ class "flowerSideLeft" ]
+                    [ object [ type_ "image/svg+xml", attribute "data" "images/flowerstripleft.svg" ] [ text "Your browser does not support SVGs" ]
+                    ]
                 , div [ class "poemViewFrameContainer" ]
                     [ div [ class "poemViewFrame poemContent" ]
                         [ div [ class "has-text-centered poemHeader" ]
@@ -95,7 +97,7 @@ viewOurStory lang =
                         ]
                     ]
                 , div [ class "flowerSideRight" ]
-                    [ SvgShapes.flowerStripRight
+                    [ object [ type_ "image/svg+xml", attribute "data" "images/flowerstripright.svg" ] [ text "Your browser does not support SVGs" ]
                     ]
                 ]
             ]

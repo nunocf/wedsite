@@ -1,3 +1,5 @@
+.vscode
+trace.txt
 # The directory Mix will write compiled artifacts to.
 /_build/
 
@@ -31,7 +33,9 @@ npm-debug.log
 # Since we are building assets from assets/,
 # we ignore priv/static. You may want to comment
 # this depending on your deployment strategy.
-/priv/static/
+/priv/static/js
+/priv/static/css
+
 
 # Files matching config/*.secret.exs pattern contain sensitive
 # data and you should not commit them into version control.
