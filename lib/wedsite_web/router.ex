@@ -29,5 +29,7 @@ defmodule WedsiteWeb.Router do
 
     post "/code", ApiController, :code
     post "/rsvp", ApiController, :rsvp
+    get "/rsvp/:code", ApiController, :get_invite
+    post "/rsvp/:code", ApiController, :update_invite
   end
 end

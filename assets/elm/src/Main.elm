@@ -33,10 +33,10 @@ type Model
     | Redirect Session
     | Home Home.Model
     | Code Code.Model
+    | Rsvp Rsvp.Model
 
 
 
--- | Rsvp Rsvp.Model
 -- | Complete Complete.Model
 --
 --
@@ -110,10 +110,11 @@ view model =
         Code code ->
             viewPage Page.Code GotCodeMsg (Code.view code)
 
+        Rsvp code ->
+            viewPage Page.Rsvp GotRsvpMsg (Rsvp.view code)
 
 
--- Rsvp code ->
---     viewPage Page.Other (\_ -> Ignored) (Rsvp.view code)
+
 -- Complete code ->
 --     viewPage (Page.Profile username) (\_ -> Ignored) (Complete.view code)
 -- UPDATE
@@ -134,10 +135,11 @@ toSession page =
         Code code ->
             Code.toSession code
 
+        Rsvp code ->
+            Rsvp.toSession code
 
 
--- Rsvp code ->
---     Rsvp.toSession code
+
 -- Complete code ->
 --     Complete.toSession code
 
@@ -159,6 +161,10 @@ changeRouteTo maybeRoute model =
         Just Route.Code ->
             Code.init session
                 |> updateWith Code GotCodeMsg model
+
+        Just (Route.Rsvp code) ->
+            Rsvp.init session code
+                |> updateWith Rsvp GotRsvpMsg model
 
         _ ->
             ( NotFound session, Cmd.none )
@@ -254,6 +260,9 @@ subscriptions model =
         Code code ->
             Sub.map GotCodeMsg (Code.subscriptions code)
 
+        Rsvp rsvp ->
+            Sub.map GotRsvpMsg (Rsvp.subscriptions rsvp)
+
 
 onUrlChange : Url -> Msg
 onUrlChange url =
@@ -269,11 +278,14 @@ updateShowLanguages model value =
         Redirect session ->
             Redirect (Session.setShowLanguages session value)
 
-        Home homeModel ->
-            Home { homeModel | session = Session.setShowLanguages (toSession model) value }
+        Home m ->
+            Home { m | session = Session.setShowLanguages (toSession model) value }
 
-        Code codeModel ->
-            Code { codeModel | session = Session.setShowLanguages (toSession model) value }
+        Code m ->
+            Code { m | session = Session.setShowLanguages (toSession model) value }
+
+        Rsvp m ->
+            Rsvp { m | session = Session.setShowLanguages (toSession model) value }
 
 
 updateLang : Model -> Translations.Lang -> Model
@@ -290,3 +302,6 @@ updateLang model language =
 
         Code m ->
             Code { m | session = Session.setLanguage (toSession model) language }
+
+        Rsvp m ->
+            Rsvp { m | session = Session.setLanguage (toSession model) language }

@@ -1,43 +1,48 @@
 module Page.Code exposing (Model, Msg, init, subscriptions, toSession, update, view)
 
 import Api
-import Api.Endpoint
+import Api.Endpoint as Endpoint
 import Html exposing (Html, button, div, form, input, p, text)
 import Html.Attributes exposing (action, method, name, type_, value)
 import Html.Events exposing (onInput, onSubmit)
 import Http
 import Json.Decode as Decode exposing (Decoder)
 import Json.Encode as Encode
+import Route
 import Session exposing (Session)
 
 
 type alias Model =
     { session : Session
     , codeValue : String
+    , error : Maybe String
     }
 
 
 init : Session -> ( Model, Cmd msg )
 init session =
-    ( { session = session, codeValue = "" }, Cmd.none )
+    ( Model session "" Nothing, Cmd.none )
 
 
 view : Model -> { title : String, content : Html Msg }
-view { session, codeValue } =
+view { session, codeValue, error } =
+    let
+        errorDisplay =
+            case error of
+                Just errorMsg ->
+                    div [] [ text errorMsg ]
+
+                Nothing ->
+                    div [] []
+    in
     { title = "Wedsite"
     , content =
         div []
             [ form [ method "POST", action "/api/code", onSubmit OnSubmit ]
                 [ div []
-                    [ p []
-                        [ text "Please insert your invitation code" ]
-                    , input
-                        [ type_ "text"
-                        , name "code"
-                        , value codeValue
-                        , onInput OnInput
-                        ]
-                        []
+                    [ p [] [ text "Please insert your invitation code" ]
+                    , input [ type_ "text", value codeValue, onInput OnInput ] []
+                    , errorDisplay
                     ]
                 , div [] [ button [] [ text "Submit" ] ]
                 ]
@@ -48,7 +53,7 @@ view { session, codeValue } =
 type Msg
     = OnInput String
     | OnSubmit
-    | GotCodeResponse (Result Http.Error String)
+    | GotResponse (Result Http.Error Bool)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -63,17 +68,28 @@ update msg model =
                     Http.jsonBody (encode model.codeValue)
 
                 postRequestCmd =
-                    Api.post Api.Endpoint.code body (Http.expectJson GotCodeResponse decoder)
+                    Api.post Endpoint.code body (Http.expectJson GotResponse decoder)
             in
             ( model, postRequestCmd )
 
-        GotCodeResponse result ->
-            case Debug.log "aaa" result of
-                Ok url ->
-                    ( model, Cmd.none )
+        GotResponse result ->
+            case result of
+                Ok found ->
+                    case found of
+                        True ->
+                            ( { model | error = Nothing }
+                            , Route.replaceUrl (Session.navKey model.session) (Route.Rsvp model.codeValue)
+                            )
+
+                        False ->
+                            ( { model | error = Just "Code not found" }, Cmd.none )
 
                 Err _ ->
-                    ( model, Cmd.none )
+                    ( { model
+                        | error = Just "There was an error processing the request"
+                      }
+                    , Cmd.none
+                    )
 
 
 toSession : Model -> Session
@@ -90,9 +106,9 @@ subscriptions model =
 -- JSON
 
 
-decoder : Decoder String
+decoder : Decoder Bool
 decoder =
-    Decode.field "status" Decode.string
+    Decode.field "found" Decode.bool
 
 
 encode : String -> Encode.Value

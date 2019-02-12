@@ -1,20 +1,13 @@
 
-// webpack automatically bundles all modules in your
-// entry points. Those entry points can be configured
-// in "webpack.config.js".
-//
 // Import dependencies
-//
-// import "../css/debug.css"
-import "../css/grid.css"
-import "../scss/main.scss"
-import "../css/styles.css"
+
 import "phoenix_html"
 
 // Import local files
-//
 // Local files can be imported directly using relative paths, for example:
-// import socket from "./socket"
+import "../css/grid.css"
+import "../scss/main.scss"
+import "../css/styles.css"
 import { Elm } from "../elm/src/Main.elm"
 
 
@@ -25,23 +18,6 @@ const app = Elm.Main.init({
     node: document.getElementById("elm-main")
 });
 
-
-// const groomMapDiv = document.getElementById("groomMap");
-// const brideMapDiv = document.getElementById("brideMap");
-// const churchMapDiv = document.getElementById("churchMap");
-// const restaurantMapDiv = document.getElementById("restaurantMap");
-
-// const myLatLng = new google.maps.LatLng(0, 0);
-// const mapOptions = {
-//     zoom: 16,
-//     center: myLatLng
-// };
-
-
-// const groomMap = new google.maps.Map(groomMapDiv, mapOptions);
-// const brideMap = new google.maps.Map(brideMapDiv, mapOptions);
-// const churchMap = new google.maps.Map(churchMapDiv, mapOptions);
-// const restaurantMap = new google.maps.Map(restaurantMapDiv, mapOptions);
 var
     groomMapDiv,
     brideMapDiv,

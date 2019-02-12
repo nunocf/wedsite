@@ -3,6 +3,7 @@ module Types exposing (Msg(..))
 import Browser exposing (UrlRequest)
 import Page.Code as Code
 import Page.Home as Home
+import Page.Rsvp as Rsvp
 import Route exposing (Route)
 import Session exposing (Session)
 import Translations exposing (Lang)
@@ -16,6 +17,7 @@ type Msg
     | ClickedLink Browser.UrlRequest
     | GotHomeMsg Home.Msg
     | GotCodeMsg Code.Msg
+    | GotRsvpMsg Rsvp.Msg
     | ShowLanguages
     | ChangeLanguage Lang
     | CloseAvailableLanguages

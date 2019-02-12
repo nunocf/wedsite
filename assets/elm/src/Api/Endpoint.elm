@@ -55,9 +55,9 @@ code =
     url [ "code" ] []
 
 
-rsvp : Endpoint
-rsvp =
-    url [ "rsvp" ] []
+rsvp : String -> Endpoint
+rsvp id =
+    url [ "rsvp", id ] []
 
 
 complete : Endpoint

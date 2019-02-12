@@ -11,6 +11,7 @@ import Page.Home.Schedule as Schedule
 import Page.Home.Travelling as Travelling
 import Session exposing (Session)
 import Styles
+import SvgShapes
 import Translations
 
 
@@ -78,18 +79,24 @@ viewHero lang =
 viewOurStory : Translations.Lang -> Html msg
 viewOurStory lang =
     div [ class Styles.ourStory ]
-        [ div [ class "container mb-2" ]
-            [ div [ class "has-text-centered" ]
-                [ h1 [ class Styles.headingFormatting ]
-                    [ text <| Translations.ourStoryTitle lang
+        [ div [ class "mb-2" ]
+            [ div [ class "ourStoryContainer" ]
+                [ div [ class "flowerSideLeft" ] [ SvgShapes.flowerStripLeft ]
+                , div [ class "poemViewFrameContainer" ]
+                    [ div [ class "poemViewFrame poemContent" ]
+                        [ div [ class "has-text-centered poemHeader" ]
+                            [ h1 [ class <| Styles.headingFormatting ] [ text <| Translations.ourStoryTitle lang ]
+                            ]
+                        , div [ class "poem1" ] [ Poem.viewPoem1 lang ]
+                        , div [ class "poemPicture is-hidden-mobile" ] [ img [ src "https://via.placeholder.com/600x450" ] [] ]
+                        , div [ class "poem2" ] [ Poem.viewPoem2 lang ]
+                        , div [ class "poem3" ] [ Poem.viewPoem3 lang ]
+                        , div [ class "poemViewFrameShadow" ] []
+                        ]
                     ]
-                ]
-            , div [ class "ourStoryContainer" ]
-                [ div [] [ Poem.viewPoem1 lang ]
-                , div [ class "is-hidden-mobile" ]
-                    [ img [ src "https://via.placeholder.com/600x450" ] [] ]
-                , div [] [ Poem.viewPoem2 lang ]
-                , div [] [ Poem.viewPoem3 lang ]
+                , div [ class "flowerSideRight" ]
+                    [ SvgShapes.flowerStripRight
+                    ]
                 ]
             ]
         ]

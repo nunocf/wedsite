@@ -12,10 +12,10 @@ module Styles exposing
     , rsvpSection
     , scheduleSection
     , scheduleTimeHeader
+    , scheduleTimeSubHeader
     , textFont
     , transportSubtitle
     , travellingSection
-    , scheduleTimeSubHeader
     )
 
 
@@ -135,7 +135,8 @@ scheduleTimeHeader =
     ]
         |> String.join " "
 
+
 scheduleTimeSubHeader : String
 scheduleTimeSubHeader =
-    ["fira-italic"]
+    [ "fira-italic" ]
         |> String.join " "
