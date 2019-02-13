@@ -1,0 +1,6 @@
+{
+  "editor.formatOnSave": true,
+  "elm.compiler": "elm",
+  "elm.makeCommand": "elm make",
+  "elm.formatCommand": "elm-format"
+}
