@@ -8,6 +8,7 @@ import "phoenix_html"
 import "../css/grid.css"
 import "../scss/main.scss"
 import "../css/styles.css"
+import "../css/svg.css"
 import { Elm } from "../elm/src/Main.elm"
 
 

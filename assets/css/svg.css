@@ -1,0 +1,95 @@
+.k {
+	fill: none;
+	stroke: #4c4c4c;
+	stroke-width: 0.7px;
+	stroke-dasharray: 1mm;
+}
+
+.l {
+	fill: #4c4c4c;
+	stroke-width: 0;
+}
+
+.m {
+	fill: #ff6600;
+	stroke-width: 0;
+}
+
+.n {
+	fill: #4c4c4cc8;
+	stroke-width: 0;
+}
+
+.o {
+	fill: #4c4c4c;
+	stroke-width: 0;
+}
+
+.p {
+	fill: #c06a29;
+	stroke-width: 0;
+}
+
+.q {
+	fill: #613934;
+	stroke-width: 0;
+}
+
+.r {
+	fill: #faa404;
+	stroke-width: 0;
+}
+
+.s {
+	fill: #f4da05;
+	stroke-width: 0;
+}
+
+.t {
+	fill: #c06a29c8;
+	stroke-width: 0;
+}
+
+.u {
+	fill: #613934c8;
+	stroke-width: 0;
+}
+
+.v {
+	fill: #faa404c8;
+	stroke-width: 0;
+}
+
+.w {
+	fill: #f4da05c8;
+	stroke-width: 0;
+}
+
+.postOneBottom {
+	fill: #613934;
+	stroke-width: 0;
+}
+
+.postOneBoard {
+	stroke: #613934;
+	fill: none;
+}
+
+.ribbonFill {
+	fill: #FAA404;
+}
+
+.ribbonLine {
+	stroke: #4c4c4c;
+	fill: none;
+	stroke-width: 0.5px;
+}
+
+.postTop {
+	fill: #613934;
+	stroke-width: 0;
+}
+
+.postText {
+	font-family: 'Amatic SC', cursive;
+}

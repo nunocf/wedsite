@@ -1,9 +1,8 @@
 module Page.Home.Schedule exposing (viewBride, viewChurch, viewGroom, viewHeader, viewVenue)
 
 import Html exposing (..)
-import Html.Attributes exposing (class, height, id, src, width)
+import Html.Attributes exposing (attribute, class, height, id, src, type_, width)
 import Styles
-import SvgShapes
 import Translations
 
 
@@ -22,7 +21,11 @@ viewGroom : Translations.Lang -> Html msg
 viewGroom lang =
     div [ class "rightMapContainer" ]
         [ div [ class "boardContainer" ]
-            [ div [ width 100, height 100 ] [ SvgShapes.groomPost ]
+            [ div
+                [ width 100
+                , height 100
+                ]
+                [ object [ type_ "image/svg+xml", attribute "data" "images/postone.svg" ] [ text "Your browser does not support SVGs" ] ]
             ]
         , div [ class "textContainer" ]
             [ p [ class Styles.scheduleTimeHeader ] [ text <| Translations.elevenAMDesc0 lang ]
@@ -43,7 +46,7 @@ viewBride lang =
             ]
         , div [ class "boardContainer" ]
             [ div [] [ img [ src "https://via.placeholder.com/200x240" ] [] ]
-            , div [] [ SvgShapes.postBottom ]
+            , div [] []
             ]
         ]
 
@@ -53,7 +56,7 @@ viewChurch lang =
     div [ class "rightMapContainer" ]
         [ div [ class "boardContainer" ]
             [ div [] [ img [ src "https://via.placeholder.com/200x240" ] [] ]
-            , div [] [ SvgShapes.postBottom ]
+            , div [] []
             ]
         , div [ class "textContainer" ]
             [ p [ class Styles.scheduleTimeHeader ] [ text <| Translations.twoPMDesc0 lang ]
@@ -76,6 +79,6 @@ viewVenue lang =
             ]
         , div [ class "boardContainer" ]
             [ div [] [ img [ src "https://via.placeholder.com/200x240" ] [] ]
-            , div [] [ SvgShapes.postBottom ]
+            , div [] []
             ]
         ]

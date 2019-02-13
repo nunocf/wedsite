@@ -112,9 +112,6 @@ headingFormatting =
     , "has-text-weight-semibold"
     , "font-heading"
     , "color-heading"
-    , "pb-1"
-    , "pt-3"
-    , "mb-4"
     ]
         |> String.join " "
 
@@ -124,6 +121,8 @@ textFont =
     [ "font-text"
     , "font-text-size"
     , "font-text-align"
+    , "poemTextColor"
+    , "textShadow"
     ]
         |> String.join " "
 

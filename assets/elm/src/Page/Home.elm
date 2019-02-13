@@ -11,7 +11,6 @@ import Page.Home.Schedule as Schedule
 import Page.Home.Travelling as Travelling
 import Session exposing (Session)
 import Styles
-import SvgShapes
 import Translations
 
 
@@ -87,13 +86,15 @@ viewOurStory lang =
                 , div [ class "poemViewFrameContainer" ]
                     [ div [ class "poemViewFrame poemContent" ]
                         [ div [ class "has-text-centered poemHeader" ]
-                            [ h1 [ class <| Styles.headingFormatting ] [ text <| Translations.ourStoryTitle lang ]
+                            [ h1 [ class <| String.join " " [ Styles.headingFormatting, "poemTitle" ] ]
+                                [ text <| Translations.ourStoryTitle lang ]
                             ]
                         , div [ class "poem1" ] [ Poem.viewPoem1 lang ]
-                        , div [ class "poemPicture is-hidden-mobile" ] [ img [ src "https://via.placeholder.com/600x450" ] [] ]
+                        , div [ class "poemPicture is-hidden-mobile" ]
+                            [-- img [ class "poemPhoto", src "images/stonehenge.jpg" ] []
+                            ]
                         , div [ class "poem2" ] [ Poem.viewPoem2 lang ]
                         , div [ class "poem3" ] [ Poem.viewPoem3 lang ]
-                        , div [ class "poemViewFrameShadow" ] []
                         ]
                     ]
                 , div [ class "flowerSideRight" ]
@@ -107,7 +108,7 @@ viewOurStory lang =
 viewSchedule : Translations.Lang -> Html msg
 viewSchedule lang =
     div [ class Styles.scheduleSection ]
-        [ div [ class "container" ]
+        [ div []
             [ Schedule.viewHeader lang
             , Schedule.viewGroom lang
             , Schedule.viewBride lang
