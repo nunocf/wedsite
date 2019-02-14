@@ -56,6 +56,11 @@
 
 }
 
+.acc-heading {
+	color: #e37701;
+	text-shadow: 3px 4px 4px  rgba(0, 0, 0, .7);
+}
+
 .font-text {
 	font-family: 'Fira Sans', sans-serif;
 	font-weight: normal; 
@@ -334,25 +339,50 @@
 	/* height: 100px; */
 }
 
-.accomodationContainer {
+:root {
+	
+	--wrapperWidth: calc(100vw - ( 2 * var(--gutter))); 
+	--gutter: 1em;
+	--noOfColumns: 8;
+
+	--noOfGutters: calc(var(--noOfColumns) - 1);
+
+	--ratioA: 1;
+	--ratioB: 1;
+
+	--factor: calc(var(--ratioB) / var(--ratioA));
+
+	--rh: calc(( (var(--wrapper) - (var(--noOfGutters) * var(--gutter))) / var(--noOfColumns)) * var(--factor));
+}
+
+.accomodationGrid {
+
+	max-width: var(--wrapper);
 	display: grid;
-	height: 100vh;
-	width: 100%;
+	grid-template-columns: repeat(var(--noOfColumns), minmax(0, 1fr));
+	/* grid-auto-flow: dense; */
+	grid-template-rows: repeat(5, var(--rh));
+	grid-gap: var(--gutter);
+	/* margin: var(--gutter); */
+	
 
-	align-content: center;
 
+	/* display: grid;
+	width: var(--wrapperWidth);
 	grid-template-columns: repeat(8, 1fr);
-	grid-template-rows: repeat(5, 1fr);
+	grid-template-rows: repeat(5, --rowHeight); */
+	
 	grid-template-areas:
-		"flowerTL flowerTL  square13 square13 square13  square13 flowerTR flowerTR"
+		"flowerTL flowerTL  accTitle accTitle accTitle  accTitle flowerTR flowerTR"
 		"flowerTL flowerTL  square2  square2  smallFlower   square4  flowerTR  flowerTR"
 		"........ square1   square2  square2  square3   square4  square5   ........"
 		"........ square8   square8  bigflower  square3   square6  square6   ........"
 		"flowerBL flowerBL  square7  square7  square14  square6  square6   ........";
 	
-	gap: 1em;
+	/* gap: 1em; */
+	/* gap: var(--gutter); */
 
-	padding: 2rem 2rem 2rem 3rem;
+	padding: 2rem 0rem 0rem 1rem;
 }
 
 .square1 {
@@ -435,9 +465,11 @@
 	grid-area: flowerTR;	
 }
 
-.square13 {
-	grid-area: square13;
-	background: #7b9a2d;
+.accTitle {
+	grid-area: accTitle;
+	justify-self: center;
+	align-self: center;
+	padding-bottom: 1rem;
 }
 
 .square14 {

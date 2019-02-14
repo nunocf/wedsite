@@ -10,10 +10,9 @@ view : Lang -> Html msg
 view lang =
     div []
         [ 
-            div [class "accomodationContainer"] 
+            div [class "accomodationGrid"] 
                 [ div [class "roundCorners boxShadow square1 svg-container p-0-5"] 
                     [object [class "svg-content svg55Pct", type_ "image/svg+xml", attribute "data" "images/booking.svg" ] [ text "Your browser does not support SVGs" ] 
-                        
                 ]
                 , div [class "roundCorners boxShadow kastelSquare"] []
                 , div [class "roundCorners boxShadow square3"] []
@@ -32,7 +31,9 @@ view lang =
                     object [ class "svg-content", type_ "image/svg+xml", attribute "data" "images/flowertopleft.svg" ] [ text "Your browser does not support SVGs" ] 
                 ]
                 , div [class "roundCorners boxShadow square12"] []
-                , div [class "roundCorners boxShadow square13"] [header lang]
+                , div [class "accTitle has-text-centered"] [
+                    div [ class "has-text-centered" ] [ header lang]
+                ]
                 , div [class "square14 svg-container p-0-5"] [
                     object [ class "svg90Pct svg-content", type_ "image/svg+xml", attribute "data" "images/bee.svg" ] [ text "Your browser does not support SVGs" ] 
                 ]
@@ -72,11 +73,12 @@ view lang =
 
 header : Lang -> Html msg
 header lang =
-    div []
-        [ p [ class "title has-text-weight-semi-bold is-size-1 font-heading" ]
-            [ text <| Translations.accomodationTitle lang
-            ]
+    div [ class "acc-heading"] [ 
+        p [ class Styles.headingFormatting ] [ text <| Translations.accomodationTitle lang
         ]
+    ]
+
+         
 
 
 placeView : ( Lang -> String, Lang -> String ) -> Lang -> Html msg
