@@ -17,4 +17,7 @@ if [[ -z `psql -Atqc "\\list $PGDATABASE"` ]]; then
   echo "Database $PGDATABASE created."
 fi
 
-exec mix phx.server
+rm -rf /root/.elm
+rm -rf assets/elm/elm-stuff
+cd assets/ && yarn install --no-optional
+cd ../ && exec mix phx.server

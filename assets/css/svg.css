@@ -93,3 +93,61 @@
 .postText {
 	font-family: 'Amatic SC', cursive;
 }
+
+.airbnb {
+	fill: #ffffff;
+}
+
+.booking {
+	fill: #FFFFFF;
+}
+
+.svg-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+object { 
+	width: 100%;
+}
+
+.beeBody {
+	fill: #ff6600;
+}
+
+.bee2 {
+
+}
+
+.outlineFillColor {
+	fill: #4c4c4c;
+}
+
+.dashed {
+	stroke-width: 0.7px;
+	stroke-dasharray: 1mm;
+}
+
+.outlineStrokeColor {
+	stroke: #4c4c4c; 
+}
+
+.fillNone {
+	fill: none;
+}
+
+.flowerBackPetals {
+	fill: #f4da05;
+}
+
+.flowerFrontPetals {
+	fill: #FAA404;
+}
+
+.flowerCenterOutside{
+	fill: #613934;
+}
+
+.flowerCenterInside{
+	fill: #c06a29;
+}

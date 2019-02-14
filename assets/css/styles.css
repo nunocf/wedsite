@@ -92,6 +92,10 @@
 	float: right;
 }
 
+.p-0-5 {
+	padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
 .pt-3 {
 	padding-top: 3rem;
 }
@@ -211,11 +215,22 @@
 	border-radius: 8px;
 }
 
+.boxShadow {
+	box-shadow: 5px 5px 15px rgba(0, 0, 0, .3);
+}
+
+.roundCorners {
+	border-radius: 6px;
+}
+
 .rightMapContainer {
 	display: grid;
 	
 	grid-template-columns: 1fr 1fr 40%;
 	grid-template-rows: 600px;
+
+	grid-template-areas:
+		"board descText map";
 
 	/* height: 600px; */
 
@@ -233,16 +248,24 @@
 }
 
 .boardContainer {
+	grid-area: board;
+
 	/* justify-self: center;
 	align-self: center; */
+
+	width: 50%;
+  height: 50%;
 }
 
 .textContainer {
+	grid-area: descText;
+
 	justify-self: center;
 	align-self: center;
 }
 
 .mapContainer {
+	grid-area: map;
 	justify-self: center;
 	align-self: center;
 }
@@ -294,29 +317,6 @@
 	}
 }
 
-/* SVG */
-
-.svg-bottom {
-	width: 110px;
-	height: auto;
-	padding-left: 10px;
-  fill: #613934;
-  stroke: #000000;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: .3px;
-}
-
-
-.postTop {
-	width: 110px;
-	height: auto;
-	padding-left: 10px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: .3px;
-}
-
 .inline {
 	display: inline
 }
@@ -330,3 +330,138 @@
 	color: #EAE7DC;
 }
 
+ .postOne {
+	/* height: 100px; */
+}
+
+.accomodationContainer {
+	display: grid;
+	height: 100vh;
+	width: 100%;
+
+	align-content: center;
+
+	grid-template-columns: repeat(8, 1fr);
+	grid-template-rows: repeat(5, 1fr);
+	grid-template-areas:
+		"flowerTL flowerTL  square13 square13 square13  square13 flowerTR flowerTR"
+		"flowerTL flowerTL  square2  square2  smallFlower   square4  flowerTR  flowerTR"
+		"........ square1   square2  square2  square3   square4  square5   ........"
+		"........ square8   square8  bigflower  square3   square6  square6   ........"
+		"flowerBL flowerBL  square7  square7  square14  square6  square6   ........";
+	
+	gap: .5em;
+
+	padding: 2rem 2rem 2rem 3rem;
+}
+
+.square1 {
+	grid-area: square1;
+	background-color: #013381ff;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
+.kastelSquare {
+	grid-area: square2;
+
+	background: url('/images/kastel.jpeg');
+	background-position: center center;
+	background-size: cover;
+}
+
+.square3 {
+	grid-area: square3;
+
+	background: url('/images/luxotel.jpeg');
+	background-position: center center;
+	background-size: cover;
+}
+
+.square4 {
+	grid-area: square4;
+	background: url('/images/stgeorge.jpeg');
+	background-position: center center;
+	background-size: cover;
+}
+
+.square5 {
+	grid-area: square5;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+
+	background-color: #fe595e;
+}
+
+.hotelVojvodinaSquare {
+	grid-area: square6;
+
+	background: url('/images/hotel-vojvodina.jpeg');
+	background-position: center center;
+	background-size: cover;
+}
+
+.square7 {
+	grid-area: square7;
+	background: url('/images/philadelphia.jpeg');
+	background-position: center center;
+	background-size: cover;
+}
+
+.square8 {
+	grid-area: square8;
+
+	background: url('/images/apartments.jpeg');
+	background-position: center center;
+	background-size: cover;
+}
+
+.square9 {
+	grid-area: square9;
+	background-color: #cafeca;
+}
+
+.flowerBL {
+	grid-area: flowerBL;
+}
+
+.flowerTL {
+	grid-area: flowerTL;
+}
+
+.topRightFlower {
+	grid-area: flowerTR;	
+}
+
+.square13 {
+	grid-area: square13;
+	background: #7b9a2d;
+}
+
+.square14 {
+	grid-area: square14;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
+.bigFlower {
+	grid-area: bigflower;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+.smallFlower {
+	grid-area: smallFlower;
+	
+	width: 40%;
+}
+
+
+.svgCentered {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}

@@ -2,15 +2,6 @@ version: "3.6"
 
 # Containers we are going to run
 services:
-  webpack:
-    build:
-      context: .
-      dockerfile: Dockerfile.webpack
-    command: yarn run watch
-    volumes:
-      - ".:/app"
-      - "/app/assets/elm/elm-stuff"
-      - "static:/app/priv/static"
 
   # Our Phoenix container
   phoenix:
@@ -19,7 +10,6 @@ services:
     depends_on:
       # The db container needs to be started before we start this container
       - db
-      - webpack
     environment:
       # Variables to connect to our Postgres server
       PGUSER: postgres
@@ -35,7 +25,9 @@ services:
     tty: true
     volumes:
       - ".:/app"
-      - "static:/app/priv/static"
+      - "./priv/static:/app/priv/static"
+      # - "/app/assets/elm/elm-stuff"
+
 
   db:
     # We use the predefined Postgres image
@@ -49,6 +41,19 @@ services:
     restart: always
     volumes:
       - pgdata:/var/lib/postgresql/data
+    ports:
+      # Mapping the port to make the Phoenix app accessible outside of the container
+      - "5432:5432"
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    restart: unless-stopped
 
 # Define the volumes
 volumes:

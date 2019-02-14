@@ -91,7 +91,7 @@ travellingSection =
 
 accomodationSection : String
 accomodationSection =
-    [ "hero", "is-fullheight", "has-background-grey" ] |> String.join " "
+    [ "hero", "is-fullheight", "background" ] |> String.join " "
 
 
 transportSubtitle : String

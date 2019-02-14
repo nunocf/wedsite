@@ -91,7 +91,9 @@ viewOurStory lang =
                             ]
                         , div [ class "poem1" ] [ Poem.viewPoem1 lang ]
                         , div [ class "poemPicture is-hidden-mobile" ]
-                            [-- img [ class "poemPhoto", src "images/stonehenge.jpg" ] []
+                            [
+                                img [ class "poemPhoto", src "images/stonehenge.jpg" ] []
+                                
                             ]
                         , div [ class "poem2" ] [ Poem.viewPoem2 lang ]
                         , div [ class "poem3" ] [ Poem.viewPoem3 lang ]
@@ -134,14 +136,9 @@ viewTravelling lang =
 viewAccomodation : Translations.Lang -> Html msg
 viewAccomodation lang =
     div [ class Styles.accomodationSection ]
-        [ div [ class "container" ]
-            [ div [ class "columns is-centered" ]
-                [ div [ class "column is-two-thirds-desktop" ]
-                    [ Accomodation.view lang
-                    ]
-                ]
-            ]
-        ]
+            [ Accomodation.view lang ]
+               
+    
 
 
 

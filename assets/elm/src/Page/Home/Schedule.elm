@@ -21,12 +21,11 @@ viewGroom : Translations.Lang -> Html msg
 viewGroom lang =
     div [ class "rightMapContainer" ]
         [ div [ class "boardContainer" ]
-            [ div
-                [ width 100
-                , height 100
+            [  div [class "svg-container"] [
+                object [ type_ "image/svg+xml", attribute "data" "images/postone.svg" ] [ text "Your browser does not support SVGs" ] 
                 ]
-                [ object [ type_ "image/svg+xml", attribute "data" "images/postone.svg" ] [ text "Your browser does not support SVGs" ] ]
             ]
+            
         , div [ class "textContainer" ]
             [ p [ class Styles.scheduleTimeHeader ] [ text <| Translations.elevenAMDesc0 lang ]
             , p [ class Styles.scheduleTimeSubHeader ] [ text <| Translations.elevenAMDesc1 lang ]
