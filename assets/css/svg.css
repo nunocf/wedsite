@@ -115,10 +115,6 @@ object {
 	fill: #ff6600;
 }
 
-.bee2 {
-
-}
-
 .outlineFillColor {
 	fill: #4c4c4c;
 }
@@ -150,4 +146,16 @@ object {
 
 .flowerCenterInside{
 	fill: #c06a29;
+}
+
+.svg90Pct{
+	width: 90%;
+}
+
+.svg75Pct{
+	width: 75%;
+}
+
+.svg55Pct {
+	width: 55%;
 }
