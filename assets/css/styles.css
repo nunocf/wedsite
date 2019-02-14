@@ -393,6 +393,30 @@
 	align-content: center;
 }
 
+/* .movable {
+	position: relative;
+	top: 0px;
+	transition: transform .2s ease-in-out;
+}
+
+.movable:hover {
+	transform: translate3d(-2px, -2px, 0px);
+} */
+.movable {
+  transition: transform .2s; /* Animation */
+}
+
+.movable:hover {
+	transform: scale(1.05);
+}
+/* .movable:hover {
+	-moz-transform: translate(-2px, -2px);
+	-ms-transform: translate(-2px, -2px);
+	-o-transform: translate(-2px, -2px);
+	-webkit-transform: translate(-2px, -2px);
+	transform: translate(-2px, -2px)
+} */
+
 .kastelSquare {
 	grid-area: square2;
 
