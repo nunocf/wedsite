@@ -16,7 +16,7 @@ type Page
     = Other
     | Home
     | Code
-    | Rsvp
+    | Coming
     | Complete
 
 
@@ -38,6 +38,8 @@ viewErrors : msg -> List String -> Html msg
 viewErrors dismissErrors errors =
     if List.isEmpty errors then
         Html.text ""
+
+        
 
     else
         div

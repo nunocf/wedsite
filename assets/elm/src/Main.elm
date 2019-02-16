@@ -12,10 +12,10 @@ import NavBar
 import Page
 import Page.Blank as Blank
 import Page.Code as Code
+import Page.Coming as Coming
 import Page.Complete as Complete
 import Page.Home as Home
 import Page.NotFound as NotFound
-import Page.Rsvp as Rsvp
 import Route exposing (Route)
 import Session exposing (Session)
 import Translations exposing (Lang)
@@ -33,7 +33,7 @@ type Model
     | Redirect Session
     | Home Home.Model
     | Code Code.Model
-    | Rsvp Rsvp.Model
+    | Coming Coming.Model
 
 
 
@@ -110,8 +110,8 @@ view model =
         Code code ->
             viewPage Page.Code GotCodeMsg (Code.view code)
 
-        Rsvp code ->
-            viewPage Page.Rsvp GotRsvpMsg (Rsvp.view code)
+        Coming code ->
+            viewPage Page.Coming GotComingMsg (Coming.view code)
 
 
 
@@ -135,8 +135,8 @@ toSession page =
         Code code ->
             Code.toSession code
 
-        Rsvp code ->
-            Rsvp.toSession code
+        Coming code ->
+            Coming.toSession code
 
 
 
@@ -162,9 +162,9 @@ changeRouteTo maybeRoute model =
             Code.init session
                 |> updateWith Code GotCodeMsg model
 
-        Just (Route.Rsvp code) ->
-            Rsvp.init session code
-                |> updateWith Rsvp GotRsvpMsg model
+        Just (Route.Coming code) ->
+            Coming.init session code
+                |> updateWith Coming GotComingMsg model
 
         _ ->
             ( NotFound session, Cmd.none )
@@ -221,6 +221,10 @@ update msg model =
             Code.update subMsg code
                 |> updateWith Code GotCodeMsg model
 
+        ( GotComingMsg subMsg, Coming code ) ->
+            Coming.update subMsg code
+                |> updateWith Coming GotComingMsg model
+
         ( _, _ ) ->
             -- Disregard messages that arrived for the wrong page.
             ( model, Cmd.none )
@@ -260,8 +264,8 @@ subscriptions model =
         Code code ->
             Sub.map GotCodeMsg (Code.subscriptions code)
 
-        Rsvp rsvp ->
-            Sub.map GotRsvpMsg (Rsvp.subscriptions rsvp)
+        Coming code ->
+            Sub.map GotComingMsg (Coming.subscriptions code)
 
 
 onUrlChange : Url -> Msg
@@ -284,8 +288,8 @@ updateShowLanguages model value =
         Code m ->
             Code { m | session = Session.setShowLanguages (toSession model) value }
 
-        Rsvp m ->
-            Rsvp { m | session = Session.setShowLanguages (toSession model) value }
+        Coming m ->
+            Coming { m | session = Session.setShowLanguages (toSession model) value }
 
 
 updateLang : Model -> Translations.Lang -> Model
@@ -303,5 +307,5 @@ updateLang model language =
         Code m ->
             Code { m | session = Session.setLanguage (toSession model) language }
 
-        Rsvp m ->
-            Rsvp { m | session = Session.setLanguage (toSession model) language }
+        Coming m ->
+            Coming { m | session = Session.setLanguage (toSession model) language }

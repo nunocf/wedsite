@@ -3,16 +3,17 @@ defmodule Wedsite.Invitation do
   import Ecto.Changeset
   alias Wedsite.Guest
 
-  @derive {Jason.Encoder, only: [:code, :lang, :max_size, :size, :need_transport]}
+  @derive {Jason.Encoder, only: [:id, :code, :lang, :max_guests, :guest_count, :children_count, :coming]}
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "invitations" do
     field :code, :string
-    field :lang, :string
-    field :max_size, :integer
-    field :need_transport, :boolean, default: false
-    field :size, :integer
+    field :lang, :string, default: "EN"
+    field :max_guests, :integer, default: 2
+    field :guest_count, :integer, default: 0
+    field :children_count, :integer, default: 0
+    field :coming, :boolean, default: true
     has_many :guests, Guest
 
 
@@ -22,7 +23,7 @@ defmodule Wedsite.Invitation do
   @doc false
   def changeset(invitation, attrs) do
     invitation
-    |> cast(attrs, [:lang, :need_transport, :max_size, :size, :code])
-    |> validate_required([:lang, :need_transport, :max_size, :size, :code])
+    |> cast(attrs, [:lang, :coming])
+    |> validate_required([:coming])
   end
 end

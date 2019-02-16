@@ -3,15 +3,15 @@ defmodule Wedsite.Repo.Migrations.AddInvitationSizeTrigger do
 
   def up do
     execute """
-    CREATE OR REPLACE FUNCTION update_invitation_size_count()
+    CREATE OR REPLACE FUNCTION update_invitation_guest_count()
     RETURNS trigger AS $$
     BEGIN
       IF (TG_OP = 'INSERT') THEN
-        UPDATE invitations SET size = size + 1
+        UPDATE invitations SET guest_count = guest_count + 1
           WHERE id = NEW.invitation_id;
         RETURN NEW;
       ELSIF (TG_OP = 'DELETE') THEN
-        UPDATE invitations SET size = size - 1
+        UPDATE invitations SET guest_count = guest_count - 1
           WHERE id = OLD.invitation_id;
         RETURN OLD;
       END IF;
@@ -19,13 +19,13 @@ defmodule Wedsite.Repo.Migrations.AddInvitationSizeTrigger do
     END;
     $$ LANGUAGE plpgsql;
     """
-    execute "DROP TRIGGER IF EXISTS update_invitation_size_trg ON comments;"
+    execute "DROP TRIGGER IF EXISTS update_invitation_guest_count_trg ON guests;"
     execute """
-    CREATE TRIGGER update_invitation_size_trg
+    CREATE TRIGGER update_invitation_guest_count_trg
     AFTER INSERT OR DELETE
     ON guests
     FOR EACH ROW
-    EXECUTE PROCEDURE update_invitation_size_count();
+    EXECUTE PROCEDURE update_invitation_guest_count();
     """
   end
 

@@ -3,16 +3,18 @@ defmodule Wedsite.Guest do
   import Ecto.Changeset
   alias Wedsite.Invitation
 
-  @derive {Jason.Encoder, only: [:coming, :diet_notes, :food_choice, :has_special_diet, :name]}
+  @derive {Jason.Encoder, only: [:diet_notes, :food_choice, :diet_type, :has_food_allergies, :food_allergy_notes, :name]}
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "guests" do
-    field :coming, :boolean, default: false
     field :diet_notes, :string
     field :food_choice, :string
-    field :has_special_diet, :boolean, default: false
-    field :name, :string
+    field :diet_type, :string, null: false
+    field :has_food_allergies, :boolean, default: false, null: false
+    field :name, :string, null: false
+    field :food_allergy_notes, :string
+
     belongs_to :invitations, Invitation, foreign_key: :invitation_id
 
     timestamps()
@@ -21,7 +23,7 @@ defmodule Wedsite.Guest do
   @doc false
   def changeset(guest, attrs) do
     guest
-    |> cast(attrs, [:name, :has_special_diet, :diet_notes, :coming, :food_choice])
-    |> validate_required([:name, :has_special_diet, :diet_notes, :coming, :food_choice])
+    |> cast(attrs, [:name, :diet_notes, :diet_type, :coming, :food_allergy_notes, :food_choice])
+    |> validate_required([:name, :has_food_allergies, :food_choice])
   end
 end

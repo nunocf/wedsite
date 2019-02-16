@@ -1,4 +1,4 @@
-module Language exposing (availableLanguages, getCodeFromLn, langFromFlag, langToString)
+module Language exposing (availableLanguages, getCodeFromLn, langDecoder, langFromFlag, langToString)
 
 import Json.Decode as Decode exposing (Error)
 import Translations exposing (Lang)
@@ -43,3 +43,23 @@ langToString lang =
 
         Translations.Rs ->
             "Srpski"
+
+
+langDecoder : Decode.Decoder Lang
+langDecoder =
+    Decode.string
+        |> Decode.andThen
+            (\str ->
+                case str of
+                    "EN" ->
+                        Decode.succeed Translations.En
+
+                    "PT" ->
+                        Decode.succeed Translations.Pt
+
+                    "RS" ->
+                        Decode.succeed Translations.Rs
+
+                    _ ->
+                        Decode.succeed Translations.En
+            )

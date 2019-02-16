@@ -15,8 +15,8 @@ defmodule WedsiteWeb.ApiController do
      result = with {:ok, invitation} <- get_invitation_by_code(code),
           guests <- Ecto.assoc(invitation, :guests) |> Repo.all() do
           {:ok, %{
-            invitation: Jason.encode!(invitation),
-            guests: Jason.encode!(guests)
+            invitation: invitation,
+            guests: guests
           }}
 
          else

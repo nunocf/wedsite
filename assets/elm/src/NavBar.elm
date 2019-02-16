@@ -59,7 +59,7 @@ isActive page route =
         ( Code, Route.Code ) ->
             True
 
-        ( Rsvp, Route.Rsvp string ) ->
+        ( Coming, Route.Coming string ) ->
             True
 
         ( Complete, Route.Complete string ) ->

@@ -78,7 +78,7 @@ update msg model =
                     case found of
                         True ->
                             ( { model | error = Nothing }
-                            , Route.replaceUrl (Session.navKey model.session) (Route.Rsvp model.codeValue)
+                            , Route.replaceUrl (Session.navKey model.session) (Route.Coming model.codeValue)
                             )
 
                         False ->

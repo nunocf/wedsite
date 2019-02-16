@@ -14,7 +14,8 @@ import Url.Parser as Parser exposing ((</>), Parser, oneOf, s, string)
 type Route
     = Home
     | Code
-    | Rsvp String
+    | Coming String
+    | GuestList String
     | Complete String
 
 
@@ -23,8 +24,9 @@ parser =
     oneOf
         [ Parser.map Home Parser.top
         , Parser.map Code (s "rsvp")
-        , Parser.map Rsvp (s "rsvp" </> string)
-        , Parser.map Complete (s "complete" </> string)
+        , Parser.map Coming (s "rsvp" </> string)
+        , Parser.map GuestList (s "rsvp/guests" </> string)
+        , Parser.map Complete (s "rsvp/complete" </> string)
         ]
 
 
@@ -63,10 +65,13 @@ routeToString page =
                 Code ->
                     [ "rsvp" ]
 
-                Rsvp code ->
+                Coming code ->
                     [ "rsvp", code ]
 
+                GuestList code ->
+                    ["rsvp", "guests", code]
+
                 Complete code ->
-                    [ "complete", code ]
+                    [ "rsvp", "complete", code ]
     in
     "#/" ++ String.join "/" pieces

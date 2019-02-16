@@ -4,11 +4,12 @@ defmodule Wedsite.Repo.Migrations.CreateInvitations do
   def change do
     create table(:invitations, primary_key: false) do
       add :id, :binary_id, primary_key: true
-      add :lang, :string
-      add :need_transport, :boolean, default: false, null: false
-      add :max_size, :integer
-      add :size, :integer
-      add :code, :string
+      add :coming, :boolean, default: false, null: false
+      add :lang, :string, default: "EN"
+      add :max_guests, :integer, default: 2
+      add :guest_count, :integer, default: 0
+      add :children_count, :integer, default: 0
+      add :code, :string, null: false
 
       timestamps()
     end
