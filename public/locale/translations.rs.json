@@ -190,5 +190,7 @@
         ""
     ],
     "showMore": "Više",
-    "showLess": "Manji"
+    "showLess": "Manji",
+    "insertInviteCode": "Please insert your invitation code",
+    "codeSubmit": "Let's go!"
 }

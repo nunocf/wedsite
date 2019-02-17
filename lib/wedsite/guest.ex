@@ -10,11 +10,11 @@ defmodule Wedsite.Guest do
   schema "guests" do
     field :diet_notes, :string
     field :food_choice, :string
-    field :diet_type, :string, null: false
-    field :has_food_allergies, :boolean, default: false, null: false
+    field :diet_type, :string
+    field :has_food_allergies, :boolean
     field :name, :string, null: false
     field :food_allergy_notes, :string
-    field :coming, :boolean, default: true, null: false
+    field :coming, :boolean
 
     belongs_to :invitations, Invitation, foreign_key: :invitation_id
 
@@ -25,6 +25,6 @@ defmodule Wedsite.Guest do
   def changeset(guest, attrs) do
     guest
     |> cast(attrs, [:name, :diet_notes, :diet_type, :coming, :food_allergy_notes, :food_choice])
-    |> validate_required([:name, :has_food_allergies, :coming, :food_choice])
+    |> validate_required([:name])
   end
 end

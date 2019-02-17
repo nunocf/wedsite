@@ -22,6 +22,7 @@ type alias Model =
     }
 
 
+
 type State
     = Loading
     | Ready GuestsDetailsForm ValidationErrors
@@ -103,18 +104,23 @@ viewGuestName guest =
 viewDietQuestion : Lang -> Index -> Guest -> Html Msg
 viewDietQuestion lang index guest =
     let
-        isNormal =
-            guest.diet == Normal Meat1 || guest.diet == Normal Meat2
+        isNormal = case guest.diet of
+            Just (Normal _) ->
+                True
 
+            _ ->
+                False
+                        
+           
         isVegetarian =
-            guest.diet == Vegetarian
+            guest.diet == Just Vegetarian
 
         isHalal =
-            guest.diet == Halal
+            guest.diet == Just Halal
 
         isOther =
             case guest.diet of
-                Other _ ->
+                Just (Other _) ->
                     True
 
                 _ ->
@@ -146,25 +152,25 @@ viewDietQuestion lang index guest =
     div [ class "control" ]
         [ div [] [ text "What are your feasting habits?" ]
         , div []
-            [ label [ class "radio", onClick <| ClickDietOption index <| Normal Meat1 ]
+            [ label [ class "radio", onClick <| ClickDietOption index <| Normal Nothing ]
                 [ input [ type_ "radio", name labelName, checked isNormal ] []
                 , text "🍗 Normal 🍖"
                 ]
             ]
         , div []
-            [ label [ class "radio", onClick <| ClickDietOption index Vegetarian ]
+            [ label [ class "radio", onClick <| ClickDietOption index <| Vegetarian ]
                 [ input [ type_ "radio", name labelName, checked isVegetarian ] []
                 , text "\u{1F966} Vegetarian \u{1F951}"
                 ]
             ]
         , div []
-            [ label [ class "radio", onClick <| ClickDietOption index Halal ]
+            [ label [ class "radio", onClick <| ClickDietOption index <| Halal ]
                 [ input [ type_ "radio", name labelName, checked isHalal ] []
                 , text "\u{1F54C} Halal \u{1F54C}"
                 ]
             ]
         , div []
-            [ label [ class "radio", onClick <| ClickDietOption index (Other "") ]
+            [ label [ class "radio", onClick <| ClickDietOption index <| Other "" ]
                 [ input [ type_ "radio", name labelName, checked isOther ] []
                 , text "Other"
                 ]
@@ -223,21 +229,25 @@ courseOption : Lang -> Index -> Guest -> Html Msg
 courseOption lang index guest =
     let
         isMeat1 =
-            guest.diet == Normal Meat1
+            guest.diet == (Just <| Normal <| Just Meat1)
+
+        isMeat2 = 
+            guest.diet == (Just <| Normal <| Just Meat2)
 
         labelName =
             "food-choice-" ++ guest.id
     in
     div []
-        [ div []
-            [ label [ class "radio", onClick <| ClickDietOption index <| Normal Meat1 ]
+        [ div [] [text "What do you wanna eat?"]
+        , div []
+            [ label [ class "radio", onClick <| ClickDietOption index <| Normal <| Just Meat1 ]
                 [ input [ type_ "radio", name labelName, checked isMeat1 ] []
                 , text "Tasty tasty Serbian Schnitzel"
                 ]
             ]
         , div []
-            [ label [ class "radio", onClick <| ClickDietOption index <| Normal Meat2 ]
-                [ input [ type_ "radio", name labelName, checked (not isMeat1) ] []
+            [ label [ class "radio", onClick <| ClickDietOption index <| Normal <| Just Meat2 ]
+                [ input [ type_ "radio", name labelName, checked isMeat2 ] []
                 , text "Pork with dates and stuff"
                 ]
             ]
@@ -386,6 +396,7 @@ updateFormInModel model form =
     { model | state = Ready form [] }
 
 
+
 updateGuestDietInGuests : Int -> Diet -> Array Guest -> List Guest
 updateGuestDietInGuests index diet guests =
     let
@@ -395,7 +406,7 @@ updateGuestDietInGuests index diet guests =
         guestList =
             case guest of
                 Just g ->
-                    Array.set index { g | diet = diet } guests
+                    Array.set index { g | diet = Just diet } guests
 
                 Nothing ->
                     guests

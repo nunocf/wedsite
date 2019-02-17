@@ -35,9 +35,9 @@ import Translations
 type alias Guest =
     { id : ID
     , name : Name
-    , diet : Diet
+    , diet : Maybe Diet
     , allergies : Allergies
-    , coming : Coming
+    , coming : Maybe Coming
     }
 
 
@@ -50,7 +50,7 @@ type alias Name =
 
 
 type Diet
-    = Normal Course
+    = Normal (Maybe Course)
     | Vegetarian
     | Halal
     | Other DietNeeds
@@ -82,7 +82,7 @@ type alias Invitation =
     , code : Code
     , preferedLang : Translations.Lang
     , maxGuests : Int
-    , accepted : Accepted
+    , accepted : Maybe Accepted
     }
 
 
@@ -116,7 +116,7 @@ decodeInvitation =
         |> required "code" Decode.string
         |> required "lang" Language.langDecoder
         |> required "max_guests" Decode.int
-        |> required "accepted" Decode.bool
+        |> required "accepted" (nullable Decode.bool)
 
 
 decodeGuest : Decoder Guest
@@ -126,14 +126,14 @@ decodeGuest =
         |> required "diet_type" (nullable Decode.string)
         |> required "food_choice" (nullable Decode.string)
         |> required "diet_notes" (nullable Decode.string)
-        |> required "has_food_allergies" Decode.bool
+        |> required "has_food_allergies" (nullable Decode.bool)
         |> optional "food_allergy_notes" Decode.string ""
-        |> required "coming" Decode.bool
+        |> required "coming" (nullable Decode.bool)
         |> optional "id" Decode.string ""
         |> resolve
 
 
-guestDecoder : String -> Maybe String -> Maybe String -> Maybe String -> Bool -> String -> Bool -> ID -> Decoder Guest
+guestDecoder : String -> Maybe String -> Maybe String -> Maybe String -> Maybe Bool -> String -> Maybe Coming -> ID -> Decoder Guest
 guestDecoder name diet foodOption dietNotes hasAllergies allergyNotes coming id =
     let
         dietType =
@@ -141,36 +141,43 @@ guestDecoder name diet foodOption dietNotes hasAllergies allergyNotes coming id 
 
         allergies =
             case hasAllergies of
-                True ->
-                    Just allergyNotes
+                Just jsonBool ->
+                    case jsonBool of
+                        True ->
+                            Just allergyNotes
+                    
+                        False ->
+                            Nothing
+                    
 
-                False ->
+                Nothing ->
                     Nothing
+
     in
-    Decode.succeed (Guest id name dietType allergies coming)
+    Decode.succeed (Guest id name  dietType allergies coming)
 
 
-getDietType : Maybe String -> Maybe String -> Maybe String -> Diet
+getDietType : Maybe String -> Maybe String -> Maybe String -> Maybe Diet
 getDietType diet foodOption notes =
     case diet of
         Just dietType ->
             case dietType of
                 "normal" ->
-                    getFoodOption foodOption
+                    Just (getFoodOption foodOption)
 
                 "vegetarian" ->
-                    Vegetarian
+                    Just (Vegetarian)
 
                 "halal" ->
-                    Halal
+                    Just (Halal)
 
                 _ ->
                     notes
                         |> Maybe.withDefault ""
                         |> Other
-
+                        |> Just
         Nothing ->
-            Normal Meat1
+            Nothing
 
 
 getFoodOption : Maybe String -> Diet
@@ -179,16 +186,16 @@ getFoodOption foodOption =
         Just option ->
             case option of
                 "option1" ->
-                    Normal Meat1
+                    Normal (Just Meat1)
 
                 "option2" ->
-                    Normal Meat2
+                    Normal (Just Meat2)
 
                 _ ->
-                    Normal Meat1
+                    Normal Nothing
 
         Nothing ->
-            Normal Meat1
+            Normal Nothing
 
 
 acceptFormDecoder : Decoder AcceptForm
@@ -270,21 +277,39 @@ encodeGuestsDetailsForm { guests, invitation } =
 
 additionalGuestToGuest : AdditionalGuest -> Guest
 additionalGuestToGuest { name, coming } =
-    Guest "" name (Normal Meat1) Nothing coming
+    Guest "" name Nothing Nothing (Just coming)
 
 
 encodeInvitation : Invitation -> Encode.Value
 encodeInvitation { id, code, preferedLang, accepted } =
+    let
+        encodedAccepted = case accepted of
+            Just val ->
+                Encode.bool val
+        
+            Nothing ->
+                Encode.null
+    in
+    
     Encode.object
         [ ( "id", Encode.string id )
         , ( "code", Encode.string code )
         , ( "preferedLang", Language.langEncoder preferedLang )
-        , ( "accepted", Encode.bool accepted )
+        , ( "accepted", encodedAccepted )
         ]
 
 
 encodeGuest : Guest -> Encode.Value
 encodeGuest { id, name, diet, allergies, coming } =
+    let
+        encodedComing = case coming of
+            Just value ->
+                Encode.bool value
+        
+            Nothing ->
+                Encode.null
+    in
+    
     Encode.object
         ([ ( "id"
            , if id == "" then
@@ -294,7 +319,7 @@ encodeGuest { id, name, diet, allergies, coming } =
                 Encode.string id
            )
          , ( "name", Encode.string name )
-         , ( "coming", Encode.bool coming )
+         , ( "coming", encodedComing )
          ]
             ++ encodeAllergies allergies
             ++ encodeDiet diet
@@ -315,52 +340,48 @@ encodeAllergies allergies =
             ]
 
 
-encodeDiet : Diet -> List ( String, Encode.Value )
+encodeDiet : Maybe Diet -> List ( String, Encode.Value )
 encodeDiet diet =
     case diet of
-        Normal course ->
-            [ ( "diet_type", Encode.string "normal" )
-            , ( "food_choice", Encode.string <| courseToString course )
+        Nothing ->
+            [ ( "diet_type", Encode.null )
+            , ( "food_choice", Encode.null  )
             , ( "diet_notes", Encode.null )
             ]
 
-        Vegetarian ->
+        Just (Normal course) ->
+            [ ( "diet_type", Encode.string "normal" )
+            , ( "food_choice", encodeCourse course )
+            , ( "diet_notes", Encode.null )
+            ]
+
+        Just Vegetarian ->
             [ ( "diet_type", Encode.string "vegetarian" )
             , ( "food_choice", Encode.null )
             , ( "diet_notes", Encode.null )
             ]
 
-        Halal ->
+        Just Halal ->
             [ ( "diet_type", Encode.string "halal" )
             , ( "food_choice", Encode.null )
             , ( "diet_notes", Encode.null )
             ]
 
-        Other notes ->
+        Just (Other notes) ->
             [ ( "diet_type", Encode.string "other" )
             , ( "food_choice", Encode.null )
             , ( "diet_notes", Encode.string notes )
             ]
 
 
-courseToString : Course -> String
-courseToString course =
+encodeCourse : Maybe Course -> Encode.Value
+encodeCourse course =
     case course of
-        Meat1 ->
-            "option1"
+        Just Meat1 ->
+            Encode.string "option1"
 
-        Meat2 ->
-            "option2"
-
-
-
--- type Diet
---     = Normal Course
---     | Vegetarian
---     | Halal
---     | Other DietNeeds
--- type alias DietNeeds =
---     String
--- type Course
---     = Meat1
---     | Meat2
+        Just Meat2 ->
+            Encode.string "option2"
+        
+        Nothing ->
+            Encode.null

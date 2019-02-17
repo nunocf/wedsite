@@ -10,6 +10,7 @@ import Json.Decode as Decode exposing (Decoder)
 import Json.Encode as Encode
 import Route
 import Session exposing (Session)
+import Translations
 
 
 type alias Model =
@@ -27,6 +28,7 @@ init session =
 view : Model -> { title : String, content : Html Msg }
 view { session, codeValue, error } =
     let
+        lang = Session.lang session
         errorDisplay =
             case error of
                 Just errorMsg ->
@@ -40,11 +42,11 @@ view { session, codeValue, error } =
         div []
             [ form [ onSubmit OnSubmit ]
                 [ div []
-                    [ p [] [ text "Please insert your invitation code" ]
+                    [ p [] [ text <| Translations.insertInviteCode lang ]
                     , input [ type_ "text", value codeValue, onInput OnInput ] []
                     , errorDisplay
                     ]
-                , div [] [ button [] [ text "Submit" ] ]
+                , div [] [ button [] [ text <| Translations.codeSubmit lang ] ]
                 ]
             ]
     }

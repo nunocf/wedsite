@@ -13,7 +13,7 @@ defmodule Wedsite.Invitation do
     field :max_guests, :integer, default: 2
     field :guest_count, :integer, default: 0
     field :children_count, :integer, default: 0
-    field :accepted, :boolean, default: true
+    field :accepted, :boolean
     has_many :guests, Guest
 
 

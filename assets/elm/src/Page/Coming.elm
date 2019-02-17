@@ -4,13 +4,13 @@ import Api
 import Api.Endpoint as Endpoint
 import Array exposing (Array)
 import Html exposing (..)
-import Html.Attributes exposing (action, checked, class, classList, method, name, type_, value)
+import Html.Attributes exposing (action, checked, class, placeholder, method, name, type_, value)
 import Html.Events exposing (onClick, onInput, onSubmit)
 import Http
 import Json.Decode as Decode exposing (Decoder, nullable)
 import Json.Decode.Pipeline exposing (custom, hardcoded, optional, required, resolve)
 import Language
-import Page.Rsvp.Types as Types exposing (AcceptForm, Accepted, AdditionalGuest, Coming, Guest, Invitation, Name, acceptFormDecoder, decodeGuest, decodeInvitation)
+import Page.Rsvp.Types as Types exposing (encodeAcceptedForm, AcceptForm, Accepted, AdditionalGuest, Coming, Guest, Invitation, Name, acceptFormDecoder, decodeGuest, decodeInvitation)
 import Route
 import Session exposing (Session, setLanguage)
 import Translations exposing (Lang, getLnFromCode)
@@ -36,6 +36,7 @@ init session code =
     ( Model session Loading
     , Api.get (Endpoint.acceptInvitation code) (Http.expectJson GotResponse acceptFormDecoder)
     )
+
 
 
 type Msg
@@ -105,18 +106,19 @@ viewGreeting lang guests =
     div [] [ text <| greeting ]
 
 
-viewAcceptedRadio : Lang -> Coming -> Html Msg
+viewAcceptedRadio : Lang -> Maybe Accepted -> Html Msg
 viewAcceptedRadio lang coming =
+    
     div [ class "control" ]
         [ div []
-            [ label [ class "radio", onClick (AcceptedClick True) ]
-                [ input [ type_ "radio", name "coming", checked coming ] []
+            [ label [ class "radio", onClick <| AcceptedClick True ]
+                [ input [ type_ "radio", name "coming", checked (coming == Just True) ] []
                 , text "Aw hell ye 🎉"
                 ]
             ]
         , div []
-            [ label [ class "radio", onClick (AcceptedClick False) ]
-                [ input [ type_ "radio", name "coming", checked (not coming) ] []
+            [ label [ class "radio", onClick <| AcceptedClick False ]
+                [ input [ type_ "radio", name "coming", checked (coming == Just False) ] []
                 , text "No, I will have diarhea 💩"
                 ]
             ]
@@ -125,7 +127,20 @@ viewAcceptedRadio lang coming =
 
 viewHowManyQuestion : Lang -> AcceptForm -> Html Msg
 viewHowManyQuestion lang form =
-    if form.invitation.accepted == True then
+    let
+        accepted = case form.invitation.accepted of
+            Just True ->
+                True
+                
+        
+            Just False ->
+                False
+
+            Nothing ->
+                False
+    in
+    
+    if accepted == True then
         div []
             [ p [] [ text "Who's coming?" ]
             , div [] <|
@@ -155,9 +170,18 @@ viewAdditionalGuestsCheckboxes guests =
 
 guestCheckbox : Int -> Guest -> Html Msg
 guestCheckbox index guest =
+    let
+        coming = case guest.coming of
+            Just value ->
+                value
+        
+            Nothing ->
+                False
+    in
+    
     div []
-        [ label [ class "checkbox", onClick (ClickedGuest index (not guest.coming)) ]
-            [ input [ type_ "checkbox", checked guest.coming ] []
+        [ label [ class "checkbox", onClick (ClickedGuest index (not coming)) ]
+            [ input [ type_ "checkbox", checked coming ] []
             , text guest.name
             ]
         ]
@@ -172,7 +196,7 @@ additionalGuestCheckbox index { coming, name } =
                     text name
 
                 True ->
-                    input [ type_ "text", value name, onInput (InputAdditionalGuest index) ] []
+                    input [ type_ "text", placeholder name, onInput (InputAdditionalGuest index) ] []
     in
     div []
         [ label [ class "checkbox" ]
@@ -180,6 +204,7 @@ additionalGuestCheckbox index { coming, name } =
             , nameElement
             ]
         ]
+
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -294,7 +319,7 @@ update msg model =
                 Ready form _ ->
                     let
                         body =
-                            Http.jsonBody (Types.encodeAcceptedForm form)
+                            Http.jsonBody (encodeAcceptedForm form)
 
                         endpoint =
                             Endpoint.acceptInvitation form.invitation.code
@@ -320,7 +345,7 @@ subscriptions model =
 
 setAcceptedInInvitation : Invitation -> Accepted -> Invitation
 setAcceptedInInvitation invitation accepted =
-    { invitation | accepted = accepted }
+    { invitation | accepted = Just accepted }
 
 
 setInvitationInForm : AcceptForm -> Invitation -> AcceptForm
@@ -342,7 +367,7 @@ setGuestInGuests guests ( index, coming ) =
         guestList =
             case guest of
                 Just g ->
-                    Array.set index { g | coming = coming } guests
+                    Array.set index { g | coming = Just coming } guests
 
                 Nothing ->
                     guests
