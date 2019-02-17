@@ -16,8 +16,12 @@ module Styles exposing
     , textFont
     , transportSubtitle
     , travellingSection
+    , accomodationGridItem
     )
 
+accomodationGridItem : String
+accomodationGridItem =
+    "pointerCursor movable roundCorners boxShadow"
 
 currentSelection : String
 currentSelection =

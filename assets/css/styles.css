@@ -403,7 +403,10 @@
 	transform: translate3d(-2px, -2px, 0px);
 } */
 .movable {
-  transition: transform .2s; /* Animation */
+	transition: transform .2s; /* Animation */
+}
+.pointerCursor {
+	cursor: pointer; 
 }
 
 .movable:hover {

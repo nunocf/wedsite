@@ -10,6 +10,7 @@ defmodule Wedsite.Repo.Migrations.CreateGuests do
       add :has_food_allergies, :boolean, default: false, null: false
       add :food_allergy_notes, :string
       add :food_choice, :string
+      add :coming, :boolean, default: true, null: false
       add :invitation_id, references(:invitations, on_delete: :nothing, type: :binary_id)
 
       timestamps()

@@ -6,7 +6,7 @@ import Html.Attributes exposing (class, classList, href, style)
 import Html.Events exposing (onClick)
 import Route exposing (Route)
 import Session exposing (Session)
-
+import Page.Rsvp.Types exposing (AcceptForm)
 
 
 -- Determines which navbar link will be rendered as active.
@@ -17,6 +17,7 @@ type Page
     | Home
     | Code
     | Coming
+    | GuestDetails
     | Complete
 
 

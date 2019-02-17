@@ -3,6 +3,9 @@ defmodule WedsiteWeb.ApiController do
 
   alias Wedsite.Repo
   alias Wedsite.Invitation
+  alias Wedsite.Guest
+  import Ecto.Query, only: [from: 2, order_by: 3]
+
 
   def rsvp(conn, _params) do
     conn
@@ -13,7 +16,8 @@ defmodule WedsiteWeb.ApiController do
   def get_invite(conn, %{"code" => code}) do
 
      result = with {:ok, invitation} <- get_invitation_by_code(code),
-          guests <- Ecto.assoc(invitation, :guests) |> Repo.all() do
+          guests <- (from g in Ecto.assoc(invitation, :guests), order_by: g.inserted_at) |> Repo.all() do
+
           {:ok, %{
             invitation: invitation,
             guests: guests
@@ -38,10 +42,50 @@ defmodule WedsiteWeb.ApiController do
     |> json(response)
   end
 
-  def update_invite(conn, _params) do
+  def update_invite(conn, %{"guests" => guests,"invitation" => invitation}) do
+
+    invitation = repo_update_invitation(invitation)
+
+    result = if invitation.accepted == true do
+      repo_update_guests(invitation, guests)
+    end
+
+    # IO.inspect(result)
+
     conn
     |> put_status(200)
     |> json(%{"status" => "ok"})
+  end
+
+  defp repo_update_invitation(%{"id" => id, "accepted" => accepted, "preferedLang" => lang}) do
+    Repo.get!(Invitation, id)
+    |> Ecto.Changeset.change(accepted: accepted, lang: lang)
+    |> Repo.update!()
+  end
+
+  defp repo_update_guests(invitation, guests) do
+    guests
+    |> Enum.map(&upsert_guest(&1, invitation.id))
+  end
+
+  defp upsert_guest(%{
+    "coming" => coming,
+    "diet_notes" => diet_notes,
+    "diet_type" => diet_type,
+    "food_choice" => food_choice,
+    "food_allergy_notes" => allergy_notes,
+    "has_food_allergies" => has_allergies,
+    "id" => id,
+    "name" => name
+  } = guest, invitation_id) do
+
+    if id == nil do
+      %Guest{invitation_id: invitation_id}
+    else
+      Repo.get!(Guest, id)
+    end
+    |> Guest.changeset(guest)
+    |> Repo.insert_or_update!()
   end
 
   def code(conn, %{"code" => code}) do
@@ -53,7 +97,6 @@ defmodule WedsiteWeb.ApiController do
       {:ok, _} ->
         %{"found" => true}
     end
-
 
     conn
     |> put_status(200)

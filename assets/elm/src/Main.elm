@@ -14,6 +14,7 @@ import Page.Blank as Blank
 import Page.Code as Code
 import Page.Coming as Coming
 import Page.Complete as Complete
+import Page.GuestDetails as GuestDetails
 import Page.Home as Home
 import Page.NotFound as NotFound
 import Route exposing (Route)
@@ -34,35 +35,8 @@ type Model
     | Home Home.Model
     | Code Code.Model
     | Coming Coming.Model
-
-
-
--- | Complete Complete.Model
---
---
---
--- MODEL
--- init : Flags -> Url -> Key -> ( Model, Cmd Msg )
--- init flags url key =
---     let
---         language =
---             flags.language
---                 |> Decode.decodeValue Decode.string
---                 |> Language.langFromFlag
---         route =
---             parseUrl url
---         ( pageModel, commands ) =
---             initPageModel route
---     in
---     ( { currentLanguage = language
---       , showLanguages = False
---       , title = Translations.title language
---       , key = key
---       , pageModel = pageModel
---       , route = route
---       }
---     , Cmd.batch commands
---     )
+    | GuestDetails GuestDetails.Model
+    | Complete Complete.Model
 
 
 init : Flags -> Url -> Key -> ( Model, Cmd Msg )
@@ -110,14 +84,14 @@ view model =
         Code code ->
             viewPage Page.Code GotCodeMsg (Code.view code)
 
-        Coming code ->
-            viewPage Page.Coming GotComingMsg (Coming.view code)
+        Coming comingModel ->
+            viewPage Page.Coming GotComingMsg (Coming.view comingModel)
 
+        GuestDetails detailsModel ->
+            viewPage Page.GuestDetails GotGuestDetailsMsg (GuestDetails.view detailsModel)
 
-
--- Complete code ->
---     viewPage (Page.Profile username) (\_ -> Ignored) (Complete.view code)
--- UPDATE
+        Complete completeModel ->
+            viewPage Page.Complete GotCompleteMsg (Complete.view completeModel)
 
 
 toSession : Model -> Session
@@ -138,10 +112,12 @@ toSession page =
         Coming code ->
             Coming.toSession code
 
+        GuestDetails code ->
+            GuestDetails.toSession code
 
+        Complete code ->
+            Complete.toSession code
 
--- Complete code ->
---     Complete.toSession code
 
 
 changeRouteTo : Maybe Route -> Model -> ( Model, Cmd Msg )
@@ -166,17 +142,16 @@ changeRouteTo maybeRoute model =
             Coming.init session code
                 |> updateWith Coming GotComingMsg model
 
-        _ ->
-            ( NotFound session, Cmd.none )
+        Just (Route.GuestDetails code) ->
+            GuestDetails.init session code
+                |> updateWith GuestDetails GotGuestDetailsMsg model
+
+        Just (Route.Complete code) ->
+            Complete.init session code
+                |> updateWith Complete GotCompleteMsg model
 
 
 
--- Just Route.Rsvp ->
---     Code.init session
---         |> updateWith Login GotRsvpMsg model
--- Just (Route.Complete code)->
---     Complete.init session
---         |> updateWith Login GotCompleteMsg model
 -- UPDATE
 
 
@@ -225,6 +200,14 @@ update msg model =
             Coming.update subMsg code
                 |> updateWith Coming GotComingMsg model
 
+        ( GotGuestDetailsMsg subMsg, GuestDetails code ) ->
+            GuestDetails.update subMsg code
+                |> updateWith GuestDetails GotGuestDetailsMsg model
+
+        ( GotCompleteMsg subMsg, Complete code ) ->
+            Complete.update subMsg code
+                |> updateWith Complete GotCompleteMsg model
+
         ( _, _ ) ->
             -- Disregard messages that arrived for the wrong page.
             ( model, Cmd.none )
@@ -267,6 +250,12 @@ subscriptions model =
         Coming code ->
             Sub.map GotComingMsg (Coming.subscriptions code)
 
+        GuestDetails code ->
+            Sub.map GotGuestDetailsMsg (GuestDetails.subscriptions code)
+
+        Complete code ->
+            Sub.map GotCompleteMsg (Complete.subscriptions code)
+
 
 onUrlChange : Url -> Msg
 onUrlChange url =
@@ -291,6 +280,12 @@ updateShowLanguages model value =
         Coming m ->
             Coming { m | session = Session.setShowLanguages (toSession model) value }
 
+        GuestDetails m ->
+            GuestDetails { m | session = Session.setShowLanguages (toSession model) value }
+
+        Complete m ->
+            Complete { m | session = Session.setShowLanguages (toSession model) value }
+
 
 updateLang : Model -> Translations.Lang -> Model
 updateLang model language =
@@ -309,3 +304,9 @@ updateLang model language =
 
         Coming m ->
             Coming { m | session = Session.setLanguage (toSession model) language }
+
+        GuestDetails m ->
+            GuestDetails { m | session = Session.setLanguage (toSession model) language }
+
+        Complete m ->
+            Complete { m | session = Session.setLanguage (toSession model) language }

@@ -1,4 +1,4 @@
-module Asset exposing (Image, error, src)
+module Asset exposing (Image, complete, error, src)
 
 {-| Assets, like images.
 We should never expose asset URLs directly; this module should be in charge of
@@ -22,9 +22,14 @@ error =
     image "error.jpg"
 
 
+complete : Image
+complete =
+    image "complete.jpg"
+
+
 image : String -> Image
 image filename =
-    Image ("/assets/images/" ++ filename)
+    Image ("images/" ++ filename)
 
 
 

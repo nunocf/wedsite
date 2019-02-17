@@ -11,40 +11,40 @@ view lang =
     div []
         [ 
             div [class "accomodationGrid"] 
-                [ div [class "movable roundCorners boxShadow square1 svg-container p-0-5"] 
-                    [object [class "svg-content svg55Pct", type_ "image/svg+xml", attribute "data" "images/booking.svg" ] [ text "Your browser does not support SVGs" ] 
+                [ div [class "pointerCursor movable roundCorners boxShadow square1 svg-container p-0-5"] 
+                    [object [class "pointerCursor svg-content svg55Pct", type_ "image/svg+xml", attribute "data" "svg/booking.svg" ] [ text "Your browser does not support SVGs" ] 
                 ]
-                , div [class "movable roundCorners boxShadow kastelSquare"] []
-                , div [class "movable roundCorners boxShadow square3"] []
-                , div [class "movable roundCorners boxShadow square4"] []
-                , div [class "movable roundCorners boxShadow square5 svg-container p-0-5"] [
-                    object [ class "svg-content", type_ "image/svg+xml", attribute "data" "images/airbnb.svg" ] [ text "Your browser does not support SVGs" ] 
+                , div [class "pointerCursor movable roundCorners boxShadow kastelSquare"] []
+                , div [class "pointerCursor movable roundCorners boxShadow square3"] []
+                , div [class "pointerCursor movable roundCorners boxShadow square4"] []
+                , div [class "pointerCursor movable roundCorners boxShadow square5 svg-container p-0-5"] [
+                    object [ class "svg-content", type_ "image/svg+xml", attribute "data" "svg/airbnb.svg" ] [ text "Your browser does not support SVGs" ] 
                 ]
-                , div [class "movable roundCorners boxShadow hotelVojvodinaSquare"] []
-                , div [class "movable roundCorners boxShadow square7"] []
-                , div [class "movable roundCorners boxShadow square8"] []
-                , div [class "movable roundCorners boxShadow square9"] []
+                , div [class "pointerCursor movable roundCorners boxShadow hotelVojvodinaSquare"] []
+                , div [class "pointerCursor movable roundCorners boxShadow square7"] []
+                , div [class "pointerCursor movable roundCorners boxShadow square8"] []
+                , div [class "pointerCursor movable roundCorners boxShadow square9"] []
                 , div [class "flowerBL svg-container svgCentered p-0-5"] [
-                    object [ class "svg75Pct svg-content", type_ "image/svg+xml", attribute "data" "images/flower_bottom_left.svg" ] [ text "Your browser does not support SVGs" ] 
+                    object [ class "svg75Pct svg-content", type_ "image/svg+xml", attribute "data" "svg/flower_bottom_left.svg" ] [ text "Your browser does not support SVGs" ] 
                 ]
                 , div [class "flowerTL svgCentered svg-container p-0-5"] [
-                    object [ class "svg-content", type_ "image/svg+xml", attribute "data" "images/flowertopleft.svg" ] [ text "Your browser does not support SVGs" ] 
+                    object [ class "svg-content", type_ "image/svg+xml", attribute "data" "svg/flowertopleft.svg" ] [ text "Your browser does not support SVGs" ] 
                 ]
-                , div [class "movable roundCorners boxShadow square12"] []
+                , div [class "pointerCursor movable roundCorners boxShadow square12"] []
                 , div [class "accTitle has-text-centered"] [
                     div [ class "has-text-centered" ] [ header lang]
                 ]
                 , div [class "square14 svg-container p-0-5"] [
-                    object [ class "svg90Pct svg-content", type_ "image/svg+xml", attribute "data" "images/bee.svg" ] [ text "Your browser does not support SVGs" ] 
+                    object [ class "svg90Pct svg-content", type_ "image/svg+xml", attribute "data" "svg/bee.svg" ] [ text "Your browser does not support SVGs" ] 
                 ]
                 , div [class "bigFlower svgCentered svg-container p-0-5"] [
-                    object [ class "svg90Pct svg-content", style "width" "90%", type_ "image/svg+xml", attribute "data" "images/single_flower.svg" ] [ text "Your browser does not support SVGs" ] 
+                    object [ class "svg90Pct svg-content", style "width" "90%", type_ "image/svg+xml", attribute "data" "svg/single_flower.svg" ] [ text "Your browser does not support SVGs" ] 
                 ]
                 , div [class "smallFlower svgCentered svg-container p-0-5"] [
-                    object [ class "svg75Pct svg-content", type_ "image/svg+xml", attribute "data" "images/single_flower.svg" ] [ text "Your browser does not support SVGs" ] 
+                    object [ class "svg75Pct svg-content", type_ "image/svg+xml", attribute "data" "svg/single_flower.svg" ] [ text "Your browser does not support SVGs" ] 
                 ]
                 , div [class "topRightFlower svgCentered svg-container p-0-5"] [
-                    object [ class "svg-content", type_ "image/svg+xml", attribute "data" "images/flowertopright.svg" ] [ text "Your browser does not support SVGs" ] 
+                    object [ class "svg-content", type_ "image/svg+xml", attribute "data" "svg/flowertopright.svg" ] [ text "Your browser does not support SVGs" ] 
                 ]
                 ]
         ]

@@ -15,7 +15,7 @@ type Route
     = Home
     | Code
     | Coming String
-    | GuestList String
+    | GuestDetails String
     | Complete String
 
 
@@ -25,8 +25,8 @@ parser =
         [ Parser.map Home Parser.top
         , Parser.map Code (s "rsvp")
         , Parser.map Coming (s "rsvp" </> string)
-        , Parser.map GuestList (s "rsvp/guests" </> string)
-        , Parser.map Complete (s "rsvp/complete" </> string)
+        , Parser.map GuestDetails (s "rsvp" </> string </> s "guests")
+        , Parser.map Complete (s "rsvp" </> string </> s "complete")
         ]
 
 
@@ -41,7 +41,7 @@ href targetRoute =
 
 replaceUrl : Nav.Key -> Route -> Cmd msg
 replaceUrl key route =
-    Nav.replaceUrl key (routeToString route)
+    Nav.pushUrl key (routeToString route)
 
 
 fromUrl : Url -> Maybe Route
@@ -68,10 +68,10 @@ routeToString page =
                 Coming code ->
                     [ "rsvp", code ]
 
-                GuestList code ->
-                    ["rsvp", "guests", code]
+                GuestDetails code ->
+                    [ "rsvp", code, "guests" ]
 
                 Complete code ->
-                    [ "rsvp", "complete", code ]
+                    [ "rsvp", code, "complete" ]
     in
     "#/" ++ String.join "/" pieces

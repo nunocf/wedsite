@@ -38,7 +38,7 @@ view { session, codeValue, error } =
     { title = "Wedsite"
     , content =
         div []
-            [ form [ method "POST", action "/api/code", onSubmit OnSubmit ]
+            [ form [ onSubmit OnSubmit ]
                 [ div []
                     [ p [] [ text "Please insert your invitation code" ]
                     , input [ type_ "text", value codeValue, onInput OnInput ] []

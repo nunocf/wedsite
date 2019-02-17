@@ -1,6 +1,7 @@
-module Language exposing (availableLanguages, getCodeFromLn, langDecoder, langFromFlag, langToString)
+module Language exposing (availableLanguages, getCodeFromLn, langDecoder, langEncoder, langFromFlag, langToString)
 
 import Json.Decode as Decode exposing (Error)
+import Json.Encode as Encode
 import Translations exposing (Lang)
 
 
@@ -63,3 +64,16 @@ langDecoder =
                     _ ->
                         Decode.succeed Translations.En
             )
+
+
+langEncoder : Lang -> Encode.Value
+langEncoder lang =
+    case lang of
+        Translations.En ->
+            Encode.string "EN"
+
+        Translations.Pt ->
+            Encode.string "PT"
+
+        Translations.Rs ->
+            Encode.string "RS"

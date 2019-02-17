@@ -2,98 +2,184 @@ module Page.Coming exposing (Model, Msg, init, subscriptions, toSession, update,
 
 import Api
 import Api.Endpoint as Endpoint
-import Html exposing (Html, button, div, form, input, p, text)
-import Html.Attributes exposing (action, method, name, type_)
+import Array exposing (Array)
+import Html exposing (..)
+import Html.Attributes exposing (action, checked, class, classList, method, name, type_, value)
+import Html.Events exposing (onClick, onInput, onSubmit)
 import Http
 import Json.Decode as Decode exposing (Decoder, nullable)
-import Json.Decode.Pipeline exposing (custom, optional, required, resolve)
+import Json.Decode.Pipeline exposing (custom, hardcoded, optional, required, resolve)
 import Language
+import Page.Rsvp.Types as Types exposing (AcceptForm, Accepted, AdditionalGuest, Coming, Guest, Invitation, Name, acceptFormDecoder, decodeGuest, decodeInvitation)
+import Route
 import Session exposing (Session, setLanguage)
 import Translations exposing (Lang, getLnFromCode)
 
 
 type alias Model =
     { session : Session
-    , form : Form
+    , state : State
     }
 
 
-type alias Form =
-    { guests : List Guest
-    , invitation : Invitation
-    }
+type State
+    = Loading
+    | Ready AcceptForm ValidationErrors
 
 
-type alias Guest =
-    { name : Name
-    , diet : Diet
-    , allergies : Allergies
-    }
-
-
-type alias Coming =
-    Bool
-
-
-type alias Allergies =
-    Maybe String
-
-
-type alias Invitation =
-    { code : Code
-    , preferedLang : Lang
-    , maxGuests : Int
-    , coming : Coming
-    }
-
-
-type Diet
-    = Normal Course
-    | Vegetarian
-    | Halal
-    | Other DietNeeds
-
-
-type alias Code =
-    String
-
-
-type alias Name =
-    String
-
-
-type alias DietNeeds =
-    String
-
-
-type Course
-    = Meat1
-    | Meat2
+type alias ValidationErrors =
+    List String
 
 
 init : Session -> String -> ( Model, Cmd Msg )
 init session code =
-    ( Model session { guests = [], invitation = Invitation code Translations.En 2 False }
-    , Api.get (Endpoint.rsvp code) (Http.expectJson GotResponse decoder)
+    ( Model session Loading
+    , Api.get (Endpoint.acceptInvitation code) (Http.expectJson GotResponse acceptFormDecoder)
     )
 
 
 type Msg
-    = GotResponse (Result Http.Error Form)
+    = GotResponse (Result Http.Error AcceptForm)
+    | GotSubmitResponse (Result Http.Error String)
+    | AcceptedClick Accepted
+    | ClickedGuest Int Coming
+    | ClickedAdditionalGuest Int Coming
+    | InputAdditionalGuest Int String
+    | OnSubmit
 
 
 view : Model -> { title : String, content : Html Msg }
-view { session, form } =
+view model =
+    let
+        lang =
+            Session.lang model.session
+
+        content =
+            case model.state of
+                Loading ->
+                    div [] []
+
+                Ready acceptForm errors ->
+                    div []
+                        [ form [ onSubmit OnSubmit ]
+                            [ viewAcceptedQuestion lang acceptForm
+                            , viewHowManyQuestion lang acceptForm
+                            , div [] [ button [] [ text "Submit" ] ]
+                            ]
+                        ]
+    in
     { title = "Wedsite"
-    , content =
-        div []
-            [ text <| "code " ++ form.invitation.code ++ " EXISTS IN OUR MEGA DATABASE!!!"
-            , div []
-                (form.guests
-                    |> List.map (\g -> p [] [text g.name])
-                )
-            ]
+    , content = content
     }
+
+
+viewAcceptedQuestion : Lang -> AcceptForm -> Html Msg
+viewAcceptedQuestion lang form =
+    div []
+        [ viewGreeting lang (Array.fromList form.guests)
+        , viewAcceptedRadio lang form.invitation.accepted
+        ]
+
+
+viewGreeting : Lang -> Array Guest -> Html msg
+viewGreeting lang guests =
+    let
+        default =
+            "and welcome"
+
+        guestName =
+            case Array.get 0 guests of
+                Just guest ->
+                    guest.name
+                        |> String.split " "
+                        |> List.head
+                        |> Maybe.withDefault default
+
+                Nothing ->
+                    default
+
+        -- replace with translation
+        greeting =
+            "Hello " ++ guestName ++ ", are you joining us for the party?"
+    in
+    div [] [ text <| greeting ]
+
+
+viewAcceptedRadio : Lang -> Coming -> Html Msg
+viewAcceptedRadio lang coming =
+    div [ class "control" ]
+        [ div []
+            [ label [ class "radio", onClick (AcceptedClick True) ]
+                [ input [ type_ "radio", name "coming", checked coming ] []
+                , text "Aw hell ye 🎉"
+                ]
+            ]
+        , div []
+            [ label [ class "radio", onClick (AcceptedClick False) ]
+                [ input [ type_ "radio", name "coming", checked (not coming) ] []
+                , text "No, I will have diarhea 💩"
+                ]
+            ]
+        ]
+
+
+viewHowManyQuestion : Lang -> AcceptForm -> Html Msg
+viewHowManyQuestion lang form =
+    if form.invitation.accepted == True then
+        div []
+            [ p [] [ text "Who's coming?" ]
+            , div [] <|
+                viewGuestsCheckboxes form.guests
+                    ++ viewAdditionalGuestsCheckboxes form.additionalGuests
+            ]
+
+    else
+        div [] []
+
+
+viewGuestsCheckboxes : List Guest -> List (Html Msg)
+viewGuestsCheckboxes guests =
+    guests
+        |> Array.fromList
+        |> Array.indexedMap guestCheckbox
+        |> Array.toList
+
+
+viewAdditionalGuestsCheckboxes : List AdditionalGuest -> List (Html Msg)
+viewAdditionalGuestsCheckboxes guests =
+    guests
+        |> Array.fromList
+        |> Array.indexedMap additionalGuestCheckbox
+        |> Array.toList
+
+
+guestCheckbox : Int -> Guest -> Html Msg
+guestCheckbox index guest =
+    div []
+        [ label [ class "checkbox", onClick (ClickedGuest index (not guest.coming)) ]
+            [ input [ type_ "checkbox", checked guest.coming ] []
+            , text guest.name
+            ]
+        ]
+
+
+additionalGuestCheckbox : Int -> AdditionalGuest -> Html Msg
+additionalGuestCheckbox index { coming, name } =
+    let
+        nameElement =
+            case coming of
+                False ->
+                    text name
+
+                True ->
+                    input [ type_ "text", value name, onInput (InputAdditionalGuest index) ] []
+    in
+    div []
+        [ label [ class "checkbox" ]
+            [ input [ type_ "checkbox", checked coming, onClick (ClickedAdditionalGuest index (not coming)) ] []
+            , nameElement
+            ]
+        ]
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -102,12 +188,124 @@ update msg model =
         GotResponse result ->
             case result of
                 Ok form ->
-                    ( { model | form = form, session = setLanguage model.session form.invitation.preferedLang }
+                    ( { model | state = Ready form [], session = setLanguage model.session form.invitation.preferedLang }
                     , Cmd.none
                     )
 
                 Err _ ->
                     ( model, Cmd.none )
+
+        GotSubmitResponse response ->
+            case model.state of
+                Loading ->
+                    ( model, Cmd.none )
+
+                Ready form errors ->
+                    case response of
+                        Ok status ->
+                            let
+                                nav =
+                                    Session.navKey model.session
+
+                                newUrl =
+                                    Route.GuestDetails form.invitation.code
+                            in
+                            ( { model | state = Ready form errors }
+                            , Route.replaceUrl nav newUrl
+                            )
+
+                        Err _ ->
+                            ( model, Cmd.none )
+
+        AcceptedClick accepted ->
+            let
+                updatedModel =
+                    case model.state of
+                        Loading ->
+                            model
+
+                        Ready form _ ->
+                            accepted
+                                |> setAcceptedInInvitation form.invitation
+                                |> setInvitationInForm form
+                                |> setFormInModel model
+            in
+            ( updatedModel, Cmd.none )
+
+        ClickedGuest index coming ->
+            case model.state of
+                Loading ->
+                    ( model, Cmd.none )
+
+                Ready form _ ->
+                    let
+                        guestArray =
+                            Array.fromList form.guests
+
+                        updatedModel =
+                            ( index, coming )
+                                |> setGuestInGuests guestArray
+                                |> setGuestsInForm form
+                                |> setFormInModel model
+                    in
+                    ( updatedModel, Cmd.none )
+
+        ClickedAdditionalGuest index coming ->
+            case model.state of
+                Loading ->
+                    ( model, Cmd.none )
+
+                Ready form _ ->
+                    let
+                        guestArray =
+                            Array.fromList form.additionalGuests
+
+                        updatedModel =
+                            ( index, coming )
+                                |> setGuestInAdditionalGuests guestArray
+                                |> setAdditionalGuestsInForm form
+                                |> setFormInModel model
+                    in
+                    ( updatedModel, Cmd.none )
+
+        InputAdditionalGuest index name ->
+            case model.state of
+                Loading ->
+                    ( model, Cmd.none )
+
+                Ready form _ ->
+                    let
+                        guestArray =
+                            Array.fromList form.additionalGuests
+
+                        updatedModel =
+                            ( index, name )
+                                |> setGuestNameInAdditionalGuests guestArray
+                                |> setAdditionalGuestsInForm form
+                                |> setFormInModel model
+                    in
+                    ( updatedModel, Cmd.none )
+
+        OnSubmit ->
+            case model.state of
+                Loading ->
+                    ( model, Cmd.none )
+
+                Ready form _ ->
+                    let
+                        body =
+                            Http.jsonBody (Types.encodeAcceptedForm form)
+
+                        endpoint =
+                            Endpoint.acceptInvitation form.invitation.code
+
+                        expectedResult =
+                            Http.expectJson GotSubmitResponse decoderSubmitResponse
+
+                        postRequestCmd =
+                            Api.post endpoint body expectedResult
+                    in
+                    ( model, postRequestCmd )
 
 
 toSession : Model -> Session
@@ -120,92 +318,99 @@ subscriptions model =
     Sub.none
 
 
-decoder : Decoder Form
-decoder =
-    Decode.field "data" formDecoder
+setAcceptedInInvitation : Invitation -> Accepted -> Invitation
+setAcceptedInInvitation invitation accepted =
+    { invitation | accepted = accepted }
 
 
-formDecoder : Decoder Form
-formDecoder =
-    Decode.succeed Form
-        |> required "guests" (Decode.list decodeGuest)
-        |> required "invitation" decodeInvitation
+setInvitationInForm : AcceptForm -> Invitation -> AcceptForm
+setInvitationInForm form invitation =
+    { form | invitation = invitation }
 
 
-decodeInvitation : Decoder Invitation
-decodeInvitation =
-    Decode.succeed Invitation
-        |> required "code" Decode.string
-        |> required "lang" Language.langDecoder
-        |> required "max_guests" Decode.int
-        |> required "coming" Decode.bool
+setFormInModel : Model -> AcceptForm -> Model
+setFormInModel model form =
+    { model | state = Ready form [] }
 
 
-decodeGuest : Decoder Guest
-decodeGuest =
-    Decode.succeed guestDecoder
-        |> required "name" Decode.string
-        |> required "diet_type" (nullable Decode.string)
-        |> required "food_choice" (nullable Decode.string)
-        |> required "diet_notes" (nullable Decode.string)
-        |> required "has_food_allergies" Decode.bool
-        |> optional "food_allergy_notes" Decode.string ""
-        |> resolve
-
-
-guestDecoder : String -> Maybe String -> Maybe String -> Maybe String -> Bool -> String -> Decoder Guest
-guestDecoder name diet foodOption dietNotes hasAllergies allergyNotes =
+setGuestInGuests : Array Guest -> ( Int, Coming ) -> List Guest
+setGuestInGuests guests ( index, coming ) =
     let
-        dietType =
-            getDietType diet foodOption dietNotes
+        guest =
+            Array.get index guests
 
-        allergies =
-            case hasAllergies of
-                True ->
-                    Just allergyNotes
+        guestList =
+            case guest of
+                Just g ->
+                    Array.set index { g | coming = coming } guests
 
-                False ->
-                    Nothing
+                Nothing ->
+                    guests
     in
-    Decode.succeed (Guest name dietType allergies)
+    Array.toList guestList
 
 
-getDietType : Maybe String -> Maybe String -> Maybe String -> Diet
-getDietType diet foodOption notes =
-    case diet of
-        Just dietType ->
-            case dietType of
-                "normal" ->
-                    getFoodOption foodOption
+setGuestInAdditionalGuests : Array AdditionalGuest -> ( Int, Coming ) -> List AdditionalGuest
+setGuestInAdditionalGuests guests ( index, coming ) =
+    let
+        guest =
+            Array.get index guests
 
-                "vegetarian" ->
-                    Vegetarian
+        guestList =
+            case guest of
+                Just g ->
+                    Array.set index { g | coming = coming } guests
 
-                "halal" ->
-                    Halal
-
-                _ ->
-                    notes
-                        |> Maybe.withDefault ""
-                        |> Other
-
-        Nothing ->
-            Normal Meat1
+                Nothing ->
+                    guests
+    in
+    Array.toList guestList
 
 
-getFoodOption : Maybe String -> Diet
-getFoodOption foodOption =
-    case foodOption of
-        Just option ->
-            case option of
-                "option1" ->
-                    Normal Meat1
+setGuestNameInAdditionalGuests : Array AdditionalGuest -> ( Int, String ) -> List AdditionalGuest
+setGuestNameInAdditionalGuests guests ( index, name ) =
+    let
+        guest =
+            Array.get index guests
 
-                "option2" ->
-                    Normal Meat2
+        guestList =
+            case guest of
+                Just g ->
+                    Array.set index { g | name = name } guests
 
-                _ ->
-                    Normal Meat1
+                Nothing ->
+                    guests
+    in
+    Array.toList guestList
 
-        Nothing ->
-            Normal Meat1
+
+setGuestNameInGuests : Array Guest -> ( Int, String ) -> List Guest
+setGuestNameInGuests guests ( index, name ) =
+    let
+        guest =
+            Array.get index guests
+
+        guestList =
+            case guest of
+                Just g ->
+                    Array.set index { g | name = name } guests
+
+                Nothing ->
+                    guests
+    in
+    Array.toList guestList
+
+
+setAdditionalGuestsInForm : AcceptForm -> List AdditionalGuest -> AcceptForm
+setAdditionalGuestsInForm form guests =
+    { form | additionalGuests = guests }
+
+
+setGuestsInForm : AcceptForm -> List Guest -> AcceptForm
+setGuestsInForm form guests =
+    { form | guests = guests }
+
+
+decoderSubmitResponse : Decoder String
+decoderSubmitResponse =
+    Decode.field "status" Decode.string
