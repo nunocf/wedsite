@@ -1,4 +1,4 @@
-module Page.Home exposing (Model, Msg, init, subscriptions, toSession, update, view)
+module Page.Home exposing ( init, subscriptions, toSession, update, view)
 
 import Html exposing (..)
 import Html.Attributes exposing (attribute, class, src, style, type_)
@@ -12,16 +12,13 @@ import Page.Home.Travelling as Travelling
 import Session exposing (Session)
 import Styles
 import Translations
-
+import Page.Home.Types exposing (Model, Msg(..), Modal)
 
 
 -- MODEL
 
 
-type alias Model =
-    { session : Session
-    , locations : Locations
-    }
+
 
 
 init : Session -> ( Model, Cmd msg )
@@ -32,6 +29,7 @@ init session =
     in
     ( { session = session
       , locations = Loc.init
+      , activeModal = Nothing
       }
     , Cmd.batch
         [ Gmaps.initMaps <| Loc.encode locations
@@ -48,7 +46,7 @@ init session =
 
 
 view : Model -> { title : String, content : Html Msg }
-view { session, locations } =
+view  model =
     { title = "Wedsite"
     , content =
         div []
@@ -56,9 +54,9 @@ view { session, locations } =
              , viewOurStory
              , viewSchedule
              , viewTravelling
-             , viewAccomodation
+             , viewAccomodation model
              ]
-                |> List.map (\section -> section <| Session.lang session)
+                |> List.map (\section -> section <| Session.lang model.session)
             )
     }
 
@@ -91,9 +89,7 @@ viewOurStory lang =
                             ]
                         , div [ class "poem1" ] [ Poem.viewPoem1 lang ]
                         , div [ class "poemPicture is-hidden-mobile" ]
-                            [
-                                img [ class "poemPhoto", src "images/stonehenge.jpg" ] []
-                                
+                            [ img [ class "poemPhoto", src "images/stonehenge.jpg" ] []
                             ]
                         , div [ class "poem2" ] [ Poem.viewPoem2 lang ]
                         , div [ class "poem3" ] [ Poem.viewPoem3 lang ]
@@ -133,20 +129,14 @@ viewTravelling lang =
         ]
 
 
-viewAccomodation : Translations.Lang -> Html msg
-viewAccomodation lang =
+viewAccomodation :  Model -> Translations.Lang -> Html Msg
+viewAccomodation model lang =
     div [ class Styles.accomodationSection ]
-            [ Accomodation.view lang ]
-               
-    
+        [ Accomodation.view lang model ]
 
 
 
 -- UPDATE
-
-
-type Msg
-    = MapMoved Decode.Value
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -165,6 +155,12 @@ update msg model =
                             model
             in
             ( model, Cmd.none )
+
+        ActivateModal modal ->
+            ({model | activeModal =  Just modal}, Cmd.none)
+        
+        DeactivateModal ->
+            ({model | activeModal = Nothing}, Cmd.none)
 
 
 setLocations : Model -> Locations -> Model

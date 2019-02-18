@@ -36,7 +36,7 @@ type alias Guest =
     { id : ID
     , name : Name
     , diet : Maybe Diet
-    , allergies : Allergies
+    , allergies : Maybe Allergies
     , coming : Maybe Coming
     }
 
@@ -74,7 +74,7 @@ type alias Accepted =
 
 
 type alias Allergies =
-    Maybe String
+    String
 
 
 type alias Invitation =
@@ -145,16 +145,14 @@ guestDecoder name diet foodOption dietNotes hasAllergies allergyNotes coming id 
                     case jsonBool of
                         True ->
                             Just allergyNotes
-                    
+
                         False ->
                             Nothing
-                    
 
                 Nothing ->
                     Nothing
-
     in
-    Decode.succeed (Guest id name  dietType allergies coming)
+    Decode.succeed (Guest id name dietType allergies coming)
 
 
 getDietType : Maybe String -> Maybe String -> Maybe String -> Maybe Diet
@@ -166,16 +164,17 @@ getDietType diet foodOption notes =
                     Just (getFoodOption foodOption)
 
                 "vegetarian" ->
-                    Just (Vegetarian)
+                    Just Vegetarian
 
                 "halal" ->
-                    Just (Halal)
+                    Just Halal
 
                 _ ->
                     notes
                         |> Maybe.withDefault ""
                         |> Other
                         |> Just
+
         Nothing ->
             Nothing
 
@@ -283,14 +282,14 @@ additionalGuestToGuest { name, coming } =
 encodeInvitation : Invitation -> Encode.Value
 encodeInvitation { id, code, preferedLang, accepted } =
     let
-        encodedAccepted = case accepted of
-            Just val ->
-                Encode.bool val
-        
-            Nothing ->
-                Encode.null
+        encodedAccepted =
+            case accepted of
+                Just val ->
+                    Encode.bool val
+
+                Nothing ->
+                    Encode.null
     in
-    
     Encode.object
         [ ( "id", Encode.string id )
         , ( "code", Encode.string code )
@@ -302,14 +301,14 @@ encodeInvitation { id, code, preferedLang, accepted } =
 encodeGuest : Guest -> Encode.Value
 encodeGuest { id, name, diet, allergies, coming } =
     let
-        encodedComing = case coming of
-            Just value ->
-                Encode.bool value
-        
-            Nothing ->
-                Encode.null
+        encodedComing =
+            case coming of
+                Just value ->
+                    Encode.bool value
+
+                Nothing ->
+                    Encode.null
     in
-    
     Encode.object
         ([ ( "id"
            , if id == "" then
@@ -326,7 +325,7 @@ encodeGuest { id, name, diet, allergies, coming } =
         )
 
 
-encodeAllergies : Allergies -> List ( String, Encode.Value )
+encodeAllergies : Maybe Allergies -> List ( String, Encode.Value )
 encodeAllergies allergies =
     case allergies of
         Just allergyNotes ->
@@ -345,7 +344,7 @@ encodeDiet diet =
     case diet of
         Nothing ->
             [ ( "diet_type", Encode.null )
-            , ( "food_choice", Encode.null  )
+            , ( "food_choice", Encode.null )
             , ( "diet_notes", Encode.null )
             ]
 
@@ -382,6 +381,6 @@ encodeCourse course =
 
         Just Meat2 ->
             Encode.string "option2"
-        
+
         Nothing ->
             Encode.null

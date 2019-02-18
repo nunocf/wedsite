@@ -4,9 +4,10 @@ import Browser exposing (Document)
 import Html exposing (Html, a, button, div, footer, i, img, li, main_, nav, p, span, text, ul)
 import Html.Attributes exposing (class, classList, href, style)
 import Html.Events exposing (onClick)
+import Page.Rsvp.Types exposing (AcceptForm)
 import Route exposing (Route)
 import Session exposing (Session)
-import Page.Rsvp.Types exposing (AcceptForm)
+
 
 
 -- Determines which navbar link will be rendered as active.
@@ -39,8 +40,6 @@ viewErrors : msg -> List String -> Html msg
 viewErrors dismissErrors errors =
     if List.isEmpty errors then
         Html.text ""
-
-        
 
     else
         div

@@ -22,7 +22,6 @@ type alias Model =
     }
 
 
-
 type State
     = Loading
     | Ready GuestsDetailsForm ValidationErrors
@@ -47,7 +46,7 @@ type Msg
     = GotResponse (Result Http.Error GuestsDetailsForm)
     | GotSubmitResponse (Result Http.Error String)
     | ClickDietOption Index Diet
-    | ClickAllergyOption Index Allergies
+    | ClickAllergyOption Index (Maybe Allergies)
     | OtherTextAreaInput Index String
     | AllergiesTextAreaInput Index String
     | OnSubmit
@@ -104,14 +103,14 @@ viewGuestName guest =
 viewDietQuestion : Lang -> Index -> Guest -> Html Msg
 viewDietQuestion lang index guest =
     let
-        isNormal = case guest.diet of
-            Just (Normal _) ->
-                True
+        isNormal =
+            case guest.diet of
+                Just (Normal _) ->
+                    True
 
-            _ ->
-                False
-                        
-           
+                _ ->
+                    False
+
         isVegetarian =
             guest.diet == Just Vegetarian
 
@@ -231,14 +230,14 @@ courseOption lang index guest =
         isMeat1 =
             guest.diet == (Just <| Normal <| Just Meat1)
 
-        isMeat2 = 
+        isMeat2 =
             guest.diet == (Just <| Normal <| Just Meat2)
 
         labelName =
             "food-choice-" ++ guest.id
     in
     div []
-        [ div [] [text "What do you wanna eat?"]
+        [ div [] [ text "What do you wanna eat?" ]
         , div []
             [ label [ class "radio", onClick <| ClickDietOption index <| Normal <| Just Meat1 ]
                 [ input [ type_ "radio", name labelName, checked isMeat1 ] []
@@ -396,7 +395,6 @@ updateFormInModel model form =
     { model | state = Ready form [] }
 
 
-
 updateGuestDietInGuests : Int -> Diet -> Array Guest -> List Guest
 updateGuestDietInGuests index diet guests =
     let
@@ -414,7 +412,7 @@ updateGuestDietInGuests index diet guests =
     Array.toList guestList
 
 
-updateGuestAllergiesInGuests : Int -> Allergies -> Array Guest -> List Guest
+updateGuestAllergiesInGuests : Int -> Maybe Allergies -> Array Guest -> List Guest
 updateGuestAllergiesInGuests index allergies guests =
     let
         guest =

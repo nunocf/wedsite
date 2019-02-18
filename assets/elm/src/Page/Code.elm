@@ -28,7 +28,9 @@ init session =
 view : Model -> { title : String, content : Html Msg }
 view { session, codeValue, error } =
     let
-        lang = Session.lang session
+        lang =
+            Session.lang session
+
         errorDisplay =
             case error of
                 Just errorMsg ->

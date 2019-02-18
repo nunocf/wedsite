@@ -16,6 +16,7 @@ import Page.Coming as Coming
 import Page.Complete as Complete
 import Page.GuestDetails as GuestDetails
 import Page.Home as Home
+import Page.Home.Types
 import Page.NotFound as NotFound
 import Route exposing (Route)
 import Session exposing (Session)
@@ -32,7 +33,7 @@ type alias Flags =
 type Model
     = NotFound Session
     | Redirect Session
-    | Home Home.Model
+    | Home Page.Home.Types.Model
     | Code Code.Model
     | Coming Coming.Model
     | GuestDetails GuestDetails.Model
@@ -117,7 +118,6 @@ toSession page =
 
         Complete code ->
             Complete.toSession code
-
 
 
 changeRouteTo : Maybe Route -> Model -> ( Model, Cmd Msg )

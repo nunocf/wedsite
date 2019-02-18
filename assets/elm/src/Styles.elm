@@ -1,5 +1,6 @@
 module Styles exposing
-    ( accomodationSection
+    ( accomodationGridItem
+    , accomodationSection
     , currentSelection
     , dropdownContainer
     , dropdownContent
@@ -16,12 +17,13 @@ module Styles exposing
     , textFont
     , transportSubtitle
     , travellingSection
-    , accomodationGridItem
     )
+
 
 accomodationGridItem : String
 accomodationGridItem =
     "pointerCursor movable roundCorners boxShadow"
+
 
 currentSelection : String
 currentSelection =

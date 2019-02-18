@@ -23,6 +23,12 @@
 	}
 }
 
+@media (min-width: 600px) {
+	.mobile {
+		display: none;
+	}
+}
+
 .dn * {
 	display: none;
 }
@@ -320,6 +326,7 @@
 	.font-text-align {
 		text-align: center;
 	}
+
 }
 
 .inline {
@@ -340,9 +347,8 @@
 }
 
 :root {
-	
-	--wrapperWidth: calc(100vw - ( 2 * var(--gutter))); 
 	--gutter: 1em;
+	--wrapperWidth: calc(100vw - ( 2 * var(--gutter))); 
 	--noOfColumns: 8;
 
 	--noOfGutters: calc(var(--noOfColumns) - 1);
@@ -352,18 +358,15 @@
 
 	--factor: calc(var(--ratioB) / var(--ratioA));
 
-	--rh: calc(( (var(--wrapper) - (var(--noOfGutters) * var(--gutter))) / var(--noOfColumns)) * var(--factor));
+	--rh: calc(( (var(--wrapperWidth) - (var(--noOfGutters) * var(--gutter))) / var(--noOfColumns)) * var(--factor));
 }
 
 .accomodationGrid {
 
-	max-width: var(--wrapper);
 	display: grid;
-	grid-template-columns: repeat(var(--noOfColumns), minmax(0, 1fr));
-	/* grid-auto-flow: dense; */
-	grid-template-rows: repeat(5, var(--rh));
-	grid-gap: var(--gutter);
-	/* margin: var(--gutter); */
+	grid-template-columns: repeat(8, 1fr);
+
+	grid-gap: 1em;
 	
 
 
@@ -373,11 +376,11 @@
 	grid-template-rows: repeat(5, --rowHeight); */
 	
 	grid-template-areas:
-		"flowerTL flowerTL  accTitle accTitle accTitle  accTitle flowerTR flowerTR"
-		"flowerTL flowerTL  square2  square2  smallFlower   square4  flowerTR  flowerTR"
-		"........ square1   square2  square2  square3   square4  square5   ........"
-		"........ square8   square8  bigflower  square3   square6  square6   ........"
-		"flowerBL flowerBL  square7  square7  square14  square6  square6   ........";
+		"flowerTL flowerTL accTitle accTitle accTitle accTitle flowerTR flowerTR"
+		"flowerTL flowerTL kastel kastel smallFlower stGeorge flowerTR flowerTR"
+		"........ booking kastel kastel luxotel stGeorge airbnb ........"
+		"........ apartments apartments bigflower luxotel vojvodina vojvodina ........"
+		"flowerBL flowerBL philadelphia philadelphia bee vojvodina vojvodina	........";
 	
 	/* gap: 1em; */
 	/* gap: var(--gutter); */
@@ -385,23 +388,14 @@
 	padding: 2rem 0rem 0rem 1rem;
 }
 
-.square1 {
-	grid-area: square1;
+.bookingSquare {
+	grid-area: booking;
 	background-color: #013381ff;
 	display: flex;
 	justify-content: center;
 	align-content: center;
 }
 
-/* .movable {
-	position: relative;
-	top: 0px;
-	transition: transform .2s ease-in-out;
-}
-
-.movable:hover {
-	transform: translate3d(-2px, -2px, 0px);
-} */
 .movable {
 	transition: transform .2s; /* Animation */
 }
@@ -412,39 +406,35 @@
 .movable:hover {
 	transform: scale(1.05);
 }
-/* .movable:hover {
-	-moz-transform: translate(-2px, -2px);
-	-ms-transform: translate(-2px, -2px);
-	-o-transform: translate(-2px, -2px);
-	-webkit-transform: translate(-2px, -2px);
-	transform: translate(-2px, -2px)
-} */
+
 
 .kastelSquare {
-	grid-area: square2;
+	grid-area: kastel;
 
 	background: url('/images/kastel.jpeg');
 	background-position: center center;
 	background-size: cover;
+
+	padding-top: 100%;
 }
 
-.square3 {
-	grid-area: square3;
+.luxotel {
+	grid-area: luxotel;
 
 	background: url('/images/luxotel.jpeg');
 	background-position: center center;
 	background-size: cover;
 }
 
-.square4 {
-	grid-area: square4;
+.stGeorge {
+	grid-area: stGeorge;
 	background: url('/images/stgeorge.jpeg');
 	background-position: center center;
 	background-size: cover;
 }
 
-.square5 {
-	grid-area: square5;
+.airbnb {
+	grid-area: airbnb;
 	display: flex;
 	justify-content: center;
 	align-content: center;
@@ -453,32 +443,29 @@
 }
 
 .hotelVojvodinaSquare {
-	grid-area: square6;
+	grid-area: vojvodina;
 
 	background: url('/images/hotel-vojvodina.jpeg');
 	background-position: center center;
 	background-size: cover;
 }
 
-.square7 {
-	grid-area: square7;
+.philadelphia {
+	grid-area: philadelphia;
 	background: url('/images/philadelphia.jpeg');
 	background-position: center center;
 	background-size: cover;
 }
 
-.square8 {
-	grid-area: square8;
+.apartments {
+	grid-area: apartments;
 
 	background: url('/images/apartments.jpeg');
 	background-position: center center;
 	background-size: cover;
+
 }
 
-.square9 {
-	grid-area: square9;
-	background-color: #cafeca;
-}
 
 .flowerBL {
 	grid-area: flowerBL;
@@ -499,8 +486,8 @@
 	padding-bottom: 1rem;
 }
 
-.square14 {
-	grid-area: square14;
+.beeSquare {
+	grid-area: bee;
 	display: flex;
 	justify-content: center;
 	align-content: center;
@@ -512,8 +499,13 @@
 	justify-content: center;
 	align-content: center;
 }
+
 .smallFlower {
 	grid-area: smallFlower;
+}
+
+.smallFlower2 {
+	grid-area: smallFlower2;
 }
 
 
@@ -521,4 +513,40 @@
 	display: flex;
 	justify-content: center;
 	align-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+
+	.accomodationGrid {
+		grid-template-columns: 1fr 1fr;
+
+		grid-template-areas:
+			"accTitle accTitle"
+			"kastel kastel"
+			"kastel kastel"
+			"bee booking"
+			"luxotel smallFlower"
+			"luxotel bigflower"
+			"apartments apartments"
+			"vojvodina vojvodina"
+			"vojvodina vojvodina"
+			"smallFlower2 stGeorge"
+			"airbnb stGeorge"
+			"philadelphia philadelphia";
+		
+			padding: 2rem 0rem 0rem 2.5rem;
+
+	}
+
+	.philadelphia {
+		padding-top: 50%;
+	}
+	
+	.apartments {
+		padding-top: 50%;
+	}
+
+	.hotelVojvodinaSquare {
+		padding-top: 100%;
+	}
 }

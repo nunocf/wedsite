@@ -3,8 +3,9 @@ module Page.Complete exposing (Model, Msg, init, subscriptions, toSession, updat
 import Api
 import Api.Endpoint as Endpoint
 import Array exposing (Array)
+import Asset
 import Html exposing (..)
-import Html.Attributes exposing (checked, class, name, placeholder, src , width)
+import Html.Attributes exposing (checked, class, name, placeholder, src, width)
 import Html.Events exposing (onClick, onInput, onSubmit)
 import Http
 import Language
@@ -12,7 +13,6 @@ import Page.Rsvp.Types as Types exposing (Allergies, Course(..), Diet(..), Guest
 import Route
 import Session exposing (Session, setLanguage)
 import Translations exposing (Lang, getLnFromCode)
-import Asset
 
 
 type alias Model =
@@ -61,9 +61,9 @@ view model =
                     div []
                         [ p [] [ text "Cool! We're done." ]
                         , p [] [ text "We're already preparing to party!!" ]
-                        , img [ width 300,  Asset.src Asset.complete ] []
+                        , img [ width 300, Asset.src Asset.complete ] []
                         , p [] [ text "We cant wait to see you!" ]
-                        , button [onClick GoHome] [text "OMG! Bye!"]
+                        , button [ onClick GoHome ] [ text "OMG! Bye!" ]
                         ]
     in
     { title = "Wedsite"

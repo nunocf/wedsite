@@ -4,13 +4,13 @@ import Api
 import Api.Endpoint as Endpoint
 import Array exposing (Array)
 import Html exposing (..)
-import Html.Attributes exposing (action, checked, class, placeholder, method, name, type_, value)
+import Html.Attributes exposing (action, checked, class, method, name, placeholder, type_, value)
 import Html.Events exposing (onClick, onInput, onSubmit)
 import Http
 import Json.Decode as Decode exposing (Decoder, nullable)
 import Json.Decode.Pipeline exposing (custom, hardcoded, optional, required, resolve)
 import Language
-import Page.Rsvp.Types as Types exposing (encodeAcceptedForm, AcceptForm, Accepted, AdditionalGuest, Coming, Guest, Invitation, Name, acceptFormDecoder, decodeGuest, decodeInvitation)
+import Page.Rsvp.Types as Types exposing (AcceptForm, Accepted, AdditionalGuest, Coming, Guest, Invitation, Name, acceptFormDecoder, decodeGuest, decodeInvitation, encodeAcceptedForm)
 import Route
 import Session exposing (Session, setLanguage)
 import Translations exposing (Lang, getLnFromCode)
@@ -36,7 +36,6 @@ init session code =
     ( Model session Loading
     , Api.get (Endpoint.acceptInvitation code) (Http.expectJson GotResponse acceptFormDecoder)
     )
-
 
 
 type Msg
@@ -108,7 +107,6 @@ viewGreeting lang guests =
 
 viewAcceptedRadio : Lang -> Maybe Accepted -> Html Msg
 viewAcceptedRadio lang coming =
-    
     div [ class "control" ]
         [ div []
             [ label [ class "radio", onClick <| AcceptedClick True ]
@@ -128,18 +126,17 @@ viewAcceptedRadio lang coming =
 viewHowManyQuestion : Lang -> AcceptForm -> Html Msg
 viewHowManyQuestion lang form =
     let
-        accepted = case form.invitation.accepted of
-            Just True ->
-                True
-                
-        
-            Just False ->
-                False
+        accepted =
+            case form.invitation.accepted of
+                Just True ->
+                    True
 
-            Nothing ->
-                False
+                Just False ->
+                    False
+
+                Nothing ->
+                    False
     in
-    
     if accepted == True then
         div []
             [ p [] [ text "Who's coming?" ]
@@ -171,14 +168,14 @@ viewAdditionalGuestsCheckboxes guests =
 guestCheckbox : Int -> Guest -> Html Msg
 guestCheckbox index guest =
     let
-        coming = case guest.coming of
-            Just value ->
-                value
-        
-            Nothing ->
-                False
+        coming =
+            case guest.coming of
+                Just value ->
+                    value
+
+                Nothing ->
+                    False
     in
-    
     div []
         [ label [ class "checkbox", onClick (ClickedGuest index (not coming)) ]
             [ input [ type_ "checkbox", checked coming ] []
@@ -204,7 +201,6 @@ additionalGuestCheckbox index { coming, name } =
             , nameElement
             ]
         ]
-
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )

@@ -1,4 +1,4 @@
-module Api.Endpoint exposing (Endpoint, code, complete, request, acceptInvitation)
+module Api.Endpoint exposing (Endpoint, acceptInvitation, code, complete, request)
 
 import Http
 import Url.Builder exposing (QueryParameter)

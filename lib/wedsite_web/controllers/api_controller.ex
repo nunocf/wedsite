@@ -36,7 +36,6 @@ defmodule WedsiteWeb.ApiController do
         %{status: 404, error: error}
     end
 
-
     conn
     |> put_status(response.status)
     |> json(response)

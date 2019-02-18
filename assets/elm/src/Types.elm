@@ -2,10 +2,11 @@ module Types exposing (Msg(..))
 
 import Browser exposing (UrlRequest)
 import Page.Code as Code
-import Page.Home as Home
 import Page.Coming as Coming
-import Page.GuestDetails as GuestDetails
 import Page.Complete as Complete
+import Page.GuestDetails as GuestDetails
+import Page.Home as Home
+import Page.Home.Types
 import Route exposing (Route)
 import Session exposing (Session)
 import Translations exposing (Lang)
@@ -17,7 +18,7 @@ type Msg
     | ChangedRoute (Maybe Route)
     | ChangedUrl Url
     | ClickedLink Browser.UrlRequest
-    | GotHomeMsg Home.Msg
+    | GotHomeMsg Page.Home.Types.Msg
     | GotCodeMsg Code.Msg
     | GotComingMsg Coming.Msg
     | GotCompleteMsg Complete.Msg
