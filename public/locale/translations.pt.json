@@ -192,5 +192,15 @@
     "showMore": "Ver mais",
     "showLess": "Ver menos",
     "insertInviteCode": "Por favor introduz o código do convite",
-    "codeSubmit": "Siga"
+    "codeSubmit": "Siga",
+    "codeNotFound": "Código não encontrado",
+    "errorRequest": "Houve um problema a processar o teu pedido",
+    "hello": "Alô ",
+    "defaultName": "artista",
+    "joiningUs": ", vens juntar-te à nossa festa?",
+    "hellYes": "Mas é claro! 🎉",
+    "hellNo": "Não, o meu gato nao deixa 💩",
+    "additionalGuest": "Acompanhante extra",
+    "whoComes": "Quem mais vem contigo?",
+    "comingSubmit": "Próximo!"
 }

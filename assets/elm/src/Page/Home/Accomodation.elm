@@ -1,21 +1,21 @@
 module Page.Home.Accomodation exposing (view)
 
 import Html exposing (..)
-import Html.Attributes exposing (attribute, class, src, style, type_, classList)
+import Html.Attributes exposing (attribute, class, classList, src, style, type_)
 import Html.Events exposing (onClick)
+import Page.Home.Types exposing (Model, Msg(..))
 import Styles
 import Translations exposing (Lang)
-import Page.Home.Types exposing (Model, Msg(..))
 
 
 view : Lang -> Model -> Html Msg
-view lang {activeModal} =    
+view lang { activeModal } =
     div []
-        [ div [ class "accomodationGrid", attribute "height" "100%"  ]
-            [ div [ class "bookingSquare pointerCursor movable roundCorners boxShadow svg-container p-0-5"]
+        [ div [ class "accomodationGrid", attribute "height" "100%" ]
+            [ div [ class "bookingSquare pointerCursor movable roundCorners boxShadow svg-container p-0-5" ]
                 [ object [ class "pointerCursor svg-content svg55Pct", type_ "image/svg+xml", attribute "data" "svg/booking.svg" ] [ text "Your browser does not support SVGs" ]
                 ]
-            , div [ class "kastelSquare pointerCursor movable roundCorners boxShadow", onClick <| ActivateModal "kastel"] []
+            , div [ class "kastelSquare pointerCursor movable roundCorners boxShadow", onClick <| ActivateModal "kastel" ] []
             , div [ class "luxotel pointerCursor movable roundCorners boxShadow", onClick <| ActivateModal "luxotel" ] []
             , div [ class "stGeorge pointerCursor movable roundCorners boxShadow", onClick <| ActivateModal "stGeorge" ] []
             , div [ class "airbnb pointerCursor movable roundCorners boxShadow svg-container p-0-5" ]
@@ -50,73 +50,72 @@ view lang {activeModal} =
                 ]
             ]
         , viewModal activeModal
-        
-        
         ]
+
 
 viewModal activeModal =
-
-    div [classList [("modal", True), ("is-active", (activeModal /= Nothing) )]] [
-
-            div [class "modal-background"] []
-            , viewModalContent activeModal
-              ,button [ onClick DeactivateModal, class "modal-close is-large", attribute "aria-label" "close"] []
-
+    div [ classList [ ( "modal", True ), ( "is-active", activeModal /= Nothing ) ] ]
+        [ div [ class "modal-background" ] []
+        , viewModalContent activeModal
+        , button [ onClick DeactivateModal, class "modal-close is-large", attribute "aria-label" "close" ] []
         ]
+
 
 viewModalContent activeModal =
     let
-        content = case activeModal of
-            Just "kastel" ->
-                modalCard (String.repeat 25 "I am kastel")
-        
-            Just "luxotel" ->
-                modalCard (String.repeat 25 "I am luxotel")
-            
-            Just "stGeorge" ->
-                modalCard (String.repeat 25 "I am stGeorge")
-            
-            Just "hotelVojvodina" ->
-                modalCard (String.repeat 25 "I am Vojvodina")
+        content =
+            case activeModal of
+                Just "kastel" ->
+                    modalCard (String.repeat 25 "I am kastel")
 
-            Just "philadelphia" ->
-                modalCard (String.repeat 25 "I am philadelphia")
+                Just "luxotel" ->
+                    modalCard (String.repeat 25 "I am luxotel")
 
-            Just "apartments" ->
-                modalCard (String.repeat 25 "I am apartments")
-            _ ->
-                div [][]
+                Just "stGeorge" ->
+                    modalCard (String.repeat 25 "I am stGeorge")
+
+                Just "hotelVojvodina" ->
+                    modalCard (String.repeat 25 "I am Vojvodina")
+
+                Just "philadelphia" ->
+                    modalCard (String.repeat 25 "I am philadelphia")
+
+                Just "apartments" ->
+                    modalCard (String.repeat 25 "I am apartments")
+
+                _ ->
+                    div [] []
     in
-           
-    div [class "modal-content"] [
-               content
-            ]
+    div [ class "modal-content" ]
+        [ content
+        ]
+
 
 modalCard content =
-    div [class "card"] [
-        div [class "card-image"] [
-            figure [class "image is-4by3"] [
-                img [src "https://bulma.io/images/placeholders/1280x960.png"] []
+    div [ class "card" ]
+        [ div [ class "card-image" ]
+            [ figure [ class "image is-4by3" ]
+                [ img [ src "https://bulma.io/images/placeholders/1280x960.png" ] []
+                ]
             ]
-        ]
-        , div [class "card-content"] [
-            div [class "media"] [
-                div [class "media-left"] [
-                    figure [class "image is-48x48"] [
-                        img [src "https://bulma.io/images/placeholders/96x96.png"] []
+        , div [ class "card-content" ]
+            [ div [ class "media" ]
+                [ div [ class "media-left" ]
+                    [ figure [ class "image is-48x48" ]
+                        [ img [ src "https://bulma.io/images/placeholders/96x96.png" ] []
+                        ]
+                    ]
+                , div [ class "media-content" ]
+                    [ p [ class "title is-4" ] [ text "John Smith" ]
+                    , p [ class "subtitle is-6" ] [ text "@johnsmith" ]
                     ]
                 ]
-                , div [class "media-content"] [
-            p [class "title is-4"][text "John Smith"]
-            , p [class "subtitle is-6"] [text "@johnsmith"]
-        ]
+            ]
+        , div [ class "content" ]
+            [ text content
             ]
         ]
-        
-        , div [class "content"] [
-            text content
-        ]
-    ]
+
 
 
 -- ++ ([ ( Translations.dvoracKastel, Translations.dvoracKastelDesc )

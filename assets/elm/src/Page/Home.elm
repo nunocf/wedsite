@@ -1,4 +1,4 @@
-module Page.Home exposing ( init, subscriptions, toSession, update, view)
+module Page.Home exposing (init, subscriptions, toSession, update, view)
 
 import Html exposing (..)
 import Html.Attributes exposing (attribute, class, src, style, type_)
@@ -9,16 +9,14 @@ import Page.Home.Locations as Loc exposing (Locations)
 import Page.Home.Poem as Poem
 import Page.Home.Schedule as Schedule
 import Page.Home.Travelling as Travelling
+import Page.Home.Types exposing (Modal, Model, Msg(..))
 import Session exposing (Session)
 import Styles
 import Translations
-import Page.Home.Types exposing (Model, Msg(..), Modal)
+
 
 
 -- MODEL
-
-
-
 
 
 init : Session -> ( Model, Cmd msg )
@@ -46,7 +44,7 @@ init session =
 
 
 view : Model -> { title : String, content : Html Msg }
-view  model =
+view model =
     { title = "Wedsite"
     , content =
         div []
@@ -129,7 +127,7 @@ viewTravelling lang =
         ]
 
 
-viewAccomodation :  Model -> Translations.Lang -> Html Msg
+viewAccomodation : Model -> Translations.Lang -> Html Msg
 viewAccomodation model lang =
     div [ class Styles.accomodationSection ]
         [ Accomodation.view lang model ]
@@ -157,10 +155,10 @@ update msg model =
             ( model, Cmd.none )
 
         ActivateModal modal ->
-            ({model | activeModal =  Just modal}, Cmd.none)
-        
+            ( { model | activeModal = Just modal }, Cmd.none )
+
         DeactivateModal ->
-            ({model | activeModal = Nothing}, Cmd.none)
+            ( { model | activeModal = Nothing }, Cmd.none )
 
 
 setLocations : Model -> Locations -> Model

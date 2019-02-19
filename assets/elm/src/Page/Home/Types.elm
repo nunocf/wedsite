@@ -1,19 +1,22 @@
-module Page.Home.Types exposing (..)
+module Page.Home.Types exposing (Modal, Model, Msg(..))
 
-import Session exposing(Session)
+import Json.Decode as Decode
 import Page.Home.Locations exposing (Locations)
-import Json.Decode as Decode 
+import Session exposing (Session)
+
 
 type Msg
     = MapMoved Decode.Value
     | ActivateModal String
     | DeactivateModal
 
+
 type alias Model =
     { session : Session
     , locations : Locations
     , activeModal : Maybe Modal
     }
+
 
 type alias Modal =
     String

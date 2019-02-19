@@ -29,7 +29,7 @@ import Json.Decode as Decode exposing (Decoder, nullable)
 import Json.Decode.Pipeline exposing (custom, hardcoded, optional, required, resolve)
 import Json.Encode as Encode
 import Language
-import Translations
+import Translations exposing (Lang)
 
 
 type alias Guest =
@@ -80,7 +80,7 @@ type alias Allergies =
 type alias Invitation =
     { id : String
     , code : Code
-    , preferedLang : Translations.Lang
+    , preferedLang: Lang
     , maxGuests : Int
     , accepted : Maybe Accepted
     }
@@ -226,13 +226,13 @@ decodeForm : List Guest -> Invitation -> Decoder AcceptForm
 decodeForm guests invitation =
     let
         additionalGuests =
-            generateAdditionalGuests (List.length guests) invitation.maxGuests
+            generateAdditionalGuests invitation.preferedLang (List.length guests) invitation.maxGuests
     in
     Decode.succeed (AcceptForm guests additionalGuests invitation)
 
 
-generateAdditionalGuests : Int -> Int -> List AdditionalGuest
-generateAdditionalGuests currentCount maxGuests =
+generateAdditionalGuests : Lang -> Int -> Int -> List AdditionalGuest
+generateAdditionalGuests lang currentCount maxGuests =
     let
         additionalGuestCount =
             maxGuests - currentCount
@@ -244,7 +244,7 @@ generateAdditionalGuests currentCount maxGuests =
 
                 True ->
                     List.range 0 (additionalGuestCount - 1)
-                        |> List.map (\_ -> AdditionalGuest "Additional guest" False)
+                        |> List.map (\_ -> AdditionalGuest (Translations.additionalGuest lang) False)
     in
     additionalGuests
 

@@ -192,5 +192,15 @@
     "showMore": "Više",
     "showLess": "Manji",
     "insertInviteCode": "Please insert your invitation code",
-    "codeSubmit": "Let's go!"
+    "codeSubmit": "Let's go!",
+    "codeNotFound": "Código não encontrado",
+    "errorRequest": "Houve um problema a processar o teu pedido",
+    "hello": "Hello ",
+    "defaultName": "and welcome",
+    "joiningUs": ", are you joining us for the party?",
+    "hellYes": "Aw hell ye 🎉",
+    "hellNo": "No, I will have diarhea 💩",
+    "additionalGuest": "Additional guest",
+    "whoComes": "Who's coming?",
+    "comingSubmit": "Próximo!"
 }

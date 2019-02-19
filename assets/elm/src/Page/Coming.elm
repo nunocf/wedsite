@@ -64,7 +64,7 @@ view model =
                         [ form [ onSubmit OnSubmit ]
                             [ viewAcceptedQuestion lang acceptForm
                             , viewHowManyQuestion lang acceptForm
-                            , div [] [ button [] [ text "Submit" ] ]
+                            , div [] [ button [] [ text <| Translations.comingSubmit lang ] ]
                             ]
                         ]
     in
@@ -85,7 +85,7 @@ viewGreeting : Lang -> Array Guest -> Html msg
 viewGreeting lang guests =
     let
         default =
-            "and welcome"
+            Translations.defaultName lang
 
         guestName =
             case Array.get 0 guests of
@@ -100,7 +100,7 @@ viewGreeting lang guests =
 
         -- replace with translation
         greeting =
-            "Hello " ++ guestName ++ ", are you joining us for the party?"
+            (Translations.hello lang) ++ guestName ++ Translations.joiningUs lang
     in
     div [] [ text <| greeting ]
 
@@ -111,13 +111,13 @@ viewAcceptedRadio lang coming =
         [ div []
             [ label [ class "radio", onClick <| AcceptedClick True ]
                 [ input [ type_ "radio", name "coming", checked (coming == Just True) ] []
-                , text "Aw hell ye 🎉"
+                , text <| Translations.hellYes lang 
                 ]
             ]
         , div []
             [ label [ class "radio", onClick <| AcceptedClick False ]
                 [ input [ type_ "radio", name "coming", checked (coming == Just False) ] []
-                , text "No, I will have diarhea 💩"
+                , text <| Translations.hellNo lang
                 ]
             ]
         ]
@@ -139,7 +139,7 @@ viewHowManyQuestion lang form =
     in
     if accepted == True then
         div []
-            [ p [] [ text "Who's coming?" ]
+            [ p [] [ text <| Translations.whoComes lang ]
             , div [] <|
                 viewGuestsCheckboxes form.guests
                     ++ viewAdditionalGuestsCheckboxes form.additionalGuests

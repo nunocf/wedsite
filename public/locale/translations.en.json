@@ -192,5 +192,15 @@
     "showMore": "Show more",
     "showLess": "Show less",
     "insertInviteCode": "Please insert your invitation code",
-    "codeSubmit": "Let's go!"
+    "codeSubmit": "Let's go!",
+    "codeNotFound": "Code not found",
+    "errorRequest": "There was an error processing your request",
+    "hello": "Hello ",
+    "defaultName": "and welcome",
+    "joiningUs": ", are you joining us for the party?",
+    "hellYes": "Aw hell ye 🎉",
+    "hellNo": "No, I will have diarhea 💩",
+    "additionalGuest": "Additional guest",
+    "whoComes": "Who's coming?",
+    "comingSubmit": "Onwards"
 }

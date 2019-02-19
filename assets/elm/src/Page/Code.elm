@@ -77,6 +77,10 @@ update msg model =
             ( model, postRequestCmd )
 
         GotResponse result ->
+            let
+                lang = Session.lang model.session
+            in
+            
             case result of
                 Ok found ->
                     case found of
@@ -86,11 +90,11 @@ update msg model =
                             )
 
                         False ->
-                            ( { model | error = Just "Code not found" }, Cmd.none )
+                            ( { model | error = Just <| Translations.codeNotFound lang }, Cmd.none )
 
                 Err _ ->
                     ( { model
-                        | error = Just "There was an error processing the request"
+                        | error = Just <| Translations.errorRequest lang
                       }
                     , Cmd.none
                     )
