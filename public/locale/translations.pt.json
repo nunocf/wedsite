@@ -162,30 +162,57 @@
     ],
     "novaRent": "Nova rent. ",
     "travellingFinal": "Qualquer que seja a tua preferência de transporte, contacta-nos que temos todo o gosto em ajudar-te a organizar tudo.",
-    "accomodationTitle": "Onde posso ficar?",
-    "accomodationDesc": "a cidade de Zrenjanin oferece várias opçōes de alojamento para vários orçamentos.",
-    "dvoracKastel": "Dvorac Kaštel",
+    "accomodationTitle": "Where can you stay?",
+    "dvoracKastel": "Castle Kaštel",
+    "kastelWebsite": "http://kastelecka.com/en",
+    "dvoracKastelPrice": "€ € €",
+    "dvoracKastelDist": "This is our venue!",
     "dvoracKastelDesc": [
-        "38 quartos e 7 suites.",
-        "15% de desconto por 2 noites."
+        "38 rooms and 7 suites",
+        "Complimentary 15% discount for 2 nights"
     ],
     "hotelVojvodina": "Hotel Vojvodina",
-    "hotelVojvodinaDesc": "Situado no centro de Zrenjanin, a 8km do sítio da festa, este hotel foi renovado recentemente e oferece quartos duplos e suites. Preços deste 40€. ",
+    "hotelVojvodinaWebsite": "https://hotel-vojvodina.rs/home-2/",
+    "hotelVojvodinaPrice": "€ € €",
+    "hotelVojvodinaDist": "Distance to venue 8km",
+    "hotelVojvodinaDesc": [
+        "Double and twin rooms and suits.",
+        "In the pedestrian zone"
+    ],
     "luxotel": "Luxotel",
-    "luxotelDesc": "Um pequeno negócio de família, a located 12km da nossa festa. Tem quartos duplos e triplos com preços desde 25€ por pessoa.",
-    "accomodationFinal": "Todas estas opçōes oferecem estacionamento gratuito, mas o pequeno almoço não está incluído. ",
-    "apartments": "Apartamentos de S. George",
-    "apartmentsDesc": "Apartmentos no centro da cidade, preços desde (ADD PRICE HERE)",
+    "luxotelWebsite": "https://luxotel-rs.book.direct/pt-pt",
+    "luxotelPrice": "€ €",
+    "luxotelDist": "Distance to venue 12km",
+    "luxotelDesc": [
+        "Double, twin and tripple rooms",
+        "Small, family operated hotel"
+    ],
+    "apartments": "St. George's apartments",
+    "apartmentsWebsite": "http://stgeorge.rs/en/"
+    "apartmentsPrice": "€ €",
+    "apartmentsDist": "Distance to venue 6km",
+    "apartmentsDesc": [
+        "Single and double rooms",
+        "Ethno styled apartments"
+    ],
     "villa": "Villa Filadelija",
-    "villaDesc": "Também no centro, a 8km da nossa festa, tem vários quartos desde 16€ por noite",
+    "villaWebsite": "http://www.filadelfija.com/index.php/en/",
+    "villaPrice": "€",
+    "villaDist": "Distance to venue 8km",
+    "villaDesc": [
+        "Variety of rooms",
+        " "
+    ],
     "airbnb": "Airbnb",
-    "airbnbDesc": "Há várias opçōes entre 15€-40€ por noite espalhadas pela cidade. Procura por alojamento em Zrenjanin.",
     "booking": "Booking.com",
-    "bookingDesc": "Várias opçōes para todos os preços.",
-    "limba": "Limba",
-    "limbaDesc": "Versão sérvia do booking.com, com site em Inglês.",
     "apartmani": "Apartmani ZR",
-    "apartmaniDesc": "Infelizmente, o site está em sérvio, mas oferecem vários quartos e apartamentos no centro com preços desde (PRECO AQUI). Contacta-os por email.",
+    "apartmaniWebsite": "https://www.apartmanizrenjanin.rs/about-us/?lang=en",
+    "apartmaniPrice": "€",
+    "apartmeniDist": "Distance to venue 9km",
+    "apartmaniDesc": [
+        "Several rooms, studios and apartments",
+        "Located in the city center"
+    ],
     "rsvpTitle": "RSVP",
     "rsvp": [
         "Preenche o RSVP até dia 1 de Julho, por favor.",
@@ -206,8 +233,4 @@
     "additionalGuest": "Acompanhante extra",
     "whoComes": "Quem mais vem contigo?",
     "comingSubmit": "Próximo!",
-    "kastelWebsite": "http://kastelecka.com/en",
-    "oneDollar": "€",
-    "twoDollar": "€€",
-    "threeDollar": "€€€"
 }
