@@ -78,9 +78,9 @@ update msg model =
 
         GotResponse result ->
             let
-                lang = Session.lang model.session
+                lang =
+                    Session.lang model.session
             in
-            
             case result of
                 Ok found ->
                     case found of

@@ -100,7 +100,7 @@ viewGreeting lang guests =
 
         -- replace with translation
         greeting =
-            (Translations.hello lang) ++ guestName ++ Translations.joiningUs lang
+            Translations.hello lang ++ guestName ++ Translations.joiningUs lang
     in
     div [] [ text <| greeting ]
 
@@ -111,7 +111,7 @@ viewAcceptedRadio lang coming =
         [ div []
             [ label [ class "radio", onClick <| AcceptedClick True ]
                 [ input [ type_ "radio", name "coming", checked (coming == Just True) ] []
-                , text <| Translations.hellYes lang 
+                , text <| Translations.hellYes lang
                 ]
             ]
         , div []

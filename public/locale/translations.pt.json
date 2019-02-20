@@ -165,7 +165,10 @@
     "accomodationTitle": "Onde posso ficar?",
     "accomodationDesc": "a cidade de Zrenjanin oferece várias opçōes de alojamento para vários orçamentos.",
     "dvoracKastel": "Dvorac Kaštel",
-    "dvoracKastelDesc": "O casório é aqui! Existem 38 quartos e 7 suites de 40€ até 90€ por noite (preço por quarto). Se quiseres reservar, diz-lhes que vais estar lá na nossa festa e tens 15% de desconto por 2 noites. ",
+    "dvoracKastelDesc": [
+        "38 quartos e 7 suites.",
+        "15% de desconto por 2 noites."
+    ],
     "hotelVojvodina": "Hotel Vojvodina",
     "hotelVojvodinaDesc": "Situado no centro de Zrenjanin, a 8km do sítio da festa, este hotel foi renovado recentemente e oferece quartos duplos e suites. Preços deste 40€. ",
     "luxotel": "Luxotel",
@@ -202,5 +205,9 @@
     "hellNo": "Não, o meu gato nao deixa 💩",
     "additionalGuest": "Acompanhante extra",
     "whoComes": "Quem mais vem contigo?",
-    "comingSubmit": "Próximo!"
+    "comingSubmit": "Próximo!",
+    "kastelWebsite": "http://kastelecka.com/en",
+    "oneDollar": "€",
+    "twoDollar": "€€",
+    "threeDollar": "€€€"
 }

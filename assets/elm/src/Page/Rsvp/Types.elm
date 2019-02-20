@@ -80,7 +80,7 @@ type alias Allergies =
 type alias Invitation =
     { id : String
     , code : Code
-    , preferedLang: Lang
+    , preferedLang : Lang
     , maxGuests : Int
     , accepted : Maybe Accepted
     }

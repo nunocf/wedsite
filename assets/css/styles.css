@@ -281,6 +281,44 @@
 	align-self: center;
 }
 
+.dollars {
+	font-weight: 600;
+	color: #44692e;
+}
+
+.modalP {
+	line-height: 1.7;
+}
+
+.modalContentPadding {
+	padding: 0 24px 0 24px;
+}
+
+.pb-24 {
+	padding-bottom: 24px;
+}
+
+.modalButton {
+	background-color: #FAA404;
+	border-radius: 16px;
+	padding: 11px 19px;
+	cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0, 0, 0, .4);
+	width: 40%;
+	position: relative;
+	display: inline-block;
+	color: #4c4c4c;
+}
+
+.modalButton:hover {
+	color: #000000;
+	box-shadow: 3px 3px 5px rgba(0, 0, 0, .4);
+}
+
+.pr-6 {
+	padding-right: 6px;
+}
+
 @media only screen and (max-width: 600px) {
 	.ourStoryContainer {
 			grid-gap: 0rem;
@@ -405,6 +443,14 @@
 
 .movable:hover {
 	transform: scale(1.05);
+}
+
+.slightlyLessMovable {
+	transition: transform .2s; /* Animation */
+}
+
+.slightlyLessMovable:hover {
+	transform: scale(1.03);
 }
 
 

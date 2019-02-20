@@ -1,7 +1,8 @@
 module Page.Home.Accomodation exposing (view)
 
+import Asset
 import Html exposing (..)
-import Html.Attributes exposing (attribute, class, classList, src, style, type_)
+import Html.Attributes exposing (attribute, class, target, classList, href, src, style, type_)
 import Html.Events exposing (onClick)
 import Page.Home.Types exposing (Model, Msg(..))
 import Styles
@@ -49,39 +50,139 @@ view lang { activeModal } =
                 [ object [ class "mobile svg75Pct svg-content", type_ "image/svg+xml", attribute "data" "svg/single_flower.svg" ] [ text "Your browser does not support SVGs" ]
                 ]
             ]
-        , viewModal activeModal
+        , viewModal lang activeModal
         ]
 
 
-viewModal activeModal =
-    div [ classList [ ( "modal", True ), ( "is-active", activeModal /= Nothing ) ] ]
-        [ div [ class "modal-background" ] []
-        , viewModalContent activeModal
+
+viewModal lang activeModal =
+    div [ classList [ ( "modal", True ), ( "is-active", activeModal /= Nothing )] ]
+        [ div [ class "modal-background", onClick DeactivateModal ] []
+        , viewModalContent lang activeModal
         , button [ onClick DeactivateModal, class "modal-close is-large", attribute "aria-label" "close" ] []
         ]
 
 
-viewModalContent activeModal =
+viewModalContent lang activeModal =
     let
         content =
             case activeModal of
                 Just "kastel" ->
-                    modalCard (String.repeat 25 "I am kastel")
+                    let
+                        title =
+                            Translations.dvoracKastel lang
+
+                        description =
+                            [ Translations.dvoracKastelDesc0 lang, Translations.dvoracKastelDesc1 lang ]
+
+                        imageSource =
+                            Asset.src Asset.kastel
+
+                        websiteLink =
+                            Translations.kastelWebsite lang
+
+                        cost =
+                            Translations.threeDollar lang
+
+                        distance =
+                            "This is our venue!"
+                    in
+                    modalCard title description imageSource websiteLink cost distance
 
                 Just "luxotel" ->
-                    modalCard (String.repeat 25 "I am luxotel")
+                    let
+                        title =
+                            Translations.luxotel lang
+
+                        description =
+                            [ Translations.luxotelDesc lang ]
+
+                        imageSource =
+                            Asset.src Asset.luxotel
+
+                        websiteLink =
+                            Translations.kastelWebsite lang
+
+                        cost =
+                            Translations.oneDollar lang
+                    in
+                    modalCard title description imageSource websiteLink cost "This is our venue!"
 
                 Just "stGeorge" ->
-                    modalCard (String.repeat 25 "I am stGeorge")
+                    let
+                        title =
+                            Translations.apartments lang
+
+                        description =
+                            [ Translations.apartmentsDesc lang ]
+
+                        imageSource =
+                            Asset.src Asset.stGeorge
+
+                        websiteLink =
+                            Translations.kastelWebsite lang
+
+                        cost =
+                            Translations.oneDollar lang
+                    in
+                    modalCard title description imageSource websiteLink cost "This is our venue!"
 
                 Just "hotelVojvodina" ->
-                    modalCard (String.repeat 25 "I am Vojvodina")
+                    let
+                        title =
+                            Translations.hotelVojvodina lang
+
+                        description =
+                            [ Translations.hotelVojvodinaDesc lang ]
+
+                        imageSource =
+                            Asset.src Asset.hotelVojvodina
+
+                        websiteLink =
+                            Translations.kastelWebsite lang
+
+                        cost =
+                            Translations.oneDollar lang
+                    in
+                    modalCard title description imageSource websiteLink cost "This is our venue!"
 
                 Just "philadelphia" ->
-                    modalCard (String.repeat 25 "I am philadelphia")
+                    let
+                        title =
+                            Translations.villa lang
+
+                        description =
+                            [ Translations.villaDesc lang ]
+
+                        imageSource =
+                            Asset.src Asset.philadelphia
+
+                        websiteLink =
+                            Translations.kastelWebsite lang
+
+                        cost =
+                            Translations.oneDollar lang
+                    in
+                    modalCard title description imageSource websiteLink cost "This is our venue!"
 
                 Just "apartments" ->
-                    modalCard (String.repeat 25 "I am apartments")
+                    let
+                        title =
+                            Translations.apartmani lang
+
+                        description =
+                            [ Translations.apartmaniDesc lang ]
+
+                        imageSource =
+                            Asset.src Asset.apartments
+
+                        websiteLink =
+                            Translations.kastelWebsite lang
+
+                        cost =
+                            Translations.oneDollar lang
+                    in
+                    modalCard title description imageSource websiteLink cost "This is our venue!"
 
                 _ ->
                     div [] []
@@ -91,50 +192,34 @@ viewModalContent activeModal =
         ]
 
 
-modalCard content =
+modalCard title content imageSource websiteLink cost distance =
     div [ class "card" ]
         [ div [ class "card-image" ]
             [ figure [ class "image is-4by3" ]
-                [ img [ src "https://bulma.io/images/placeholders/1280x960.png" ] []
+                [ img [ imageSource ] []
                 ]
             ]
         , div [ class "card-content" ]
             [ div [ class "media" ]
-                [ div [ class "media-left" ]
-                    [ figure [ class "image is-48x48" ]
-                        [ img [ src "https://bulma.io/images/placeholders/96x96.png" ] []
-                        ]
+                [ div [ class "media-content" ]
+                    [ p [ class "title is-1 font-amatic" ] [ text <| title ]
                     ]
-                , div [ class "media-content" ]
-                    [ p [ class "title is-4" ] [ text "John Smith" ]
-                    , p [ class "subtitle is-6" ] [ text "@johnsmith" ]
+                , div [ class "media-right" ]
+                    [ p [class "font-text is-size-5 modalP"] [ text <| distance ]
+                    , p [ class " modalP has-text-right is-size-5 dollars font-text" ] [ text <| cost ]
                     ]
                 ]
             ]
-        , div [ class "content" ]
-            [ text content
+        , div [ class "content modalContentPadding" ]
+            (List.map (\descLine -> div [class "font-text is-size-5"] [ text descLine ]) content)
+        , div [ class "has-text-centered modalContentPadding pb-24"]
+            [ a [ href websiteLink,
+            target "_blank", class "modalButton font-text is-size-5 slightlyLessMovable" ] [ 
+                i [class "fas fa-globe-americas pr-6"] []
+                , text <| "Website" ]
             ]
         ]
 
-
-
--- ++ ([ ( Translations.dvoracKastel, Translations.dvoracKastelDesc )
---     , ( Translations.hotelVojvodina, Translations.hotelVojvodinaDesc )
---     , ( Translations.luxotel, Translations.luxotelDesc )
---     ]
---         |> List.map (\t -> placeView t lang)
---     )
--- ++ [ p [] [ text <| Translations.accomodationFinal lang ] ]
--- ++ ([ ( Translations.apartments, Translations.apartmentsDesc )
---     , ( Translations.villa, Translations.villaDesc )
---     , ( Translations.airbnb, Translations.airbnbDesc )
---     , ( Translations.booking, Translations.bookingDesc )
---     , ( Translations.limba, Translations.limbaDesc )
---     , ( Translations.apartmani, Translations.apartmaniDesc )
---     ]
---         |> List.map (\t -> placeView t lang)
---     )
--- )
 
 
 header : Lang -> Html msg

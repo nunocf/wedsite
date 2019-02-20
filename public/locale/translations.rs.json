@@ -165,7 +165,10 @@
     "accomodationTitle": "Potrebno Vam je prenoćište?",
     "accomodationDesc": "a cidade de Zrenjanin oferece várias opçōes de alojamento para vários orçamentos.",
     "dvoracKastel": "Dvorac Kaštel",
-    "dvoracKastelDesc": "Mesto svadbene proslave! Dvorac nudi 38 soba i 7 apartmana po ceni od 40€ do 90€ na noć. Ako se odlučite za rezervaciju, pomenite da ste gosti na našoj svadbi kako bi dobili dodatnih 15% popusta za dve noći. ",
+    "dvoracKastelDesc": [
+        "38 soba i 7 apartmana.",
+        "Dodatnih 15% popusta za dve noći. "
+    ],
     "hotelVojvodina": "Hotel Vojvodina",
     "hotelVojvodinaDesc": "Hotel u centru grada, nedavno renoviran, nudi dvokrevetne sobe i aparmane po ceni do 40€.",
     "luxotel": "Luxotel",
@@ -202,5 +205,9 @@
     "hellNo": "No, I will have diarhea 💩",
     "additionalGuest": "Additional guest",
     "whoComes": "Who's coming?",
-    "comingSubmit": "Próximo!"
+    "comingSubmit": "Próximo!",
+    "kastelWebsite": "http://kastelecka.com/",
+    "oneDollar": "€",
+    "twoDollar": "€€",
+    "threeDollar": "€€€"
 }

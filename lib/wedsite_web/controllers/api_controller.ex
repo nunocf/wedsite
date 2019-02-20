@@ -45,11 +45,9 @@ defmodule WedsiteWeb.ApiController do
 
     invitation = repo_update_invitation(invitation)
 
-    result = if invitation.accepted == true do
+    if invitation.accepted == true do
       repo_update_guests(invitation, guests)
     end
-
-    # IO.inspect(result)
 
     conn
     |> put_status(200)
@@ -67,16 +65,7 @@ defmodule WedsiteWeb.ApiController do
     |> Enum.map(&upsert_guest(&1, invitation.id))
   end
 
-  defp upsert_guest(%{
-    "coming" => coming,
-    "diet_notes" => diet_notes,
-    "diet_type" => diet_type,
-    "food_choice" => food_choice,
-    "food_allergy_notes" => allergy_notes,
-    "has_food_allergies" => has_allergies,
-    "id" => id,
-    "name" => name
-  } = guest, invitation_id) do
+  defp upsert_guest(%{"id" => id} = guest, invitation_id) do
 
     if id == nil do
       %Guest{invitation_id: invitation_id}

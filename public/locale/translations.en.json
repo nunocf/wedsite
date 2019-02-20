@@ -165,7 +165,10 @@
     "accomodationTitle": "Where can you stay?",
     "accomodationDesc": "City and the surrounding area offer several accommodation places that can work a range of needs and budgets.",
     "dvoracKastel": "Dvorac Kaštel",
-    "dvoracKastelDesc": "This is our venue! They offer 38 rooms and 7 suites ranging from 40€ to 90€ a night. If you decide to book, mention you are in out wedding party and you will receive complimentary 15% discount for 2 nights. ",
+    "dvoracKastelDesc": [
+        "38 rooms and 7 suites.",
+        "Complimentary 15% discount for 2 nights."
+    ],
     "hotelVojvodina": "Hotel Vojvodina",
     "hotelVojvodinaDesc": "Located in the city center of Zrenjanin, 8km from our venue, this hotel is newly renovated and offers double and twin rooms as well as suites. Prices start from 40€. ",
     "luxotel": "Luxotel",
@@ -202,5 +205,9 @@
     "hellNo": "No, I will have diarhea 💩",
     "additionalGuest": "Additional guest",
     "whoComes": "Who's coming?",
-    "comingSubmit": "Onwards"
+    "comingSubmit": "Onwards",
+    "kastelWebsite": "http://kastelecka.com/en",
+    "oneDollar": "£",
+    "twoDollar": "££",
+    "threeDollar": "£££"
 }
