@@ -1,5 +1,6 @@
 module Page.Home exposing (init, subscriptions, toSession, update, view)
 
+import Asset
 import Html exposing (..)
 import Html.Attributes exposing (attribute, class, src, style, type_)
 import Json.Decode as Decode
@@ -9,7 +10,7 @@ import Page.Home.Locations as Loc exposing (Locations)
 import Page.Home.Poem as Poem
 import Page.Home.Schedule as Schedule
 import Page.Home.Travelling as Travelling
-import Page.Home.Types exposing (Modal, Model, Msg(..))
+import Page.Home.Types exposing (Modal, Model, Msg(..), ActiveTab(..))
 import Session exposing (Session)
 import Styles
 import Translations
@@ -28,6 +29,7 @@ init session =
     ( { session = session
       , locations = Loc.init
       , activeModal = Nothing
+      , activeTab = Airplane
       }
     , Cmd.batch
         [ Gmaps.initMaps <| Loc.encode locations
@@ -51,7 +53,7 @@ view model =
             ([ viewHero
              , viewOurStory
              , viewSchedule
-             , viewTravelling
+             , viewTravelling model
              , viewAccomodation model
              ]
                 |> List.map (\section -> section <| Session.lang model.session)
@@ -87,7 +89,7 @@ viewOurStory lang =
                             ]
                         , div [ class "poem1" ] [ Poem.viewPoem1 lang ]
                         , div [ class "poemPicture is-hidden-mobile" ]
-                            [ img [ class "poemPhoto", src "images/stonehenge.jpg" ] []
+                            [ img [ class "poemPhoto", Asset.src Asset.stonehenge ] []
                             ]
                         , div [ class "poem2" ] [ Poem.viewPoem2 lang ]
                         , div [ class "poem3" ] [ Poem.viewPoem3 lang ]
@@ -114,17 +116,10 @@ viewSchedule lang =
         ]
 
 
-viewTravelling : Translations.Lang -> Html msg
-viewTravelling lang =
+viewTravelling : Model -> Translations.Lang -> Html Msg
+viewTravelling model lang =
     div [ class Styles.travellingSection ]
-        [ div [ class "container" ]
-            [ div [ class "columns is-centered" ]
-                [ div [ class "column is-two-thirds-desktop" ]
-                    [ Travelling.view lang
-                    ]
-                ]
-            ]
-        ]
+        [ Travelling.view model lang ]
 
 
 viewAccomodation : Model -> Translations.Lang -> Html Msg
@@ -159,6 +154,9 @@ update msg model =
 
         DeactivateModal ->
             ( { model | activeModal = Nothing }, Cmd.none )
+
+        ChangeTab selectedTab ->
+            ( { model | activeTab = selectedTab }, Cmd.none )
 
 
 setLocations : Model -> Locations -> Model

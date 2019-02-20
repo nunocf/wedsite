@@ -1,4 +1,4 @@
-module Translations exposing (Lang(..), accomodationDesc, accomodationFinal, accomodationTitle, additionalGuest, airSerbia, airbnb, airbnbDesc, airplane, apartmani, apartmaniDesc, apartments, apartmentsDesc, belgrade, belgradeAirport, booking, bookingDesc, brussels, budapest, budapestAirport, budapestAirportDistance, bus0, bus1, bus2, bus3, bus4, bus5, bus6, bus7, bus8, bus9, busTitle, car0, car1, carRental0, carRental1, carRental2, carRental3, carRental4, carRentalTitle, carTitle, codeNotFound, codeSubmit, comingSubmit, coordinates, defaultName, dvoracKastel, dvoracKastelDesc0, dvoracKastelDesc1, easyJet, eindhoven, elevenAM, elevenAMDesc0, elevenAMDesc1, elevenAMDesc2, elevenPM, elevenPMDesc0, elevenPMDesc1, em, errorRequest, etc, fourPM, fourPMDesc0, fourPMDesc1, fourPMDesc2, geaTravel, getLnFromCode, hellNo, hellYes, hello, hotelVojvodina, hotelVojvodinaDesc, hungary, insertInviteCode, joiningUs, kastelWebsite, limba, limbaDesc, londonHeathrow, londonLuton, luqa, luxotel, luxotelDesc, mainAirport0, mainAirport1, mainAirportSecondParagraph0, mainAirportSecondParagraph1, motorbike0, motorbike1, motorbike2, motorbikeTitle, ninePM, ninePMDesc0, ninePMDesc1, novaRent, oneDollar, otherAirports, ourStory0, ourStory1, ourStory10, ourStory11, ourStory12, ourStory13, ourStory14, ourStory15, ourStory16, ourStory17, ourStory18, ourStory19, ourStory2, ourStory20, ourStory21, ourStory22, ourStory23, ourStory24, ourStory25, ourStory26, ourStory27, ourStory28, ourStory29, ourStory3, ourStory4, ourStory5, ourStory6, ourStory7, ourStory8, ourStory9, ourStoryTitle, parisBeauvais, publicTravelFromAirport, romania, romaniaAirportDistance, rsvp0, rsvp1, rsvp2, rsvpTitle, scheduleSubtitle, scheduleTitle, sevenPM, sevenPMDesc0, sevenPMDesc1, showLess, showMore, threeDollar, timetableBelgrade, timetableBelgradeUrl, timetableNoviSad, timetableNoviSadUrl, timisoaraAirport, title, trains0, trains1, trainsTitle, travellingFinal, travellingHeader, travellingSubtitle0, travellingSubtitle1, twelveAM, twelveAMDesc0, twelveAMDesc1, twelveAMDesc2, twoDollar, twoPM, twoPMDesc0, twoPMDesc1, twoPMDesc2, twoPMDesc3, verticallyCenteringInCssIsEasy, villa, villaDesc, walkAndSwim0, walkAndSwim1, walkAndSwimTitle, whoComes, wizzAir)
+module Translations exposing (Lang(..), accomodationTitle, additionalGuest, airSerbia, airbnb, airplane, apartmani, apartmaniDesc0, apartmaniDesc1, apartmaniWebsite, apartmeniDist, apartments, apartmentsDesc0, apartmentsDesc1, apartmentsDist, apartmentsWebsite, belgrade, belgradeAirport, booking, brussels, budapest, budapestAirport, budapestAirportDistance, bus0, bus1, bus2, bus3, bus4, bus5, bus6, bus7, bus8, bus9, busTitle, car0, car1, carRental0, carRental1, carRental2, carRental3, carRental4, carRentalTitle, carTitle, codeNotFound, codeSubmit, comingSubmit, coordinates, defaultName, dvoracKastel, dvoracKastelDesc0, dvoracKastelDesc1, dvoracKastelDist, easyJet, eindhoven, elevenAM, elevenAMDesc0, elevenAMDesc1, elevenAMDesc2, elevenPM, elevenPMDesc0, elevenPMDesc1, em, errorRequest, etc, fourPM, fourPMDesc0, fourPMDesc1, fourPMDesc2, geaTravel, getLnFromCode, hellNo, hellYes, hello, highPrice, hotelVojvodina, hotelVojvodinaDesc0, hotelVojvodinaDesc1, hotelVojvodinaDist, hotelVojvodinaWebsite, hungary, insertInviteCode, joiningUs, kastelWebsite, londonHeathrow, londonLuton, lowPrice, luqa, luxotel, luxotelDesc0, luxotelDesc1, luxotelDist, luxotelWebsite, mainAirport0, mainAirport1, mainAirportSecondParagraph0, mainAirportSecondParagraph1, mediumPrice, motorbike0, motorbike1, motorbike2, motorbikeTitle, ninePM, ninePMDesc0, ninePMDesc1, novaRent, otherAirports, ourStory0, ourStory1, ourStory10, ourStory11, ourStory12, ourStory13, ourStory14, ourStory15, ourStory16, ourStory17, ourStory18, ourStory19, ourStory2, ourStory20, ourStory21, ourStory22, ourStory23, ourStory24, ourStory25, ourStory26, ourStory27, ourStory28, ourStory29, ourStory3, ourStory4, ourStory5, ourStory6, ourStory7, ourStory8, ourStory9, ourStoryTitle, parisBeauvais, publicTravelFromAirport, romania, romaniaAirportDistance, rsvp0, rsvp1, rsvp2, rsvpTitle, scheduleSubtitle, scheduleTitle, sevenPM, sevenPMDesc0, sevenPMDesc1, showLess, showMore, timetableBelgrade, timetableBelgradeUrl, timetableNoviSad, timetableNoviSadUrl, timisoaraAirport, title, trains0, trains1, trainsTitle, travellingFinal, travellingHeader, travellingSubtitle0, travellingSubtitle1, twelveAM, twelveAMDesc0, twelveAMDesc1, twelveAMDesc2, twoPM, twoPMDesc0, twoPMDesc1, twoPMDesc2, twoPMDesc3, verticallyCenteringInCssIsEasy, villa, villaDesc0, villaDist, villaWebsite, walkAndSwim0, walkAndSwim1, walkAndSwimTitle, whoComes, wizzAir)
 
 
 type Lang
@@ -1713,56 +1713,69 @@ accomodationTitle lang =
             "Potrebno Vam je prenoćište?"
 
 
-accomodationDesc : Lang -> String
-accomodationDesc lang =
-    case lang of
-        En ->
-            "City and the surrounding area offer several accommodation places that can work a range of needs and budgets."
-
-        Pt ->
-            "a cidade de Zrenjanin oferece várias opçōes de alojamento para vários orçamentos."
-
-        Rs ->
-            "a cidade de Zrenjanin oferece várias opçōes de alojamento para vários orçamentos."
-
-
 dvoracKastel : Lang -> String
 dvoracKastel lang =
     case lang of
         En ->
-            "Dvorac Kaštel"
+            "Castle Kaštel"
 
         Pt ->
-            "Dvorac Kaštel"
+            "Castelo Kaštel"
 
         Rs ->
             "Dvorac Kaštel"
+
+
+kastelWebsite : Lang -> String
+kastelWebsite lang =
+    case lang of
+        En ->
+            "http://kastelecka.com/en"
+
+        Pt ->
+            "http://kastelecka.com/en"
+
+        Rs ->
+            "http://kastelecka.com"
+
+
+dvoracKastelDist : Lang -> String
+dvoracKastelDist lang =
+    case lang of
+        En ->
+            "This is our venue!"
+
+        Pt ->
+            "A festa é aqui!"
+
+        Rs ->
+            "Venčanje je ovde!"
 
 
 dvoracKastelDesc0 : Lang -> String
 dvoracKastelDesc0 lang =
     case lang of
         En ->
-            "38 rooms and 7 suites."
+            "38 rooms and 7 suites"
 
         Pt ->
-            "38 quartos e 7 suites."
+            "38 quartos e 7 suites disponíveis"
 
         Rs ->
-            "38 soba i 7 apartmana."
+            "38 soba i 7 apartmana"
 
 
 dvoracKastelDesc1 : Lang -> String
 dvoracKastelDesc1 lang =
     case lang of
         En ->
-            "Complimentary 15% discount for 2 nights."
+            "Complimentary 15% discount for 2 nights"
 
         Pt ->
-            "15% de desconto por 2 noites."
+            "Desconto de 15% por 2 noites"
 
         Rs ->
-            "Dodatnih 15% popusta za dve noći. "
+            "Dodatnih 15% popusta za 2 noći"
 
 
 hotelVojvodina : Lang -> String
@@ -1778,17 +1791,56 @@ hotelVojvodina lang =
             "Hotel Vojvodina"
 
 
-hotelVojvodinaDesc : Lang -> String
-hotelVojvodinaDesc lang =
+hotelVojvodinaWebsite : Lang -> String
+hotelVojvodinaWebsite lang =
     case lang of
         En ->
-            "Located in the city center of Zrenjanin, 8km from our venue, this hotel is newly renovated and offers double and twin rooms as well as suites. Prices start from 40€. "
+            "https://hotel-vojvodina.rs/home-2/"
 
         Pt ->
-            "Situado no centro de Zrenjanin, a 8km do sítio da festa, este hotel foi renovado recentemente e oferece quartos duplos e suites. Preços deste 40€. "
+            "https://hotel-vojvodina.rs/home-2/"
 
         Rs ->
-            "Hotel u centru grada, nedavno renoviran, nudi dvokrevetne sobe i aparmane po ceni do 40€."
+            "https://hotel-vojvodina.rs"
+
+
+hotelVojvodinaDist : Lang -> String
+hotelVojvodinaDist lang =
+    case lang of
+        En ->
+            "8km away"
+
+        Pt ->
+            "8km da festa"
+
+        Rs ->
+            "Udaljenost 8km"
+
+
+hotelVojvodinaDesc0 : Lang -> String
+hotelVojvodinaDesc0 lang =
+    case lang of
+        En ->
+            "Double and twin rooms and suits"
+
+        Pt ->
+            "Quartos duplos e suites disponíveis"
+
+        Rs ->
+            "Dvokrevetne sobe i apartmani"
+
+
+hotelVojvodinaDesc1 : Lang -> String
+hotelVojvodinaDesc1 lang =
+    case lang of
+        En ->
+            "Located in the pedestrian zone"
+
+        Pt ->
+            "Situado na zona pedestre"
+
+        Rs ->
+            "U pešačkoj zoni"
 
 
 luxotel : Lang -> String
@@ -1804,30 +1856,56 @@ luxotel lang =
             "Luxotel"
 
 
-luxotelDesc : Lang -> String
-luxotelDesc lang =
+luxotelWebsite : Lang -> String
+luxotelWebsite lang =
     case lang of
         En ->
-            "Small, family owned and operated hotel, located 12km from our venue. It is equipped with double, twin and triple rooms with prices starting at 25€ per person."
+            "https://luxotel-rs.book.direct/en-us"
 
         Pt ->
-            "Um pequeno negócio de família, a located 12km da nossa festa. Tem quartos duplos e triplos com preços desde 25€ por pessoa."
+            "https://luxotel-rs.book.direct/pt-pt"
 
         Rs ->
-            "Mali, porodični hotel lociran na izlazu prema Novom Sadu. Nudi dvokrevetne i trokrevente sobe sa početom cenom od 25€ po osobi."
+            "https://luxotel-rs.book.direct/sr-cs"
 
 
-accomodationFinal : Lang -> String
-accomodationFinal lang =
+luxotelDist : Lang -> String
+luxotelDist lang =
     case lang of
         En ->
-            "All options come with complimentary parking and optional breakfast. "
+            "12km away"
 
         Pt ->
-            "Todas estas opçōes oferecem estacionamento gratuito, mas o pequeno almoço não está incluído. "
+            "12km da festa"
 
         Rs ->
-            "Sva tri hotela nude parking za goste i mogućnost doručka."
+            "Udaljenost 12km"
+
+
+luxotelDesc0 : Lang -> String
+luxotelDesc0 lang =
+    case lang of
+        En ->
+            "Double, twin and triple rooms available"
+
+        Pt ->
+            "Quartos duplos e triplos disponíveis"
+
+        Rs ->
+            "Dvokrevetne i trokrevetne sobe"
+
+
+luxotelDesc1 : Lang -> String
+luxotelDesc1 lang =
+    case lang of
+        En ->
+            "Small, family operated hotel"
+
+        Pt ->
+            "Pequeno negócio familiar"
+
+        Rs ->
+            "Mali, porodično vođen hotel"
 
 
 apartments : Lang -> String
@@ -1837,23 +1915,62 @@ apartments lang =
             "St. George's apartments"
 
         Pt ->
-            "Apartamentos de S. George"
+            "Villa de S. George"
 
         Rs ->
-            "Apartamani Sv. Đorđa"
+            "Apartmani Sv. Đorđa"
 
 
-apartmentsDesc : Lang -> String
-apartmentsDesc lang =
+apartmentsWebsite : Lang -> String
+apartmentsWebsite lang =
     case lang of
         En ->
-            "Etho styled apartments in the city center, with single and double rooms priced at 20€ per person a night."
+            "http://stgeorge.rs/en/"
 
         Pt ->
-            "Apartmentos no centro da cidade, preços desde (ADD PRICE HERE)"
+            "http://stgeorge.rs/en/"
 
         Rs ->
-            "Apartmani u centru grada, u etno stilu, sa cenom od 20€ po osobi."
+            "http://stgeorge.rs"
+
+
+apartmentsDist : Lang -> String
+apartmentsDist lang =
+    case lang of
+        En ->
+            "6km away"
+
+        Pt ->
+            "6km da festa"
+
+        Rs ->
+            "Udaljenost 6km"
+
+
+apartmentsDesc0 : Lang -> String
+apartmentsDesc0 lang =
+    case lang of
+        En ->
+            "Single and double rooms available"
+
+        Pt ->
+            "Quartos individuais e duplos disponíveis"
+
+        Rs ->
+            "Jednokrevetne i dvokrevetne sobe"
+
+
+apartmentsDesc1 : Lang -> String
+apartmentsDesc1 lang =
+    case lang of
+        En ->
+            "Ethno styled apartments"
+
+        Pt ->
+            "Apartamentos com estilo rústico local"
+
+        Rs ->
+            "Apartmani u etno stilu"
 
 
 villa : Lang -> String
@@ -1869,17 +1986,43 @@ villa lang =
             "Vila Filadelija"
 
 
-villaDesc : Lang -> String
-villaDesc lang =
+villaWebsite : Lang -> String
+villaWebsite lang =
     case lang of
         En ->
-            "located in the wider city center area, 8km from the venue, with several rooms and price starting at 16€ a night"
+            "http://www.filadelfija.com/index.php/en/"
 
         Pt ->
-            "Também no centro, a 8km da nossa festa, tem vários quartos desde 16€ por noite"
+            "http://www.filadelfija.com/index.php/en/"
 
         Rs ->
-            "Takođe u centru grada, sa različitim ponudama soba počevši od 16€ za noć."
+            "http://www.filadelfija.com/index.php/sr/"
+
+
+villaDist : Lang -> String
+villaDist lang =
+    case lang of
+        En ->
+            "8km away"
+
+        Pt ->
+            "8km da festa"
+
+        Rs ->
+            "Udaljenost 8km"
+
+
+villaDesc0 : Lang -> String
+villaDesc0 lang =
+    case lang of
+        En ->
+            "Variety of rooms"
+
+        Pt ->
+            "Variedade de quartos disponíveis"
+
+        Rs ->
+            "Veći broj različitih soba"
 
 
 airbnb : Lang -> String
@@ -1895,19 +2038,6 @@ airbnb lang =
             "Airbnb"
 
 
-airbnbDesc : Lang -> String
-airbnbDesc lang =
-    case lang of
-        En ->
-            "if you are looking for a more home like option, there are several options ranging 15-40€ a night scattered around the city. Type in Zrenjanin, Serbia as location."
-
-        Pt ->
-            "Há várias opçōes entre 15€-40€ por noite espalhadas pela cidade. Procura por alojamento em Zrenjanin."
-
-        Rs ->
-            "Različite opcije na terirotiji grada, cene variraju 15-40€."
-
-
 booking : Lang -> String
 booking lang =
     case lang of
@@ -1919,45 +2049,6 @@ booking lang =
 
         Rs ->
             "Booking.com"
-
-
-bookingDesc : Lang -> String
-bookingDesc lang =
-    case lang of
-        En ->
-            "varying prices and accommodation types."
-
-        Pt ->
-            "Várias opçōes para todos os preços."
-
-        Rs ->
-            "Veći izbor, sa opcijama za svaki džep."
-
-
-limba : Lang -> String
-limba lang =
-    case lang of
-        En ->
-            "Limba"
-
-        Pt ->
-            "Limba"
-
-        Rs ->
-            "Limba"
-
-
-limbaDesc : Lang -> String
-limbaDesc lang =
-    case lang of
-        En ->
-            "local version of booking.com, thankfully English friendly."
-
-        Pt ->
-            "Versão sérvia do booking.com, com site em Inglês."
-
-        Rs ->
-            "Lokalna verzija gore pomenutog sajta."
 
 
 apartmani : Lang -> String
@@ -1973,17 +2064,56 @@ apartmani lang =
             "Apartmani ZR"
 
 
-apartmaniDesc : Lang -> String
-apartmaniDesc lang =
+apartmaniWebsite : Lang -> String
+apartmaniWebsite lang =
     case lang of
         En ->
-            "unfortunately not an ENglish friendly website. They offer several rooms, studios and apartments in the pedestrian zone starting at 10€ per person. Feel free to drop them an email inquiry."
+            "https://www.apartmanizrenjanin.rs/about-us/?lang=en"
 
         Pt ->
-            "Infelizmente, o site está em sérvio, mas oferecem vários quartos e apartamentos no centro com preços desde (PRECO AQUI). Contacta-os por email."
+            "https://www.apartmanizrenjanin.rs/about-us/?lang=en"
 
         Rs ->
-            "Apartmani u pešačkoj zoni, sa početnom cenom od 10€."
+            "https://www.apartmanizrenjanin.rs"
+
+
+apartmeniDist : Lang -> String
+apartmeniDist lang =
+    case lang of
+        En ->
+            "9km away"
+
+        Pt ->
+            "9km da festa"
+
+        Rs ->
+            "Udaljenost 9km"
+
+
+apartmaniDesc0 : Lang -> String
+apartmaniDesc0 lang =
+    case lang of
+        En ->
+            "Several rooms, studios and apartments available"
+
+        Pt ->
+            "Vários quartos, estúdios e apartamentos"
+
+        Rs ->
+            "Više različitih soba, apartmana i studia"
+
+
+apartmaniDesc1 : Lang -> String
+apartmaniDesc1 lang =
+    case lang of
+        En ->
+            "Located in the city center"
+
+        Pt ->
+            "Situado no centro da cidade"
+
+        Rs ->
+            "U centru grada"
 
 
 rsvpTitle : Lang -> String
@@ -2061,7 +2191,7 @@ showLess lang =
             "Ver menos"
 
         Rs ->
-            "Manji"
+            "Manje"
 
 
 insertInviteCode : Lang -> String
@@ -2074,7 +2204,7 @@ insertInviteCode lang =
             "Por favor introduz o código do convite"
 
         Rs ->
-            "Please insert your invitation code"
+            "Molimo Vas ubacite svoju šifru"
 
 
 codeSubmit : Lang -> String
@@ -2087,7 +2217,7 @@ codeSubmit lang =
             "Siga"
 
         Rs ->
-            "Let's go!"
+            "Pa da počnemo!"
 
 
 codeNotFound : Lang -> String
@@ -2126,7 +2256,7 @@ hello lang =
             "Alô "
 
         Rs ->
-            "Hello "
+            "Zdravo "
 
 
 defaultName : Lang -> String
@@ -2139,7 +2269,7 @@ defaultName lang =
             "artista"
 
         Rs ->
-            "and welcome"
+            "dobrodošli"
 
 
 joiningUs : Lang -> String
@@ -2152,7 +2282,7 @@ joiningUs lang =
             ", vens juntar-te à nossa festa?"
 
         Rs ->
-            ", are you joining us for the party?"
+            ", da li ćete nam se pridružiti?"
 
 
 hellYes : Lang -> String
@@ -2165,7 +2295,7 @@ hellYes lang =
             "Mas é claro! 🎉"
 
         Rs ->
-            "Aw hell ye 🎉"
+            "Naravno da DA 🎉"
 
 
 hellNo : Lang -> String
@@ -2178,7 +2308,7 @@ hellNo lang =
             "Não, o meu gato nao deixa 💩"
 
         Rs ->
-            "No, I will have diarhea 💩"
+            "Ne, ipak imam neodložna posla 💩"
 
 
 additionalGuest : Lang -> String
@@ -2191,7 +2321,7 @@ additionalGuest lang =
             "Acompanhante extra"
 
         Rs ->
-            "Additional guest"
+            "Dodatni gost"
 
 
 whoComes : Lang -> String
@@ -2204,7 +2334,7 @@ whoComes lang =
             "Quem mais vem contigo?"
 
         Rs ->
-            "Who's coming?"
+            "Ko dolazi?"
 
 
 comingSubmit : Lang -> String
@@ -2220,21 +2350,8 @@ comingSubmit lang =
             "Próximo!"
 
 
-kastelWebsite : Lang -> String
-kastelWebsite lang =
-    case lang of
-        En ->
-            "http://kastelecka.com/en"
-
-        Pt ->
-            "http://kastelecka.com/en"
-
-        Rs ->
-            "http://kastelecka.com/"
-
-
-oneDollar : Lang -> String
-oneDollar lang =
+lowPrice : Lang -> String
+lowPrice lang =
     case lang of
         En ->
             "£"
@@ -2246,27 +2363,27 @@ oneDollar lang =
             "€"
 
 
-twoDollar : Lang -> String
-twoDollar lang =
+mediumPrice : Lang -> String
+mediumPrice lang =
     case lang of
         En ->
-            "££"
+            "£ £"
 
         Pt ->
-            "€€"
+            "€ €"
 
         Rs ->
-            "€€"
+            "€ €"
 
 
-threeDollar : Lang -> String
-threeDollar lang =
+highPrice : Lang -> String
+highPrice lang =
     case lang of
         En ->
-            "£££"
+            "£ £ £"
 
         Pt ->
-            "€€€"
+            "€ € €"
 
         Rs ->
-            "€€€"
+            "€ € €"

@@ -165,7 +165,6 @@
     "accomodationTitle": "Where can you stay?",
     "dvoracKastel": "Castle Kaštel",
     "kastelWebsite": "http://kastelecka.com/en",
-    "dvoracKastelPrice": "£ £ £",
     "dvoracKastelDist": "This is our venue!",
     "dvoracKastelDesc": [
         "38 rooms and 7 suites",
@@ -173,44 +172,38 @@
     ],
     "hotelVojvodina": "Hotel Vojvodina",
     "hotelVojvodinaWebsite": "https://hotel-vojvodina.rs/home-2/",
-    "hotelVojvodinaPrice": "£ £ £",
-    "hotelVojvodinaDist": "Distance to venue 8km",
+    "hotelVojvodinaDist": "8km away",
     "hotelVojvodinaDesc": [
-        "Double and twin rooms and suits.",
-        "In the pedestrian zone"
+        "Double and twin rooms and suits",
+        "Located in the pedestrian zone"
     ],
     "luxotel": "Luxotel",
     "luxotelWebsite": "https://luxotel-rs.book.direct/en-us",
-    "luxotelPrice": "£ £",
-    "luxotelDist": "Distance to venue 12km",
+    "luxotelDist": "12km away",
     "luxotelDesc": [
-        "Double, twin and tripple rooms",
+        "Double, twin and triple rooms available",
         "Small, family operated hotel"
     ],
     "apartments": "St. George's apartments",
-    "apartmentsWebsite": "http://stgeorge.rs/en/"
-    "apartmentsPrice": "£ £",
-    "apartmentsDist": "Distance to venue 6km",
+    "apartmentsWebsite": "http://stgeorge.rs/en/",
+    "apartmentsDist": "6km away",
     "apartmentsDesc": [
-        "Single and double rooms",
+        "Single and double rooms available",
         "Ethno styled apartments"
     ],
     "villa": "Villa Filadelija",
     "villaWebsite": "http://www.filadelfija.com/index.php/en/",
-    "villaPrice": "£",
-    "villaDist": "Distance to venue 8km",
+    "villaDist": "8km away",
     "villaDesc": [
-        "Variety of rooms",
-        " "
+        "Variety of rooms"
     ],
     "airbnb": "Airbnb",
     "booking": "Booking.com",
     "apartmani": "Apartmani ZR",
     "apartmaniWebsite": "https://www.apartmanizrenjanin.rs/about-us/?lang=en",
-    "apartmaniPrice": "£",
-    "apartmeniDist": "Distance to venue 9km",
+    "apartmeniDist": "9km away",
     "apartmaniDesc": [
-        "Several rooms, studios and apartments",
+        "Several rooms, studios and apartments available",
         "Located in the city center"
     ],
     "rsvpTitle": "RSVP",
@@ -233,4 +226,7 @@
     "additionalGuest": "Additional guest",
     "whoComes": "Who's coming?",
     "comingSubmit": "Onwards",
+    "lowPrice": "£",
+    "mediumPrice": "£ £",
+    "highPrice": "£ £ £"
 }

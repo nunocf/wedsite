@@ -81,6 +81,10 @@
 	text-align: left;
 }
 
+.font-heavy {
+	font-weight: 600;
+}
+
 .font-amatic {
 	font-family: 'Amatic SC', cursive;
 }
@@ -160,7 +164,7 @@
 	gap: 1rem;
 	margin-top: 30px;
 
-	padding: 0px 1.5rem 1.5rem 1.5rem;
+	padding: 0px 2rem 2rem 2rem;
 }
 
 .poemViewFrameContainer {
@@ -319,7 +323,38 @@
 	padding-right: 6px;
 }
 
+.travellingGrid {
+	display: grid;
+
+	grid-template-columns: 1fr 4fr;
+
+	padding: 2rem 0rem 0rem 1rem;
+
+}
+
+.travellingMenu {
+	display: grid;
+
+	grid-template-rows: repeat(7, 1fr);
+	background-color: #ACBCDA;
+}
+
+.travelMenuItem {
+	justify-self: center;
+	align-self: center;
+
+	text-align: center;
+}
+
+.travellingContent {
+	background-color: #732930;
+}
+
 @media only screen and (max-width: 600px) {
+
+	.modalButton {
+		width: 55%;
+	}
 	.ourStoryContainer {
 			grid-gap: 0rem;
 			grid-template-columns: 10px 1fr 10px;
@@ -456,17 +491,20 @@
 
 .kastelSquare {
 	grid-area: kastel;
+	padding-top: 100%;
+}
 
+.kastelBG {
 	background: url('/images/kastel.jpeg');
 	background-position: center center;
 	background-size: cover;
-
-	padding-top: 100%;
 }
 
 .luxotel {
 	grid-area: luxotel;
+}
 
+.luxotelBG {
 	background: url('/images/luxotel.jpeg');
 	background-position: center center;
 	background-size: cover;
@@ -474,6 +512,9 @@
 
 .stGeorge {
 	grid-area: stGeorge;
+}
+
+.stGeorgeBG {
 	background: url('/images/stgeorge.jpeg');
 	background-position: center center;
 	background-size: cover;
@@ -490,7 +531,9 @@
 
 .hotelVojvodinaSquare {
 	grid-area: vojvodina;
+}
 
+.hotelVojvodinaBG {
 	background: url('/images/hotel-vojvodina.jpeg');
 	background-position: center center;
 	background-size: cover;
@@ -498,6 +541,9 @@
 
 .philadelphia {
 	grid-area: philadelphia;
+}
+
+.philadelphiaBG {
 	background: url('/images/philadelphia.jpeg');
 	background-position: center center;
 	background-size: cover;
@@ -505,11 +551,12 @@
 
 .apartments {
 	grid-area: apartments;
+}
 
+.apartmentsBG {
 	background: url('/images/apartments.jpeg');
 	background-position: center center;
 	background-size: cover;
-
 }
 
 

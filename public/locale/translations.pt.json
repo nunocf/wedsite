@@ -162,56 +162,49 @@
     ],
     "novaRent": "Nova rent. ",
     "travellingFinal": "Qualquer que seja a tua preferência de transporte, contacta-nos que temos todo o gosto em ajudar-te a organizar tudo.",
-    "accomodationTitle": "Where can you stay?",
-    "dvoracKastel": "Castle Kaštel",
+    "accomodationTitle": "Onde posso ficar?",
+    "dvoracKastel": "Castelo Kaštel",
     "kastelWebsite": "http://kastelecka.com/en",
-    "dvoracKastelPrice": "€ € €",
-    "dvoracKastelDist": "This is our venue!",
+    "dvoracKastelDist": "A festa é aqui!",
     "dvoracKastelDesc": [
-        "38 rooms and 7 suites",
-        "Complimentary 15% discount for 2 nights"
+        "38 quartos e 7 suites disponíveis",
+        "Desconto de 15% por 2 noites"
     ],
     "hotelVojvodina": "Hotel Vojvodina",
     "hotelVojvodinaWebsite": "https://hotel-vojvodina.rs/home-2/",
-    "hotelVojvodinaPrice": "€ € €",
-    "hotelVojvodinaDist": "Distance to venue 8km",
+    "hotelVojvodinaDist": "8km da festa",
     "hotelVojvodinaDesc": [
-        "Double and twin rooms and suits.",
-        "In the pedestrian zone"
+        "Quartos duplos e suites disponíveis",
+        "Situado na zona pedestre"
     ],
     "luxotel": "Luxotel",
     "luxotelWebsite": "https://luxotel-rs.book.direct/pt-pt",
-    "luxotelPrice": "€ €",
-    "luxotelDist": "Distance to venue 12km",
+    "luxotelDist": "12km da festa",
     "luxotelDesc": [
-        "Double, twin and tripple rooms",
-        "Small, family operated hotel"
+        "Quartos duplos e triplos disponíveis",
+        "Pequeno negócio familiar"
     ],
-    "apartments": "St. George's apartments",
-    "apartmentsWebsite": "http://stgeorge.rs/en/"
-    "apartmentsPrice": "€ €",
-    "apartmentsDist": "Distance to venue 6km",
+    "apartments": "Villa de S. George",
+    "apartmentsWebsite": "http://stgeorge.rs/en/",
+    "apartmentsDist": "6km da festa",
     "apartmentsDesc": [
-        "Single and double rooms",
-        "Ethno styled apartments"
+        "Quartos individuais e duplos disponíveis",
+        "Apartamentos com estilo rústico local"
     ],
     "villa": "Villa Filadelija",
     "villaWebsite": "http://www.filadelfija.com/index.php/en/",
-    "villaPrice": "€",
-    "villaDist": "Distance to venue 8km",
+    "villaDist": "8km da festa",
     "villaDesc": [
-        "Variety of rooms",
-        " "
+        "Variedade de quartos disponíveis"
     ],
     "airbnb": "Airbnb",
     "booking": "Booking.com",
     "apartmani": "Apartmani ZR",
     "apartmaniWebsite": "https://www.apartmanizrenjanin.rs/about-us/?lang=en",
-    "apartmaniPrice": "€",
-    "apartmeniDist": "Distance to venue 9km",
+    "apartmeniDist": "9km da festa",
     "apartmaniDesc": [
-        "Several rooms, studios and apartments",
-        "Located in the city center"
+        "Vários quartos, estúdios e apartamentos",
+        "Situado no centro da cidade"
     ],
     "rsvpTitle": "RSVP",
     "rsvp": [
@@ -233,4 +226,7 @@
     "additionalGuest": "Acompanhante extra",
     "whoComes": "Quem mais vem contigo?",
     "comingSubmit": "Próximo!",
+    "lowPrice": "€",
+    "mediumPrice": "€ €",
+    "highPrice": "€ € €"
 }

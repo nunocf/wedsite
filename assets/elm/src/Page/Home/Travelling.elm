@@ -1,27 +1,105 @@
 module Page.Home.Travelling exposing (view)
 
-import Html exposing (Html, a, div, p, text)
-import Html.Attributes exposing (class, href)
+import Html exposing (..)
+import Html.Attributes exposing (attribute, class, href)
+import Html.Events exposing (onClick)
+import Page.Home.Types exposing (Model, Msg(..), ActiveTab(..))
 import Styles
 import Translations exposing (Lang)
 
 
-view : Lang -> Html msg
-view lang =
-    div [ class "notification" ]
-        [ div [ class "columns is-centered" ]
-            [ div [ class "column is-three-quarters-desktop" ]
-                [ header lang
-                , planeTravel lang
-                , trainTravel lang
-                , busTravel lang
-                , carTravel lang
-                , bikeTravel lang
-                , walkTravel lang
-                , rentalTravel lang
-                ]
+view : Model -> Lang -> Html Msg
+view model lang =
+    div []
+        [ div [ class "travellingGrid", attribute "height" "100%" ]
+            [ viewTravellingMenu model lang
+            , viewTravellingContent model lang
             ]
         ]
+
+
+viewTravellingMenu : Model -> Lang -> Html Msg
+viewTravellingMenu model lang =
+    div [ class "travellingMenu" ]
+        [ div [ class "travelMenuItem font-amatic is-size-2 font-heavy", onClick <| ChangeTab Airplane ]
+            [ i [ class "fas fa-fighter-jet" ] []
+            , div [] [ text <| Translations.airplane lang ]
+            ]
+        , div [ class "travelMenuItem font-amatic is-size-2 font-heavy", onClick <| ChangeTab Train ]
+            [ i [ class "fas fa-train" ] []
+            , div [] [ text <| Translations.trainsTitle lang ]
+            ]
+        , div [ class "travelMenuItem font-amatic is-size-2 font-heavy", onClick <| ChangeTab Bus ]
+            [ i [ class "fas fa-bus-alt" ] []
+            , div [] [ text <| Translations.busTitle lang ]
+            ]
+        , div [ class "travelMenuItem font-amatic is-size-2 font-heavy", onClick <| ChangeTab Car ]
+            [ i [ class "fas fa-car-side" ] []
+            , div [] [ text <| Translations.carTitle lang ]
+            ]
+        , div [ class "travelMenuItem font-amatic is-size-2 font-heavy", onClick <| ChangeTab Bike ]
+            [ i [ class "fas fa-bicycle" ] []
+            , div [] [ text <| Translations.motorbikeTitle lang ]
+            ]
+        , div [ class "travelMenuItem font-amatic is-size-2 font-heavy", onClick <| ChangeTab Walk ]
+            [ i [ class "fas fa-hiking" ] []
+            , div [] [ text <| Translations.walkAndSwimTitle lang ]
+            ]
+        , div [ class "travelMenuItem font-amatic is-size-2 font-heavy", onClick <| ChangeTab RentCar ]
+            [ i [ class "fas fa-key" ] []
+            , div [] [ text <| Translations.carRentalTitle lang ]
+            ]
+        ]
+
+
+viewTravellingContent : Model -> Lang -> Html Msg
+viewTravellingContent model lang =
+    let
+        content =
+            case model.activeTab of
+                Airplane ->
+                    planeTravel lang
+
+                Train ->
+                    trainTravel lang
+
+                Bus ->
+                    busTravel lang
+
+                Car ->
+                    carTravel lang
+
+                Bike ->
+                    bikeTravel lang
+
+                Walk ->
+                    walkTravel lang
+
+                RentCar ->
+                    rentalTravel lang
+
+
+    in
+    div [ class "travellingContent" ]
+        [ content
+        ]
+
+
+
+-- div [ class "notification" ]
+--     [ div [ class "columns is-centered" ]
+--         [ div [ class "column is-three-quarters-desktop" ]
+--             [ header lang
+--             , planeTravel lang
+--             , trainTravel lang
+--             , busTravel lang
+--             , carTravel lang
+--             , bikeTravel lang
+--             , walkTravel lang
+--             , rentalTravel lang
+--             ]
+--         ]
+--     ]
 
 
 header : Lang -> Html msg

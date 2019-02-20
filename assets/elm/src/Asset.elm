@@ -1,4 +1,4 @@
-module Asset exposing (Image, apartments, complete, error, hotelVojvodina, kastel, luxotel, philadelphia, src, stGeorge)
+module Asset exposing (Image, apartments, complete, error, hotelVojvodina, kastel, luxotel, philadelphia, src, stGeorge, stonehenge)
 
 {-| Assets, like images.
 We should never expose asset URLs directly; this module should be in charge of
@@ -55,6 +55,11 @@ philadelphia =
 stGeorge : Image
 stGeorge =
     image "stgeorge.jpeg"
+
+
+stonehenge : Image
+stonehenge =
+    image "stonehenge.jpg"
 
 
 image : String -> Image

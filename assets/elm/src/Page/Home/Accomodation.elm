@@ -2,7 +2,7 @@ module Page.Home.Accomodation exposing (view)
 
 import Asset
 import Html exposing (..)
-import Html.Attributes exposing (attribute, class, target, classList, href, src, style, type_)
+import Html.Attributes exposing (attribute, class, classList, href, src, style, target, type_)
 import Html.Events exposing (onClick)
 import Page.Home.Types exposing (Model, Msg(..))
 import Styles
@@ -13,18 +13,18 @@ view : Lang -> Model -> Html Msg
 view lang { activeModal } =
     div []
         [ div [ class "accomodationGrid", attribute "height" "100%" ]
-            [ div [ class "bookingSquare pointerCursor movable roundCorners boxShadow svg-container p-0-5" ]
+            [ a [ href "https://www.booking.com", target "_blank", class "bookingSquare pointerCursor movable roundCorners boxShadow svg-container p-0-5" ]
                 [ object [ class "pointerCursor svg-content svg55Pct", type_ "image/svg+xml", attribute "data" "svg/booking.svg" ] [ text "Your browser does not support SVGs" ]
                 ]
-            , div [ class "kastelSquare pointerCursor movable roundCorners boxShadow", onClick <| ActivateModal "kastel" ] []
-            , div [ class "luxotel pointerCursor movable roundCorners boxShadow", onClick <| ActivateModal "luxotel" ] []
-            , div [ class "stGeorge pointerCursor movable roundCorners boxShadow", onClick <| ActivateModal "stGeorge" ] []
-            , div [ class "airbnb pointerCursor movable roundCorners boxShadow svg-container p-0-5" ]
-                [ object [ class "svg-content", type_ "image/svg+xml", attribute "data" "svg/airbnb.svg" ] [ text "Your browser does not support SVGs" ]
+            , div [ class "kastelSquare kastelBG pointerCursor movable roundCorners boxShadow", onClick <| ActivateModal "kastel" ] []
+            , div [ class "luxotel luxotelBG pointerCursor movable roundCorners boxShadow", onClick <| ActivateModal "luxotel" ] []
+            , div [ class "stGeorge stGeorgeBG pointerCursor movable roundCorners boxShadow", onClick <| ActivateModal "stGeorge" ] []
+            , a [ href "https://www.airbnb.com", target "_blank", class "airbnb pointerCursor movable roundCorners boxShadow svg-container p-0-5" ]
+                [ object [ class "pointerCursor svg-content", type_ "image/svg+xml", attribute "data" "svg/airbnb.svg" ] [ text "Your browser does not support SVGs" ]
                 ]
-            , div [ class "pointerCursor movable roundCorners boxShadow hotelVojvodinaSquare", onClick <| ActivateModal "hotelVojvodina" ] []
-            , div [ class "philadelphia pointerCursor movable roundCorners boxShadow", onClick <| ActivateModal "philadelphia" ] []
-            , div [ class "apartments pointerCursor movable roundCorners boxShadow", onClick <| ActivateModal "apartments" ] []
+            , div [ class "hotelVojvodinaSquare hotelVojvodinaBG pointerCursor movable roundCorners boxShadow", onClick <| ActivateModal "hotelVojvodina" ] []
+            , div [ class "philadelphia philadelphiaBG pointerCursor movable roundCorners boxShadow", onClick <| ActivateModal "philadelphia" ] []
+            , div [ class "apartments apartmentsBG pointerCursor movable roundCorners boxShadow", onClick <| ActivateModal "apartments" ] []
             , div [ class "desktop flowerBL svg-container svgCentered p-0-5" ]
                 [ object [ class "desktop svg75Pct svg-content", type_ "image/svg+xml", attribute "data" "svg/flower_bottom_left.svg" ] [ text "Your browser does not support SVGs" ]
                 ]
@@ -54,9 +54,8 @@ view lang { activeModal } =
         ]
 
 
-
 viewModal lang activeModal =
-    div [ classList [ ( "modal", True ), ( "is-active", activeModal /= Nothing )] ]
+    div [ classList [ ( "modal", True ), ( "is-active", activeModal /= Nothing ) ] ]
         [ div [ class "modal-background", onClick DeactivateModal ] []
         , viewModalContent lang activeModal
         , button [ onClick DeactivateModal, class "modal-close is-large", attribute "aria-label" "close" ] []
@@ -76,16 +75,16 @@ viewModalContent lang activeModal =
                             [ Translations.dvoracKastelDesc0 lang, Translations.dvoracKastelDesc1 lang ]
 
                         imageSource =
-                            Asset.src Asset.kastel
+                            "kastelBG"
 
                         websiteLink =
                             Translations.kastelWebsite lang
 
                         cost =
-                            Translations.threeDollar lang
+                            Translations.highPrice lang
 
                         distance =
-                            "This is our venue!"
+                            Translations.dvoracKastelDist lang
                     in
                     modalCard title description imageSource websiteLink cost distance
 
@@ -95,18 +94,21 @@ viewModalContent lang activeModal =
                             Translations.luxotel lang
 
                         description =
-                            [ Translations.luxotelDesc lang ]
+                            [ Translations.luxotelDesc0 lang, Translations.luxotelDesc1 lang ]
 
                         imageSource =
-                            Asset.src Asset.luxotel
+                            "luxotelBG"
 
                         websiteLink =
-                            Translations.kastelWebsite lang
+                            Translations.luxotelWebsite lang
 
                         cost =
-                            Translations.oneDollar lang
+                            Translations.mediumPrice lang
+
+                        distance =
+                            Translations.luxotelDist lang
                     in
-                    modalCard title description imageSource websiteLink cost "This is our venue!"
+                    modalCard title description imageSource websiteLink cost distance
 
                 Just "stGeorge" ->
                     let
@@ -114,18 +116,21 @@ viewModalContent lang activeModal =
                             Translations.apartments lang
 
                         description =
-                            [ Translations.apartmentsDesc lang ]
+                            [ Translations.apartmentsDesc0 lang, Translations.apartmentsDesc1 lang ]
 
                         imageSource =
-                            Asset.src Asset.stGeorge
+                            "stGeorgeBG"
 
                         websiteLink =
-                            Translations.kastelWebsite lang
+                            Translations.apartmentsWebsite lang
 
                         cost =
-                            Translations.oneDollar lang
+                            Translations.mediumPrice lang
+
+                        distance =
+                            Translations.apartmentsDist lang
                     in
-                    modalCard title description imageSource websiteLink cost "This is our venue!"
+                    modalCard title description imageSource websiteLink cost distance
 
                 Just "hotelVojvodina" ->
                     let
@@ -133,18 +138,21 @@ viewModalContent lang activeModal =
                             Translations.hotelVojvodina lang
 
                         description =
-                            [ Translations.hotelVojvodinaDesc lang ]
+                            [ Translations.hotelVojvodinaDesc0 lang, Translations.hotelVojvodinaDesc1 lang ]
 
                         imageSource =
-                            Asset.src Asset.hotelVojvodina
+                            "hotelVojvodinaBG"
 
                         websiteLink =
-                            Translations.kastelWebsite lang
+                            Translations.hotelVojvodinaWebsite lang
 
                         cost =
-                            Translations.oneDollar lang
+                            Translations.highPrice lang
+
+                        distance =
+                            Translations.hotelVojvodinaDist lang
                     in
-                    modalCard title description imageSource websiteLink cost "This is our venue!"
+                    modalCard title description imageSource websiteLink cost distance
 
                 Just "philadelphia" ->
                     let
@@ -152,18 +160,21 @@ viewModalContent lang activeModal =
                             Translations.villa lang
 
                         description =
-                            [ Translations.villaDesc lang ]
+                            [ Translations.villaDesc0 lang ]
 
                         imageSource =
-                            Asset.src Asset.philadelphia
+                            "philadelphiaBG"
 
                         websiteLink =
-                            Translations.kastelWebsite lang
+                            Translations.villaWebsite lang
 
                         cost =
-                            Translations.oneDollar lang
+                            Translations.lowPrice lang
+
+                        distance =
+                            Translations.villaDist lang
                     in
-                    modalCard title description imageSource websiteLink cost "This is our venue!"
+                    modalCard title description imageSource websiteLink cost distance
 
                 Just "apartments" ->
                     let
@@ -171,18 +182,21 @@ viewModalContent lang activeModal =
                             Translations.apartmani lang
 
                         description =
-                            [ Translations.apartmaniDesc lang ]
+                            [ Translations.apartmaniDesc0 lang, Translations.apartmaniDesc1 lang ]
 
                         imageSource =
-                            Asset.src Asset.apartments
+                            "apartmentsBG"
 
                         websiteLink =
-                            Translations.kastelWebsite lang
+                            Translations.apartmaniWebsite lang
 
                         cost =
-                            Translations.oneDollar lang
+                            Translations.lowPrice lang
+
+                        distance =
+                            Translations.apartmeniDist lang
                     in
-                    modalCard title description imageSource websiteLink cost "This is our venue!"
+                    modalCard title description imageSource websiteLink cost distance
 
                 _ ->
                     div [] []
@@ -195,8 +209,8 @@ viewModalContent lang activeModal =
 modalCard title content imageSource websiteLink cost distance =
     div [ class "card" ]
         [ div [ class "card-image" ]
-            [ figure [ class "image is-4by3" ]
-                [ img [ imageSource ] []
+            [ figure [ class ("image is-4by3 " ++ imageSource) ]
+                [-- img [ imageSource ] []
                 ]
             ]
         , div [ class "card-content" ]
@@ -205,21 +219,24 @@ modalCard title content imageSource websiteLink cost distance =
                     [ p [ class "title is-1 font-amatic" ] [ text <| title ]
                     ]
                 , div [ class "media-right" ]
-                    [ p [class "font-text is-size-5 modalP"] [ text <| distance ]
+                    [ p [ class "font-text is-size-5 modalP" ] [ text <| distance ]
                     , p [ class " modalP has-text-right is-size-5 dollars font-text" ] [ text <| cost ]
                     ]
                 ]
             ]
         , div [ class "content modalContentPadding" ]
-            (List.map (\descLine -> div [class "font-text is-size-5"] [ text descLine ]) content)
-        , div [ class "has-text-centered modalContentPadding pb-24"]
-            [ a [ href websiteLink,
-            target "_blank", class "modalButton font-text is-size-5 slightlyLessMovable" ] [ 
-                i [class "fas fa-globe-americas pr-6"] []
-                , text <| "Website" ]
+            (List.map (\descLine -> div [ class "font-text is-size-5" ] [ text descLine ]) content)
+        , div [ class "has-text-centered modalContentPadding pb-24" ]
+            [ a
+                [ href websiteLink
+                , target "_blank"
+                , class "modalButton font-text is-size-5 slightlyLessMovable"
+                ]
+                [ i [ class "fas fa-globe-americas pr-6" ] []
+                , text <| "Website"
+                ]
             ]
         ]
-
 
 
 header : Lang -> Html msg

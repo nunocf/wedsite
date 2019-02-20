@@ -165,7 +165,6 @@
     "accomodationTitle": "Potrebno Vam je prenoćište?",
     "dvoracKastel": "Dvorac Kaštel",
     "kastelWebsite": "http://kastelecka.com",
-    "dvoracKastelPrice": "€ € €",
     "dvoracKastelDist": "Venčanje je ovde!",
     "dvoracKastelDesc": [
         "38 soba i 7 apartmana",
@@ -173,42 +172,36 @@
     ],
     "hotelVojvodina": "Hotel Vojvodina",
     "hotelVojvodinaWebsite": "https://hotel-vojvodina.rs",
-    "hotelVojvodinaPrice": "€ € €",
-    "hotelVojvodinaDist": "Udaljenost od venčanja 8km",
+    "hotelVojvodinaDist": "Udaljenost 8km",
     "hotelVojvodinaDesc": [
         "Dvokrevetne sobe i apartmani",
         "U pešačkoj zoni"
     ],
     "luxotel": "Luxotel",
     "luxotelWebsite": "https://luxotel-rs.book.direct/sr-cs",
-    "luxotelPrice": "€ €",
-    "luxotelDist": "Udaljenost od venčanja 12km",
+    "luxotelDist": "Udaljenost 12km",
     "luxotelDesc": [
         "Dvokrevetne i trokrevetne sobe",
         "Mali, porodično vođen hotel"
     ],
     "apartments": "Apartmani Sv. Đorđa",
-    "apartmentsWebsite": "http://stgeorge.rs"
-    "apartmentsPrice": "€ €",
-    "apartmentsDist": "Udaljenost od venčanja 6km",
+    "apartmentsWebsite": "http://stgeorge.rs",
+    "apartmentsDist": "Udaljenost 6km",
     "apartmentsDesc": [
         "Jednokrevetne i dvokrevetne sobe",
         "Apartmani u etno stilu"
     ],
     "villa": "Vila Filadelija",
     "villaWebsite": "http://www.filadelfija.com/index.php/sr/",
-    "villaPrice": "€",
-    "villaDist": "Udaljenost od venčanja 8km",
+    "villaDist": "Udaljenost 8km",
     "villaDesc": [
-        "Veći broj različitih soba",
-        " "
+        "Veći broj različitih soba"
     ],
     "airbnb": "Airbnb",
     "booking": "Booking.com",
     "apartmani": "Apartmani ZR",
     "apartmaniWebsite": "https://www.apartmanizrenjanin.rs",
-    "apartmaniPrice": "£",
-    "apartmeniDist": "Udaljenost od venčanja 9km",
+    "apartmeniDist": "Udaljenost 9km",
     "apartmaniDesc": [
         "Više različitih soba, apartmana i studia",
         "U centru grada"
@@ -233,4 +226,7 @@
     "additionalGuest": "Dodatni gost",
     "whoComes": "Ko dolazi?",
     "comingSubmit": "Próximo!",
+    "lowPrice": "€",
+    "mediumPrice": "€ €",
+    "highPrice": "€ € €"
 }

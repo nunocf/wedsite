@@ -91,7 +91,7 @@ scheduleSection =
 
 travellingSection : String
 travellingSection =
-    [ "hero", "is-fullheight", "has-background-info" ]
+    [ "hero", "is-fullheight", "background" ]
         |> String.join " "
 
 
