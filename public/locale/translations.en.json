@@ -164,6 +164,7 @@
     "travellingFinal": "Whatever your preference of transportation is, let us know and we will happily help with arranging the details.",
     "accomodationTitle": "Where can you stay?",
     "dvoracKastel": "Castle Kaštel",
+    "kastelWebsite": "http://kastelecka.com/en",
     "dvoracKastelPrice": "£ £ £",
     "dvoracKastelDist": "This is our venue!",
     "dvoracKastelDesc": [
@@ -171,6 +172,7 @@
         "Complimentary 15% discount for 2 nights"
     ],
     "hotelVojvodina": "Hotel Vojvodina",
+    "hotelVojvodinaWebsite": "https://hotel-vojvodina.rs/home-2/",
     "hotelVojvodinaPrice": "£ £ £",
     "hotelVojvodinaDist": "Distance to venue 8km",
     "hotelVojvodinaDesc": [
@@ -178,6 +180,7 @@
         "In the pedestrian zone"
     ],
     "luxotel": "Luxotel",
+    "luxotelWebsite": "https://luxotel-rs.book.direct/en-us",
     "luxotelPrice": "£ £",
     "luxotelDist": "Distance to venue 12km",
     "luxotelDesc": [
@@ -185,6 +188,7 @@
         "Small, family operated hotel"
     ],
     "apartments": "St. George's apartments",
+    "apartmentsWebsite": "http://stgeorge.rs/en/"
     "apartmentsPrice": "£ £",
     "apartmentsDist": "Distance to venue 6km",
     "apartmentsDesc": [
@@ -192,6 +196,7 @@
         "Ethno styled apartments"
     ],
     "villa": "Villa Filadelija",
+    "villaWebsite": "http://www.filadelfija.com/index.php/en/",
     "villaPrice": "£",
     "villaDist": "Distance to venue 8km",
     "villaDesc": [
@@ -201,11 +206,12 @@
     "airbnb": "Airbnb",
     "booking": "Booking.com",
     "apartmani": "Apartmani ZR",
+    "apartmaniWebsite": "https://www.apartmanizrenjanin.rs/about-us/?lang=en",
     "apartmaniPrice": "£",
     "apartmeniDist": "Distance to venue 9km",
     "apartmaniDesc": [
         "Several rooms, studios and apartments",
-        "NOT and English friendly website"
+        "Located in the city center"
     ],
     "rsvpTitle": "RSVP",
     "rsvp": [
@@ -227,8 +233,4 @@
     "additionalGuest": "Additional guest",
     "whoComes": "Who's coming?",
     "comingSubmit": "Onwards",
-    "kastelWebsite": "http://kastelecka.com/en",
-    "oneDollar": "£",
-    "twoDollar": "££",
-    "threeDollar": "£££"
 }
