@@ -163,29 +163,56 @@
     "novaRent": "",
     "travellingFinal": "Ukoliko su Vam potrebne bilo kakve informacije ili pomoć vezana za transport stojimo Vam na raspolaganju.",
     "accomodationTitle": "Potrebno Vam je prenoćište?",
-    "accomodationDesc": "a cidade de Zrenjanin oferece várias opçōes de alojamento para vários orçamentos.",
     "dvoracKastel": "Dvorac Kaštel",
+    "kastelWebsite": "http://kastelecka.com",
+    "dvoracKastelPrice": "€ € €",
+    "dvoracKastelDist": "Venčanje je ovde!",
     "dvoracKastelDesc": [
-        "38 soba i 7 apartmana.",
-        "Dodatnih 15% popusta za dve noći. "
+        "38 soba i 7 apartmana",
+        "Dodatnih 15% popusta za 2 noći"
     ],
     "hotelVojvodina": "Hotel Vojvodina",
-    "hotelVojvodinaDesc": "Hotel u centru grada, nedavno renoviran, nudi dvokrevetne sobe i aparmane po ceni do 40€.",
+    "hotelVojvodinaWebsite": "https://hotel-vojvodina.rs",
+    "hotelVojvodinaPrice": "€ € €",
+    "hotelVojvodinaDist": "Udaljenost od venčanja 8km",
+    "hotelVojvodinaDesc": [
+        "Dvokrevetne sobe i apartmani",
+        "U pešačkoj zoni"
+    ],
     "luxotel": "Luxotel",
-    "luxotelDesc": "Mali, porodični hotel lociran na izlazu prema Novom Sadu. Nudi dvokrevetne i trokrevente sobe sa početom cenom od 25€ po osobi.",
-    "accomodationFinal": "Sva tri hotela nude parking za goste i mogućnost doručka.",
-    "apartments": "Apartamani Sv. Đorđa",
-    "apartmentsDesc": "Apartmani u centru grada, u etno stilu, sa cenom od 20€ po osobi.",
+    "luxotelWebsite": "https://luxotel-rs.book.direct/sr-cs",
+    "luxotelPrice": "€ €",
+    "luxotelDist": "Udaljenost od venčanja 12km",
+    "luxotelDesc": [
+        "Dvokrevetne i trokrevetne sobe",
+        "Mali, porodično vođen hotel"
+    ],
+    "apartments": "Apartmani Sv. Đorđa",
+    "apartmentsWebsite": "http://stgeorge.rs"
+    "apartmentsPrice": "€ €",
+    "apartmentsDist": "Udaljenost od venčanja 6km",
+    "apartmentsDesc": [
+        "Jednokrevetne i dvokrevetne sobe",
+        "Apartmani u etno stilu"
+    ],
     "villa": "Vila Filadelija",
-    "villaDesc": "Takođe u centru grada, sa različitim ponudama soba počevši od 16€ za noć.",
+    "villaWebsite": "http://www.filadelfija.com/index.php/sr/",
+    "villaPrice": "€",
+    "villaDist": "Udaljenost od venčanja 8km",
+    "villaDesc": [
+        "Veći broj različitih soba",
+        " "
+    ],
     "airbnb": "Airbnb",
-    "airbnbDesc": "Različite opcije na terirotiji grada, cene variraju 15-40€.",
     "booking": "Booking.com",
-    "bookingDesc": "Veći izbor, sa opcijama za svaki džep.",
-    "limba": "Limba",
-    "limbaDesc": "Lokalna verzija gore pomenutog sajta.",
     "apartmani": "Apartmani ZR",
-    "apartmaniDesc": "Apartmani u pešačkoj zoni, sa početnom cenom od 10€.",
+    "apartmaniWebsite": "https://www.apartmanizrenjanin.rs",
+    "apartmaniPrice": "£",
+    "apartmeniDist": "Udaljenost od venčanja 9km",
+    "apartmaniDesc": [
+        "Više različitih soba, apartmana i studia",
+        "U centru grada"
+    ],
     "rsvpTitle": "Potvrdite svoj dolazak",
     "rsvp": [
         "Molimo Vas da potvrdite svoj dolazak najkasnije do 1. jula.",
@@ -193,21 +220,17 @@
         ""
     ],
     "showMore": "Više",
-    "showLess": "Manji",
-    "insertInviteCode": "Please insert your invitation code",
-    "codeSubmit": "Let's go!",
+    "showLess": "Manje",
+    "insertInviteCode": "Molimo Vas ubacite svoju šifru",
+    "codeSubmit": "Pa da počnemo!",
     "codeNotFound": "Código não encontrado",
     "errorRequest": "Houve um problema a processar o teu pedido",
-    "hello": "Hello ",
-    "defaultName": "and welcome",
-    "joiningUs": ", are you joining us for the party?",
-    "hellYes": "Aw hell ye 🎉",
-    "hellNo": "No, I will have diarhea 💩",
-    "additionalGuest": "Additional guest",
-    "whoComes": "Who's coming?",
+    "hello": "Zdravo ",
+    "defaultName": "dobrodošli",
+    "joiningUs": ", da li ćete nam se pridružiti?",
+    "hellYes": "Naravno da DA 🎉",
+    "hellNo": "Ne, ipak imam neodložna posla 💩",
+    "additionalGuest": "Dodatni gost",
+    "whoComes": "Ko dolazi?",
     "comingSubmit": "Próximo!",
-    "kastelWebsite": "http://kastelecka.com/",
-    "oneDollar": "€",
-    "twoDollar": "€€",
-    "threeDollar": "€€€"
 }
