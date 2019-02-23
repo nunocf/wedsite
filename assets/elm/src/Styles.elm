@@ -7,8 +7,10 @@ module Styles exposing
     , dropdownList
     , dropdownListItem
     , dropdownTrigger
+    , formSection
     , headingFormatting
     , hero
+    , modalButton
     , ourStory
     , rsvpSection
     , scheduleSection
@@ -16,8 +18,25 @@ module Styles exposing
     , scheduleTimeSubHeader
     , textFont
     , transportSubtitle
+    , travelMenuItem
+    , travelMenuItemLast
     , travellingSection
     )
+
+
+travelMenuItem : String
+travelMenuItem =
+    "travelMenuItem font-amatic is-size-3 font-heavy"
+
+
+travelMenuItemLast : String
+travelMenuItemLast =
+    "travelMenuItemLast font-amatic is-size-3 font-heavy"
+
+
+modalButton : String
+modalButton =
+    "modalButton slightlyLessMovable font-text is-size-5"
 
 
 accomodationGridItem : String
@@ -91,7 +110,7 @@ scheduleSection =
 
 travellingSection : String
 travellingSection =
-    [ "hero", "is-fullheight", "background" ]
+    [ "background" ]
         |> String.join " "
 
 
@@ -100,9 +119,14 @@ accomodationSection =
     [ "hero", "is-fullheight", "background" ] |> String.join " "
 
 
+formSection : String
+formSection =
+    [ "hero", "is-fullheight", "background" ] |> String.join " "
+
+
 transportSubtitle : String
 transportSubtitle =
-    [ "subtitle", "has-text-weight-semi-bold", "is-size-2", "font-heading" ]
+    [ "subtitle", "has-text-weight-semi-bold", "is-size-1", "font-amatic" ]
         |> String.join " "
 
 

@@ -78,8 +78,8 @@
     ],
     "travellingHeader": "Como chegar até nós?",
     "travellingSubtitle": [
-        "If you don't suffer from time-space travel nausea, we recommend using your favourite teleportation device and input these coordinates:",
-        "Se por algum motivo não tiveres acesso a tal aparelho, existem opçōes de transporte mais rudimentares:"
+        "Se não sofreres de enjoos causados por viagens no tempo-espaço, o melhor a fazer é saltares para a máquina de teletransporte mais próxima e introduzir as seguintes coordenadas para Zrenjanin:",
+        "Se por algum motivo não tiveres acesso a tal aparelho, existem opçōes de transporte mais rudimentares."
     ],
     "coordinates": "45.3816° N, 20.3686° E",
     "airplane": "Avião",
@@ -94,14 +94,33 @@
     "londonHeathrow": "Londres Heathrow",
     "easyJet": "EasyJet",
     "wizzAir": "WizzAir",
+    "wizzAirUrl": "https://wizzair.com/pt-pt#/",
     "airSerbia": "AirSerbia",
     "brussels": "Bruxelas",
     "eindhoven": "Eindhoven",
     "luqa": "Luqa",
     "parisBeauvais": "Paris Beauvais",
+    "lufthansa": "Lufthansa",
+    "lufthansaUrl": "https://www.lufthansa.com/pt/pt/homepage",
+    "tap": "TAP",
+    "tapUrl": "https://www.flytap.com/pt-pt/",
+    "vueling": "Vueling",
+    "vuelingUrl": "https://en.aegeanair.com/",
+    "aegaen": "Aegaen",
+    "aegaenUrl": "https://www.vueling.com/pt",
+    "and": " e ",
+    "airSerbiaUrl": "https://www.airserbia.com/en",
+    "ryanAir": "RyanAir",
+    "ryanAirUrl": "https://www.ryanair.com/pt/pt/",
     "mainAirportSecondParagraph": [
-        "Voos directos disponíveis de ",
-        "várias cidades na Alemanha "
+        "Infelizmente só existem voos directos para Budapeste. A ",
+        " oferece voos do Porto às Terças e Sábados, e voos de Lisboa às Segundas, Terças, Quintas e Sábados.",
+        "Se decidires voar para Belgrado vais precisar de fazer escala noutro aeroporto. Algumas opçōes são Munique, Atenas, Zurique, Barcelona e Paris a usar os serviços da ",
+        "Voar para Timisoara também implica fazer escala e como é um aeroporto de companhias low cost, as companhias aéreas que lá operam são a ",
+        "Se não tiveres possibilidade de voar durante a semana, recomendamos voar sexta de manhã do Porto para Paris Beauvais via ",
+        " e voar ao início da tarde de Paris Beauvais para Timisoara via ",
+        ". Com o serviço de transporte consegues chegar a Zrenjanin depois de jantar e tens tempo suficiente para descansar para o nosso grande dia. Para regressar podes voar no domingo de Budapeste para Lisbon apanhar um voo para o Porto via ",
+        ", se decidires usar o serviço de transporte para Budapeste implica começar a viagem de regresso antes do meio dia."
     ],
     "etc": "etc.",
     "timisoaraAirport": "aeroporto Traian Vuia Timisoara",
@@ -116,15 +135,18 @@
     "geaTravel": " GeaTravel Services",
     "trainsTitle": "Comboios",
     "trains": [
-        "Para melhor coordenação, dá uma olhadela no horário da Rede Ferroviária da Sérvia para comboios que te levem para Novi Sad ou Beograd Centar.",
-        "Há comboios directos de Viena, Austria e Budapeste, Hungria para Novi Sad e de Ljubljana, Eslovénia e Zagreb, Croácia para Belgrado."
+        "Para melhor coordenação, dá uma olhadela no horário da ",
+        " para comboios que te levem para Novi Sad ou Beograd Centar.",
+        "Existem ligaçōes directas de Budapeste, Hungria para Novi Sad por 15€ e de Ljubljana, Eslovénia para Belgrado 41€. Uma viagem destas pode ser a desculpa ideal para umas férias diferentes, mas tem em atenção que vai demorar por volta de 36h para chegares à Sérvia. Dois itinerários possíveis são: Porto (PT) - Vigo (ESP) - Barcelona (ESP) - Paris (FR) - Zurique (CH) - Belgrado (SRB) ou então Porto (PT) - Lisboa (PT) - Irun (ESP) - Paris (FR) - Zurique (CH) - Budapeste (HUN) - Novi Sad (SRB). Podes também combinar comboios e camionetas para viajar mais rápido."
     ],
+    "trainTimetable": "Rede Ferroviária da Sérvia",
+    "trainTimetableUrl": "http://w3.srbrail.rs/ZSRedVoznje/en",
     "busTitle": "Camionetas",
     "bus": [
         "Se não gostas de comboios e preferes andar na estrada, existe a possibilidade de viajar numa camioneta. ",
-        "Tal como os comboios, tens de chegar a Belgrado ou Novi Sad.",
+        "Tal como os comboios, tens de chegar a Belgrado ou Novi Sad. ",
         "Podes consultar o ",
-        "da estação de camionagem de Novi Sad.  ",
+        " da estação de camionagem de Novi Sad. ",
         "Se não fores fluente em sérvio (compreensível!), para usares o site escolhe a data da viagem e seleciona Chegadas (DOLASCI) ou Partidas (POLASCI) para Novi Sad e escolhe a cidade para que pretendes viajar. ",
         "Tem em consideração que nem todas as viagens acontecem diáriamente e que o preço está em Dinaras Sérvias (RSD). ",
         "Podes ver o ",
@@ -143,16 +165,15 @@
     ],
     "motorbikeTitle": "Mota",
     "motorbike": [
-        "É sempre uma boa idea vires na amiga de duas rodas! ",
-        "O tempo em setembro costuma ser bom, e é a desculpa perfeita para uma aventura para contar aos netos! ",
-        "Garantimos médicos, água com açúcar e Rakia para ajudar com a recuperação motoqueira, juntamente com um incrível respeito. Não te esqueças de mostrar as fotos. Nós adoramos motas! 🏍"
+        "É sempre uma boa idea vires na amiga de duas rodas! O tempo em setembro costuma ser bom, e é a desculpa perfeita para uma aventura para contar aos netos! ",
+        "Garantimos médicos, água com açúcar e rakija para ajudar com a recuperação motoqueira, juntamente com um incrível respeito. Não te esqueças de mostrar as fotos. Nós adoramos motas! 🏍"
     ],
     "walkAndSwimTitle": "A pé e a nado",
     "walkAndSwim": [
         "Tu é que és maluco, chefe! ",
         "Bem, mas se quiseres mesmo, confirma o RSVP e toca a despachar, senão chegas atrasado!"
     ],
-    "carRentalTitle": "Não vives sem o teu carro?",
+    "carRentalTitle": "Rent-a-car",
     "carRental": [
         "Não há problema! ",
         "Se chegares a Belgrado nós recomendamos ",
@@ -228,5 +249,7 @@
     "comingSubmit": "Próximo!",
     "lowPrice": "€",
     "mediumPrice": "€ €",
-    "highPrice": "€ € €"
+    "highPrice": "€ € €",
+    "location": "Coordenadas",
+    "coordinatesLink": "https://en.wikipedia.org/wiki/Zrenjanin"
 }

@@ -94,12 +94,31 @@
     "londonHeathrow": "",
     "easyJet": "",
     "wizzAir": "",
+    "wizzAirUrl": "",
     "airSerbia": "",
     "brussels": "",
     "eindhoven": "",
     "luqa": "",
     "parisBeauvais": "",
+    "lufthansa": "Lufthansa",
+    "lufthansaUrl": "https://www.lufthansa.com/pt/pt/homepage",
+    "tap": "TAP",
+    "tapUrl": "https://www.flytap.com/pt-pt/",
+    "vueling": "Vueling",
+    "vuelingUrl": "https://en.aegeanair.com/",
+    "aegaen": "Aegaen",
+    "aegaenUrl": "https://www.vueling.com/pt",
+    "and": "e",
+    "airSerbiaUrl": "",
+    "ryanAir": "RyanAir",
+    "ryanAirUrl": "https://www.ryanair.com/pt/pt/",
     "mainAirportSecondParagraph": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
         "",
         ""
     ],
@@ -116,16 +135,19 @@
     "geaTravel": "",
     "trainsTitle": "Vozovi",
     "trains": [
-        "Raspored vozova možete proveriti na sajtu Železnica Srbije. Direktne linije će Vas dovesti iz Kikinde, Novog Sada i Beograda.",
+        "Raspored vozova možete proveriti na sajtu",
+        "Direktne linije će Vas dovesti iz Kikinde, Novog Sada i Beograda.",
         ""
     ],
+    "trainTimetable": "Železnica Srbije",
+    "trainTimetableUrl": "http://w3.srbrail.rs/ZSRedVoznje/",
     "busTitle": "Autobusi",
     "bus": [
-        "Najsigurniji način provere rasporeda autobusa je ili preko sajta",
-        "ili",
-        "u zavisnosti iz kog pravca dolazite. Autobuski prevoz je čest (na od prilike svakih 60-90min) iz oba grada, a do Zrenjanina će Vam trebati nešto vise od sat vremena putovanja. Alternativno, možete koristiti usluge “divljih taksija” koji se obično nalaze ispred autobuske stanice u Novom Sadu ili kod cvetne pijace u Borči.",
-        "",
-        "",
+        "Najsigurniji način provere rasporeda autobusa je ili preko sajta ",
+        " ili ",
+        " u zavisnosti iz kog pravca dolazite.",
+        "Autobuski prevoz je čest (na od prilike svakih 60-90min) iz oba grada, a do Zrenjanina će Vam trebati nešto vise od sat vremena putovanja.",
+        "Alternativno, možete koristiti usluge “divljih taksija” koji se obično nalaze ispred autobuske stanice u Novom Sadu ili kod cvetne pijace u Borči.",
         "",
         "",
         "",
@@ -138,14 +160,13 @@
     "timetableBelgradeUrl": "http://www.bas.rs/basweb_lat/RedVoznje.aspx?lng=sl&idDrzave=70",
     "carTitle": "Automobil",
     "car": [
-        "Ako se odlučite da povedete svog mezimca u vožnju, sigurni smo da će biti vrlo srećan jer će osim aktivnog dana dobiti i veselu cvetnu dekoraciju! Zrenjanin se nalazi na 50km of Novog Sada i 80km od Beograda.",
-        ""
+        "Ako se odlučite da povedete svog mezimca u vožnju, sigurni smo da će biti vrlo srećan jer će osim aktivnog dana dobiti i veselu cvetnu dekoraciju!",
+        " Zrenjanin se nalazi na 50km of Novog Sada i 80km od Beograda."
     ],
     "motorbikeTitle": "Motocikl & Bicikl",
     "motorbike": [
-        "Ako ste avanturističkog duha ovo može biti odlična opcija! Vreme u septembru je generalno toplo i suvo tako da će i sam put biti prijatan. Po dolasku Vas očekuju brufen, voda i šećer u neograničenim količinama. Naravno i sva slava ovakovog poduhvata, jer i mi volimo dvotočkaše svih oblika!🏍🏍🏍",
-        "",
-        ""
+        "Ako ste avanturističkog duha ovo može biti odlična opcija! Vreme u septembru je generalno toplo i suvo tako da će i sam put biti prijatan. Po dolasku Vas očekuju brufen, voda i šećer u neograničenim količinama.",
+        "Naravno i sva slava ovakovog poduhvata, jer i mi volimo dvotočkaše svih oblika! 🏍🏍🏍"
     ],
     "walkAndSwimTitle": "Pešice",
     "walkAndSwim": [
@@ -228,5 +249,7 @@
     "comingSubmit": "Próximo!",
     "lowPrice": "€",
     "mediumPrice": "€ €",
-    "highPrice": "€ € €"
+    "highPrice": "€ € €",
+    "location": "Lokacija",
+    "coordinatesLink": "https://sr.wikipedia.org/wiki/%D0%97%D1%80%D0%B5%D1%9A%D0%B0%D0%BD%D0%B8%D0%BD"
 }

@@ -10,7 +10,7 @@ import Page.Home.Locations as Loc exposing (Locations)
 import Page.Home.Poem as Poem
 import Page.Home.Schedule as Schedule
 import Page.Home.Travelling as Travelling
-import Page.Home.Types exposing (Modal, Model, Msg(..), ActiveTab(..))
+import Page.Home.Types exposing (ActiveTab(..), Modal, Model, Msg(..))
 import Session exposing (Session)
 import Styles
 import Translations
@@ -29,7 +29,7 @@ init session =
     ( { session = session
       , locations = Loc.init
       , activeModal = Nothing
-      , activeTab = Airplane
+      , activeTab = Location
       }
     , Cmd.batch
         [ Gmaps.initMaps <| Loc.encode locations
@@ -78,7 +78,7 @@ viewOurStory lang =
     div [ class Styles.ourStory ]
         [ div [ class "mb-2" ]
             [ div [ class "ourStoryContainer" ]
-                [ div [ class "flowerSideLeft" ]
+                [ div [ class "flowerSideLeft desktop" ]
                     [ object [ type_ "image/svg+xml", attribute "data" "svg/flowerstripleft.svg" ] [ text "Your browser does not support SVGs" ]
                     ]
                 , div [ class "poemViewFrameContainer" ]
@@ -95,7 +95,8 @@ viewOurStory lang =
                         , div [ class "poem3" ] [ Poem.viewPoem3 lang ]
                         ]
                     ]
-                , div [ class "flowerSideRight" ]
+
+                , div [ class "flowerSideRight  desktop" ]
                     [ object [ type_ "image/svg+xml", attribute "data" "svg/flowerstripright.svg" ] [ text "Your browser does not support SVGs" ]
                     ]
                 ]

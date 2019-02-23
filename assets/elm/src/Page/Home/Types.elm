@@ -1,4 +1,4 @@
-module Page.Home.Types exposing (Modal, Model, Msg(..), ActiveTab(..))
+module Page.Home.Types exposing (ActiveTab(..), Modal, Model, Msg(..))
 
 import Json.Decode as Decode
 import Page.Home.Locations exposing (Locations)
@@ -25,7 +25,8 @@ type alias Modal =
 
 
 type ActiveTab
-    = Airplane
+    = Location
+    | Airplane
     | Train
     | Bus
     | Car

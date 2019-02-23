@@ -230,7 +230,7 @@ modalCard title content imageSource websiteLink cost distance =
             [ a
                 [ href websiteLink
                 , target "_blank"
-                , class "modalButton font-text is-size-5 slightlyLessMovable"
+                , class Styles.modalButton
                 ]
                 [ i [ class "fas fa-globe-americas pr-6" ] []
                 , text <| "Website"

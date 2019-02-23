@@ -1,54 +1,84 @@
 module Page.Home.Travelling exposing (view)
 
 import Html exposing (..)
-import Html.Attributes exposing (attribute, class, href)
+import Html.Attributes exposing (attribute, class, href, type_, target)
 import Html.Events exposing (onClick)
-import Page.Home.Types exposing (Model, Msg(..), ActiveTab(..))
+import Page.Home.Types exposing (ActiveTab(..), Model, Msg(..))
 import Styles
 import Translations exposing (Lang)
 
 
 view : Model -> Lang -> Html Msg
 view model lang =
-    div []
-        [ div [ class "travellingGrid", attribute "height" "100%" ]
-            [ viewTravellingMenu model lang
-            , viewTravellingContent model lang
+    div [ class "has-text-centered pt-1" ]
+        [ div [ class "travellingGrid" ]
+            [ div [ class "travelTitle pb-2" ]
+                [ h1 [ class <| Styles.headingFormatting ]
+                    [ text <| Translations.travellingHeader lang ]
+                ]
+            , div [ class "flowerSideLeft desktop" ]
+                [ object [ class "tf", type_ "image/svg+xml", attribute "data" "svg/flowerstripleft.svg" ] [ text "Your browser does not support SVGs" ]
+                ]
+            , div [ class "travellingFrame" ]
+                [ viewTravellingMenu model lang
+                , viewTravellingContent model lang
+                ]
+            , div [ class "flowerSideRight desktop" ]
+                [ object [ class "tf", type_ "image/svg+xml", attribute "data" "svg/flowerstripright.svg" ] [ text "Your browser does not support SVGs" ]
+                ]
             ]
         ]
 
 
 viewTravellingMenu : Model -> Lang -> Html Msg
 viewTravellingMenu model lang =
-    div [ class "travellingMenu" ]
-        [ div [ class "travelMenuItem font-amatic is-size-2 font-heavy", onClick <| ChangeTab Airplane ]
-            [ i [ class "fas fa-fighter-jet" ] []
-            , div [] [ text <| Translations.airplane lang ]
-            ]
-        , div [ class "travelMenuItem font-amatic is-size-2 font-heavy", onClick <| ChangeTab Train ]
-            [ i [ class "fas fa-train" ] []
-            , div [] [ text <| Translations.trainsTitle lang ]
-            ]
-        , div [ class "travelMenuItem font-amatic is-size-2 font-heavy", onClick <| ChangeTab Bus ]
-            [ i [ class "fas fa-bus-alt" ] []
-            , div [] [ text <| Translations.busTitle lang ]
-            ]
-        , div [ class "travelMenuItem font-amatic is-size-2 font-heavy", onClick <| ChangeTab Car ]
-            [ i [ class "fas fa-car-side" ] []
-            , div [] [ text <| Translations.carTitle lang ]
-            ]
-        , div [ class "travelMenuItem font-amatic is-size-2 font-heavy", onClick <| ChangeTab Bike ]
-            [ i [ class "fas fa-bicycle" ] []
-            , div [] [ text <| Translations.motorbikeTitle lang ]
-            ]
-        , div [ class "travelMenuItem font-amatic is-size-2 font-heavy", onClick <| ChangeTab Walk ]
-            [ i [ class "fas fa-hiking" ] []
-            , div [] [ text <| Translations.walkAndSwimTitle lang ]
-            ]
-        , div [ class "travelMenuItem font-amatic is-size-2 font-heavy", onClick <| ChangeTab RentCar ]
-            [ i [ class "fas fa-key" ] []
-            , div [] [ text <| Translations.carRentalTitle lang ]
-            ]
+    let
+        carRentalMenuItem =
+            if lang == Translations.Rs then
+                div [] []
+
+            else
+                viewMenuTab (Translations.carRentalTitle lang) "fa-key" (ChangeTab RentCar) (model.activeTab == RentCar)
+
+        airplaneMenuItem =
+            if lang == Translations.Rs then
+                div [] []
+
+            else
+                viewMenuTab (Translations.airplane lang) "fa-fighter-jet" (ChangeTab Airplane) (model.activeTab == Airplane)
+
+        hikingMenu =
+            if lang == Translations.Rs then
+                div [] [ viewMenuTab (Translations.walkAndSwimTitle lang) "fa-hiking" (ChangeTab Walk) (model.activeTab == Walk) ]
+
+            else
+                viewMenuTab (Translations.walkAndSwimTitle lang) "fa-hiking" (ChangeTab Walk) (model.activeTab == Walk)
+    in
+    div [ class "travellingMenu menuFontColor" ]
+        [ viewMenuTab (Translations.location lang) "fa-search-location" (ChangeTab Location) (model.activeTab == Location)
+        , airplaneMenuItem
+        , viewMenuTab (Translations.trainsTitle lang) "fa-train" (ChangeTab Train) (model.activeTab == Train)
+        , viewMenuTab (Translations.busTitle lang) "fa-bus-alt" (ChangeTab Bus) (model.activeTab == Bus)
+        , viewMenuTab (Translations.carTitle lang) "fa-car-side" (ChangeTab Car) (model.activeTab == Car)
+        , viewMenuTab (Translations.motorbikeTitle lang) "fa-bicycle" (ChangeTab Bike) (model.activeTab == Bike)
+        , hikingMenu
+        , carRentalMenuItem
+        ]
+
+
+viewMenuTab : String -> String -> Msg -> Bool -> Html Msg
+viewMenuTab title iconClass msg isActive =
+    let
+        tabClasses =
+            if isActive then
+                [ Styles.travelMenuItem, "tabSelected" ] |> String.join " "
+
+            else
+                Styles.travelMenuItem
+    in
+    div [ class tabClasses, onClick msg ]
+        [ i [ class <| "vc fas " ++ iconClass ] []
+        , div [ class "desktop" ] [ text title ]
         ]
 
 
@@ -57,6 +87,9 @@ viewTravellingContent model lang =
     let
         content =
             case model.activeTab of
+                Location ->
+                    viewLocation lang
+
                 Airplane ->
                     planeTravel lang
 
@@ -77,66 +110,61 @@ viewTravellingContent model lang =
 
                 RentCar ->
                     rentalTravel lang
-
-
     in
     div [ class "travellingContent" ]
-        [ content
+        [ div [ class "travelText" ] [ content ]
         ]
 
 
-
--- div [ class "notification" ]
---     [ div [ class "columns is-centered" ]
---         [ div [ class "column is-three-quarters-desktop" ]
---             [ header lang
---             , planeTravel lang
---             , trainTravel lang
---             , busTravel lang
---             , carTravel lang
---             , bikeTravel lang
---             , walkTravel lang
---             , rentalTravel lang
---             ]
---         ]
---     ]
-
-
-header : Lang -> Html msg
-header lang =
+viewLocation : Lang -> Html msg
+viewLocation lang =
     div []
-        [ p [ class "title has-text-weight-semi-bold is-size-1 font-heading" ]
-            [ text <| Translations.travellingHeader lang
-            ]
-        , p [ class "subtitle is-size-5" ]
-            [ text <|
-                Translations.travellingSubtitle0 lang
-                    ++ Translations.coordinates lang
-                    ++ Translations.travellingSubtitle1 lang
-            ]
+        [ viewLocationText lang
         ]
+
+
+viewLocationText : Lang -> Html msg
+viewLocationText lang =
+    div [ class Styles.textFont ]
+        [ p [class "text-justified mb-1"] [text <|Translations.travellingSubtitle0 lang]
+        , p [class "text-justified mb-1"] [ a [href <| Translations.coordinatesLink lang, target "_blank"] [ text <| Translations.coordinates lang]]
+        , p [class "text-justified mb-1"] [text <| Translations.travellingSubtitle1 lang]
+        ]
+
 
 
 planeTravel : Lang -> Html msg
 planeTravel lang =
     div []
-        [ p [ class Styles.transportSubtitle ] [ text <| Translations.airplane lang ]
-        , planeTravelText lang
+        [ planeTravelText lang
         ]
 
 
 planeTravelText : Lang -> Html msg
 planeTravelText lang =
-    div []
-        [ planeTravelFirstParagraph lang
-        , planeTravelSecondParagraph lang
-        , planeTravelThirdParagraph lang
-        ]
+    let
+        content = case lang of
+            Translations.Pt ->
+                [ planeTravelFirstParagraph lang
+                , planeTravelThirdParagraph lang]
+                ++ planeTravelSecondParagraph lang
+                
+        
+            _ ->
+                [ planeTravelFirstParagraph lang ]
+                ++
+                planeTravelSecondParagraph lang
+                ++ [ planeTravelThirdParagraph lang
+                ]
+                
+    in
+    
+    div [ class Styles.textFont ] content
 
 
 planeTravelFirstParagraph : Lang -> Html msg
 planeTravelFirstParagraph lang =
-    p []
+    p [ class "text-justified mb-1" ]
         [ [ Translations.mainAirport0
           , Translations.belgradeAirport
           , Translations.mainAirport1
@@ -147,24 +175,91 @@ planeTravelFirstParagraph lang =
         ]
 
 
-planeTravelSecondParagraph : Lang -> Html msg
+planeTravelSecondParagraph : Lang -> List (Html msg)
 planeTravelSecondParagraph lang =
+    let
+        content = case lang of
+            Translations.Pt ->
+                ptCloseAirports lang
+        
+            _ ->
+                enCloseAirports lang
+    in
+    content
+
+ptCloseAirports : Lang -> List (Html msg)
+ptCloseAirports lang =
     let
         closeOpen s =
             "), "
                 ++ s
-                ++ "("
+                ++ " ("
 
         start =
             Translations.mainAirportSecondParagraph0 lang
                 ++ Translations.londonLuton lang
-                ++ "("
+                ++ " ("
 
         end =
             "), " ++ Translations.etc lang
     in
-    p
-        []
+    [ p [ class "text-justified mb-1" ]
+        [ text <| Translations.mainAirportSecondParagraph0 lang
+        , a [target "_blank", href <| Translations.wizzAirUrl lang] [ text <| Translations.wizzAir lang ]
+        , text <| Translations.mainAirportSecondParagraph1 lang
+        ]
+    , p [ class "text-justified mb-1" ] 
+        [ text <| Translations.mainAirportSecondParagraph2 lang
+            , a [href <| Translations.lufthansaUrl lang, target "_blank"] [text <| Translations.lufthansa lang],
+            text ", "
+            , a [href <| Translations.tapUrl lang, target "_blank"] [text <| Translations.tap lang]
+            , text ", "
+            , a [href <| Translations.airSerbiaUrl lang, target "_blank"] [text <| Translations.airSerbia lang]
+            , text ", "
+            , a [href <| Translations.vuelingUrl lang, target "_blank"] [text <| Translations.vueling lang]
+            , text <| Translations.and lang
+            , a [href <| Translations.aegaen lang, target "_blank"] [text <| Translations.aegaen lang]
+            , text "."
+        ]
+    , p [ class "text-justified mb-1" ] 
+        [ text <| Translations.mainAirportSecondParagraph3 lang
+        , a [href <| Translations.ryanAirUrl lang, target "_blank"] [text <| Translations.ryanAir lang]
+            , text ", "
+        , a [href <| Translations.wizzAirUrl lang, target "_blank"] [text <| Translations.wizzAir lang]
+            , text ", "
+        , a [href <| Translations.lufthansaUrl lang, target "_blank"] [text <| Translations.lufthansa lang]
+            , text "."
+        ]
+    , p [ class "text-justified mb-1" ] 
+        [ text <| Translations.mainAirportSecondParagraph4 lang
+        , a [ href <| Translations.ryanAirUrl lang, target "_blank"] [ text <| Translations.ryanAir lang ]
+        , text <| Translations.mainAirportSecondParagraph5 lang
+        , a [ href <| Translations.wizzAirUrl lang, target "_blank"] [ text <| Translations.wizzAir lang ]
+        , text <| Translations.mainAirportSecondParagraph6 lang
+        , a [ href <| Translations.tapUrl lang, target "_blank"] [ text <| Translations.tap lang ]
+        , text <| Translations.mainAirportSecondParagraph7 lang
+        ]
+
+    ]
+
+
+enCloseAirports : Lang -> List (Html msg)
+enCloseAirports lang =
+    let
+        closeOpen s =
+            "), "
+                ++ s
+                ++ " ("
+
+        start =
+            Translations.mainAirportSecondParagraph0 lang
+                ++ Translations.londonLuton lang
+                ++ " ("
+
+        end =
+            "), " ++ Translations.etc lang
+    in
+    [ p [ class "text-justified mb-1" ]
         [ text start
         , a [] [ text <| Translations.wizzAir lang ]
         , text <| closeOpen <| Translations.londonHeathrow lang
@@ -185,12 +280,13 @@ planeTravelSecondParagraph lang =
         , a [] [ text <| Translations.wizzAir lang ]
         , text end
         ]
+    ]
 
 
 planeTravelThirdParagraph : Lang -> Html msg
 planeTravelThirdParagraph lang =
     div []
-        [ p []
+        [ p [ class "text-justified mb-1" ]
             [ text <| Translations.otherAirports lang
             , a [] [ text <| Translations.timisoaraAirport lang ]
             , text <| Translations.romaniaAirportDistance lang
@@ -203,37 +299,78 @@ planeTravelThirdParagraph lang =
                     ++ Translations.budapestAirportDistance lang
             , text <| Translations.publicTravelFromAirport lang
             , a [] [ text <| Translations.geaTravel lang ]
+            , text "."
             ]
         ]
 
 
 trainTravel : Lang -> Html msg
 trainTravel lang =
-    div []
-        [ p [ class Styles.transportSubtitle ] [ text <| Translations.trainsTitle lang ]
-        , trainTravelText lang
-        ]
+    let
+        content = case lang of
+            Translations.Rs ->
+                div [] [
+                    p [class "text-justified mb-1" ] 
+                        [text <| Translations.trains0 lang ++ " "
+                        , a [href <| Translations.trainTimetableUrl lang, target "_blank"] 
+                            [text <| Translations.trainTimetable lang]
+                        , text <| "."
+                        ]
+                    , p [class "text-justified mb-1" ] [text <| Translations.trains1 lang]
+                ]
+        
+            _ ->
+                trainTravelText lang
+                
+    in
+    
+    div [ class Styles.textFont ] [ content ]
 
 
 trainTravelText : Lang -> Html msg
 trainTravelText lang =
     div []
-        [ p [] [ text <| Translations.trains0 lang ++ Translations.trains1 lang ]
+        [ p [ class "text-justified mb-1" ]
+            [ text <| Translations.trains0 lang
+            , a [href <| Translations.trainTimetableUrl lang, target "_blank"] [ text <| Translations.trainTimetable lang]
+            , text <| Translations.trains1 lang 
+            ]
+        , p [ class "text-justified mb-1" ] [text <| Translations.trains2 lang]
         ]
+
 
 
 busTravel : Lang -> Html msg
 busTravel lang =
-    div []
-        [ p [ class Styles.transportSubtitle ] [ text <| Translations.busTitle lang ]
-        , busTravelText lang
+    let
+        content = case lang of
+            Translations.Rs ->
+                div []
+                    [ p [class "text-justified mb-1" ] 
+                        [ text <| Translations.bus0 lang
+                        , a [href <| Translations.timetableNoviSadUrl lang, target "_blank"] [text <| Translations.timetableNoviSad lang]
+                        , text <| Translations.bus1 lang
+                        , a [href <| Translations.timetableBelgradeUrl lang, target "_blank"] [text <| Translations.timetableBelgrade lang]
+                        , text <| Translations.bus2 lang
+                        ]
+                    , p [class "text-justified mb-1" ] [text <| Translations.bus3 lang]
+                    , p [class "text-justified mb-1" ] [text <| Translations.bus4 lang]
+                ]
+        
+            _ ->
+                busTravelText lang
+
+    in
+    
+    div [ class Styles.textFont ]
+        [ content
         ]
 
 
 busTravelText : Lang -> Html msg
 busTravelText lang =
     div []
-        [ p []
+        [ p [ class "text-justified mb-1" ]
             [ text <|
                 Translations.bus0 lang
                     ++ Translations.bus1 lang
@@ -257,55 +394,49 @@ busTravelText lang =
 
 carTravel : Lang -> Html msg
 carTravel lang =
-    div []
-        [ p [ class Styles.transportSubtitle ] [ text <| Translations.carTitle lang ]
-        , carTravelText lang
+    div [ class Styles.textFont ]
+        [ carTravelText lang
         ]
 
 
 carTravelText : Lang -> Html msg
 carTravelText lang =
     div []
-        [ p []
-            [ text <|
-                Translations.car0 lang
-                    ++ Translations.car1 lang
-            ]
+        [ p [ class "text-justified mb-1" ]
+            [ text <| Translations.car0 lang ]
+        , p [ class "text-justified mb-1" ]
+            [ text <| Translations.car1 lang ]
         ]
+
 
 
 bikeTravel : Lang -> Html msg
 bikeTravel lang =
-    div []
-        [ p [ class Styles.transportSubtitle ] [ text <| Translations.motorbikeTitle lang ]
-        , bikeText lang
+    div [ class Styles.textFont ]
+        [ bikeText lang
         ]
 
 
 bikeText : Lang -> Html msg
 bikeText lang =
     div []
-        [ p []
-            [ text <|
-                Translations.motorbike0 lang
-                    ++ Translations.motorbike1 lang
-                    ++ Translations.motorbike2 lang
-            ]
+        [ p [ class "text-justified mb-1" ] [ text <| Translations.motorbike0 lang ]
+        , p [ class "text-justified mb-1" ] [ text <| Translations.motorbike1 lang ]
         ]
+
 
 
 walkTravel : Lang -> Html msg
 walkTravel lang =
-    div []
-        [ p [ class Styles.transportSubtitle ] [ text <| Translations.walkAndSwimTitle lang ]
-        , walkText lang
+    div [ class Styles.textFont ]
+        [ walkText lang
         ]
 
 
 walkText : Lang -> Html msg
 walkText lang =
     div []
-        [ p []
+        [ p [ class "text-justified mb-1" ]
             [ text <|
                 Translations.walkAndSwim0 lang
                     ++ Translations.walkAndSwim1 lang
@@ -315,16 +446,15 @@ walkText lang =
 
 rentalTravel : Lang -> Html msg
 rentalTravel lang =
-    div []
-        [ p [ class Styles.transportSubtitle ] [ text <| Translations.carRentalTitle lang ]
-        , rentalText lang
+    div [ class Styles.textFont ]
+        [ rentalText lang
         ]
 
 
 rentalText : Lang -> Html msg
 rentalText lang =
     div []
-        [ p []
+        [ p [ class "text-justified mb-1" ]
             [ text <|
                 Translations.carRental0 lang
                     ++ Translations.carRental1 lang

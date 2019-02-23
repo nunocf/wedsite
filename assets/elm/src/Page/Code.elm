@@ -3,13 +3,14 @@ module Page.Code exposing (Model, Msg, init, subscriptions, toSession, update, v
 import Api
 import Api.Endpoint as Endpoint
 import Html exposing (Html, button, div, form, input, p, text)
-import Html.Attributes exposing (action, method, name, type_, value)
+import Html.Attributes exposing (action, class, method, name, type_, value)
 import Html.Events exposing (onInput, onSubmit)
 import Http
 import Json.Decode as Decode exposing (Decoder)
 import Json.Encode as Encode
 import Route
 import Session exposing (Session)
+import Styles
 import Translations
 
 
@@ -41,14 +42,21 @@ view { session, codeValue, error } =
     in
     { title = "Wedsite"
     , content =
-        div []
-            [ form [ onSubmit OnSubmit ]
-                [ div []
-                    [ p [] [ text <| Translations.insertInviteCode lang ]
-                    , input [ type_ "text", value codeValue, onInput OnInput ] []
-                    , errorDisplay
+        div [ class Styles.formSection ]
+            [ div [ class "formGrid" ]
+                [ div [ class "formContainer" ]
+                    [ form [ onSubmit OnSubmit ]
+                        [ div []
+                            [ p [] [ text <| Translations.insertInviteCode lang ]
+                            , input [ type_ "text", value codeValue, onInput OnInput ] []
+                            , errorDisplay
+                            ]
+                        , div [ class "has-text-centered" ]
+                            [ button [ class Styles.modalButton ]
+                                [ text <| Translations.codeSubmit lang ]
+                            ]
+                        ]
                     ]
-                , div [] [ button [] [ text <| Translations.codeSubmit lang ] ]
                 ]
             ]
     }

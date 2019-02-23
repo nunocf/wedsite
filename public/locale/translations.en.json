@@ -79,10 +79,10 @@
     "travellingHeader": "How to get to us?",
     "travellingSubtitle": [
         "If you don't suffer from time-space travel nausea, we recommend using your favourite teleportation device and input these coordinates:",
-        "If by any chance, you are unable to get your hands on one, here are more rudimentary means of transportation:"
+        "If by any chance, you are unable to get your hands on one, there are more rudimentary means of transportation."
     ],
     "coordinates": "45.3816° N, 20.3686° E",
-    "airplane": "Airplane",
+    "airplane": "Plane",
     "mainAirport": [
         "There are 3 airports nearby, with the most convenient being ",
         "(85 km from the venue)."
@@ -94,14 +94,33 @@
     "londonHeathrow": "London Heathrow",
     "easyJet": "EasyJet",
     "wizzAir": "WizzAir",
+    "wizzAirUrl": "https://wizzair.com/en-gb#/",
     "airSerbia": "AirSerbia",
     "brussels": "Brussels",
     "eindhoven": "Eindhoven",
     "luqa": "Luqa",
     "parisBeauvais": "Paris Beauvais",
+    "lufthansa": "Lufthansa",
+    "lufthansaUrl": "https://www.lufthansa.com/pt/pt/homepage",
+    "tap": "TAP",
+    "tapUrl": "https://www.flytap.com/pt-pt/",
+    "vueling": "Vueling",
+    "vuelingUrl": "https://en.aegeanair.com/",
+    "aegaen": "Aegaen",
+    "aegaenUrl": "https://www.vueling.com/pt",
+    "and": "e",
+    "airSerbiaUrl": "",
+    "ryanAir": "RyanAir",
+    "ryanAirUrl": "https://www.ryanair.com/pt/pt/",
     "mainAirportSecondParagraph": [
         "Direct flights are available from ",
-        "several cities in Germany "
+        "several cities in Germany ",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
     ],
     "etc": "etc.",
     "timisoaraAirport": "Traian Vuia Timisoara Airport",
@@ -116,9 +135,12 @@
     "geaTravel": " GeaTravel Services",
     "trainsTitle": "Trains",
     "trains": [
-        "For easiest coordination please visit the Serbian Railway timetable and check trains that take you either to Novi Sad or Beograd Centar.",
-        "Direct connections are available from BEEECCC????? Budapest,Hungary (15€ one way) and from Ljubljana, Slovenia (41€) and Zagreb, Croatia (24€), Thessaloniki, Greece (23€), Skopje, Macedonia (23€) and Sophia, Bulgaria (20€) to Belgrade."
+        "For easiest coordination please visit the ",
+        " and check trains that take you either to Novi Sad or Beograd Centar.",
+        "Direct connections are available from Budapest, Hungary (15€ one way) and from Ljubljana, Slovenia (41€) and Zagreb, Croatia (24€), Thessaloniki, Greece (23€), Skopje, Macedonia (23€) and Sophia, Bulgaria (20€) to Belgrade."
     ],
+    "trainTimetable": "Serbian Railway timetable",
+    "trainTimetableUrl": "http://w3.srbrail.rs/ZSRedVoznje/en",
     "busTitle": "Bus",
     "bus": [
         "If you are not a big fan of the gentle rocking of the train and prefer to stay on the road, consider checking out the bus service. ",
@@ -143,8 +165,7 @@
     ],
     "motorbikeTitle": "Bike/Motorbike",
     "motorbike": [
-        "If feeling super enthusiastic venture out with your two wheeled best friend! ",
-        "Weather in September is warm and dry in the most of Europe and this could easily be a week long trip to tell the grandkids about. ",
+        "If feeling super enthusiastic venture out with your two wheeled best friend! Weather in September is warm and dry in the most of Europe and this could easily be a week long trip to tell the grandkids about. ",
         "Paramedics and sugary water will be available upon reaching the destination. And all the glory of course, we love bikes! 🏍 Don't forget to show us the pictures!"
     ],
     "walkAndSwimTitle": "Walk & swim",
@@ -152,7 +173,7 @@
         "Aren't you the enthusiast of the party? ",
         "If this is how you like it, only thing we can say is scroll down to the RSVP page, confirm your arrival, and get going, you don't want to be late!"
     ],
-    "carRentalTitle": "Can't live without your car?",
+    "carRentalTitle": "Rent-a-car",
     "carRental": [
         "Not a problem! ",
         "If you are arriving in Belgrade (by plane, train or bus) we are happy to recommend ",
@@ -228,5 +249,7 @@
     "comingSubmit": "Onwards",
     "lowPrice": "£",
     "mediumPrice": "£ £",
-    "highPrice": "£ £ £"
+    "highPrice": "£ £ £",
+    "location": "Location",
+    "coordinatesLink": "https://en.wikipedia.org/wiki/Zrenjanin"
 }
