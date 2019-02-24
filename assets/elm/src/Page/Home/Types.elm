@@ -3,6 +3,7 @@ module Page.Home.Types exposing (ActiveTab(..), Modal, Model, Msg(..))
 import Json.Decode as Decode
 import Page.Home.Locations exposing (Locations)
 import Session exposing (Session)
+import Time
 
 
 type Msg
@@ -10,6 +11,8 @@ type Msg
     | ActivateModal String
     | DeactivateModal
     | ChangeTab ActiveTab
+    | Tick Time.Posix
+    | AdjustTimeZone Time.Zone
 
 
 type alias Model =
@@ -17,6 +20,9 @@ type alias Model =
     , locations : Locations
     , activeModal : Maybe Modal
     , activeTab : ActiveTab
+    , time : Time.Posix
+    , zone : Time.Zone
+    , weddingDay : Time.Posix
     }
 
 

@@ -1,7 +1,7 @@
 module Page.Home.Travelling exposing (view)
 
 import Html exposing (..)
-import Html.Attributes exposing (attribute, class, href, type_, target)
+import Html.Attributes exposing (attribute, class, href, target, type_)
 import Html.Events exposing (onClick)
 import Page.Home.Types exposing (ActiveTab(..), Model, Msg(..))
 import Styles
@@ -126,11 +126,10 @@ viewLocation lang =
 viewLocationText : Lang -> Html msg
 viewLocationText lang =
     div [ class Styles.textFont ]
-        [ p [class "text-justified mb-1"] [text <|Translations.travellingSubtitle0 lang]
-        , p [class "text-justified mb-1"] [ a [href <| Translations.coordinatesLink lang, target "_blank"] [ text <| Translations.coordinates lang]]
-        , p [class "text-justified mb-1"] [text <| Translations.travellingSubtitle1 lang]
+        [ p [ class "text-justified mb-1" ] [ text <| Translations.travellingSubtitle0 lang ]
+        , p [ class "text-justified mb-1" ] [ a [ href <| Translations.coordinatesLink lang, target "_blank" ] [ text <| Translations.coordinates lang ] ]
+        , p [ class "text-justified mb-1" ] [ text <| Translations.travellingSubtitle1 lang ]
         ]
-
 
 
 planeTravel : Lang -> Html msg
@@ -143,22 +142,20 @@ planeTravel lang =
 planeTravelText : Lang -> Html msg
 planeTravelText lang =
     let
-        content = case lang of
-            Translations.Pt ->
-                [ planeTravelFirstParagraph lang
-                , planeTravelThirdParagraph lang]
-                ++ planeTravelSecondParagraph lang
-                
-        
-            _ ->
-                [ planeTravelFirstParagraph lang ]
-                ++
-                planeTravelSecondParagraph lang
-                ++ [ planeTravelThirdParagraph lang
-                ]
-                
+        content =
+            case lang of
+                Translations.Pt ->
+                    [ planeTravelFirstParagraph lang
+                    , planeTravelThirdParagraph lang
+                    ]
+                        ++ planeTravelSecondParagraph lang
+
+                _ ->
+                    [ planeTravelFirstParagraph lang ]
+                        ++ planeTravelSecondParagraph lang
+                        ++ [ planeTravelThirdParagraph lang
+                           ]
     in
-    
     div [ class Styles.textFont ] content
 
 
@@ -178,14 +175,16 @@ planeTravelFirstParagraph lang =
 planeTravelSecondParagraph : Lang -> List (Html msg)
 planeTravelSecondParagraph lang =
     let
-        content = case lang of
-            Translations.Pt ->
-                ptCloseAirports lang
-        
-            _ ->
-                enCloseAirports lang
+        content =
+            case lang of
+                Translations.Pt ->
+                    ptCloseAirports lang
+
+                _ ->
+                    enCloseAirports lang
     in
     content
+
 
 ptCloseAirports : Lang -> List (Html msg)
 ptCloseAirports lang =
@@ -205,41 +204,40 @@ ptCloseAirports lang =
     in
     [ p [ class "text-justified mb-1" ]
         [ text <| Translations.mainAirportSecondParagraph0 lang
-        , a [target "_blank", href <| Translations.wizzAirUrl lang] [ text <| Translations.wizzAir lang ]
+        , a [ target "_blank", href <| Translations.wizzAirUrl lang ] [ text <| Translations.wizzAir lang ]
         , text <| Translations.mainAirportSecondParagraph1 lang
         ]
-    , p [ class "text-justified mb-1" ] 
+    , p [ class "text-justified mb-1" ]
         [ text <| Translations.mainAirportSecondParagraph2 lang
-            , a [href <| Translations.lufthansaUrl lang, target "_blank"] [text <| Translations.lufthansa lang],
-            text ", "
-            , a [href <| Translations.tapUrl lang, target "_blank"] [text <| Translations.tap lang]
-            , text ", "
-            , a [href <| Translations.airSerbiaUrl lang, target "_blank"] [text <| Translations.airSerbia lang]
-            , text ", "
-            , a [href <| Translations.vuelingUrl lang, target "_blank"] [text <| Translations.vueling lang]
-            , text <| Translations.and lang
-            , a [href <| Translations.aegaen lang, target "_blank"] [text <| Translations.aegaen lang]
-            , text "."
+        , a [ href <| Translations.lufthansaUrl lang, target "_blank" ] [ text <| Translations.lufthansa lang ]
+        , text ", "
+        , a [ href <| Translations.tapUrl lang, target "_blank" ] [ text <| Translations.tap lang ]
+        , text ", "
+        , a [ href <| Translations.airSerbiaUrl lang, target "_blank" ] [ text <| Translations.airSerbia lang ]
+        , text ", "
+        , a [ href <| Translations.vuelingUrl lang, target "_blank" ] [ text <| Translations.vueling lang ]
+        , text <| Translations.and lang
+        , a [ href <| Translations.aegaen lang, target "_blank" ] [ text <| Translations.aegaen lang ]
+        , text "."
         ]
-    , p [ class "text-justified mb-1" ] 
+    , p [ class "text-justified mb-1" ]
         [ text <| Translations.mainAirportSecondParagraph3 lang
-        , a [href <| Translations.ryanAirUrl lang, target "_blank"] [text <| Translations.ryanAir lang]
-            , text ", "
-        , a [href <| Translations.wizzAirUrl lang, target "_blank"] [text <| Translations.wizzAir lang]
-            , text ", "
-        , a [href <| Translations.lufthansaUrl lang, target "_blank"] [text <| Translations.lufthansa lang]
-            , text "."
+        , a [ href <| Translations.ryanAirUrl lang, target "_blank" ] [ text <| Translations.ryanAir lang ]
+        , text ", "
+        , a [ href <| Translations.wizzAirUrl lang, target "_blank" ] [ text <| Translations.wizzAir lang ]
+        , text ", "
+        , a [ href <| Translations.lufthansaUrl lang, target "_blank" ] [ text <| Translations.lufthansa lang ]
+        , text "."
         ]
-    , p [ class "text-justified mb-1" ] 
+    , p [ class "text-justified mb-1" ]
         [ text <| Translations.mainAirportSecondParagraph4 lang
-        , a [ href <| Translations.ryanAirUrl lang, target "_blank"] [ text <| Translations.ryanAir lang ]
+        , a [ href <| Translations.ryanAirUrl lang, target "_blank" ] [ text <| Translations.ryanAir lang ]
         , text <| Translations.mainAirportSecondParagraph5 lang
-        , a [ href <| Translations.wizzAirUrl lang, target "_blank"] [ text <| Translations.wizzAir lang ]
+        , a [ href <| Translations.wizzAirUrl lang, target "_blank" ] [ text <| Translations.wizzAir lang ]
         , text <| Translations.mainAirportSecondParagraph6 lang
-        , a [ href <| Translations.tapUrl lang, target "_blank"] [ text <| Translations.tap lang ]
+        , a [ href <| Translations.tapUrl lang, target "_blank" ] [ text <| Translations.tap lang ]
         , text <| Translations.mainAirportSecondParagraph7 lang
         ]
-
     ]
 
 
@@ -307,23 +305,22 @@ planeTravelThirdParagraph lang =
 trainTravel : Lang -> Html msg
 trainTravel lang =
     let
-        content = case lang of
-            Translations.Rs ->
-                div [] [
-                    p [class "text-justified mb-1" ] 
-                        [text <| Translations.trains0 lang ++ " "
-                        , a [href <| Translations.trainTimetableUrl lang, target "_blank"] 
-                            [text <| Translations.trainTimetable lang]
-                        , text <| "."
+        content =
+            case lang of
+                Translations.Rs ->
+                    div []
+                        [ p [ class "text-justified mb-1" ]
+                            [ text <| Translations.trains0 lang ++ " "
+                            , a [ href <| Translations.trainTimetableUrl lang, target "_blank" ]
+                                [ text <| Translations.trainTimetable lang ]
+                            , text <| "."
+                            ]
+                        , p [ class "text-justified mb-1" ] [ text <| Translations.trains1 lang ]
                         ]
-                    , p [class "text-justified mb-1" ] [text <| Translations.trains1 lang]
-                ]
-        
-            _ ->
-                trainTravelText lang
-                
+
+                _ ->
+                    trainTravelText lang
     in
-    
     div [ class Styles.textFont ] [ content ]
 
 
@@ -332,36 +329,34 @@ trainTravelText lang =
     div []
         [ p [ class "text-justified mb-1" ]
             [ text <| Translations.trains0 lang
-            , a [href <| Translations.trainTimetableUrl lang, target "_blank"] [ text <| Translations.trainTimetable lang]
-            , text <| Translations.trains1 lang 
+            , a [ href <| Translations.trainTimetableUrl lang, target "_blank" ] [ text <| Translations.trainTimetable lang ]
+            , text <| Translations.trains1 lang
             ]
-        , p [ class "text-justified mb-1" ] [text <| Translations.trains2 lang]
+        , p [ class "text-justified mb-1" ] [ text <| Translations.trains2 lang ]
         ]
-
 
 
 busTravel : Lang -> Html msg
 busTravel lang =
     let
-        content = case lang of
-            Translations.Rs ->
-                div []
-                    [ p [class "text-justified mb-1" ] 
-                        [ text <| Translations.bus0 lang
-                        , a [href <| Translations.timetableNoviSadUrl lang, target "_blank"] [text <| Translations.timetableNoviSad lang]
-                        , text <| Translations.bus1 lang
-                        , a [href <| Translations.timetableBelgradeUrl lang, target "_blank"] [text <| Translations.timetableBelgrade lang]
-                        , text <| Translations.bus2 lang
+        content =
+            case lang of
+                Translations.Rs ->
+                    div []
+                        [ p [ class "text-justified mb-1" ]
+                            [ text <| Translations.bus0 lang
+                            , a [ href <| Translations.timetableNoviSadUrl lang, target "_blank" ] [ text <| Translations.timetableNoviSad lang ]
+                            , text <| Translations.bus1 lang
+                            , a [ href <| Translations.timetableBelgradeUrl lang, target "_blank" ] [ text <| Translations.timetableBelgrade lang ]
+                            , text <| Translations.bus2 lang
+                            ]
+                        , p [ class "text-justified mb-1" ] [ text <| Translations.bus3 lang ]
+                        , p [ class "text-justified mb-1" ] [ text <| Translations.bus4 lang ]
                         ]
-                    , p [class "text-justified mb-1" ] [text <| Translations.bus3 lang]
-                    , p [class "text-justified mb-1" ] [text <| Translations.bus4 lang]
-                ]
-        
-            _ ->
-                busTravelText lang
 
+                _ ->
+                    busTravelText lang
     in
-    
     div [ class Styles.textFont ]
         [ content
         ]
@@ -409,7 +404,6 @@ carTravelText lang =
         ]
 
 
-
 bikeTravel : Lang -> Html msg
 bikeTravel lang =
     div [ class Styles.textFont ]
@@ -423,7 +417,6 @@ bikeText lang =
         [ p [ class "text-justified mb-1" ] [ text <| Translations.motorbike0 lang ]
         , p [ class "text-justified mb-1" ] [ text <| Translations.motorbike1 lang ]
         ]
-
 
 
 walkTravel : Lang -> Html msg

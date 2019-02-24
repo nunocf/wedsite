@@ -49,10 +49,10 @@
 
 
 .font-heading {
-	font-family: 'Annie Use Your Telescope', cursive;
+	font-family: 'Courgette', cursive;
 	font-weight: normal; 
 	font-style: normal; 
-	font-size: 4rem;
+	font-size: 3.5rem;
 }
 
 
@@ -99,7 +99,20 @@
 }
 
 .textShadow {
-	text-shadow: 1px 1px 2px  rgba(0, 0, 0, .5);
+	text-shadow: 2px 2px 1px  rgba(0, 0, 0, .7);
+}
+
+.asCenter {
+	align-self: center;
+}
+
+.jsCenter {
+	justify-self: center;
+}
+
+.centerSvg {
+	display: block;
+	margin: auto;
 }
 
 
@@ -133,6 +146,68 @@
 
 .background {
 	background-color: #EAE7DC;
+}
+
+/* .backgroundLanding {
+	background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url('/images/stonehenge.jpg');
+	background-position: center center;
+	background-size: cover;
+} */
+
+.backgroundLanding {
+  position: relative;
+}
+
+.backgroundLanding::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+	background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+		url('/images/stonehenge.jpg');
+	background-position: center center;
+	background-size: cover;
+}
+
+
+.landingContainer {
+	position: relative;
+
+	display: grid;
+
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr;
+
+	grid-template-areas: 
+		"landingText landingCountdown";
+
+	height: 100%;
+	width: 100%;
+
+	padding: 2rem 6rem 2rem 6rem;
+
+	gap: 6rem;
+}
+
+.landingText {
+	grid-area: landingText;
+	align-self: center;
+	justify-self: center;
+	filter: brightness(90%);
+}
+
+.landingCountdown {
+	grid-area: landingCountdown;
+	align-self: center;
+	justify-self: center;
+	filter: brightness(90%);
 }
 
 .menuFontColor {
@@ -455,11 +530,16 @@
 	text-align: justify;
 }
 
+.cw {
+	color: white;
+}
+
 @media only screen and (max-width: 1024px) {
 	.travellingContent {
 		padding: 2rem 4rem 2rem 4rem;
 	}
 }
+
 	
 
 @media only screen and (max-width: 600px) {
@@ -552,34 +632,12 @@
 	/* height: 100px; */
 }
 
-:root {
-	--gutter: 1em;
-	--wrapperWidth: calc(100vw - ( 2 * var(--gutter))); 
-	--noOfColumns: 8;
-
-	--noOfGutters: calc(var(--noOfColumns) - 1);
-
-	--ratioA: 1;
-	--ratioB: 1;
-
-	--factor: calc(var(--ratioB) / var(--ratioA));
-
-	--rh: calc(( (var(--wrapperWidth) - (var(--noOfGutters) * var(--gutter))) / var(--noOfColumns)) * var(--factor));
-}
-
 .accomodationGrid {
 
 	display: grid;
 	grid-template-columns: repeat(8, 1fr);
 
 	grid-gap: 1em;
-	
-
-
-	/* display: grid;
-	width: var(--wrapperWidth);
-	grid-template-columns: repeat(8, 1fr);
-	grid-template-rows: repeat(5, --rowHeight); */
 	
 	grid-template-areas:
 		"flowerTL flowerTL accTitle accTitle accTitle accTitle flowerTR flowerTR"
@@ -588,9 +646,6 @@
 		"........ apartments apartments bigflower luxotel vojvodina vojvodina ........"
 		"flowerBL flowerBL philadelphia philadelphia bee vojvodina vojvodina	........";
 	
-	/* gap: 1em; */
-	/* gap: var(--gutter); */
-
 	padding: 2rem 0rem 0rem 1rem;
 }
 
@@ -598,8 +653,7 @@
 	grid-area: booking;
 	background-color: #013381ff;
 	display: flex;
-	justify-content: center;
-	align-content: center;
+	align-content: center; 
 }
 
 .movable {
@@ -655,12 +709,16 @@
 
 .airbnb {
 	grid-area: airbnb;
-	display: flex;
-	justify-content: center;
-	align-content: center;
+
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	align-content: stretch;
+	justify-content: stretch;
 
 	background-color: #fe595e;
 }
+
 
 .hotelVojvodinaSquare {
 	grid-area: vojvodina;
@@ -734,11 +792,25 @@
 	grid-area: smallFlower2;
 }
 
-
 .svgCentered {
 	display: flex;
 	justify-content: center;
 	align-content: center;
+}
+
+.countdownContainer {
+	display: grid;
+
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1rem;
+}
+
+.countDownValueContainer {
+	background: rgba(0,0,0,0.4);
+
+	justify-self: center;
+	text-align: center;
+	padding: 1rem 1rem 1rem 1rem;
 }
 
 .formGrid {

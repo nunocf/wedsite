@@ -10,6 +10,7 @@ module Styles exposing
     , formSection
     , headingFormatting
     , hero
+    , landingPageMiddle
     , modalButton
     , ourStory
     , rsvpSection
@@ -92,7 +93,7 @@ dropdownListItem =
 
 hero : String
 hero =
-    [ "hero", "is-fullheight", "has-background-info" ]
+    [ "hero", "is-fullheight", "backgroundLanding", "landingContainer" ]
         |> String.join " "
 
 
@@ -144,6 +145,11 @@ headingFormatting =
     , "color-heading"
     ]
         |> String.join " "
+
+
+landingPageMiddle : String
+landingPageMiddle =
+    "title cw text-justified font-text"
 
 
 textFont : String

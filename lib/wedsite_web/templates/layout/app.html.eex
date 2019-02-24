@@ -7,9 +7,7 @@
     <title>Nuno and Oli's Wedsite</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> 
-    <link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Fira+Sans" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Courgette|Fira+Sans&amp;subset=latin-ext" rel="stylesheet">
     <script src="https://maps.googleapis.com/maps/api/js"></script> 
   <body>
     <div id="elm-main"></div>

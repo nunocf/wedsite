@@ -13,6 +13,8 @@ import Page.Home.Travelling as Travelling
 import Page.Home.Types exposing (ActiveTab(..), Modal, Model, Msg(..))
 import Session exposing (Session)
 import Styles
+import Task
+import Time
 import Translations
 
 
@@ -20,7 +22,7 @@ import Translations
 -- MODEL
 
 
-init : Session -> ( Model, Cmd msg )
+init : Session -> ( Model, Cmd Msg )
 init session =
     let
         locations =
@@ -30,6 +32,9 @@ init session =
       , locations = Loc.init
       , activeModal = Nothing
       , activeTab = Location
+      , time = Time.millisToPosix 0
+      , zone = Time.utc
+      , weddingDay = Time.millisToPosix 1567846800000
       }
     , Cmd.batch
         [ Gmaps.initMaps <| Loc.encode locations
@@ -37,6 +42,7 @@ init session =
         , Gmaps.moveMap <| Loc.encodeLocation locations.brideHouse
         , Gmaps.moveMap <| Loc.encodeLocation locations.church
         , Gmaps.moveMap <| Loc.encodeLocation locations.restaurant
+        , Task.perform AdjustTimeZone Time.here
         ]
     )
 
@@ -50,7 +56,7 @@ view model =
     { title = "Wedsite"
     , content =
         div []
-            ([ viewHero
+            ([ viewHero model
              , viewOurStory
              , viewSchedule
              , viewTravelling model
@@ -61,14 +67,110 @@ view model =
     }
 
 
-viewHero : Translations.Lang -> Html msg
-viewHero lang =
+padDigit : Int -> String
+padDigit digit =
+    if digit >= 0 && digit < 10 then
+        "0" ++ String.fromInt digit
+
+    else
+        String.fromInt digit
+
+
+dayInMilis =
+    24 * 60 * 60 * 1000
+
+
+hourInMilis =
+    60 * 60 * 1000
+
+
+minuteInMilis =
+    60 * 1000
+
+
+viewHero : Model -> Translations.Lang -> Html msg
+viewHero model lang =
+    let
+        hour =
+            padDigit <| Time.toHour model.zone model.time
+
+        minute =
+            padDigit <| Time.toMinute model.zone model.time
+
+        second =
+            padDigit <| Time.toSecond model.zone model.time
+
+        clock =
+            if Time.posixToMillis model.time == 0 then
+                div [] []
+
+            else
+                h1 [] [ text (hour ++ ":" ++ minute ++ ":" ++ second) ]
+
+        countDown =
+            remainingTimeLeft model.weddingDay model.time
+    in
     section [ class Styles.hero ]
-        [ div [ class "hero-body" ]
-            [ div [ class "is-overlay has-text-centered single-spaced", style "top" "84px" ]
-                [ h1 [ class "subtitle is-4 has-text-weight-light has-text-black" ] [ text "We're doing it!" ]
-                , h2 [ class "title is-1 has-text-black" ] [ text "7 September 2019" ]
+        [ div [ class "landingText" ]
+            [ h1 [ class <| Styles.headingFormatting ]
+                [ text <| Translations.doingIt lang ]
+            , p [ class <| Styles.landingPageMiddle ]
+                [ text <| Translations.mrMrsFerreira lang ]
+            , h3 [ class <| Styles.headingFormatting ]
+                [ text <| Translations.date lang ]
+            ]
+        , div [ class "landingCountdown" ]
+            [ h1 [ class <| Styles.headingFormatting ]
+                [ p [] [ text <| "Time left for the big event!" ]
+                , countDown
                 ]
+            ]
+        ]
+
+
+remainingTimeLeft : Time.Posix -> Time.Posix -> Html msg
+remainingTimeLeft finalTime currentTime =
+    let
+        milisLeft =
+            Time.posixToMillis finalTime - Time.posixToMillis currentTime
+
+        remainingHours =
+            milisLeft - (daysLeft * dayInMilis)
+
+        remainingMinutes =
+            remainingHours - (hoursLeft * hourInMilis)
+
+        remainingSeconds =
+            remainingMinutes - (minutesLeft * minuteInMilis)
+
+        daysLeft =
+            milisLeft // dayInMilis
+
+        hoursLeft =
+            remainingHours // hourInMilis
+
+        minutesLeft =
+            remainingMinutes // minuteInMilis
+
+        secondsLeft =
+            remainingSeconds // 1000
+    in
+    div [ class "countdownContainer" ]
+        [ div []
+            [ div [ class "countDownValueContainer" ] [ text <| String.fromInt daysLeft ]
+            , p [ class "is-size-5" ] [ text <| "Days" ]
+            ]
+        , div []
+            [ div [ class "countDownValueContainer" ] [ text <| String.fromInt hoursLeft ]
+            , p [ class "is-size-5" ] [ text <| "Hours" ]
+            ]
+        , div []
+            [ div [ class "countDownValueContainer" ] [ text <| String.fromInt minutesLeft ]
+            , p [ class "is-size-5" ] [ text <| "Minutes" ]
+            ]
+        , div []
+            [ div [ class "countDownValueContainer" ] [ text <| String.fromInt secondsLeft ]
+            , p [ class "is-size-5" ] [ text <| "Seconds" ]
             ]
         ]
 
@@ -95,7 +197,6 @@ viewOurStory lang =
                         , div [ class "poem3" ] [ Poem.viewPoem3 lang ]
                         ]
                     ]
-
                 , div [ class "flowerSideRight  desktop" ]
                     [ object [ type_ "image/svg+xml", attribute "data" "svg/flowerstripright.svg" ] [ text "Your browser does not support SVGs" ]
                     ]
@@ -159,6 +260,16 @@ update msg model =
         ChangeTab selectedTab ->
             ( { model | activeTab = selectedTab }, Cmd.none )
 
+        Tick newTime ->
+            ( { model | time = newTime }
+            , Cmd.none
+            )
+
+        AdjustTimeZone newZone ->
+            ( { model | zone = newZone }
+            , Cmd.none
+            )
+
 
 setLocations : Model -> Locations -> Model
 setLocations model locations =
@@ -172,4 +283,7 @@ toSession model =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    Gmaps.mapMoved MapMoved
+    Sub.batch
+        [ Gmaps.mapMoved MapMoved
+        , Time.every 1000 Tick
+        ]
