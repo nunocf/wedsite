@@ -177,7 +177,7 @@ remainingTimeLeft finalTime currentTime =
 
 viewOurStory : Translations.Lang -> Html msg
 viewOurStory lang =
-    div [ class Styles.ourStory ]
+    div [ class <| Styles.ourStory ]
         [ div [ class "mb-2" ]
             [ div [ class "ourStoryContainer" ]
                 [ div [ class "flowerSideLeft desktop" ]
@@ -208,7 +208,7 @@ viewOurStory lang =
 viewSchedule : Translations.Lang -> Html msg
 viewSchedule lang =
     div [ class Styles.scheduleSection ]
-        [ div []
+        [ div [ class "scheduleContainer" ]
             [ Schedule.viewHeader lang
             , Schedule.viewGroom lang
             , Schedule.viewBride lang

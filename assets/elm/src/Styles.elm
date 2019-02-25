@@ -105,7 +105,7 @@ ourStory =
 
 scheduleSection : String
 scheduleSection =
-    [ "hero", "is-fullheight", "has-background-primary" ]
+    [ "hero", "is-fullheight", "background" ]
         |> String.join " "
 
 
@@ -167,11 +167,12 @@ scheduleTimeHeader : String
 scheduleTimeHeader =
     [ "font-amatic"
     , "amatic-subheader-size"
+    , "single-spaced"
     ]
         |> String.join " "
 
 
 scheduleTimeSubHeader : String
 scheduleTimeSubHeader =
-    [ "fira-italic" ]
+    [ "fira-italic", "mb-1" ]
         |> String.join " "

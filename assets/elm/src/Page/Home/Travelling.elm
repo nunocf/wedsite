@@ -10,7 +10,7 @@ import Translations exposing (Lang)
 
 view : Model -> Lang -> Html Msg
 view model lang =
-    div [ class "has-text-centered pt-1" ]
+    div [ class "has-text-centered" ]
         [ div [ class "travellingGrid" ]
             [ div [ class "travelTitle pb-2" ]
                 [ h1 [ class <| Styles.headingFormatting ]

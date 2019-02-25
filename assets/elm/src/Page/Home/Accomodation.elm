@@ -11,7 +11,7 @@ import Translations exposing (Lang)
 
 view : Lang -> Model -> Html Msg
 view lang { activeModal } =
-    div []
+    div [ class "mt-4" ]
         [ div [ class "accomodationGrid", attribute "height" "100%" ]
             [ a [ href "https://www.booking.com", target "_blank", class "bookingSquare pointerCursor movable roundCorners boxShadow svgLinkA" ]
                 [ span [ class "svg-container centerSvg svgSpan" ]
