@@ -17,6 +17,7 @@ module Styles exposing
     , scheduleSection
     , scheduleTimeHeader
     , scheduleTimeSubHeader
+    , scheduleTimeSubHeaderFirst
     , textFont
     , transportSubtitle
     , travelMenuItem
@@ -175,4 +176,10 @@ scheduleTimeHeader =
 scheduleTimeSubHeader : String
 scheduleTimeSubHeader =
     [ "fira-italic", "mb-1" ]
+        |> String.join " "
+
+
+scheduleTimeSubHeaderFirst : String
+scheduleTimeSubHeaderFirst =
+    [ "fira-italic", "single-spaced" ]
         |> String.join " "

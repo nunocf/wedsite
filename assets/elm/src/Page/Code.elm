@@ -2,32 +2,35 @@ module Page.Code exposing (Model, Msg, init, subscriptions, toSession, update, v
 
 import Api
 import Api.Endpoint as Endpoint
-import Html exposing (Html, button, div, form, input, p, text)
-import Html.Attributes exposing (action, class, method, name, type_, value)
-import Html.Events exposing (onInput, onSubmit)
+import Array exposing (Array)
+import Browser.Dom as Dom
+import Html exposing (Attribute, Html, button, div, form, input, p, text)
+import Html.Attributes exposing (action, attribute, class, classList, disabled, maxlength, method, name, placeholder, type_, value)
+import Html.Events exposing (keyCode, on, onInput, onSubmit)
 import Http
 import Json.Decode as Decode exposing (Decoder)
 import Json.Encode as Encode
 import Route
 import Session exposing (Session)
 import Styles
+import Task
 import Translations
 
 
 type alias Model =
     { session : Session
-    , codeValue : String
+    , pin : Array String
     , error : Maybe String
     }
 
 
 init : Session -> ( Model, Cmd msg )
 init session =
-    ( Model session "" Nothing, Cmd.none )
+    ( Model session (Array.fromList [ "", "", "", "", "", "" ]) Nothing, Cmd.none )
 
 
 view : Model -> { title : String, content : Html Msg }
-view { session, codeValue, error } =
+view { session, pin, error } =
     let
         lang =
             Session.lang session
@@ -48,7 +51,8 @@ view { session, codeValue, error } =
                     [ form [ onSubmit OnSubmit ]
                         [ div []
                             [ p [] [ text <| Translations.insertInviteCode lang ]
-                            , input [ type_ "text", value codeValue, onInput OnInput ] []
+                            , div [ class "PinContainer" ]
+                                (pin |> Array.indexedMap (\i v -> pinInput i v) |> Array.toList)
                             , errorDisplay
                             ]
                         , div [ class "has-text-centered" ]
@@ -62,22 +66,63 @@ view { session, codeValue, error } =
     }
 
 
+pinInput : Int -> String -> Html Msg
+pinInput index v =
+    input
+        [ type_ "tel"
+        , attribute "pattern" "[0-9A-Za-z]*"
+        , classList
+            [ ( "TextInput", True )
+            , ( "PinInputLeft", index == 0 )
+            , ( "PinInputMiddle", index == 1 || index == 2 || index == 3 || index == 4 )
+            , ( "PinInputRight", index == 5 )
+            ]
+        , onInput (OnPinInput index)
+        , onBackspace (Backspace index)
+        , attribute "id" ("pin-code-" ++ String.fromInt index)
+        , attribute "data-cy" ("pinCode" ++ String.fromInt index)
+        , maxlength 1
+        , attribute "aria-label" "aaaaaa"
+        , value v
+        , placeholder "•"
+        ]
+        []
+    
+
+onBackspace : msg -> Attribute msg
+onBackspace msg =
+    let
+        tagger key =
+            case key of
+                8 ->
+                    Decode.succeed msg
+
+                _ ->
+                    Decode.fail "not handling this key"
+    in
+    on "keyup" (Decode.andThen tagger keyCode)
+
+
 type Msg
-    = OnInput String
+    = NoOp
     | OnSubmit
     | GotResponse (Result Http.Error Bool)
+    | OnPinInput Int String
+    | Backspace Int
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        OnInput string ->
-            ( { model | codeValue = string }, Cmd.none )
+        NoOp ->
+            ( model, Cmd.none )
 
         OnSubmit ->
             let
+                pin = String.join "" <| Array.toList model.pin
+
                 body =
-                    Http.jsonBody (encode model.codeValue)
+                    Http.jsonBody (encode pin)
 
                 postRequestCmd =
                     Api.post Endpoint.code body (Http.expectJson GotResponse decoder)
@@ -93,8 +138,14 @@ update msg model =
                 Ok found ->
                     case found of
                         True ->
+                            let
+                                code = model.pin
+                                    |> Array.toList
+                                    |> String.join ""
+                            in
+                            
                             ( { model | error = Nothing }
-                            , Route.replaceUrl (Session.navKey model.session) (Route.Coming model.codeValue)
+                            , Route.replaceUrl (Session.navKey model.session) (Route.Coming code)
                             )
 
                         False ->
@@ -106,6 +157,44 @@ update msg model =
                       }
                     , Cmd.none
                     )
+
+        OnPinInput index value ->
+            let
+                pinLen =
+                    Array.length model.pin
+
+                newPin =
+                    Array.set index value model.pin
+
+                nextInputId =
+                    if index < pinLen - 1 then
+                        index + 1 |> String.fromInt
+
+                    else
+                        index |> String.fromInt
+
+                cmd =
+                    if value == "" then
+                        Cmd.none
+
+                    else
+                        Task.attempt (\_ -> NoOp) (Dom.focus <| "pin-code-" ++ nextInputId)
+            in
+            ( { model | pin = newPin }, cmd )
+
+        Backspace index ->
+            let
+                newPin =
+                    Array.set index "" model.pin
+
+                nextInputId =
+                    if index > 0 then
+                        index - 1 |> String.fromInt
+
+                    else
+                        index |> String.fromInt
+            in
+            ( { model | pin = newPin }, Task.attempt (\_ -> NoOp) (Dom.focus <| "pin-code-" ++ nextInputId) )
 
 
 toSession : Model -> Session

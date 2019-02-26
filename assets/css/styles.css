@@ -17,6 +17,110 @@
     line-height: 1;
 }
 
+.fixed {
+	position: fixed;
+	width: 100%;
+}
+
+.TextInput {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  padding: 12px 0;
+  width: 100%;
+  border-radius: 0;
+  color: #1c1c1c;
+  border: 0;
+  border-bottom: 1px solid #d1d1d1;
+  position: relative;
+  background-color: #ffffff;
+  margin-top: 0;
+  transition: border-bottom 0.2s linear;
+  -webkit-transform: translate3d(0px, 0px, 0px) !important;
+  transform: translate3d(0px, 0px, 0px) !important;
+  font-size: 16px;
+}
+
+.TextInput:focus {
+  transition: border-bottom 0.2s linear;
+}
+
+.PinInputLeft {
+  display: inline-block;
+  width: 16%;
+  font-size: 30px;
+  text-align: center;
+  float: left;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border: 1px solid #d1d1d1;
+}
+
+.PinInputLeft:focus {
+  z-index: 2;
+}
+
+.PinInputLeft:focus {
+  border: 1px solid #878787;
+  transition: border 0.2s linear;
+}
+
+.PinInputMiddle {
+  display: inline-block;
+  width: 16%;
+  font-size: 30px;
+  text-align: center;
+  float: left;
+  margin-left: -1px;
+  border-radius: 0;
+  border: 1px solid #d1d1d1;
+}
+
+.PinInputMiddle:focus {
+  z-index: 2;
+}
+
+.PinInputMiddle:focus {
+  border: 1px solid #878787;
+  transition: border 0.2s linear;
+}
+
+.PinInputRight {
+  width: 16%;
+  font-size: 30px;
+  text-align: center;
+  float: left;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -1px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: 1px solid #d1d1d1;
+}
+
+.PinInputRight:focus {
+  z-index: 2;
+}
+
+.PinInputRight:focus {
+  border: 1px solid #878787;
+  transition: border 0.2s linear;
+}
+
+.PinContainer {
+  display: block;
+  margin: 20px auto 20px;
+  max-width: 360px;
+}
+
+.pinGrid {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+}
+
 @media (max-width: 1024px) {
 	.desktop {
 		display: none;
@@ -90,7 +194,7 @@
 }
 
 .amatic-subheader-size {
-	font-size: 2.5rem;
+	font-size: 3rem;
 }
 
 .fira-italic {
@@ -138,6 +242,18 @@
 
 .mb-4 {
 	margin-bottom: 4rem;
+}
+
+.mb-8 {
+	margin-bottom: 8rem;
+}
+
+.mt-6 {
+	margin-top: 6rem;
+}
+
+.mt-4 {
+	margin-top: 4rem;
 }
 
 .mb-1 {
@@ -329,48 +445,131 @@
 .rightMapContainer {
 	display: grid;
 	
-	grid-template-columns: 1fr 1fr 40%;
-	grid-template-rows: 600px;
+	/* grid-template-columns: minmax(200px, 1.5fr) 4.5fr 4fr; */
+	grid-template-columns: 6fr 4fr;
+	grid-template-rows: 400px;
 
+	/* grid-template-areas:
+		"board descText map"; */
 	grid-template-areas:
-		"board descText map";
+		"postarealeft map";
 
-	/* height: 600px; */
+	padding: 0rem 3rem 0rem 3rem;
 
-	padding: 0 3rem 0 3rem;
+	gap: 1.5rem;
+	
+	/* margin-bottom: 8rem; */
 }
 
 .leftMapContainer {
 	display: grid;
 	
-	grid-template-columns: 40% 1fr 1fr;
-	grid-template-rows: 600px;
+	/* grid-template-columns: 4fr 4.5fr minmax(200px, 1.5fr);
+	grid-template-rows: 400px; */
+	grid-template-columns: 4fr 6fr;
+	grid-template-rows: 400px;
 
-	/* height: 600px; */
-	padding: 0 3rem 0 3rem;
+	/* grid-template-areas:
+	"map descText board"; */
+	grid-template-areas:
+		"map postarearight";
+
+
+	padding: 0rem 3rem 0rem 3rem;
+
+	gap: 1.5rem;
+
+}
+
+.postLeftContainer {
+	grid-area: postarealeft;
+
+	display: grid;
+
+	grid-template-areas: 
+		"board st"
+		"board descText";
+
+	grid-template-columns: minmax(200px, 1fr) 3fr;
+}
+
+.st {
+	grid-area: st;
+
+	justify-self: center;
+	align-self: center;
+
+	padding: 0rem 1frem 0rem 1rem;
+}
+
+.postRightContainer {
+	grid-area: postarearight;
+
+	display: grid;
+
+	grid-template-areas: 
+	"st board"
+	"descText board";
+
+	grid-template-columns: 3fr minmax(200px, 1fr) ;
 }
 
 .boardContainer {
 	grid-area: board;
 
-	/* justify-self: center;
-	align-self: center; */
-
-	width: 50%;
-  height: 50%;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	align-content: stretch;
 }
 
-.textContainer {
+.boardContainer2 {
+	grid-area: board;
+
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+}
+
+.textContainerR2 {
 	grid-area: descText;
 
 	justify-self: center;
 	align-self: center;
+	padding-right: 2rem;
+}
+
+.textContainerR {
+	grid-area: descText;
+
+	justify-self: center;
+	align-self: center;
+	padding-right: 2rem;
+}
+
+.textContainerL {
+	grid-area: descText;
+
+	justify-self: center;
+	align-self: center;
+	padding-left: 2rem;
+}
+.textContainerL2 {
+	grid-area: descText;
+
+	justify-self: center;
+	align-self: center;
+	padding-left: 2rem;
 }
 
 .mapContainer {
 	grid-area: map;
 	justify-self: center;
 	align-self: center;
+}
+
+.scheduleContainer > div {
+	margin-bottom: 8rem;
 }
 
 .dollars {
@@ -424,7 +623,7 @@
 		"flowerSideLeft travelTitle flowerSideRight"
 		"flowerSideLeft travellingFrame  flowerSideRight";
 
-	padding: 1rem 0rem 0rem 1rem;
+	padding: 0rem 0rem 0rem 0rem;
 }
 
 .travelTitle {
@@ -530,6 +729,7 @@
 	text-align: justify;
 }
 
+
 .cw {
 	color: white;
 }
@@ -544,13 +744,61 @@
 
 @media only screen and (max-width: 600px) {
 
+	.rightMapContainer {
+		display: grid;
+		
+		grid-template-columns: 1fr;
+		grid-template-rows : 1fr 400px;
+		grid-template-areas:
+			"postarealeft"
+			"map";
+	
+		padding: 0rem 0rem 0rem 0rem;
+	
+		gap: 2rem;
+	}
+	
+	.leftMapContainer {
+		display: grid;
+		
+		grid-template-columns: 1fr;
+		grid-template-rows : 1fr 400px;
+
+		grid-template-areas:
+			"postarearight"
+			"map";
+	
+		padding: 0rem 0rem 0rem 0rem;
+		row-gap: 2rem;
+	}
+
+	.postLeftContainer {
+		grid-template-columns: minmax(90px, 1fr) 4fr;
+
+		grid-template-areas: 
+			"board st"
+			"descText descText";
+
+		row-gap: 2rem;
+		padding-left: 2rem;
+	}
+	
+	.postRightContainer {
+		grid-template-columns: 4fr minmax(90px, 1fr) ;
+
+		grid-template-areas: 
+		"st board"
+		"descText descText";
+
+		row-gap: 2rem;
+		padding-right: 2rem;
+	}
+
 	.travellingContent {
 		padding: 2rem 2rem 2rem 2rem;
 	}
 
 	.travellingGrid {
-		display: grid;
-	
 		grid-template-columns: 1fr;
 	
 		grid-template-areas: 

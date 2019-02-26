@@ -20,7 +20,7 @@ view session page =
             navbarLink page
     in
     div [ class "hero-head" ]
-        [ div [ class "navbar has-background-white columns is-mobile is-marginless heading text-weight-bold" ]
+        [ div [ class "navbar fixed has-background-white columns is-mobile is-marginless heading text-weight-bold" ]
             [ div [ class "column left" ]
                 [ p [ class "navbar-item has-text-black" ] [ text "logsfo?" ] ]
             , div [ class "column" ]

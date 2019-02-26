@@ -65,35 +65,6 @@
 	stroke-width: 0;
 }
 
-.postOneBottom {
-	fill: #613934;
-	stroke-width: 0;
-}
-
-.postOneBoard {
-	stroke: #613934;
-	fill: none;
-}
-
-.ribbonFill {
-	fill: #FAA404;
-}
-
-.ribbonLine {
-	stroke: #4c4c4c;
-	fill: none;
-	stroke-width: 0.5px;
-}
-
-.postTop {
-	fill: #613934;
-	stroke-width: 0;
-}
-
-.postText {
-	font-family: 'Amatic SC', cursive;
-}
-
 .airbnb {
 	fill: #ffffff;
 }
@@ -182,4 +153,8 @@ object {
 .svgObject {
 	position: relative;
 	z-index: -1;
+}
+
+.postStem {
+	fill: #864a1c;
 }
