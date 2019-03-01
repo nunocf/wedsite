@@ -12,6 +12,7 @@ import Language
 import Page.Rsvp.Types as Types exposing (Allergies, Course(..), Diet(..), Guest, GuestsDetailsForm, Name, encodeGuestsDetailsForm, guestsDetailsDecoder)
 import Route
 import Session exposing (Session, setLanguage)
+import Styles
 import Translations exposing (Lang, getLnFromCode)
 
 
@@ -58,12 +59,19 @@ view model =
                     div [] []
 
                 Ready guestsForm errors ->
-                    div []
-                        [ p [] [ text "Cool! We're done." ]
-                        , p [] [ text "We're already preparing to party!!" ]
-                        , img [ width 300, Asset.src Asset.complete ] []
-                        , p [] [ text "We cant wait to see you!" ]
-                        , button [ onClick GoHome ] [ text "OMG! Bye!" ]
+                    div [ class Styles.formSection ]
+                        [ div [ class "formGrid" ]
+                            [ div [ class "formContainer" ]
+                                [ p [] [ text "Cool! We're done." ]
+                                , p [] [ text "We're already preparing to party!!" ]
+                                , img [ width 300, Asset.src Asset.complete ] []
+                                , p [] [ text "We cant wait to see you!" ]
+                                , div [ class "has-text-centered" ]
+                                    [ button [ onClick GoHome, class <| Styles.modalButton ++ " border-black" ]
+                                        [ text "OMG! Bye!" ]
+                                    ]
+                                ]
+                            ]
                         ]
     in
     { title = "Wedsite"

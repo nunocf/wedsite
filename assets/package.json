@@ -6,6 +6,7 @@
     "watch": "./node_modules/webpack/bin/webpack.js --mode development --watch --progress --color"
   },
   "dependencies": {
+    "bulma-checkradio": "^2.1.0",
     "phoenix": "~1.4",
     "phoenix_html": "~2.12"
   },

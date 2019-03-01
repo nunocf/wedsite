@@ -4,7 +4,7 @@ import Api
 import Api.Endpoint as Endpoint
 import Array exposing (Array)
 import Html exposing (..)
-import Html.Attributes exposing (action, checked, class, method, name, placeholder, type_, value)
+import Html.Attributes exposing (action, checked, class, for, id, method, name, placeholder, type_, value)
 import Html.Events exposing (onClick, onInput, onSubmit)
 import Http
 import Json.Decode as Decode exposing (Decoder, nullable)
@@ -13,6 +13,7 @@ import Language
 import Page.Rsvp.Types as Types exposing (AcceptForm, Accepted, AdditionalGuest, Coming, Guest, Invitation, Name, acceptFormDecoder, decodeGuest, decodeInvitation, encodeAcceptedForm)
 import Route
 import Session exposing (Session, setLanguage)
+import Styles
 import Translations exposing (Lang, getLnFromCode)
 
 
@@ -60,11 +61,18 @@ view model =
                     div [] []
 
                 Ready acceptForm errors ->
-                    div []
-                        [ form [ onSubmit OnSubmit ]
-                            [ viewAcceptedQuestion lang acceptForm
-                            , viewHowManyQuestion lang acceptForm
-                            , div [] [ button [] [ text <| Translations.comingSubmit lang ] ]
+                    div [ class Styles.formSection ]
+                        [ div [ class "formGrid" ]
+                            [ div [ class "formContainer" ]
+                                [ form [ onSubmit OnSubmit ]
+                                    [ viewAcceptedQuestion lang acceptForm
+                                    , viewHowManyQuestion lang acceptForm
+                                    , div [ class "has-text-centered mt-1" ]
+                                        [ button [ class <| Styles.modalButton ++ " border-black" ]
+                                            [ text <| Translations.comingSubmit lang ]
+                                        ]
+                                    ]
+                                ]
                             ]
                         ]
     in
@@ -75,7 +83,7 @@ view model =
 
 viewAcceptedQuestion : Lang -> AcceptForm -> Html Msg
 viewAcceptedQuestion lang form =
-    div []
+    div [ class "has-text-left" ]
         [ viewGreeting lang (Array.fromList form.guests)
         , viewAcceptedRadio lang form.invitation.accepted
         ]
@@ -102,23 +110,19 @@ viewGreeting lang guests =
         greeting =
             Translations.hello lang ++ guestName ++ Translations.joiningUs lang
     in
-    div [] [ text <| greeting ]
+    div [ class "pl-1 is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text <| greeting ]
 
 
 viewAcceptedRadio : Lang -> Maybe Accepted -> Html Msg
 viewAcceptedRadio lang coming =
-    div [ class "control" ]
-        [ div []
-            [ label [ class "radio", onClick <| AcceptedClick True ]
-                [ input [ type_ "radio", name "coming", checked (coming == Just True) ] []
-                , text <| Translations.hellYes lang
-                ]
+    div [ class "pl-2 has-text-left field" ]
+        [ div [ class "mb-0-5" ]
+            [ input [ id "coming1", type_ "radio", name "coming", class "mr-1 is-checkradio is-warning is-medium", checked (coming == Just True) ] []
+            , label [ class "textShadow poemTextColor", for "coming1", onClick <| AcceptedClick True ] [ text <| Translations.hellYes lang ]
             ]
-        , div []
-            [ label [ class "radio", onClick <| AcceptedClick False ]
-                [ input [ type_ "radio", name "coming", checked (coming == Just False) ] []
-                , text <| Translations.hellNo lang
-                ]
+        , div [ class "mb-1" ]
+            [ input [ id "coming2", type_ "radio", name "coming", class "mr-1 is-checkradio is-warning is-medium", checked (coming == Just False) ] []
+            , label [ class "textShadow poemTextColor", for "coming2", onClick <| AcceptedClick False ] [ text <| Translations.hellNo lang ]
             ]
         ]
 
@@ -138,9 +142,9 @@ viewHowManyQuestion lang form =
                     False
     in
     if accepted == True then
-        div []
-            [ p [] [ text <| Translations.whoComes lang ]
-            , div [] <|
+        div [ class "has-text-left" ]
+            [ p [ class "mb-0-5 pl-1 is-size-3 font-amatic font-heavy form-heading-color" ] [ text <| Translations.whoComes lang ]
+            , div [ class "textShadow poemTextColor pl-2" ] <|
                 viewGuestsCheckboxes form.guests
                     ++ viewAdditionalGuestsCheckboxes form.additionalGuests
             ]
@@ -175,12 +179,13 @@ guestCheckbox index guest =
 
                 Nothing ->
                     False
+
+        guestId =
+            guest.name ++ String.fromInt index
     in
-    div []
-        [ label [ class "checkbox", onClick (ClickedGuest index (not coming)) ]
-            [ input [ type_ "checkbox", checked coming ] []
-            , text guest.name
-            ]
+    div [ class "field" ]
+        [ input [ class "is-checkradio is-warning is-medium", id guestId, type_ "checkbox", checked coming ] []
+        , label [ for guestId, onClick (ClickedGuest index (not coming)) ] [ text guest.name ]
         ]
 
 
@@ -193,13 +198,14 @@ additionalGuestCheckbox index { coming, name } =
                     text name
 
                 True ->
-                    input [ type_ "text", placeholder name, onInput (InputAdditionalGuest index) ] []
+                    input [ class "input width45", type_ "text", placeholder name, onInput (InputAdditionalGuest index) ] []
+
+        addGuestId =
+            "additionalGuest" ++ String.fromInt index
     in
-    div []
-        [ label [ class "checkbox" ]
-            [ input [ type_ "checkbox", checked coming, onClick (ClickedAdditionalGuest index (not coming)) ] []
-            , nameElement
-            ]
+    div [ class "field" ]
+        [ input [ id addGuestId, class "is-checkradio is-warning is-medium", type_ "checkbox", checked coming, onClick (ClickedAdditionalGuest index (not coming)) ] []
+        , label [ for addGuestId ] [ nameElement ]
         ]
 
 

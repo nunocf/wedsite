@@ -1,5 +1,12 @@
 @charset "utf-8";
 
 $link: #FAA404;
+$checkradio-focus: none;
+$warning: $link; 
+$input-background-color: #61615f;
+$input-placeholder-color: #d1d1d1;
+$input-color: #EAE7DC;
+
 
 @import "../node_modules/bulma/bulma.sass";
+@import '../node_modules/bulma-checkradio/dist/css/bulma-checkradio.sass';

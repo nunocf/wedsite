@@ -50,13 +50,14 @@ view { session, pin, error } =
                 [ div [ class "formContainer" ]
                     [ form [ onSubmit OnSubmit ]
                         [ div []
-                            [ p [] [ text <| Translations.insertInviteCode lang ]
+                            [ p [ class "has-text-centered is-size-2 font-amatic font-heavy form-heading-color" ]
+                                [ text <| Translations.insertInviteCode lang ]
                             , div [ class "PinContainer" ]
                                 (pin |> Array.indexedMap (\i v -> pinInput i v) |> Array.toList)
                             , errorDisplay
                             ]
                         , div [ class "has-text-centered" ]
-                            [ button [ class Styles.modalButton ]
+                            [ button [ class <| Styles.modalButton ++ " border-black" ]
                                 [ text <| Translations.codeSubmit lang ]
                             ]
                         ]
@@ -76,6 +77,7 @@ pinInput index v =
             , ( "PinInputLeft", index == 0 )
             , ( "PinInputMiddle", index == 1 || index == 2 || index == 3 || index == 4 )
             , ( "PinInputRight", index == 5 )
+            , ( "fira", True )
             ]
         , onInput (OnPinInput index)
         , onBackspace (Backspace index)
@@ -87,7 +89,7 @@ pinInput index v =
         , placeholder "•"
         ]
         []
-    
+
 
 onBackspace : msg -> Attribute msg
 onBackspace msg =
@@ -119,7 +121,8 @@ update msg model =
 
         OnSubmit ->
             let
-                pin = String.join "" <| Array.toList model.pin
+                pin =
+                    String.join "" <| Array.toList model.pin
 
                 body =
                     Http.jsonBody (encode pin)
@@ -139,11 +142,11 @@ update msg model =
                     case found of
                         True ->
                             let
-                                code = model.pin
-                                    |> Array.toList
-                                    |> String.join ""
+                                code =
+                                    model.pin
+                                        |> Array.toList
+                                        |> String.join ""
                             in
-                            
                             ( { model | error = Nothing }
                             , Route.replaceUrl (Session.navKey model.session) (Route.Coming code)
                             )

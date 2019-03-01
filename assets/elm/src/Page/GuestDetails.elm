@@ -4,7 +4,7 @@ import Api
 import Api.Endpoint as Endpoint
 import Array exposing (Array)
 import Html exposing (..)
-import Html.Attributes exposing (action, checked, class, classList, method, name, placeholder, type_, value)
+import Html.Attributes exposing (action, rows, checked, class, classList, for, id, method, name, placeholder, type_, value)
 import Html.Events exposing (onClick, onInput, onSubmit)
 import Http
 import Json.Decode as Decode exposing (Decoder, nullable)
@@ -13,6 +13,7 @@ import Language
 import Page.Rsvp.Types as Types exposing (Allergies, Course(..), Diet(..), Guest, GuestsDetailsForm, Name, encodeGuestsDetailsForm, guestsDetailsDecoder)
 import Route
 import Session exposing (Session, setLanguage)
+import Styles
 import Translations exposing (Lang, getLnFromCode)
 
 
@@ -64,13 +65,18 @@ view model =
                     div [] []
 
                 Ready guestsForm errors ->
-                    div []
-                        [ form [ onSubmit OnSubmit ]
-                            ([ viewGreeting lang
-                             ]
-                                ++ viewGuests lang guestsForm.guests
-                                ++ [ div [] [ button [] [ text "Submit" ] ] ]
-                            )
+                    div [ class Styles.formSection ]
+                        [ div [ class "formGrid" ]
+                            [ div [ class "formContainer" ]
+                                [ form [ onSubmit OnSubmit ]
+                                    ( viewGuests lang guestsForm.guests
+                                        ++ [ div [ class "has-text-centered mt-1" ]
+                                                [ button [ class <| Styles.modalButton ++ " border-black" ] [ text "Submit" ]
+                                                ]
+                                           ]
+                                    )
+                                ]
+                            ]
                         ]
     in
     { title = "Wedsite"
@@ -89,20 +95,20 @@ viewGuests lang guests =
 viewGuest : Lang -> Index -> Guest -> Html Msg
 viewGuest lang index guest =
     div []
-        [ viewGuestName guest
-        , viewDietQuestion lang index guest
+        [ viewDietQuestion lang index guest
         , viewAllergyQuestion lang index guest
         ]
 
 
-viewGuestName : Guest -> Html Msg
-viewGuestName guest =
-    div [] [ text guest.name ]
 
 
 viewDietQuestion : Lang -> Index -> Guest -> Html Msg
 viewDietQuestion lang index guest =
     let
+        firstName = guest.name
+                        |> String.split " "
+                        |> List.head
+                        |> Maybe.withDefault ""
         isNormal =
             case guest.diet of
                 Just (Normal _) ->
@@ -129,7 +135,7 @@ viewDietQuestion lang index guest =
             if isOther == True then
                 div []
                     [ textarea
-                        [ placeholder "Tell us more! We don't want you to starve"
+                        [ class "textarea ml-2", rows 2, placeholder "Tell us more! We don't want you to starve"
                         , onInput <| OtherTextAreaInput index
                         ]
                         []
@@ -147,31 +153,43 @@ viewDietQuestion lang index guest =
 
         labelName =
             "diet-" ++ guest.id
+
+        meatId =
+            guest.name ++ "meat"
+
+        vegId =
+            guest.name ++ "veg"
+
+        halalId =
+            guest.name ++ "halal"
+
+        otherId =
+            guest.name ++ "other"
     in
     div [ class "control" ]
-        [ div [] [ text "What are your feasting habits?" ]
-        , div []
-            [ label [ class "radio", onClick <| ClickDietOption index <| Normal Nothing ]
-                [ input [ type_ "radio", name labelName, checked isNormal ] []
-                , text "🍗 Normal 🍖"
+        [ div [ class "pl-1 is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text <| firstName ++ ", what are your feasting habits?" ]
+        , div [ class "pl-2 has-text-left field" ]
+            [ div [ class "mb-0-5" ]
+                [ input [ class "mr-1 is-checkradio is-warning is-medium", id meatId, type_ "radio", checked isNormal ] []
+                , label [ for meatId, class "textShadow poemTextColor", onClick <| ClickDietOption index <| Normal Nothing ] [ text "🍗 Normal 🍖" ]
                 ]
             ]
-        , div []
-            [ label [ class "radio", onClick <| ClickDietOption index <| Vegetarian ]
-                [ input [ type_ "radio", name labelName, checked isVegetarian ] []
-                , text "\u{1F966} Vegetarian \u{1F951}"
+        , div [ class "pl-2 has-text-left field" ]
+            [ div [ class "mb-0-5" ]
+                [ input [ class "mr-1 is-checkradio is-warning is-medium", id vegId, type_ "radio", checked isVegetarian ] []
+                , label [ for vegId, class "textShadow poemTextColor", onClick <| ClickDietOption index <| Vegetarian ] [ text "\u{1F966} Vegetarian \u{1F951}" ]
                 ]
             ]
-        , div []
-            [ label [ class "radio", onClick <| ClickDietOption index <| Halal ]
-                [ input [ type_ "radio", name labelName, checked isHalal ] []
-                , text "\u{1F54C} Halal \u{1F54C}"
+        , div [ class "pl-2 has-text-left field" ]
+            [ div [ class "mb-0-5" ]
+                [ input [ class "mr-1 is-checkradio is-warning is-medium", id halalId, type_ "radio", checked isHalal ] []
+                , label [ for halalId, class "textShadow poemTextColor", onClick <| ClickDietOption index <| Halal ] [ text "\u{1F54C} Halal \u{1F54C}" ]
                 ]
             ]
-        , div []
-            [ label [ class "radio", onClick <| ClickDietOption index <| Other "" ]
-                [ input [ type_ "radio", name labelName, checked isOther ] []
-                , text "Other"
+        , div [ class "pl-2 has-text-left field" ]
+            [ div [ class "mb-0-5" ]
+                [ input [ class "mr-1 is-checkradio is-warning is-medium", id otherId, type_ "radio", checked isOther ] []
+                , label [ for otherId, class "textShadow poemTextColor", onClick <| ClickDietOption index <| Other "" ] [ text "Other" ]
                 ]
             ]
         , otherNotes
@@ -194,7 +212,7 @@ viewAllergyQuestion lang index guest =
             if hasAllergies == True then
                 div []
                     [ textarea
-                        [ placeholder "Tell us more! We don't want you to die"
+                        [ class "textarea ml-2", rows 2, placeholder "Tell us more! We don't want you to die"
                         , onInput <| AllergiesTextAreaInput index
                         ]
                         []
@@ -205,19 +223,26 @@ viewAllergyQuestion lang index guest =
 
         labelName =
             "allergies-" ++ guest.id
+
+        allergiesYesId =
+            "allergiesYes"
+
+        allergiesNoId =
+            "allergiesNo"
     in
     div [ class "control" ]
-        [ div [] [ text "Do you have any food allergies? \u{1F95C} 🍫" ]
-        , div []
-            [ label [ class "radio", onClick <| ClickAllergyOption index (Just "") ]
-                [ input [ type_ "radio", name labelName, checked hasAllergies ] []
-                , text "Yes"
+        [ div [ class "pl-1 is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text "Do you have any food allergies?" ]
+        , div [ class "pl-2 has-text-left field" ]
+            [ div [ class "mb-0-5" ]
+                [ input [ class "mr-1 is-checkradio is-warning is-medium", id allergiesYesId, type_ "radio", checked hasAllergies ] []
+                , label [ for allergiesYesId, class "textShadow poemTextColor", onClick <| ClickAllergyOption index (Just "") ] [ text "Yes" ]
                 ]
             ]
-        , div []
-            [ label [ class "radio", onClick <| ClickAllergyOption index Nothing ]
-                [ input [ type_ "radio", name labelName, checked (not hasAllergies) ] []
-                , text "No"
+
+        , div [ class "pl-2 has-text-left field" ]
+            [ div [ class "mb-0-5" ]
+                [ input [ class "mr-1 is-checkradio is-warning is-medium", id allergiesNoId, type_ "radio", checked (not hasAllergies) ] []
+                , label [ for allergiesNoId, class "textShadow poemTextColor", onClick <| ClickAllergyOption index Nothing ] [ text "No" ]
                 ]
             ]
         , viewAllergyNotes
@@ -252,11 +277,6 @@ courseOption lang index guest =
             ]
         ]
 
-
-viewGreeting : Lang -> Html msg
-viewGreeting lang =
-    -- replace with translation
-    div [] [ text "Victim food preferences" ]
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
