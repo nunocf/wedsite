@@ -54,6 +54,19 @@ defmodule WedsiteWeb.ApiController do
     |> json(%{"status" => "ok"})
   end
 
+  def update_email(conn, %{"code" => code, "email" => email}) do
+
+      {:ok, invitation} = get_invitation_by_code(code)
+
+      invitation
+      |> Ecto.Changeset.change(email: email)
+      |> Repo.update!()
+
+      conn
+      |> put_status(200)
+      |> json(%{"status" => "ok"})
+  end
+
   defp repo_update_invitation(%{"id" => id, "accepted" => accepted, "preferedLang" => lang}) do
     Repo.get!(Invitation, id)
     |> Ecto.Changeset.change(accepted: accepted, lang: lang)

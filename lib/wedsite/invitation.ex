@@ -14,6 +14,7 @@ defmodule Wedsite.Invitation do
     field :guest_count, :integer, default: 0
     field :children_count, :integer, default: 0
     field :accepted, :boolean
+    field :email, :string
     has_many :guests, Guest
 
 
@@ -23,7 +24,7 @@ defmodule Wedsite.Invitation do
   @doc false
   def changeset(invitation, attrs) do
     invitation
-    |> cast(attrs, [:lang, :accepted])
+    |> cast(attrs, [:lang, :accepted, :email])
     |> validate_required([:accepted])
   end
 end

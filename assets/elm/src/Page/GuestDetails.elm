@@ -4,7 +4,7 @@ import Api
 import Api.Endpoint as Endpoint
 import Array exposing (Array)
 import Html exposing (..)
-import Html.Attributes exposing (action, rows, checked, class, classList, for, id, method, name, placeholder, type_, value)
+import Html.Attributes exposing (action, checked, class, classList, for, id, method, name, placeholder, rows, type_, value)
 import Html.Events exposing (onClick, onInput, onSubmit)
 import Http
 import Json.Decode as Decode exposing (Decoder, nullable)
@@ -69,9 +69,9 @@ view model =
                         [ div [ class "formGrid" ]
                             [ div [ class "formContainer" ]
                                 [ form [ onSubmit OnSubmit ]
-                                    ( viewGuests lang guestsForm.guests
+                                    (viewGuests lang guestsForm.guests
                                         ++ [ div [ class "has-text-centered mt-1" ]
-                                                [ button [ class <| Styles.modalButton ++ " border-black" ] [ text "Submit" ]
+                                                [ button [ class <| Styles.modalButton ++ " border-black" ] [ text <| Translations.next lang ]
                                                 ]
                                            ]
                                     )
@@ -90,6 +90,7 @@ viewGuests lang guests =
         |> Array.fromList
         |> Array.indexedMap (viewGuest lang)
         |> Array.toList
+        |> List.intersperse (hr [] [])
 
 
 viewGuest : Lang -> Index -> Guest -> Html Msg
@@ -100,15 +101,15 @@ viewGuest lang index guest =
         ]
 
 
-
-
 viewDietQuestion : Lang -> Index -> Guest -> Html Msg
 viewDietQuestion lang index guest =
     let
-        firstName = guest.name
-                        |> String.split " "
-                        |> List.head
-                        |> Maybe.withDefault ""
+        firstName =
+            guest.name
+                |> String.split " "
+                |> List.head
+                |> Maybe.withDefault ""
+
         isNormal =
             case guest.diet of
                 Just (Normal _) ->
@@ -135,7 +136,9 @@ viewDietQuestion lang index guest =
             if isOther == True then
                 div []
                     [ textarea
-                        [ class "textarea ml-2", rows 2, placeholder "Tell us more! We don't want you to starve"
+                        [ class "textarea ml-2"
+                        , rows 2
+                        , placeholder <| Translations.dietNotesPlaceholder lang
                         , onInput <| OtherTextAreaInput index
                         ]
                         []
@@ -166,30 +169,30 @@ viewDietQuestion lang index guest =
         otherId =
             guest.name ++ "other"
     in
-    div [ class "control" ]
-        [ div [ class "pl-1 is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text <| firstName ++ ", what are your feasting habits?" ]
+    div [ class "control mt-1" ]
+        [ div [ class "pl-1 is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text <| firstName ++ Translations.dietQuestion lang ]
         , div [ class "pl-2 has-text-left field" ]
             [ div [ class "mb-0-5" ]
                 [ input [ class "mr-1 is-checkradio is-warning is-medium", id meatId, type_ "radio", checked isNormal ] []
-                , label [ for meatId, class "textShadow poemTextColor", onClick <| ClickDietOption index <| Normal Nothing ] [ text "🍗 Normal 🍖" ]
+                , label [ for meatId, class "textShadow poemTextColor", onClick <| ClickDietOption index <| Normal Nothing ] [ text <| Translations.normalDiet lang ]
                 ]
             ]
         , div [ class "pl-2 has-text-left field" ]
             [ div [ class "mb-0-5" ]
                 [ input [ class "mr-1 is-checkradio is-warning is-medium", id vegId, type_ "radio", checked isVegetarian ] []
-                , label [ for vegId, class "textShadow poemTextColor", onClick <| ClickDietOption index <| Vegetarian ] [ text "\u{1F966} Vegetarian \u{1F951}" ]
+                , label [ for vegId, class "textShadow poemTextColor", onClick <| ClickDietOption index <| Vegetarian ] [ text <| Translations.vegetarianDiet lang ]
                 ]
             ]
         , div [ class "pl-2 has-text-left field" ]
             [ div [ class "mb-0-5" ]
                 [ input [ class "mr-1 is-checkradio is-warning is-medium", id halalId, type_ "radio", checked isHalal ] []
-                , label [ for halalId, class "textShadow poemTextColor", onClick <| ClickDietOption index <| Halal ] [ text "\u{1F54C} Halal \u{1F54C}" ]
+                , label [ for halalId, class "textShadow poemTextColor", onClick <| ClickDietOption index <| Halal ] [ text <| Translations.halalDiet lang ]
                 ]
             ]
         , div [ class "pl-2 has-text-left field" ]
             [ div [ class "mb-0-5" ]
                 [ input [ class "mr-1 is-checkradio is-warning is-medium", id otherId, type_ "radio", checked isOther ] []
-                , label [ for otherId, class "textShadow poemTextColor", onClick <| ClickDietOption index <| Other "" ] [ text "Other" ]
+                , label [ for otherId, class "textShadow poemTextColor", onClick <| ClickDietOption index <| Other "" ] [ text <| Translations.otherDiet lang ]
                 ]
             ]
         , otherNotes
@@ -212,7 +215,9 @@ viewAllergyQuestion lang index guest =
             if hasAllergies == True then
                 div []
                     [ textarea
-                        [ class "textarea ml-2", rows 2, placeholder "Tell us more! We don't want you to die"
+                        [ class "textarea ml-2"
+                        , rows 2
+                        , placeholder <| Translations.allergyNotesPlaceholder lang
                         , onInput <| AllergiesTextAreaInput index
                         ]
                         []
@@ -230,19 +235,18 @@ viewAllergyQuestion lang index guest =
         allergiesNoId =
             "allergiesNo"
     in
-    div [ class "control" ]
-        [ div [ class "pl-1 is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text "Do you have any food allergies?" ]
+    div [ class "control mt-1" ]
+        [ div [ class "pl-1 is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text <| Translations.allergyQuestion lang ]
         , div [ class "pl-2 has-text-left field" ]
             [ div [ class "mb-0-5" ]
                 [ input [ class "mr-1 is-checkradio is-warning is-medium", id allergiesYesId, type_ "radio", checked hasAllergies ] []
-                , label [ for allergiesYesId, class "textShadow poemTextColor", onClick <| ClickAllergyOption index (Just "") ] [ text "Yes" ]
+                , label [ for allergiesYesId, class "textShadow poemTextColor", onClick <| ClickAllergyOption index (Just "") ] [ text <| Translations.allergyYes lang ]
                 ]
             ]
-
         , div [ class "pl-2 has-text-left field" ]
             [ div [ class "mb-0-5" ]
                 [ input [ class "mr-1 is-checkradio is-warning is-medium", id allergiesNoId, type_ "radio", checked (not hasAllergies) ] []
-                , label [ for allergiesNoId, class "textShadow poemTextColor", onClick <| ClickAllergyOption index Nothing ] [ text "No" ]
+                , label [ for allergiesNoId, class "textShadow poemTextColor", onClick <| ClickAllergyOption index Nothing ] [ text <| Translations.allergyNo lang ]
                 ]
             ]
         , viewAllergyNotes
@@ -260,23 +264,22 @@ courseOption lang index guest =
 
         labelName =
             "food-choice-" ++ guest.id
+
+        foodChoiceId =
+            guest.name ++ "-food"
     in
-    div []
-        [ div [] [ text "What do you wanna eat?" ]
-        , div []
-            [ label [ class "radio", onClick <| ClickDietOption index <| Normal <| Just Meat1 ]
-                [ input [ type_ "radio", name labelName, checked isMeat1 ] []
-                , text "Tasty tasty Serbian Schnitzel"
-                ]
+    div [ class "has-text-left field mt-1" ]
+        [ div [ class "pl-1 is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text <| Translations.courseQuestion lang ]
+        , div [ class "pl-2 mb-0-5" ]
+            [ input [ id foodChoiceId, type_ "radio", name "foodChoice", class "mr-1 is-checkradio is-warning is-medium", checked isMeat1 ] []
+            , label [ class "textShadow poemTextColor", for foodChoiceId, onClick <| ClickDietOption index <| Normal <| Just Meat1 ] [ text <| Translations.course1 lang ]
             ]
-        , div []
-            [ label [ class "radio", onClick <| ClickDietOption index <| Normal <| Just Meat2 ]
-                [ input [ type_ "radio", name labelName, checked isMeat2 ] []
-                , text "Pork with dates and stuff"
-                ]
+        , div
+            [ class "pl-2 mb-0-5" ]
+            [ input [ id foodChoiceId, type_ "radio", name "foodChoice", class "mr-1 is-checkradio is-warning is-medium", checked isMeat2 ] []
+            , label [ class "textShadow poemTextColor", for foodChoiceId, onClick <| ClickDietOption index <| Normal <| Just Meat2 ] [ text <| Translations.course2 lang ]
             ]
         ]
-
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )

@@ -10,6 +10,7 @@ defmodule Wedsite.Repo.Migrations.CreateInvitations do
       add :guest_count, :integer, default: 0
       add :children_count, :integer, default: 0
       add :code, :string, null: false
+      add :email, :string
 
       timestamps()
     end

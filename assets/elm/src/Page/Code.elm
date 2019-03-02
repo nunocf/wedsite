@@ -70,7 +70,7 @@ view { session, pin, error } =
 pinInput : Int -> String -> Html Msg
 pinInput index v =
     input
-        [ type_ "tel"
+        [ type_ "text"
         , attribute "pattern" "[0-9A-Za-z]*"
         , classList
             [ ( "TextInput", True )

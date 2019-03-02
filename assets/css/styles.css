@@ -17,9 +17,17 @@
     line-height: 1;
 }
 
+.p-1 {
+	padding: 0.5rem 1rem 0rem 1rem;
+}
+
 .fixed {
 	position: fixed;
 	width: 100%;
+}
+
+.noBorder {
+	border: none;
 }
 
 .TextInput {
@@ -303,6 +311,10 @@ textarea,
 
 .mt-4 {
 	margin-top: 4rem;
+}
+
+.mt-2 {
+	margin-top: 2rem;
 }
 
 .mt-1 {
@@ -659,7 +671,7 @@ textarea,
 	padding: 11px 19px;
 	cursor: pointer;
 	box-shadow: 3px 3px 5px rgba(0, 0, 0, .4);
-	width: 40%;
+	width: 45%;
 	position: relative;
 	display: inline-block;
 	color: #262626;
@@ -833,9 +845,29 @@ label {
 	}
 }
 
+.input.boxShadowNone {
+	box-shadow: none;
+}
+
+.di {
+	display: inline;
+}
+
+.ml--1 {
+	margin-left: -17px;
+}
+
+.pt-1px {
+	padding-top: 1px;
+}
+
 	
 
 @media only screen and (max-width: 600px) {
+
+	.width45 {
+		width: 75%;
+	}
 
 	.rightMapContainer {
 		display: grid;
@@ -907,7 +939,7 @@ label {
 	} 
 
 	.modalButton {
-		width: 55%;
+		width: 75%;
 	}
 
 	.ourStoryContainer {
@@ -1154,14 +1186,15 @@ label {
 .formGrid {
 	display: grid;
 
-	grid-template-columns: minmax(300px, 580px);
+	grid-template-columns: minmax(300px, 450px);
 
 	align-self: center;
-	justify-self: center;
+	margin-top: 4rem;
+	padding: 0rem 1rem 0rem 1rem;
 }
 
 .formContainer {
-	margin-top: 10rem;
+	margin-top: 1rem;
 	width: 100%;
 	background: #61615f;
 	border-radius: 10px;
