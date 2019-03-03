@@ -57,7 +57,7 @@ view model =
             in
             div [ class Styles.formSection ]
                 [ div [ class "formGrid" ]
-                    [ div [ class "pl-1 mt-1 formContainer has-text-centered" ]
+                    [ div [ class "pl-1 pr-1 mt-1 formContainer has-text-centered" ]
                         [ p [ class " is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ]
                             [ text <| Translations.shocking lang ]
                         , div [ class "mt-1 p-1" ]

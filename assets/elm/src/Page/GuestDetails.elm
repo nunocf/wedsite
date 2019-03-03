@@ -133,19 +133,21 @@ viewDietQuestion lang index guest =
                     False
 
         otherNotes =
-            if isOther == True then
-                div []
-                    [ textarea
-                        [ class "textarea ml-2"
-                        , rows 2
-                        , placeholder <| Translations.dietNotesPlaceholder lang
-                        , onInput <| OtherTextAreaInput index
+            case guest.diet of
+                Just (Other notes) ->
+                    div []
+                        [ textarea
+                            [ class "textarea ml-2"
+                            , rows 2
+                            , placeholder <| Translations.dietNotesPlaceholder lang
+                            , onInput <| OtherTextAreaInput index
+                            , value notes
+                            ]
+                            []
                         ]
-                        []
-                    ]
 
-            else
-                div [] []
+                _ ->
+                    div [] []
 
         viewSelectNormalFood =
             if isNormal == True then
@@ -170,26 +172,26 @@ viewDietQuestion lang index guest =
             guest.name ++ "other"
     in
     div [ class "control mt-1" ]
-        [ div [ class "pl-1 is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text <| firstName ++ Translations.dietQuestion lang ]
-        , div [ class "pl-2 has-text-left field" ]
+        [ div [ class "pl-1 pr-1 is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text <| firstName ++ Translations.dietQuestion lang ]
+        , div [ class "pl-5-5 has-text-left field" ]
             [ div [ class "mb-0-5" ]
                 [ input [ class "mr-1 is-checkradio is-warning is-medium", id meatId, type_ "radio", checked isNormal ] []
                 , label [ for meatId, class "textShadow poemTextColor", onClick <| ClickDietOption index <| Normal Nothing ] [ text <| Translations.normalDiet lang ]
                 ]
             ]
-        , div [ class "pl-2 has-text-left field" ]
+        , div [ class "pl-5-5 has-text-left field" ]
             [ div [ class "mb-0-5" ]
                 [ input [ class "mr-1 is-checkradio is-warning is-medium", id vegId, type_ "radio", checked isVegetarian ] []
                 , label [ for vegId, class "textShadow poemTextColor", onClick <| ClickDietOption index <| Vegetarian ] [ text <| Translations.vegetarianDiet lang ]
                 ]
             ]
-        , div [ class "pl-2 has-text-left field" ]
+        , div [ class "pl-5-5 has-text-left field" ]
             [ div [ class "mb-0-5" ]
                 [ input [ class "mr-1 is-checkradio is-warning is-medium", id halalId, type_ "radio", checked isHalal ] []
                 , label [ for halalId, class "textShadow poemTextColor", onClick <| ClickDietOption index <| Halal ] [ text <| Translations.halalDiet lang ]
                 ]
             ]
-        , div [ class "pl-2 has-text-left field" ]
+        , div [ class "pl-5-5 has-text-left field" ]
             [ div [ class "mb-0-5" ]
                 [ input [ class "mr-1 is-checkradio is-warning is-medium", id otherId, type_ "radio", checked isOther ] []
                 , label [ for otherId, class "textShadow poemTextColor", onClick <| ClickDietOption index <| Other "" ] [ text <| Translations.otherDiet lang ]
@@ -212,19 +214,21 @@ viewAllergyQuestion lang index guest =
                     False
 
         viewAllergyNotes =
-            if hasAllergies == True then
-                div []
-                    [ textarea
-                        [ class "textarea ml-2"
-                        , rows 2
-                        , placeholder <| Translations.allergyNotesPlaceholder lang
-                        , onInput <| AllergiesTextAreaInput index
+            case guest.allergies of
+                Just notes ->
+                    div []
+                        [ textarea
+                            [ class "textarea ml-2"
+                            , rows 2
+                            , placeholder <| Translations.allergyNotesPlaceholder lang
+                            , onInput <| AllergiesTextAreaInput index
+                            , value notes
+                            ]
+                            []
                         ]
-                        []
-                    ]
 
-            else
-                div [] []
+                Nothing ->
+                    div [] []
 
         labelName =
             "allergies-" ++ guest.id
@@ -236,14 +240,14 @@ viewAllergyQuestion lang index guest =
             "allergiesNo"
     in
     div [ class "control mt-1" ]
-        [ div [ class "pl-1 is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text <| Translations.allergyQuestion lang ]
-        , div [ class "pl-2 has-text-left field" ]
+        [ div [ class "pl-1 pr-1 is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text <| Translations.allergyQuestion lang ]
+        , div [ class "pl-5-5 has-text-left field" ]
             [ div [ class "mb-0-5" ]
                 [ input [ class "mr-1 is-checkradio is-warning is-medium", id allergiesYesId, type_ "radio", checked hasAllergies ] []
                 , label [ for allergiesYesId, class "textShadow poemTextColor", onClick <| ClickAllergyOption index (Just "") ] [ text <| Translations.allergyYes lang ]
                 ]
             ]
-        , div [ class "pl-2 has-text-left field" ]
+        , div [ class "pl-5-5 has-text-left field" ]
             [ div [ class "mb-0-5" ]
                 [ input [ class "mr-1 is-checkradio is-warning is-medium", id allergiesNoId, type_ "radio", checked (not hasAllergies) ] []
                 , label [ for allergiesNoId, class "textShadow poemTextColor", onClick <| ClickAllergyOption index Nothing ] [ text <| Translations.allergyNo lang ]
@@ -257,7 +261,17 @@ courseOption : Lang -> Index -> Guest -> Html Msg
 courseOption lang index guest =
     let
         isMeat1 =
-            guest.diet == (Just <| Normal <| Just Meat1)
+            case guest.diet of
+                Just (Normal option) ->
+                    case option of
+                        Just Meat1 ->
+                            True
+
+                        _ ->
+                            False
+
+                _ ->
+                    False
 
         isMeat2 =
             guest.diet == (Just <| Normal <| Just Meat2)
@@ -269,14 +283,14 @@ courseOption lang index guest =
             guest.name ++ "-food"
     in
     div [ class "has-text-left field mt-1" ]
-        [ div [ class "pl-1 is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text <| Translations.courseQuestion lang ]
-        , div [ class "pl-2 mb-0-5" ]
-            [ input [ id foodChoiceId, type_ "radio", name "foodChoice", class "mr-1 is-checkradio is-warning is-medium", checked isMeat1 ] []
+        [ div [ class "pl-1 pr-1 is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text <| Translations.courseQuestion lang ]
+        , div [ class "pl-5-5 mb-0-5 w80" ]
+            [ input [ id foodChoiceId, type_ "radio", class "mr-1 is-checkradio is-warning is-medium", checked <| isMeat1 ] []
             , label [ class "textShadow poemTextColor", for foodChoiceId, onClick <| ClickDietOption index <| Normal <| Just Meat1 ] [ text <| Translations.course1 lang ]
             ]
         , div
-            [ class "pl-2 mb-0-5" ]
-            [ input [ id foodChoiceId, type_ "radio", name "foodChoice", class "mr-1 is-checkradio is-warning is-medium", checked isMeat2 ] []
+            [ class "pl-5-5 mb-0-5 w80" ]
+            [ input [ id foodChoiceId, type_ "radio", class "mr-1 is-checkradio is-warning is-medium", checked isMeat2 ] []
             , label [ class "textShadow poemTextColor", for foodChoiceId, onClick <| ClickDietOption index <| Normal <| Just Meat2 ] [ text <| Translations.course2 lang ]
             ]
         ]

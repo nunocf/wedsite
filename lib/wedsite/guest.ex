@@ -24,7 +24,7 @@ defmodule Wedsite.Guest do
   @doc false
   def changeset(guest, attrs) do
     guest
-    |> cast(attrs, [:name, :diet_notes, :diet_type, :coming, :food_allergy_notes, :food_choice])
+    |> cast(attrs, [:name, :diet_notes, :diet_type, :coming, :has_food_allergies, :food_allergy_notes, :food_choice])
     |> validate_required([:name])
   end
 end

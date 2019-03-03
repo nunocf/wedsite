@@ -373,72 +373,9 @@ fourPMDesc1 lang  =
 fourPMDesc2: Lang -> String
 fourPMDesc2 lang  =
   case lang of 
-      En -> "Continuing in the “I DO” fashion, our couple becomes joint in the eyes of the state as well. Get the party going while they take some very artistic photos in the gardens and enjoy the traditional appetizers."
+      En -> "Continuing in the “I DO” fashion, our couple becomes joint in the eyes of the state as well. Get the party going while they take some very artistic photos in the gardens and enjoy the traditional appetizers. We are staying here for the rest of this day and night. Be prepared to bust a move, enjoy two dinners and more cake than a human can handle!"
       Pt -> ""
       Rs -> "Nakon državne ceremonije uz nezaboravne stihove Duška Radovića, nadoknadite izgubljenu snagu predjelo i pokrenite proslavu dok se mladenci i sulikaju koji put da bi imali čime da se hvale unucima jednog lepog dana."
-
-sevenPM: Lang -> String
-sevenPM lang  =
-  case lang of 
-      En -> "7pm"
-      Pt -> "19h"
-      Rs -> "19h"
-
-sevenPMDesc0: Lang -> String
-sevenPMDesc0 lang  =
-  case lang of 
-      En -> "First dance & Dinner"
-      Pt -> "Jantar"
-      Rs -> "Prvi ples i večera"
-
-sevenPMDesc1: Lang -> String
-sevenPMDesc1 lang  =
-  case lang of 
-      En -> "Try not to laugh too hard as we bust a move as Mr&Ms Ferreira and enjoy your well earned dinner."
-      Pt -> ""
-      Rs -> "Priključite se mladencima u prvom plesu i dobro zasluženoj večeri!"
-
-ninePM: Lang -> String
-ninePM lang  =
-  case lang of 
-      En -> "9pm"
-      Pt -> "21h"
-      Rs -> "21h"
-
-ninePMDesc0: Lang -> String
-ninePMDesc0 lang  =
-  case lang of 
-      En -> "Cake time"
-      Pt -> "Bolo de casamento"
-      Rs -> "Torta"
-
-ninePMDesc1: Lang -> String
-ninePMDesc1 lang  =
-  case lang of 
-      En -> "We do have a bit of a sweet tooth so we are ceremonially cutting two cakes! Our wedding cake, clearly fitting the theme with all those sunflowers and the traditional “Mother’s cake” which we will come and serve to all of you, also taking the opportunity of taking a pic with you which you can later purchase from the photo team."
-      Pt -> ""
-      Rs -> "Slatkiša nikad dosta! Prvo vešto dekorisana mladenačka torta, a zatim i materina pogača koji će Vam mladenci, nadajmo se uspešno, podeliti i top prilikom se i slikati s Vama."
-
-elevenPM: Lang -> String
-elevenPM lang  =
-  case lang of 
-      En -> "11pm"
-      Pt -> "23h"
-      Rs -> "23h"
-
-elevenPMDesc0: Lang -> String
-elevenPMDesc0 lang  =
-  case lang of 
-      En -> "Second dinner"
-      Pt -> "Segundo jantar"
-      Rs -> "Druga večera"
-
-elevenPMDesc1: Lang -> String
-elevenPMDesc1 lang  =
-  case lang of 
-      En -> "Does dancing get you tired? No worries, we have a super energy dense second diner that will keep you going for hours!"
-      Pt -> ""
-      Rs -> "Red je i da popunimo energetske rezerve kako bi veselje moglo nesmetano da se nastavi!"
 
 travellingHeader: Lang -> String
 travellingHeader lang  =
@@ -1287,34 +1224,6 @@ apartmaniDesc1 lang  =
       Pt -> "Situado no centro da cidade"
       Rs -> "U centru grada"
 
-rsvpTitle: Lang -> String
-rsvpTitle lang  =
-  case lang of 
-      En -> "RSVP"
-      Pt -> "RSVP"
-      Rs -> "Potvrdite svoj dolazak"
-
-rsvp0: Lang -> String
-rsvp0 lang  =
-  case lang of 
-      En -> "Please RSVP no later than the 1st of July."
-      Pt -> "Preenche o RSVP até dia 1 de Julho, por favor."
-      Rs -> "Molimo Vas da potvrdite svoj dolazak najkasnije do 1. jula."
-
-rsvp1: Lang -> String
-rsvp1 lang  =
-  case lang of 
-      En -> "Kindly provide dietary requirements/allergies in the NOTES section. "
-      Pt -> "Se tiveres alergias ou dietas alternativas, informa-nos na secção das Notas. "
-      Rs -> "Prilikom potvrde dolaska obavestite nas o mogućim alregijama, intolerancijama ili posebnim dijetama o kojima bi trebali da vodimo računa, kao i da li su Vam potrebne usluge transporta na dan venčanja (skup svatova - crkva - restoran)."
-
-rsvp2: Lang -> String
-rsvp2 lang  =
-  case lang of 
-      En -> " Also let us know if you will you be needing transportation services to and from the airport/train station and on the day of the wedding (brides house - church - restaurant)."
-      Pt -> "Avisa-nos também se precisas de transporte, para tentarmos organizar forma de te ir buscar ao aeroporto/estação, ou dar-te boleia para qualquer um dos lugares da festa (Casa do noivo - casa da noiva - Castelo)"
-      Rs -> ""
-
 showMore: Lang -> String
 showMore lang  =
   case lang of 
@@ -1348,14 +1257,14 @@ codeNotFound lang  =
   case lang of 
       En -> "Code not found"
       Pt -> "Código não encontrado"
-      Rs -> "Código não encontrado"
+      Rs -> "Šifra nije pronađena, pokušajte ponovo."
 
 errorRequest: Lang -> String
 errorRequest lang  =
   case lang of 
       En -> "There was an error processing your request"
       Pt -> "Houve um problema a processar o teu pedido"
-      Rs -> "Houve um problema a processar o teu pedido"
+      Rs -> "Greška"
 
 hello: Lang -> String
 hello lang  =
@@ -1388,9 +1297,9 @@ hellYes lang  =
 hellNo: Lang -> String
 hellNo lang  =
   case lang of 
-      En -> "No, I will have diarhea 💩"
+      En -> "No, I will have to skip."
       Pt -> "Não, o meu gato não deixa."
-      Rs -> "Ne, ipak imam neodložna posla 💩"
+      Rs -> "Ne, ipak imam neodložna posla."
 
 additionalGuest: Lang -> String
 additionalGuest lang  =
@@ -1411,7 +1320,7 @@ comingSubmit lang  =
   case lang of 
       En -> "Onwards"
       Pt -> "Próximo!"
-      Rs -> "Próximo!"
+      Rs -> "Nastavi"
 
 lowPrice: Lang -> String
 lowPrice lang  =
@@ -1474,35 +1383,35 @@ next lang  =
   case lang of 
       En -> "Next!"
       Pt -> "Próximo!"
-      Rs -> "Next!"
+      Rs -> "Dalje!"
 
 dietQuestion: Lang -> String
 dietQuestion lang  =
   case lang of 
-      En -> ", what are your feasting habits?"
+      En -> ", what is your prefered diet?"
       Pt -> ", tens uma dieta predilecta?"
-      Rs -> ", what are your feasting habits?"
+      Rs -> ", da li pratite određen režim ishrane?"
 
 dietNotesPlaceholder: Lang -> String
 dietNotesPlaceholder lang  =
   case lang of 
-      En -> "Tell us more! We don't want you to starve"
+      En -> "Tell us more! We don't want you to starve."
       Pt -> "Dá-nos mais detalhes! Aqui ninguém passa fome."
-      Rs -> "Tell us more! We don't want you to starve"
+      Rs -> "Pružite nam što više detalja."
 
 normalDiet: Lang -> String
 normalDiet lang  =
   case lang of 
       En -> "Normal"
       Pt -> "Normal"
-      Rs -> "Normal"
+      Rs -> "Uobičajen režim"
 
 vegetarianDiet: Lang -> String
 vegetarianDiet lang  =
   case lang of 
       En -> "Vegetarian"
       Pt -> "Vegetariana"
-      Rs -> "Vegetarian"
+      Rs -> "Vegetarijanska ishrana"
 
 halalDiet: Lang -> String
 halalDiet lang  =
@@ -1516,98 +1425,98 @@ otherDiet lang  =
   case lang of 
       En -> "Other"
       Pt -> "Outra"
-      Rs -> "Other"
+      Rs -> "Drugo"
 
 allergyNotesPlaceholder: Lang -> String
 allergyNotesPlaceholder lang  =
   case lang of 
-      En -> "Tell us more! We don't want you to die"
+      En -> "Tell us all about it."
       Pt -> "Dá-nos mais detalhes! Morrer no dia do nosso casório é feio."
-      Rs -> "Tell us more! We don't want you to die"
+      Rs -> "Molimo Vas da navedete namirnice koje Vam uzrokuju tegobe"
 
 allergyQuestion: Lang -> String
 allergyQuestion lang  =
   case lang of 
       En -> "Do you have any food allergies?"
       Pt -> "Tens alguma alergia alimentar?"
-      Rs -> "Do you have any food allergies?"
+      Rs -> "Da li patite od alergija ili intolerancija na hranu?"
 
 allergyYes: Lang -> String
 allergyYes lang  =
   case lang of 
       En -> "Yes"
       Pt -> "Yep"
-      Rs -> "Yes"
+      Rs -> "Da"
 
 allergyNo: Lang -> String
 allergyNo lang  =
   case lang of 
       En -> "No"
       Pt -> "Não"
-      Rs -> "No"
+      Rs -> "Ne"
 
 courseQuestion: Lang -> String
 courseQuestion lang  =
   case lang of 
-      En -> "What do you wanna eat?"
+      En -> "What would you prefer as first dinner?"
       Pt -> "Escolhe o teu prato!"
-      Rs -> "What do you wanna eat?"
+      Rs -> "Molimo, izaberite prvu večeru."
 
 course1: Lang -> String
 course1 lang  =
   case lang of 
-      En -> "Tasty tasty Serbian Schnitzel"
+      En -> "Karadjordje shnitzel - rolled pork stuffed with local cheese"
       Pt -> "Karadjordjeva šnicla - Rolo de porco com queijo"
-      Rs -> "Tasty tasty Serbian Schnitzel"
+      Rs -> "Karađorđeva šnicla"
 
 course2: Lang -> String
 course2 lang  =
   case lang of 
-      En -> "Pork with dates and stuff"
+      En -> "Emperor's filet - pork with dried plums and honey"
       Pt -> "Carski file - Rolo de porco com ameixas"
-      Rs -> "Pork with dates and stuff"
+      Rs -> "Carski file - svinjetina u sosu od suvih šljiva i meda"
 
 almostDone: Lang -> String
 almostDone lang  =
   case lang of 
       En -> "Cool! We're almost done."
       Pt -> "Ótimo! Já estamos no fim."
-      Rs -> "Cool! We're almost done."
+      Rs -> "Sjajno! Skoro smo gotovi."
 
 cantWait: Lang -> String
 cantWait lang  =
   case lang of 
       En -> "We can't wait to see you!"
       Pt -> "Mal podemos esperar para te ver!"
-      Rs -> "We can't wait to see you!"
+      Rs -> "Jedva čekamo da Vas vidimo!"
 
 giveEmail: Lang -> String
 giveEmail lang  =
   case lang of 
       En -> "Oh, for a link with the wedding photos please give us your email."
       Pt -> "Já agora, se quiseres um link com as fotos do casório, dá-nos o teu mail."
-      Rs -> "Oh, for a link with the wedding photos please give us your email."
+      Rs -> "Ukoliko želite pristup svim slikama sa venčanja, ostavite nam Vaš email."
 
 noSpam: Lang -> String
 noSpam lang  =
   case lang of 
       En -> "We promise we won't spam too much!"
       Pt -> "Prometemos que não te chateamos muito!"
-      Rs -> "We promise we won't spam too much!"
+      Rs -> "Nećemo Vam previše pisati!"
 
 emailPlaceholder: Lang -> String
 emailPlaceholder lang  =
   case lang of 
       En -> "Your email"
       Pt -> "O teu email"
-      Rs -> "Your email"
+      Rs -> "Email adresa"
 
 okBai: Lang -> String
 okBai lang  =
   case lang of 
       En -> "OK bai!"
       Pt -> "OK xau!"
-      Rs -> "OK bai!"
+      Rs -> "Doviđenja"
 
 shocking: Lang -> String
 shocking lang  =
@@ -1622,3 +1531,17 @@ changeMind lang  =
       En -> "If you change your mind, you can change your RSVP until the 1st of July."
       Pt -> "Se mudares de ideias podes mudar o RSVP até dia 1 de Julho."
       Rs -> "Ako se predomislite, ponovo popunite formular do prvog jula."
+
+home: Lang -> String
+home lang  =
+  case lang of 
+      En -> "Home"
+      Pt -> "Home"
+      Rs -> "Početna"
+
+rsvp: Lang -> String
+rsvp lang  =
+  case lang of 
+      En -> "RSVP"
+      Pt -> "RSVP"
+      Rs -> "Potvrdite dolazak"

@@ -21,9 +21,25 @@
 	padding: 0.5rem 2rem 0rem 2rem;
 }
 
+.w80 {
+	width: 80%;
+}
+
+
+.input.is-checkradio {
+	margin-left: -2rem;
+	margin-right: 1rem;
+	float: left;
+
+}
+
 .fixed {
 	position: fixed;
 	width: 100%;
+}
+
+.navHeight {
+	height: 4rem;
 }
 
 .noBorder {
@@ -64,7 +80,7 @@
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 	border: 1px solid #d1d1d1;
-	background: #61615f;
+	background: transparent;
 	color: #d1d1d1;
 }
 
@@ -85,7 +101,7 @@
   margin-left: -1px;
   border-radius: 0;
 	border: 1px solid #d1d1d1;
-	background: #61615f;
+	background: transparent;
 	color: #d1d1d1;
 }
 
@@ -109,7 +125,7 @@
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
 	border: 1px solid #d1d1d1;
-	background: #61615f;
+	background: transparent;
 	color: #d1d1d1;
 }
 
@@ -327,7 +343,17 @@ textarea,
 
 .background {
 	background-color: #EAE7DC;
+	/* background-image: url("https://www.transparenttextures.com/patterns/skulls.png"); */
+	background-image: url("https://www.transparenttextures.com/patterns/hexellence.png");
+	/* background-image: url("https://www.transparenttextures.com/patterns/inspiration-geometry.png"); */
+
 }
+
+.formBackground {
+		background-color: #EAE7DC;
+		background-image: url("https://www.transparenttextures.com/patterns/skulls.png");
+}
+
 
 /* .backgroundLanding {
 	background: linear-gradient(
@@ -691,8 +717,16 @@ textarea,
 	outline: 0;
 }
 
-label {
-	cursor: pointer;
+.is-checkradio[type="radio"] + label {
+	margin-left: -2.5rem;
+}
+
+.is-checkradio[type="radio"].coming + label {
+	margin-left: -2.9rem;
+}
+
+.pl-5-5 {
+	padding-left: 5.5rem;
 }
 
 .mr-1 {
@@ -717,6 +751,22 @@ label {
 
 .pr-6 {
 	padding-right: 6px;
+}
+
+.pr-1 {
+	padding-right: 1rem;
+}
+.pr-2 {
+	padding-right: 2rem;
+}
+
+.navColor {
+	background: #EAE7DC;
+	box-shadow: -2px 6px 15px rgba(0, 0, 0, .4);
+	/* background-image: url("https://www.transparenttextures.com/patterns/flowers.png"); */
+	
+/* background-image: url("https://www.transparenttextures.com/patterns/skulls.png"); */
+background-image: url("https://www.transparenttextures.com/patterns/mirrored-squares.png");
 }
 
 .travellingGrid {
@@ -756,7 +806,8 @@ label {
 .travellingMenu {
 	display: grid;
 
-	background-color: #61615f;
+	background: rgba(97, 97, 95, 0.7);
+
 
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
@@ -794,21 +845,21 @@ label {
 }
 
 .travelMenuItem:hover {
-	background-color: #e19303;
+	background-color: rgba(225, 147, 3, 0.9);
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 	height: 100%;
 }
 
 .tabSelected {
-	background-color: #7a7a77;
+	background: rgba(76, 76, 76, 0.25);
 
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 }
 
 .tabSelected:hover {
-	background-color: #7a7a77;
+	background: rgba(76, 76, 76, 0.25);
 
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
@@ -948,6 +999,10 @@ label {
 
 			grid-template-areas: 
 				"poemContent";
+	}
+
+	.ourStoryContainer > div {
+		margin-bottom: 8rem;
 	}
 
 	.poemContent {
@@ -1189,14 +1244,14 @@ label {
 	grid-template-columns: minmax(300px, 450px);
 
 	align-self: center;
-	margin-top: 4rem;
-	padding: 0rem 1rem 0rem 1rem;
+	margin-top: 5rem;
+	padding: 0rem 1rem 2rem 1rem;
 }
 
 .formContainer {
 	margin-top: 1rem;
 	width: 100%;
-	background: #61615f;
+	background: rgba(76, 76, 76, 0.8);
 	border-radius: 10px;
 	box-shadow: 10px 10px 30px rgba(0, 0, 0, .4);
 

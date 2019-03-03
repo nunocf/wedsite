@@ -141,6 +141,10 @@ object {
 	width: 55%;
 }
 
+.svg30Pct {
+	width: 50px;
+}
+
 
 .svgLinkA {
 	position: relative; z-index: 1;

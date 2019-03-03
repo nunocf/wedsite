@@ -1,7 +1,7 @@
 module NavBar exposing (view)
 
 import Html exposing (..)
-import Html.Attributes exposing (class, classList, href, id)
+import Html.Attributes exposing (attribute, class, classList, href, id, type_)
 import Html.Events as Events
 import Json.Decode as Decode
 import Language
@@ -18,15 +18,24 @@ view session page =
     let
         linkTo =
             navbarLink page
+
+        lang =
+            Session.lang session
     in
     div [ class "hero-head" ]
-        [ div [ class "navbar fixed has-background-white columns is-mobile is-marginless heading text-weight-bold" ]
+        [ div [ class "navHeight navbar fixed navColor columns is-mobile is-marginless heading text-weight-bold" ]
             [ div [ class "column left" ]
-                [linkTo Route.Home [ text "Home" ]]
-            , div [ class "column" ]
-                [ linkTo Route.Code [ text "RSVP" ]
+                []
+            , div [ class "column center is-half" ]
+                [ div [ class "smallFlower svgCentered svg-container" ]
+                    [ object [ class "svg30Pct svg-content", type_ "image/svg+xml", attribute "data" "svg/single_flower.svg" ] [ text "Your browser does not support SVGs" ]
+                    ]
+                , linkTo Route.Home [ text <| Translations.home lang ] "pr-2"
+                , linkTo Route.Code [ text <| Translations.rsvp lang ] "pl-2"
+                , div [ class "smallFlower svgCentered svg-container" ]
+                    [ object [ class "svg30Pct svg-content", type_ "image/svg+xml", attribute "data" "svg/single_flower.svg" ] [ text "Your browser does not support SVGs" ]
+                    ]
                 ]
-            
             , div [ class "column right" ]
                 [ viewLanguageDropdown (Session.lang session) (Session.showLanguages session)
                 ]
@@ -34,8 +43,8 @@ view session page =
         ]
 
 
-navbarLink : Page -> Route -> List (Html msg) -> Html msg
-navbarLink page route linkContent =
+navbarLink : Page -> Route -> List (Html msg) -> String -> Html msg
+navbarLink page route linkContent extraClass =
     let
         active =
             isActive page route
@@ -45,6 +54,10 @@ navbarLink page route linkContent =
             [ ( "inline", True )
             , ( "navbar-item", True )
             , ( "active", active )
+            , ( "is-size-2", True )
+            , ( "font-amatic", True )
+            , ( "font-heavy", True )
+            , ( extraClass, True )
             ]
         ]
         [ a [ classList [ ( "active", active ) ], Route.href route ] linkContent ]
@@ -59,10 +72,13 @@ isActive page route =
         ( Code, Route.Code ) ->
             True
 
-        ( Coming, Route.Coming string ) ->
+        ( Coming, Route.Code ) ->
             True
 
-        ( Complete, Route.Complete string ) ->
+        ( Complete, Route.Code ) ->
+            True
+
+        ( GuestDetails, Route.Code ) ->
             True
 
         _ ->

@@ -9,7 +9,7 @@ import Translations
 viewHeader : Translations.Lang -> Html msg
 viewHeader lang =
     div [ class "has-text-centered" ]
-        [ p [ class <| Styles.headingFormatting ++ " mb-4 mt-6" ]
+        [ p [ class <| Styles.headingFormatting ++ " mb-4" ]
             [ text <| Translations.scheduleTitle lang
             ]
         ]

@@ -55,7 +55,7 @@ view : Model -> { title : String, content : Html Msg }
 view model =
     { title = "Wedsite"
     , content =
-        div []
+        div [ class "background" ]
             ([ viewHero model
              , viewOurStory
              , viewSchedule

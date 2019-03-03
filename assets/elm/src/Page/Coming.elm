@@ -113,18 +113,18 @@ viewGreeting lang guests =
         greeting =
             Translations.hello lang ++ guestName ++ Translations.joiningUs lang
     in
-    div [ class "pl-1 is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text <| greeting ]
+    div [ class "pl-1 pr-1 is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text <| greeting ]
 
 
 viewAcceptedRadio : Lang -> Maybe Accepted -> Html Msg
 viewAcceptedRadio lang coming =
-    div [ class "pl-2 has-text-left field" ]
+    div [ class "pl-5-5 has-text-left field" ]
         [ div [ class "mb-0-5" ]
-            [ input [ id "coming1", type_ "radio", name "coming", class "mr-1 is-checkradio is-warning is-medium", checked (coming == Just True) ] []
+            [ input [ id "coming1", type_ "radio", name "coming", class "mr-1 is-checkradio coming is-warning is-medium", checked (coming == Just True) ] []
             , label [ class "textShadow poemTextColor", for "coming1", onClick <| AcceptedClick True ] [ text <| Translations.hellYes lang ]
             ]
         , div [ class "mb-1" ]
-            [ input [ id "coming2", type_ "radio", name "coming", class "mr-1 is-checkradio is-warning is-medium", checked (coming == Just False) ] []
+            [ input [ id "coming2", type_ "radio", name "coming", class "mr-1 is-checkradio coming is-warning is-medium", checked (coming == Just False) ] []
             , label [ class "textShadow poemTextColor", for "coming2", onClick <| AcceptedClick False ] [ text <| Translations.hellNo lang ]
             ]
         ]
@@ -146,7 +146,7 @@ viewHowManyQuestion lang form =
     in
     if accepted == True then
         div [ class "has-text-left" ]
-            [ p [ class "mb-0-5 pl-1 is-size-3 font-amatic font-heavy form-heading-color" ] [ text <| Translations.whoComes lang ]
+            [ p [ class "mb-0-5 pl-1 pr-1 is-size-3 font-amatic font-heavy form-heading-color" ] [ text <| Translations.whoComes lang ]
             , div [ class "textShadow poemTextColor pl-2" ] <|
                 viewGuestsCheckboxes form.guests
                     ++ viewAdditionalGuestsCheckboxes form.additionalGuests

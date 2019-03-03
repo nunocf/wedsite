@@ -74,7 +74,6 @@ defmodule WedsiteWeb.ApiController do
   def update_invite(conn, %{"guests" => guests,"invitation" => invitation}) do
 
     invitation = repo_update_invitation(invitation)
-
     if invitation.accepted == true do
       repo_update_guests(invitation, guests)
     end

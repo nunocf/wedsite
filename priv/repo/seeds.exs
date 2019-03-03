@@ -18,8 +18,9 @@ invite4 = Repo.insert!(%Invitation{ max_guests: 2, lang: "PT", code: "ferrei"})
 # Pre populated guests
 Repo.insert!(%Guest{name: "Dylan Kinsella", invitation_id: invite1.id})
 
-Repo.insert!(%Guest{name: "Vaso Maksimović", invitation_id: invite2.id})
+Repo.insert!(%Guest{name: "Radmila Đurić", invitation_id: invite2.id})
 Repo.insert!(%Guest{name: "Vesna Maksimović", invitation_id: invite2.id})
+Repo.insert!(%Guest{name: "Vaso Maksimović", invitation_id: invite2.id})
 
 Repo.insert!(%Guest{name: "Mariana Ferreira", invitation_id: invite3.id})
 Repo.insert!(%Guest{name: "Nela Ferreira", invitation_id: invite3.id})

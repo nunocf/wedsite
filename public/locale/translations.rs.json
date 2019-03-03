@@ -212,12 +212,6 @@
         "Više različitih soba, apartmana i studia",
         "U centru grada"
     ],
-    "rsvpTitle": "Potvrdite svoj dolazak",
-    "rsvp": [
-        "Molimo Vas da potvrdite svoj dolazak najkasnije do 1. jula.",
-        "Prilikom potvrde dolaska obavestite nas o mogućim alregijama, intolerancijama ili posebnim dijetama o kojima bi trebali da vodimo računa, kao i da li su Vam potrebne usluge transporta na dan venčanja (skup svatova - crkva - restoran).",
-        ""
-    ],
     "showMore": "Više",
     "showLess": "Manje",
     "insertInviteCode": "Molimo Vas ubacite svoju šifru",
@@ -231,7 +225,7 @@
     "hellNo": "Ne, ipak imam neodložna posla.",
     "additionalGuest": "Dodatni gost",
     "whoComes": "Ko dolazi?",
-    "comingSubmit": "Próximo!",
+    "comingSubmit": "Nastavi",
     "lowPrice": "€",
     "mediumPrice": "€ €",
     "highPrice": "€ € €",
@@ -261,5 +255,7 @@
     "emailPlaceholder": "Email adresa",
     "okBai": "Doviđenja",
     "shocking": "Skandalozno!",
-    "changeMind": "Ako se predomislite, ponovo popunite formular do prvog jula."
+    "changeMind": "Ako se predomislite, ponovo popunite formular do prvog jula.",
+    "home": "Početna",
+    "rsvp": "Potvrdite dolazak"
 }

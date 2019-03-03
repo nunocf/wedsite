@@ -59,9 +59,9 @@
     "fourPMDesc": [
         "Civil Cerimony",
         "Caste Kaštel, Ečka",
-        "Continuing in the “I DO” fashion, our couple becomes joint in the eyes of the state as well. Get the party going while they take some very artistic photos in the gardens and enjoy the traditional appetizers. We are staying here for the rest of this day and night. Be prepared to bust a move, ejoy two diners and more cake than a human can handle!"
+        "Continuing in the “I DO” fashion, our couple becomes joint in the eyes of the state as well. Get the party going while they take some very artistic photos in the gardens and enjoy the traditional appetizers. We are staying here for the rest of this day and night. Be prepared to bust a move, enjoy two dinners and more cake than a human can handle!"
     ],
-   "travellingHeader": "How to get to us?",
+    "travellingHeader": "How to get to us?",
     "travellingSubtitle": [
         "If you don't suffer from time-space travel nausea, we recommend using your favourite teleportation device and input these coordinates:",
         "If by any chance, you are unable to get your hands on one, there are more rudimentary means of transportation."
@@ -212,12 +212,6 @@
         "Several rooms, studios and apartments available",
         "Located in the city center"
     ],
-    "rsvpTitle": "RSVP",
-    "rsvp": [
-        "Please RSVP no later than the 1st of July.",
-        "Kindly provide dietary requirements/allergies in the NOTES section. ",
-        " Also let us know if you will you be needing transportation services to and from the airport/train station and on the day of the wedding (brides house - church - restaurant)."
-    ],
     "showMore": "Show more",
     "showLess": "Show less",
     "insertInviteCode": "Please insert your invitation code",
@@ -241,8 +235,8 @@
     "mrMrsFerreira": "After a careful but not too long deliberation, soon to be Mrs. and Mr. Ferreira have decided to tie the knot and are delighted to invite you to their very-much-DIY wedding and all night party on the",
     "date": "7th of Septeber 2019 in Zrenjanin, Serbia",
     "next": "Next!",
-    "dietQuestion": ", what is your prefered choice of diet?",
-    "dietNotesPlaceholder": "Tell us more! We don't want you to starve",
+    "dietQuestion": ", what is your prefered diet?",
+    "dietNotesPlaceholder": "Tell us more! We don't want you to starve.",
     "normalDiet": "Normal",
     "vegetarianDiet": "Vegetarian",
     "halalDiet": "Halal",
@@ -251,8 +245,8 @@
     "allergyQuestion": "Do you have any food allergies?",
     "allergyYes": "Yes",
     "allergyNo": "No",
-    "courseQuestion": "What would you prefer as first diner?",
-    "course1": "Karadjordje shnitzel - folled pork stuffed with local cheese",
+    "courseQuestion": "What would you prefer as first dinner?",
+    "course1": "Karadjordje shnitzel - rolled pork stuffed with local cheese",
     "course2": "Emperor's filet - pork with dried plums and honey",
     "almostDone": "Cool! We're almost done.",
     "cantWait": "We can't wait to see you!",
@@ -261,5 +255,7 @@
     "emailPlaceholder": "Your email",
     "okBai": "OK bai!",
     "shocking": "Shocking!",
-    "changeMind": "If you change your mind, you can change your RSVP until the 1st of July."
+    "changeMind": "If you change your mind, you can change your RSVP until the 1st of July.",
+    "home": "Home",
+    "rsvp": "RSVP"
 }

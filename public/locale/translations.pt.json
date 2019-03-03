@@ -61,21 +61,6 @@
         "",
         ""
     ],
-    "sevenPM": "19h",
-    "sevenPMDesc": [
-        "Jantar",
-        ""
-    ],
-    "ninePM": "21h",
-    "ninePMDesc": [
-        "Bolo de casamento",
-        ""
-    ],
-    "elevenPM": "23h",
-    "elevenPMDesc": [
-        "Segundo jantar",
-        ""
-    ],
     "travellingHeader": "Como chegar até nós?",
     "travellingSubtitle": [
         "Se não sofreres de enjoos causados por viagens no tempo-espaço, o melhor a fazer é saltares para a máquina de teletransporte mais próxima e introduzir as seguintes coordenadas para Zrenjanin:",
@@ -227,12 +212,6 @@
         "Vários quartos, estúdios e apartamentos",
         "Situado no centro da cidade"
     ],
-    "rsvpTitle": "RSVP",
-    "rsvp": [
-        "Preenche o RSVP até dia 1 de Julho, por favor.",
-        "Se tiveres alergias ou dietas alternativas, informa-nos na secção das Notas. ",
-        "Avisa-nos também se precisas de transporte, para tentarmos organizar forma de te ir buscar ao aeroporto/estação, ou dar-te boleia para qualquer um dos lugares da festa (Casa do noivo - casa da noiva - Castelo)"
-    ],
     "showMore": "Ver mais",
     "showLess": "Ver menos",
     "insertInviteCode": "Por favor introduz o código do teu convite",
@@ -276,5 +255,7 @@
     "emailPlaceholder": "O teu email",
     "okBai": "OK xau!",
     "shocking": "Oh, é pena! :(",
-    "changeMind": "Se mudares de ideias podes mudar o RSVP até dia 1 de Julho."
+    "changeMind": "Se mudares de ideias podes mudar o RSVP até dia 1 de Julho.",
+    "home": "Home",
+    "rsvp": "RSVP"
 }

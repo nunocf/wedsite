@@ -13,7 +13,6 @@ module Styles exposing
     , landingPageMiddle
     , modalButton
     , ourStory
-    , rsvpSection
     , scheduleSection
     , scheduleTimeHeader
     , scheduleTimeSubHeader
@@ -100,41 +99,39 @@ hero =
 
 ourStory : String
 ourStory =
-    [ "hero", "is-fullheight", "background" ]
+    [ "hero", "is-fullheight"
+     ]
         |> String.join " "
 
 
 scheduleSection : String
 scheduleSection =
-    [ "hero", "is-fullheight", "background" ]
+    [ "hero", "is-fullheight"
+    ]
         |> String.join " "
 
 
 travellingSection : String
 travellingSection =
-    [ "background" ]
+    [ 
+        ]
         |> String.join " "
 
 
 accomodationSection : String
 accomodationSection =
-    [ "hero", "is-fullheight", "background" ] |> String.join " "
+    [ "hero", "is-fullheight"
+    ] |> String.join " "
 
 
 formSection : String
 formSection =
-    [ "hero", "is-fullheight", "background" ] |> String.join " "
+    [ "hero", "is-fullheight", "formBackground" ] |> String.join " "
 
 
 transportSubtitle : String
 transportSubtitle =
     [ "subtitle", "has-text-weight-semi-bold", "is-size-1", "font-amatic" ]
-        |> String.join " "
-
-
-rsvpSection : String
-rsvpSection =
-    [ "hero", "is-fullheight", "has-background-primary" ]
         |> String.join " "
 
 
