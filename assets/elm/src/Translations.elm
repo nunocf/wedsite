@@ -1333,7 +1333,7 @@ insertInviteCode: Lang -> String
 insertInviteCode lang  =
   case lang of 
       En -> "Please insert your invitation code"
-      Pt -> "Por favor introduz o código do convite"
+      Pt -> "Por favor introduz o código do teu convite"
       Rs -> "Molimo Vas ubacite svoju šifru"
 
 codeSubmit: Lang -> String
@@ -1389,7 +1389,7 @@ hellNo: Lang -> String
 hellNo lang  =
   case lang of 
       En -> "No, I will have diarhea 💩"
-      Pt -> "Não, o meu gato nao deixa 💩"
+      Pt -> "Não, o meu gato não deixa."
       Rs -> "Ne, ipak imam neodložna posla 💩"
 
 additionalGuest: Lang -> String
@@ -1473,21 +1473,21 @@ next: Lang -> String
 next lang  =
   case lang of 
       En -> "Next!"
-      Pt -> "Next!"
+      Pt -> "Próximo!"
       Rs -> "Next!"
 
 dietQuestion: Lang -> String
 dietQuestion lang  =
   case lang of 
       En -> ", what are your feasting habits?"
-      Pt -> ", what are your feasting habits?"
+      Pt -> ", tens uma dieta predilecta?"
       Rs -> ", what are your feasting habits?"
 
 dietNotesPlaceholder: Lang -> String
 dietNotesPlaceholder lang  =
   case lang of 
       En -> "Tell us more! We don't want you to starve"
-      Pt -> "Tell us more! We don't want you to starve"
+      Pt -> "Dá-nos mais detalhes! Aqui ninguém passa fome."
       Rs -> "Tell us more! We don't want you to starve"
 
 normalDiet: Lang -> String
@@ -1501,7 +1501,7 @@ vegetarianDiet: Lang -> String
 vegetarianDiet lang  =
   case lang of 
       En -> "Vegetarian"
-      Pt -> "Vegetarian"
+      Pt -> "Vegetariana"
       Rs -> "Vegetarian"
 
 halalDiet: Lang -> String
@@ -1515,96 +1515,110 @@ otherDiet: Lang -> String
 otherDiet lang  =
   case lang of 
       En -> "Other"
-      Pt -> "Other"
+      Pt -> "Outra"
       Rs -> "Other"
 
 allergyNotesPlaceholder: Lang -> String
 allergyNotesPlaceholder lang  =
   case lang of 
       En -> "Tell us more! We don't want you to die"
-      Pt -> "Tell us more! We don't want you to die"
+      Pt -> "Dá-nos mais detalhes! Morrer no dia do nosso casório é feio."
       Rs -> "Tell us more! We don't want you to die"
 
 allergyQuestion: Lang -> String
 allergyQuestion lang  =
   case lang of 
       En -> "Do you have any food allergies?"
-      Pt -> "Do you have any food allergies?"
+      Pt -> "Tens alguma alergia alimentar?"
       Rs -> "Do you have any food allergies?"
 
 allergyYes: Lang -> String
 allergyYes lang  =
   case lang of 
       En -> "Yes"
-      Pt -> "Yes"
+      Pt -> "Yep"
       Rs -> "Yes"
 
 allergyNo: Lang -> String
 allergyNo lang  =
   case lang of 
       En -> "No"
-      Pt -> "No"
+      Pt -> "Não"
       Rs -> "No"
 
 courseQuestion: Lang -> String
 courseQuestion lang  =
   case lang of 
       En -> "What do you wanna eat?"
-      Pt -> "What do you wanna eat?"
+      Pt -> "Escolhe o teu prato!"
       Rs -> "What do you wanna eat?"
 
 course1: Lang -> String
 course1 lang  =
   case lang of 
       En -> "Tasty tasty Serbian Schnitzel"
-      Pt -> "Tasty tasty Serbian Schnitzel"
+      Pt -> "Karadjordjeva šnicla - Rolo de porco com queijo"
       Rs -> "Tasty tasty Serbian Schnitzel"
 
 course2: Lang -> String
 course2 lang  =
   case lang of 
       En -> "Pork with dates and stuff"
-      Pt -> "Pork with dates and stuff"
+      Pt -> "Carski file - Rolo de porco com ameixas"
       Rs -> "Pork with dates and stuff"
 
 almostDone: Lang -> String
 almostDone lang  =
   case lang of 
       En -> "Cool! We're almost done."
-      Pt -> "Cool! We're almost done."
+      Pt -> "Ótimo! Já estamos no fim."
       Rs -> "Cool! We're almost done."
 
 cantWait: Lang -> String
 cantWait lang  =
   case lang of 
       En -> "We can't wait to see you!"
-      Pt -> "We can't wait to see you!"
+      Pt -> "Mal podemos esperar para te ver!"
       Rs -> "We can't wait to see you!"
 
 giveEmail: Lang -> String
 giveEmail lang  =
   case lang of 
       En -> "Oh, for a link with the wedding photos please give us your email."
-      Pt -> "Oh, for a link with the wedding photos please give us your email."
+      Pt -> "Já agora, se quiseres um link com as fotos do casório, dá-nos o teu mail."
       Rs -> "Oh, for a link with the wedding photos please give us your email."
 
 noSpam: Lang -> String
 noSpam lang  =
   case lang of 
       En -> "We promise we won't spam too much!"
-      Pt -> "We promise we won't spam too much!"
+      Pt -> "Prometemos que não te chateamos muito!"
       Rs -> "We promise we won't spam too much!"
 
 emailPlaceholder: Lang -> String
 emailPlaceholder lang  =
   case lang of 
       En -> "Your email"
-      Pt -> "Your email"
+      Pt -> "O teu email"
       Rs -> "Your email"
 
 okBai: Lang -> String
 okBai lang  =
   case lang of 
       En -> "OK bai!"
-      Pt -> "OK bai!"
+      Pt -> "OK xau!"
       Rs -> "OK bai!"
+
+shocking: Lang -> String
+shocking lang  =
+  case lang of 
+      En -> "Shocking!"
+      Pt -> "Oh, é pena! :("
+      Rs -> "Skandalozno!"
+
+changeMind: Lang -> String
+changeMind lang  =
+  case lang of 
+      En -> "If you change your mind, you can change your RSVP until the 1st of July."
+      Pt -> "Se mudares de ideias podes mudar o RSVP até dia 1 de Julho."
+      Rs -> "Ako se predomislite, ponovo popunite formular do prvog jula."

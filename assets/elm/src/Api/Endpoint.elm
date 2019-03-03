@@ -1,4 +1,4 @@
-module Api.Endpoint exposing (Endpoint, acceptInvitation, code, complete, request, updateEmail)
+module Api.Endpoint exposing (Endpoint, acceptInvitation, code, complete, invitedGuests, request, updateEmail)
 
 import Http
 import Url.Builder exposing (QueryParameter)
@@ -66,3 +66,8 @@ updateEmail invitationCode =
 complete : Endpoint
 complete =
     url [ "complete" ] []
+
+
+invitedGuests : String -> Endpoint
+invitedGuests invitationCode =
+    url [ "invite-guests", invitationCode ] []

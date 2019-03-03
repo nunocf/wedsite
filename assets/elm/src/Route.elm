@@ -17,6 +17,7 @@ type Route
     | Coming String
     | GuestDetails String
     | Complete String
+    | NotComing String
 
 
 parser : Parser (Route -> a) a
@@ -27,6 +28,7 @@ parser =
         , Parser.map Coming (s "rsvp" </> string)
         , Parser.map GuestDetails (s "rsvp" </> string </> s "guests")
         , Parser.map Complete (s "rsvp" </> string </> s "complete")
+        , Parser.map NotComing (s "rsvp" </> string </> s "not-coming")
         ]
 
 
@@ -73,5 +75,8 @@ routeToString page =
 
                 Complete code ->
                     [ "rsvp", code, "complete" ]
+
+                NotComing code ->
+                    [ "rsvp", code, "not-coming" ]
     in
     "#/" ++ String.join "/" pieces

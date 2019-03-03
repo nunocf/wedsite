@@ -17,6 +17,7 @@ import Page.Complete as Complete
 import Page.GuestDetails as GuestDetails
 import Page.Home as Home
 import Page.Home.Types
+import Page.NotComing as NotComing
 import Page.NotFound as NotFound
 import Route exposing (Route)
 import Session exposing (Session)
@@ -38,6 +39,7 @@ type Model
     | Coming Coming.Model
     | GuestDetails GuestDetails.Model
     | Complete Complete.Model
+    | NotComing NotComing.Model
 
 
 init : Flags -> Url -> Key -> ( Model, Cmd Msg )
@@ -94,6 +96,9 @@ view model =
         Complete completeModel ->
             viewPage Page.Complete GotCompleteMsg (Complete.view completeModel)
 
+        NotComing notComingModel ->
+            viewPage Page.NotComing GotNotComingMsg (NotComing.view notComingModel)
+
 
 toSession : Model -> Session
 toSession page =
@@ -118,6 +123,9 @@ toSession page =
 
         Complete code ->
             Complete.toSession code
+
+        NotComing code ->
+            NotComing.toSession code
 
 
 changeRouteTo : Maybe Route -> Model -> ( Model, Cmd Msg )
@@ -149,6 +157,10 @@ changeRouteTo maybeRoute model =
         Just (Route.Complete code) ->
             Complete.init session code
                 |> updateWith Complete GotCompleteMsg model
+
+        Just (Route.NotComing code) ->
+            NotComing.init session code
+                |> updateWith NotComing GotNotComingMsg model
 
 
 
@@ -208,6 +220,10 @@ update msg model =
             Complete.update subMsg code
                 |> updateWith Complete GotCompleteMsg model
 
+        ( GotNotComingMsg subMsg, NotComing code ) ->
+            NotComing.update subMsg code
+                |> updateWith NotComing GotNotComingMsg model
+
         ( _, _ ) ->
             -- Disregard messages that arrived for the wrong page.
             ( model, Cmd.none )
@@ -256,6 +272,9 @@ subscriptions model =
         Complete code ->
             Sub.map GotCompleteMsg (Complete.subscriptions code)
 
+        NotComing code ->
+            Sub.map GotNotComingMsg (NotComing.subscriptions code)
+
 
 onUrlChange : Url -> Msg
 onUrlChange url =
@@ -286,6 +305,9 @@ updateShowLanguages model value =
         Complete m ->
             Complete { m | session = Session.setShowLanguages (toSession model) value }
 
+        NotComing m ->
+            NotComing { m | session = Session.setShowLanguages (toSession model) value }
+
 
 updateLang : Model -> Translations.Lang -> Model
 updateLang model language =
@@ -310,3 +332,6 @@ updateLang model language =
 
         Complete m ->
             Complete { m | session = Session.setLanguage (toSession model) language }
+
+        NotComing m ->
+            NotComing { m | session = Session.setLanguage (toSession model) language }

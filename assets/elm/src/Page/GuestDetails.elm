@@ -39,7 +39,7 @@ type alias Index =
 init : Session -> String -> ( Model, Cmd Msg )
 init session code =
     ( Model session Loading
-    , Api.get (Endpoint.acceptInvitation code) (Http.expectJson GotResponse guestsDetailsDecoder)
+    , Api.get (Endpoint.invitedGuests code) (Http.expectJson GotResponse guestsDetailsDecoder)
     )
 
 

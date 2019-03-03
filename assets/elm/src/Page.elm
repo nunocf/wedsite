@@ -20,6 +20,7 @@ type Page
     | Coming
     | GuestDetails
     | Complete
+    | NotComing
 
 
 

@@ -41,6 +41,36 @@ defmodule WedsiteWeb.ApiController do
     |> json(response)
   end
 
+  def get_coming_guests(conn, %{"code" => code}) do
+
+    result = with {:ok, invitation} <- get_invitation_by_code(code),
+        guests <- (from g in Ecto.assoc(invitation, :guests),
+          where: g.coming == true,
+          order_by: g.inserted_at) |> Repo.all() do
+
+         {:ok, %{
+           invitation: invitation,
+           guests: guests
+         }}
+
+        else
+         {:error, error} ->
+           %{error: error}
+   end
+
+   response = case result do
+     {:ok, data} ->
+       %{status: 200, data: data}
+
+     {:err, error} ->
+       %{status: 404, error: error}
+   end
+
+   conn
+   |> put_status(response.status)
+   |> json(response)
+ end
+
   def update_invite(conn, %{"guests" => guests,"invitation" => invitation}) do
 
     invitation = repo_update_invitation(invitation)

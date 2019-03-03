@@ -41,7 +41,6 @@ init session code =
 
 type Msg
     = InputEmail String
-    | GoHome
     | OnSubmit
     | GotSubmitResponse (Result Http.Error String)
 
@@ -61,11 +60,11 @@ view model =
                 [ div [ class "formGrid" ]
                     [ div [ class "pl-1 mt-1 formContainer has-text-centered" ]
                         [ form [ onSubmit OnSubmit ]
-                            [ p [ class " is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text <| Translations.almostDone lang  ]
-                            , div [ class "mt-1" ] [ img [ class "poemPhoto", width 300, Asset.src Asset.complete ] [] ]
+                            [ p [ class " is-size-3 font-amatic font-heavy form-heading-color mb-0-5" ] [ text <| Translations.almostDone lang ]
+                            , div [ class "mt-1 p-1" ] [ img [ class "poemPhoto", Asset.src Asset.complete ] [] ]
                             , p [ class "pl-1 mt-1 is-size-3 font-amatic font-heavy form-heading-color mb-1" ] [ text <| Translations.cantWait lang ]
                             , hr [] []
-                            , p [ class " is-size-6 fira mb-0-5 textShadow poemTextColor p-1" ]
+                            , p [ class "is-size-6 fira mb-0-5 textShadow poemTextColor p-1" ]
                                 [ text <| Translations.giveEmail lang
                                 , br [] []
                                 , text <| Translations.noSpam lang
@@ -78,7 +77,6 @@ view model =
                                 , value emailValue
                                 ]
                                 []
-                                
                             , div [ class "mt-2" ]
                                 [ button [ onClick OnSubmit, class <| Styles.modalButton ++ " border-black" ]
                                     [ text <| Translations.okBai lang ]
@@ -96,9 +94,6 @@ view model =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        GoHome ->
-            ( model, Route.replaceUrl (Session.navKey model.session) Route.Home )
-
         InputEmail email ->
             let
                 state =

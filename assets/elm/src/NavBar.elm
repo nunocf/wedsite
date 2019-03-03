@@ -22,11 +22,11 @@ view session page =
     div [ class "hero-head" ]
         [ div [ class "navbar fixed has-background-white columns is-mobile is-marginless heading text-weight-bold" ]
             [ div [ class "column left" ]
-                [ p [ class "navbar-item has-text-black" ] [ text "logsfo?" ] ]
+                [linkTo Route.Home [ text "Home" ]]
             , div [ class "column" ]
-                [ linkTo Route.Home [ text "Home" ]
-                , linkTo Route.Code [ text "RSVP" ]
+                [ linkTo Route.Code [ text "RSVP" ]
                 ]
+            
             , div [ class "column right" ]
                 [ viewLanguageDropdown (Session.lang session) (Session.showLanguages session)
                 ]

@@ -3,8 +3,9 @@ module Page.Coming exposing (Model, Msg, init, subscriptions, toSession, update,
 import Api
 import Api.Endpoint as Endpoint
 import Array exposing (Array)
+import Browser.Dom as Dom
 import Html exposing (..)
-import Html.Attributes exposing (readonly, disabled, action, checked, class, for, id, method, name, placeholder, type_, value)
+import Html.Attributes exposing (action, checked, class, disabled, for, id, method, name, placeholder, readonly, type_, value)
 import Html.Events exposing (onClick, onInput, onSubmit)
 import Http
 import Json.Decode as Decode exposing (Decoder, nullable)
@@ -14,9 +15,8 @@ import Page.Rsvp.Types as Types exposing (AcceptForm, Accepted, AdditionalGuest,
 import Route
 import Session exposing (Session, setLanguage)
 import Styles
-import Translations exposing (Lang, getLnFromCode)
 import Task
-import Browser.Dom as Dom
+import Translations exposing (Lang, getLnFromCode)
 
 
 type alias Model =
@@ -50,6 +50,7 @@ type Msg
     | InputAdditionalGuest Int String
     | OnSubmit
     | NoOp
+
 
 view : Model -> { title : String, content : Html Msg }
 view model =
@@ -198,18 +199,20 @@ additionalGuestCheckbox index { coming, name } =
             case coming of
                 False ->
                     text name
+
                 True ->
                     input [ id addGuestInputId, class "input width45", type_ "text", placeholder name, onInput (InputAdditionalGuest index) ] []
 
         addGuestId =
             "additionalGuest" ++ String.fromInt index
 
-        addGuestInputId = "addGuestInput" ++ String.fromInt index
+        addGuestInputId =
+            "addGuestInput" ++ String.fromInt index
     in
-    div [ class "field"  ]
+    div [ class "field" ]
         [ input [ id addGuestId, class "is-checkradio is-warning is-medium", type_ "checkbox", checked coming ] []
-        , label [ for addGuestId, onClick (ClickedAdditionalGuest index (not coming) addGuestInputId) ] [  ]
-        , div [class "is-size-5 di ml--1"] [nameElement]
+        , label [ for addGuestId, onClick (ClickedAdditionalGuest index (not coming) addGuestInputId) ] []
+        , div [ class "is-size-5 di ml--1" ] [ nameElement ]
         ]
 
 
@@ -217,7 +220,7 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         NoOp ->
-          (model, Cmd.none)
+            ( model, Cmd.none )
 
         GotResponse result ->
             case result of
@@ -241,8 +244,16 @@ update msg model =
                                 nav =
                                     Session.navKey model.session
 
+                                accepted =
+                                    Maybe.withDefault False form.invitation.accepted
+
                                 newUrl =
-                                    Route.GuestDetails form.invitation.code
+                                    case accepted of
+                                        True ->
+                                            Route.GuestDetails form.invitation.code
+
+                                        False ->
+                                            Route.NotComing form.invitation.code
                             in
                             ( { model | state = Ready form errors }
                             , Route.replaceUrl nav newUrl
@@ -303,6 +314,7 @@ update msg model =
                         task =
                             if coming == True then
                                 Task.attempt (\_ -> NoOp) (Dom.focus id)
+
                             else
                                 Cmd.none
                     in

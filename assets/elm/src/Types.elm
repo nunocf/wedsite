@@ -7,6 +7,7 @@ import Page.Complete as Complete
 import Page.GuestDetails as GuestDetails
 import Page.Home as Home
 import Page.Home.Types
+import Page.NotComing as NotComing
 import Route exposing (Route)
 import Session exposing (Session)
 import Translations exposing (Lang)
@@ -26,3 +27,4 @@ type Msg
     | ShowLanguages
     | ChangeLanguage Lang
     | CloseAvailableLanguages
+    | GotNotComingMsg NotComing.Msg
