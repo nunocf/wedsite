@@ -59,24 +59,9 @@
     "fourPMDesc": [
         "Civil Cerimony",
         "Caste Kaštel, Ečka",
-        "Continuing in the “I DO” fashion, our couple becomes joint in the eyes of the state as well. Get the party going while they take some very artistic photos in the gardens and enjoy the traditional appetizers."
+        "Continuing in the “I DO” fashion, our couple becomes joint in the eyes of the state as well. Get the party going while they take some very artistic photos in the gardens and enjoy the traditional appetizers. We are staying here for the rest of this day and night. Be prepared to bust a move, ejoy two diners and more cake than a human can handle!"
     ],
-    "sevenPM": "7pm",
-    "sevenPMDesc": [
-        "First dance & Dinner",
-        "Try not to laugh too hard as we bust a move as Mr&Ms Ferreira and enjoy your well earned dinner."
-    ],
-    "ninePM": "9pm",
-    "ninePMDesc": [
-        "Cake time",
-        "We do have a bit of a sweet tooth so we are ceremonially cutting two cakes! Our wedding cake, clearly fitting the theme with all those sunflowers and the traditional “Mother’s cake” which we will come and serve to all of you, also taking the opportunity of taking a pic with you which you can later purchase from the photo team."
-    ],
-    "elevenPM": "11pm",
-    "elevenPMDesc": [
-        "Second dinner",
-        "Does dancing get you tired? No worries, we have a super energy dense second diner that will keep you going for hours!"
-    ],
-    "travellingHeader": "How to get to us?",
+   "travellingHeader": "How to get to us?",
     "travellingSubtitle": [
         "If you don't suffer from time-space travel nausea, we recommend using your favourite teleportation device and input these coordinates:",
         "If by any chance, you are unable to get your hands on one, there are more rudimentary means of transportation."
@@ -243,7 +228,7 @@
     "defaultName": "and welcome",
     "joiningUs": ", are you joining us for the party?",
     "hellYes": "Aw hell ye 🎉",
-    "hellNo": "No, I will have diarhea 💩",
+    "hellNo": "No, I will have to skip.",
     "additionalGuest": "Additional guest",
     "whoComes": "Who's coming?",
     "comingSubmit": "Onwards",
@@ -256,19 +241,19 @@
     "mrMrsFerreira": "After a careful but not too long deliberation, soon to be Mrs. and Mr. Ferreira have decided to tie the knot and are delighted to invite you to their very-much-DIY wedding and all night party on the",
     "date": "7th of Septeber 2019 in Zrenjanin, Serbia",
     "next": "Next!",
-    "dietQuestion": ", what are your feasting habits?",
+    "dietQuestion": ", what is your prefered choice of diet?",
     "dietNotesPlaceholder": "Tell us more! We don't want you to starve",
     "normalDiet": "Normal",
     "vegetarianDiet": "Vegetarian",
     "halalDiet": "Halal",
     "otherDiet": "Other",
-    "allergyNotesPlaceholder": "Tell us more! We don't want you to die",
+    "allergyNotesPlaceholder": "Tell us all about it.",
     "allergyQuestion": "Do you have any food allergies?",
     "allergyYes": "Yes",
     "allergyNo": "No",
-    "courseQuestion": "What do you wanna eat?",
-    "course1": "Tasty tasty Serbian Schnitzel",
-    "course2": "Pork with dates and stuff",
+    "courseQuestion": "What would you prefer as first diner?",
+    "course1": "Karadjordje shnitzel - folled pork stuffed with local cheese",
+    "course2": "Emperor's filet - pork with dried plums and honey",
     "almostDone": "Cool! We're almost done.",
     "cantWait": "We can't wait to see you!",
     "giveEmail": "Oh, for a link with the wedding photos please give us your email.",
