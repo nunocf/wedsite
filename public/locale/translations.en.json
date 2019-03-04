@@ -233,7 +233,7 @@
     "coordinatesLink": "https://en.wikipedia.org/wiki/Zrenjanin",
     "doingIt": "We are doing it!",
     "mrMrsFerreira": "After a careful but not too long deliberation, soon to be Mrs. and Mr. Ferreira have decided to tie the knot and are delighted to invite you to their very-much-DIY wedding and all night party on the",
-    "date": "7th of Septeber 2019 in Zrenjanin, Serbia",
+    "date": "7th of September 2019 in Zrenjanin, Serbia",
     "next": "Next!",
     "dietQuestion": ", what is your prefered diet?",
     "dietNotesPlaceholder": "Tell us more! We don't want you to starve.",
@@ -257,5 +257,11 @@
     "shocking": "Shocking!",
     "changeMind": "If you change your mind, you can change your RSVP until the 1st of July.",
     "home": "Home",
-    "rsvp": "RSVP"
+    "rsvp": "RSVP",
+    "timeLeft": "Big day countdown:",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Min",
+    "seconds": "Sec",
+    "pleaseRSVP": "Please RSVP before the 1st of July"
 }

@@ -34,12 +34,7 @@
 }
 
 .fixed {
-	position: fixed;
-	width: 100%;
-}
 
-.navHeight {
-	height: 4rem;
 }
 
 .noBorder {
@@ -211,6 +206,20 @@
 	font-size: 3.5rem;
 }
 
+.font-size-landing {
+	font-family: 'Courgette', cursive;
+	font-weight: normal; 
+	font-style: normal; 
+	font-size: 3rem;
+}
+
+.font-counter-landing {
+	font-family: 'Courgette', cursive;
+	font-weight: normal; 
+	font-style: normal; 
+	font-size: 2.5rem;
+}
+
 .font-courgette {
 	font-family: 'Courgette', cursive;
 
@@ -240,6 +249,10 @@
 
 .font-text-size {
 	font-size: 1.25rem;
+}
+
+.font-middle-size {
+	font-size: 1.5rem;
 }
 
 .font-text-align {
@@ -354,19 +367,8 @@ textarea,
 		background-image: url("https://www.transparenttextures.com/patterns/skulls.png");
 }
 
-
-/* .backgroundLanding {
-	background: linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ),
-    url('/images/stonehenge.jpg');
-	background-position: center center;
-	background-size: cover;
-} */
-
 .backgroundLanding {
-  position: relative;
+	position: relative;
 }
 
 .backgroundLanding::before {
@@ -398,9 +400,10 @@ textarea,
 	height: 100%;
 	width: 100%;
 
-	padding: 2rem 6rem 2rem 6rem;
+	padding: 2rem 3rem 2rem 3rem;
 
-	gap: 6rem;
+	gap: 3rem;
+	
 }
 
 .landingText {
@@ -408,6 +411,8 @@ textarea,
 	align-self: center;
 	justify-self: center;
 	filter: brightness(90%);
+
+	padding-top: 4rem;
 }
 
 .landingCountdown {
@@ -415,6 +420,7 @@ textarea,
 	align-self: center;
 	justify-self: center;
 	filter: brightness(90%);
+	padding-top: 4rem;
 }
 
 .menuFontColor {
@@ -760,14 +766,6 @@ textarea,
 	padding-right: 2rem;
 }
 
-.navColor {
-	background: #EAE7DC;
-	box-shadow: -2px 6px 15px rgba(0, 0, 0, .4);
-	/* background-image: url("https://www.transparenttextures.com/patterns/flowers.png"); */
-	
-/* background-image: url("https://www.transparenttextures.com/patterns/skulls.png"); */
-background-image: url("https://www.transparenttextures.com/patterns/mirrored-squares.png");
-}
 
 .travellingGrid {
 	display: grid;
@@ -910,15 +908,14 @@ background-image: url("https://www.transparenttextures.com/patterns/mirrored-squ
 
 .pt-1px {
 	padding-top: 1px;
-}
-
-	
+}	
 
 @media only screen and (max-width: 600px) {
 
 	.width45 {
 		width: 75%;
 	}
+
 
 	.rightMapContainer {
 		display: grid;
@@ -1033,8 +1030,20 @@ background-image: url("https://www.transparenttextures.com/patterns/mirrored-squ
 		font-size: 3rem;
 	}
 
+	.font-size-landing {
+		font-size: 2.5rem;
+	}
+
+	.font-counter-landing {
+		font-size: 2rem;
+	}
+
 	.font-text-size {
 		font-size: 1rem;
+	}
+
+	.font-middle-size {
+		font-size: 1.25rem;
 	}
 
 	.font-text-align {
@@ -1226,8 +1235,10 @@ background-image: url("https://www.transparenttextures.com/patterns/mirrored-squ
 .countdownContainer {
 	display: grid;
 
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	gap: 1rem;
+
+
 }
 
 .countDownValueContainer {
@@ -1255,11 +1266,105 @@ background-image: url("https://www.transparenttextures.com/patterns/mirrored-squ
 	border-radius: 10px;
 	box-shadow: 10px 10px 30px rgba(0, 0, 0, .4);
 
-
 	padding: 1rem 1rem 1rem 1rem;
 }
 
+.navContainer {
+	display: grid;
+
+	grid-template-columns: 1fr 3fr 1fr;
+	grid-template-areas: 
+		". links langBar";
+
+	position: fixed;
+	width: 100%;
+	height: 4rem;
+
+	background: #EAE7DC;
+	box-shadow: -2px 6px 15px rgba(0, 0, 0, .4);
+	background-image: url("https://www.transparenttextures.com/patterns/mirrored-squares.png");
+
+	padding: 0 0.5rem 0 0.5rem;
+	gap: 0.5rem;
+}
+
+.linksContainer {
+	grid-area: links;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	height: 4rem;
+
+	grid-template-areas: 
+		"smallFlower home code smallFlower2";
+}
+
+.home {
+	grid-area: home;
+	align-self: center;
+	justify-self: right;
+	padding-right: 2rem;
+	height: 4rem;
+}
+
+.height-4 {
+	height: 4rem;
+}
+
+.code {
+	grid-area: code;
+	align-self: center;
+	justify-self: left;
+	padding-left: 2rem;
+	height: 4rem;
+}
+
+.langContainer {
+	grid-area: langBar;
+	align-self: center;
+	justify-self: right;
+
+}
+
 @media only screen and (max-width: 600px) {
+
+	.landingContainer {	
+		display: grid;
+	
+		grid-template-columns: 1fr;
+	
+		grid-template-areas: 
+			"landingText"
+			"landingCountdown";
+	
+		height: 100%;
+		width: 100%;
+
+		gap: 0rem;
+		padding: 0 1rem 0 1rem;
+	}
+
+	.landingText {
+		margin-top: 4rem;
+		padding-top: 1rem;
+	}
+
+	.navContainer {
+
+		grid-template-columns: 2fr 1fr;
+		grid-template-areas: 
+			"links langBar";
+
+		padding: 0 1rem 0 1rem;
+	}
+
+	.home {
+		padding: 0 0.75rem 0 0.5rem;
+	}
+
+	.code {
+		padding: 0 0.5rem 0 0.75rem;
+
+	}
 
 	.accomodationGrid {
 		grid-template-columns: 1fr 1fr;

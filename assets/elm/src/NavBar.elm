@@ -22,23 +22,19 @@ view session page =
         lang =
             Session.lang session
     in
-    div [ class "hero-head" ]
-        [ div [ class "navHeight navbar fixed navColor columns is-mobile is-marginless heading text-weight-bold" ]
-            [ div [ class "column left" ]
-                []
-            , div [ class "column center is-half" ]
-                [ div [ class "smallFlower svgCentered svg-container" ]
-                    [ object [ class "svg30Pct svg-content", type_ "image/svg+xml", attribute "data" "svg/single_flower.svg" ] [ text "Your browser does not support SVGs" ]
-                    ]
-                , linkTo Route.Home [ text <| Translations.home lang ] "pr-2"
-                , linkTo Route.Code [ text <| Translations.rsvp lang ] "pl-2"
-                , div [ class "smallFlower svgCentered svg-container" ]
-                    [ object [ class "svg30Pct svg-content", type_ "image/svg+xml", attribute "data" "svg/single_flower.svg" ] [ text "Your browser does not support SVGs" ]
-                    ]
+    div [ class "navContainer navbar is-marginless heading" ]
+        [ div [ class "linksContainer" ]
+            [ div [ class "smallFlower svgCentered svg-container height-4" ]
+                [ object [ class "svg30Pct svg-content di", type_ "image/svg+xml", attribute "data" "svg/single_flower.svg" ] [ text "Your browser does not support SVGs" ]
                 ]
-            , div [ class "column right" ]
-                [ viewLanguageDropdown (Session.lang session) (Session.showLanguages session)
+            , linkTo Route.Home [ text <| Translations.home lang ] "home"
+            , linkTo Route.Code [ text <| Translations.rsvp lang ] "code"
+            , div [ class "smallFlower2 svgCentered svg-container height-4" ]
+                [ object [ class "svg30Pct svg-content di", type_ "image/svg+xml", attribute "data" "svg/single_flower.svg" ] [ text "Your browser does not support SVGs" ]
                 ]
+            ]
+        , div [ class "langContainer" ]
+            [ viewLanguageDropdown (Session.lang session) (Session.showLanguages session)
             ]
         ]
 
@@ -51,9 +47,8 @@ navbarLink page route linkContent extraClass =
     in
     div
         [ classList
-            [ ( "inline", True )
-            , ( "navbar-item", True )
-            , ( "active", active )
+            [
+             ( "active", active )
             , ( "is-size-2", True )
             , ( "font-amatic", True )
             , ( "font-heavy", True )

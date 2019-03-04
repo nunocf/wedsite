@@ -71,7 +71,7 @@ view model =
                                     [ viewAcceptedQuestion lang acceptForm
                                     , viewHowManyQuestion lang acceptForm
                                     , div [ class "has-text-centered mt-1" ]
-                                        [ button [ class <| Styles.modalButton ++ " border-black" ]
+                                        [ button [ class <| Styles.modalButton ++ " mb-1 border-black" ]
                                             [ text <| Translations.comingSubmit lang ]
                                         ]
                                     ]

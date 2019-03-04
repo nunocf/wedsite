@@ -108,28 +108,30 @@ viewHero model lang =
                 h1 [] [ text (hour ++ ":" ++ minute ++ ":" ++ second) ]
 
         countDown =
-            remainingTimeLeft model.weddingDay model.time
+            remainingTimeLeft lang model.weddingDay model.time
     in
-    section [ class Styles.hero ]
+    div [ class Styles.hero ]
         [ div [ class "landingText" ]
-            [ h1 [ class <| Styles.headingFormatting ]
+            [ h1 [ class <| Styles.landingPageHeading ++ " has-text-centered mb-2" ]
                 [ text <| Translations.doingIt lang ]
-            , p [ class <| Styles.landingPageMiddle ]
+            , p [ class <| Styles.landingPageMiddle ++ " mb-2" ]
                 [ text <| Translations.mrMrsFerreira lang ]
-            , h3 [ class <| Styles.headingFormatting ]
+            , h3 [ class <| Styles.landingPageHeading ++ " has-text-centered mb-2" ]
                 [ text <| Translations.date lang ]
             ]
         , div [ class "landingCountdown" ]
-            [ h1 [ class <| Styles.headingFormatting ]
-                [ p [] [ text <| "Time left for the big event!" ]
+            [ h1 [ class <| Styles.counterFormatting ++ " has-text-centered mb-2"]
+                [ p [] [ text <| Translations.timeLeft lang ]
                 , countDown
                 ]
+            , p [class <| Styles.landingPageMiddle ++ " has-text-centered mb-2" ] 
+                [text <| Translations.pleaseRSVP lang]
             ]
         ]
 
 
-remainingTimeLeft : Time.Posix -> Time.Posix -> Html msg
-remainingTimeLeft finalTime currentTime =
+remainingTimeLeft : Translations.Lang -> Time.Posix -> Time.Posix -> Html msg
+remainingTimeLeft lang finalTime currentTime =
     let
         milisLeft =
             Time.posixToMillis finalTime - Time.posixToMillis currentTime
@@ -140,8 +142,6 @@ remainingTimeLeft finalTime currentTime =
         remainingMinutes =
             remainingHours - (hoursLeft * hourInMilis)
 
-        remainingSeconds =
-            remainingMinutes - (minutesLeft * minuteInMilis)
 
         daysLeft =
             milisLeft // dayInMilis
@@ -152,27 +152,22 @@ remainingTimeLeft finalTime currentTime =
         minutesLeft =
             remainingMinutes // minuteInMilis
 
-        secondsLeft =
-            remainingSeconds // 1000
     in
     div [ class "countdownContainer" ]
         [ div []
             [ div [ class "countDownValueContainer" ] [ text <| String.fromInt daysLeft ]
-            , p [ class "is-size-5" ] [ text <| "Days" ]
+            , p [ class "counterFormatting" ] [ text <| Translations.days lang ]
             ]
         , div []
             [ div [ class "countDownValueContainer" ] [ text <| String.fromInt hoursLeft ]
-            , p [ class "is-size-5" ] [ text <| "Hours" ]
+            , p [ class "counterFormatting" ] [ text <| Translations.hours lang ]
             ]
         , div []
             [ div [ class "countDownValueContainer" ] [ text <| String.fromInt minutesLeft ]
-            , p [ class "is-size-5" ] [ text <| "Minutes" ]
-            ]
-        , div []
-            [ div [ class "countDownValueContainer" ] [ text <| String.fromInt secondsLeft ]
-            , p [ class "is-size-5" ] [ text <| "Seconds" ]
+            , p [ class "counterFormatting" ] [ text <| Translations.minutes lang ]
             ]
         ]
+
 
 
 viewOurStory : Translations.Lang -> Html msg
@@ -189,7 +184,7 @@ viewOurStory lang =
                             [ h1 [ class <| String.join " " [ Styles.headingFormatting, "poemTitle" ] ]
                                 [ text <| Translations.ourStoryTitle lang ]
                             ]
-                        , div [ class "poem1" ] [ Poem.viewPoem1 lang ]
+                        , div [ class "poem1 mt-2" ] [ Poem.viewPoem1 lang ]
                         , div [ class "poemPicture is-hidden-mobile" ]
                             [ img [ class "poemPhoto", Asset.src Asset.stonehenge ] []
                             ]

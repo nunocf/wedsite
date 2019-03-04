@@ -233,7 +233,7 @@
     "coordinatesLink": "https://en.wikipedia.org/wiki/Zrenjanin",
     "doingIt": "Boas notícias!",
     "mrMrsFerreira": "Nós, os futuros Ferreiras decidimos dar o nó e achamos que a ocasião merece farra pela noite dentro. Junta-te a nós no dia",
-    "date": "7 de setembro de 2019 na cidade de Zrenjanin na Sérvia",
+    "date": "7 de setembro de 2019 em Zrenjanin, Sérvia",
     "next": "Próximo!",
     "dietQuestion": ", tens uma dieta predilecta?",
     "dietNotesPlaceholder": "Dá-nos mais detalhes! Aqui ninguém passa fome.",
@@ -257,5 +257,11 @@
     "shocking": "Oh, é pena! :(",
     "changeMind": "Se mudares de ideias podes mudar o RSVP até dia 1 de Julho.",
     "home": "Home",
-    "rsvp": "RSVP"
+    "rsvp": "RSVP",
+    "timeLeft": "Contagem decrescente:",
+    "days": "Dias",
+    "hours": "Horas",
+    "minutes": "Min",
+    "seconds": "Seg",
+    "pleaseRSVP": "Por favor confirma a tua presença até 1 de Julho"
 }

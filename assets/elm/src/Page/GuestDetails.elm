@@ -71,7 +71,7 @@ view model =
                                 [ form [ onSubmit OnSubmit ]
                                     (viewGuests lang guestsForm.guests
                                         ++ [ div [ class "has-text-centered mt-1" ]
-                                                [ button [ class <| Styles.modalButton ++ " border-black" ] [ text <| Translations.next lang ]
+                                                [ button [ class <| Styles.modalButton ++ " mb-1 mt-1 border-black" ] [ text <| Translations.next lang ]
                                                 ]
                                            ]
                                     )

@@ -257,5 +257,11 @@
     "shocking": "Skandalozno!",
     "changeMind": "Ako se predomislite, ponovo popunite formular do prvog jula.",
     "home": "Početna",
-    "rsvp": "Potvrdite dolazak"
+    "rsvp": "Potvrdite dolazak",
+    "timeLeft": "Odbrojavanje je počelo:",
+    "days": "Dana",
+    "hours": "Sati",
+    "minutes": "Min",
+    "seconds": "Sek",
+    "pleaseRSVP": "Molimo Vas da potvrdite dolazak najkasnije od prvog jula!"
 }

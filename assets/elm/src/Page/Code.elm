@@ -57,7 +57,7 @@ view { session, pin, error } =
                             , errorDisplay
                             ]
                         , div [ class "has-text-centered" ]
-                            [ button [ class <| Styles.modalButton ++ " border-black" ]
+                            [ button [ class <| Styles.modalButton ++ " mb-1 mt-1 border-black" ]
                                 [ text <| Translations.codeSubmit lang ]
                             ]
                         ]

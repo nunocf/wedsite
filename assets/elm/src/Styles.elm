@@ -22,6 +22,8 @@ module Styles exposing
     , travelMenuItem
     , travelMenuItemLast
     , travellingSection
+    , landingPageHeading
+    , counterFormatting
     )
 
 
@@ -93,7 +95,7 @@ dropdownListItem =
 
 hero : String
 hero =
-    [ "hero", "is-fullheight", "backgroundLanding", "landingContainer" ]
+    [ "hero", "is-fullheight", "backgroundLanding", "landingContainer"]
         |> String.join " "
 
 
@@ -137,17 +139,29 @@ transportSubtitle =
 
 headingFormatting : String
 headingFormatting =
-    [ "title"
-    , "has-text-weight-semibold"
+    [ "has-text-weight-semibold"
     , "font-heading"
     , "color-heading"
     ]
         |> String.join " "
 
+landingPageHeading : String
+landingPageHeading =
+    ["has-text-weight-semibold",
+    "font-size-landing",
+    "color-heading"]
+        |> String.join " "
+
+counterFormatting : String
+counterFormatting =
+    ["has-text-weight-semibold",
+    "font-counter-landing",
+    "color-heading"]
+        |> String.join " "
 
 landingPageMiddle : String
 landingPageMiddle =
-    "title cw text-justified font-text"
+    "cw text-justified font-text font-middle-size"
 
 
 textFont : String

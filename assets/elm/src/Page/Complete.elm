@@ -78,7 +78,7 @@ view model =
                                 ]
                                 []
                             , div [ class "mt-2" ]
-                                [ button [ onClick OnSubmit, class <| Styles.modalButton ++ " border-black" ]
+                                [ button [ onClick OnSubmit, class <| Styles.modalButton ++ " mb-1 border-black" ]
                                     [ text <| Translations.okBai lang ]
                                 ]
                             ]

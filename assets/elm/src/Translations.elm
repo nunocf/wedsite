@@ -1374,8 +1374,8 @@ mrMrsFerreira lang  =
 date: Lang -> String
 date lang  =
   case lang of 
-      En -> "7th of Septeber 2019 in Zrenjanin, Serbia"
-      Pt -> "7 de setembro de 2019 na cidade de Zrenjanin na Sérvia"
+      En -> "7th of September 2019 in Zrenjanin, Serbia"
+      Pt -> "7 de setembro de 2019 em Zrenjanin, Sérvia"
       Rs -> "dana 7. septembra u Zrenjaninu"
 
 next: Lang -> String
@@ -1545,3 +1545,45 @@ rsvp lang  =
       En -> "RSVP"
       Pt -> "RSVP"
       Rs -> "Potvrdite dolazak"
+
+timeLeft: Lang -> String
+timeLeft lang  =
+  case lang of 
+      En -> "Big day countdown:"
+      Pt -> "Contagem decrescente:"
+      Rs -> "Odbrojavanje je počelo:"
+
+days: Lang -> String
+days lang  =
+  case lang of 
+      En -> "Days"
+      Pt -> "Dias"
+      Rs -> "Dana"
+
+hours: Lang -> String
+hours lang  =
+  case lang of 
+      En -> "Hours"
+      Pt -> "Horas"
+      Rs -> "Sati"
+
+minutes: Lang -> String
+minutes lang  =
+  case lang of 
+      En -> "Min"
+      Pt -> "Min"
+      Rs -> "Min"
+
+seconds: Lang -> String
+seconds lang  =
+  case lang of 
+      En -> "Sec"
+      Pt -> "Seg"
+      Rs -> "Sek"
+
+pleaseRSVP: Lang -> String
+pleaseRSVP lang  =
+  case lang of 
+      En -> "Please RSVP before the 1st of July"
+      Pt -> "Por favor confirma a tua presença até 1 de Julho"
+      Rs -> "Molimo Vas da potvrdite dolazak najkasnije od prvog jula!"
