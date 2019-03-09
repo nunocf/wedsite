@@ -215,7 +215,7 @@ viewModalContent lang activeModal =
 modalCard title content imageSource websiteLink cost distance =
     div [ class "card" ]
         [ div [ class "card-image" ]
-            [ figure [ class ("image is-4by3 " ++ imageSource) ]
+            [ figure [ class ("image is-4by3 tlr-radius " ++ imageSource) ]
                 [-- img [ imageSource ] []
                 ]
             ]

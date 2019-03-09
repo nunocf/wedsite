@@ -20,13 +20,6 @@ title lang  =
       Pt -> "Nuno & Oli's Wedsite"
       Rs -> "Nuno & Oli's Wedsite"
 
-verticallyCenteringInCssIsEasy: Lang -> String
-verticallyCenteringInCssIsEasy lang  =
-  case lang of 
-      En -> "Vertically centering things in css is easy!"
-      Pt -> "Centrar elementos verticalmente em CSS é fácil!"
-      Rs -> "Kaffa sa žirafom!"
-
 ourStoryTitle: Lang -> String
 ourStoryTitle lang  =
   case lang of 
@@ -38,210 +31,210 @@ ourStory0: Lang -> String
 ourStory0 lang  =
   case lang of 
       En -> "On an island far, far away,"
-      Pt -> "Portuguese verse 0"
+      Pt -> "Numa ilha longínqua,"
       Rs -> "Iza sedam gora,"
 
 ourStory1: Lang -> String
 ourStory1 lang  =
   case lang of 
       En -> "Between fields of plump carrots"
-      Pt -> "Portuguese verse 1"
+      Pt -> "Entre montanhas de cenouras"
       Rs -> "Iza sedam mora,"
 
 ourStory2: Lang -> String
 ourStory2 lang  =
   case lang of 
       En -> "and beans on toast,"
-      Pt -> "Portuguese verse 2"
+      Pt -> "e bifes mal passados,"
       Rs -> "Međ’ poljima zrelih šargarepa"
 
 ourStory3: Lang -> String
 ourStory3 lang  =
   case lang of 
       En -> "There was a girl"
-      Pt -> "Portuguese verse 3"
+      Pt -> "havia uma rapariga"
       Rs -> "I čaja u pet,"
 
 ourStory4: Lang -> String
 ourStory4 lang  =
   case lang of 
       En -> "who refused to eat her vegetables."
-      Pt -> "Portuguese verse 4"
+      Pt -> "que não gostava de legumes."
       Rs -> "Živela je devojka koja je odbijala da jede povrće."
 
 ourStory5: Lang -> String
 ourStory5 lang  =
   case lang of 
       En -> "And a boy who nearly got broccoli"
-      Pt -> "Portuguese verse 5"
+      Pt -> "E um jovem rapaz decidido"
       Rs -> "I momče koje je jelo spanać,"
 
 ourStory6: Lang -> String
 ourStory6 lang  =
   case lang of 
       En -> "to the point of extinction."
-      Pt -> "Portuguese verse 6"
+      Pt -> "a levar os bróculos à extinção."
       Rs -> "Češće nego Popaj."
 
 ourStory7: Lang -> String
 ourStory7 lang  =
   case lang of 
       En -> "She was given the noble task"
-      Pt -> "Portuguese verse 7"
+      Pt -> "Ela tinha uma nobre missão científica:"
       Rs -> "Njoj dadoše plemeniti zadatak"
 
 ourStory8: Lang -> String
 ourStory8 lang  =
   case lang of 
       En -> "of defeating the mighty Hepatitis E,"
-      Pt -> "Portuguese verse 8"
+      Pt -> "erradicar a poderosa Hepatite E,"
       Rs -> "Da uništi moćni Hepatits E"
 
 ourStory9: Lang -> String
 ourStory9 lang  =
   case lang of 
       En -> "but Rapivab didn't work,"
-      Pt -> "Portuguese verse 9"
+      Pt -> "mas Rapivab não funcionou"
       Rs -> "Kome ni Rapivab nije mogao izaći na megdan"
 
 ourStory10: Lang -> String
 ourStory10 lang  =
   case lang of 
       En -> "So Excalibur was still stuck in the stone."
-      Pt -> "Portuguese verse 10"
+      Pt -> "e a Excalibur continua presa na pedra."
       Rs -> "Ali avaj! Markovog buzdovana nigde nije bilo."
 
 ourStory11: Lang -> String
 ourStory11 lang  =
   case lang of 
       En -> "She desperately needed a weapon,"
-      Pt -> "Portuguese verse 11"
+      Pt -> "Ela estava desesperada por uma arma,"
       Rs -> "Ustreba joj odveć posebno oružije"
 
 ourStory12: Lang -> String
 ourStory12 lang  =
   case lang of 
       En -> "A weapon designed to work in the mythical realm"
-      Pt -> "Portuguese verse 12"
+      Pt -> "capaz de funcionar no reino efémero"
       Rs -> "Kako bih vam rekao, jedan kalkulator."
 
 ourStory13: Lang -> String
 ourStory13 lang  =
   case lang of 
       En -> "of log distributions and lack of sample numbers."
-      Pt -> "Portuguese verse 13"
+      Pt -> "das distribuiçōes logarítmicas."
       Rs -> "Magičan kalkulator koji nalazi rešenja čak i u svetu"
 
 ourStory14: Lang -> String
 ourStory14 lang  =
   case lang of 
       En -> "More precisely: she needed a calculator."
-      Pt -> "Portuguese verse 14"
+      Pt -> "Mais precisamente: uma calculadora."
       Rs -> "Log distribucija i nedovoljno uzoraka."
 
 ourStory15: Lang -> String
 ourStory15 lang  =
   case lang of 
       En -> "Where could she possibly find such mighty power?"
-      Pt -> "Portuguese verse 15"
+      Pt -> "Mas onde se consegue encontrar tal arma?"
       Rs -> "Gde bi ona mogla naći ovakvo čudo?"
 
 ourStory16: Lang -> String
 ourStory16 lang  =
   case lang of 
       En -> "Help arrives from somewhere unexpected."
-      Pt -> "Portuguese verse 16"
+      Pt -> "A ajuda surge do inesperado:"
       Rs -> "Pomoć stiže odveć neočekivano."
 
 ourStory17: Lang -> String
 ourStory17 lang  =
   case lang of 
       En -> "The boy who was also her weightlifting buddy."
-      Pt -> "Portuguese verse 17"
+      Pt -> "O rapaz era colega de ginásio."
       Rs -> "Ono momče, s kojim i tegove beše dizala"
 
 ourStory18: Lang -> String
 ourStory18 lang  =
   case lang of 
       En -> "Not only was he the second cousin"
-      Pt -> "Portuguese verse 18"
+      Pt -> "Ele nāo só era forte,"
       Rs -> "Nije on bio samo Popajev dalji rođak,"
 
 ourStory19: Lang -> String
 ourStory19 lang  =
   case lang of 
       En -> "on the maternal side of Hercules,"
-      Pt -> "Portuguese verse 19"
+      Pt -> "porque andou com o Hércules na tropa,"
       Rs -> "Ali od muške tetke"
 
 ourStory20: Lang -> String
 ourStory20 lang  =
   case lang of 
       En -> "he also had the ability to do Terminal magic."
-      Pt -> "Portuguese verse 20"
+      Pt -> "mas também conseguia fazer magia no Terminal."
       Rs -> "Veće i baratao magijom Terminala."
 
 ourStory21: Lang -> String
 ourStory21 lang  =
   case lang of 
       En -> "Several sleepless nights later"
-      Pt -> "Portuguese verse 21"
+      Pt -> "Algumas noitadas depois"
       Rs -> "Nekoliko besanih noći kasnije"
 
 ourStory22: Lang -> String
 ourStory22 lang  =
   case lang of 
       En -> "The Calculator was born,"
-      Pt -> "Portuguese verse 22"
+      Pt -> "a Calculadora nasceu"
       Rs -> "Kalkulator je rođen,"
 
 ourStory23: Lang -> String
 ourStory23 lang  =
   case lang of 
       En -> "so the girl managed to defeat this mighty virus"
-      Pt -> "Portuguese verse 23"
+      Pt -> "e a rapariga lutou contra o vírus"
       Rs -> "Devojče pobedi ozloglašeni virus"
 
 ourStory24: Lang -> String
 ourStory24 lang  =
   case lang of 
       En -> "with the boy’s additional help"
-      Pt -> "Portuguese verse 24"
+      Pt -> "com a ajuda do rapaz"
       Rs -> "Dok joj je momče spremao"
 
 ourStory25: Lang -> String
 ourStory25 lang  =
   case lang of 
       En -> "of counting her macros"
-      Pt -> "Portuguese verse 25"
+      Pt -> "a dar apoio nos bastidores."
       Rs -> "Užinu za poneti"
 
 ourStory26: Lang -> String
 ourStory26 lang  =
   case lang of 
       En -> "and ultimately they made a deal"
-      Pt -> "Portuguese verse 26"
+      Pt -> "Finalmente, eles chegaram ao acordo"
       Rs -> "I na kraju rukovaše se u dogovoru"
 
 ourStory27: Lang -> String
 ourStory27 lang  =
   case lang of 
       En -> "to fight against all future monsters together."
-      Pt -> "Portuguese verse 27"
+      Pt -> "de enfrentar os futuros desafios unidos."
       Rs -> "Da sve buduće ale pobeđuju zajedno."
 
 ourStory28: Lang -> String
 ourStory28 lang  =
   case lang of 
       En -> "So come and celebrate this unexpected brain story."
-      Pt -> "Portuguese verse 28"
+      Pt -> "Portanto, vem celebrar esta estória inacabada."
       Rs -> "Zato se priključite slavlju ovog neočekivanog umnog spoja."
 
 ourStory29: Lang -> String
 ourStory29 lang  =
   case lang of 
       En -> "Excuse me, Love story."
-      Pt -> "Portuguese verse 29"
+      Pt -> "Desculpa... inesperada."
       Rs -> "Pardon, ljubavnog spoja."
 
 scheduleTitle: Lang -> String
@@ -250,13 +243,6 @@ scheduleTitle lang  =
       En -> "What can you expect on the day?"
       Pt -> "O que esperar no dia?"
       Rs -> "Šta imamo u planu za ovaj dan?"
-
-scheduleSubtitle: Lang -> String
-scheduleSubtitle lang  =
-  case lang of 
-      En -> "On this Holy day of spiritual entanglement many festivities await, behold in wonderment!"
-      Pt -> "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-      Rs -> "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
 
 elevenAM: Lang -> String
 elevenAM lang  =
@@ -269,21 +255,21 @@ elevenAMDesc0: Lang -> String
 elevenAMDesc0 lang  =
   case lang of 
       En -> "Groom’s side meetup"
-      Pt -> "Festa na casa do Noivo"
+      Pt -> "Encontro na casa do Noivo"
       Rs -> "Skup mladoženjinih svatova"
 
 elevenAMDesc1: Lang -> String
 elevenAMDesc1 lang  =
   case lang of 
       En -> "Brigadira Ristica B2 L9"
-      Pt -> ""
+      Pt -> "Brigadira Ristica B2 L9"
       Rs -> "Brigadira Ristića B2 L9"
 
 elevenAMDesc2: Lang -> String
 elevenAMDesc2 lang  =
   case lang of 
-      En -> "If you are on the Groom’s side this is where you start your day. Marvel at his glorious suit and head over to the Bride’s hoonking all the way!"
-      Pt -> ""
+      En -> "If you are on the Groom’s side this is where you start your day. Marvel at his glorious suit and head over to the Bride’s honking all the way!"
+      Pt -> "Se vens do lado do noivo, aqui é o melhor sítio para começar a festa. Descobre a cor das meias dele e segue para a casa da noiva buzinar que nem um louco!"
       Rs -> "Ako se priključujete veselju sa mladoženjine strane, ovde ćete započeti svoj dan. Uživajte u pogledu na tu zanosnu bradu i pružite trubi Vaših kola zadovoljstvo da peva iz sveg glasa!"
 
 twelveAM: Lang -> String
@@ -297,21 +283,21 @@ twelveAMDesc0: Lang -> String
 twelveAMDesc0 lang  =
   case lang of 
       En -> "Bride pickup"
-      Pt -> "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula, odio a posuere semper, eros nibh efficitur metus, non sagittis nunc lectus ac felis. Morbi nec tincidunt quam, fringilla fermentum magna."
+      Pt -> "Encontro na casa da noiva"
       Rs -> "Stižemo po mladu"
 
 twelveAMDesc1: Lang -> String
 twelveAMDesc1 lang  =
   case lang of 
       En -> "Prvomajska 64"
-      Pt -> "Mauris elementum velit in nisi posuere ultrices. Vestibulum condimentum leo est, elementum pretium enim tristique a. Donec nec lobortis felis, ac eleifend augue."
+      Pt -> "Prvomajska 64"
       Rs -> "Prvomajska 64"
 
 twelveAMDesc2: Lang -> String
 twelveAMDesc2 lang  =
   case lang of 
       En -> "Whether you are on Bride’s side starting your day here or you’ve just arrived with the Groom you’ll be able to witness the rowdy haggling where the Best Man and Grooms’ brother try to outsmart the Bride's family to lower her purchasing price. You are welcome to participate with witty ideas for either side."
-      Pt -> ""
+      Pt -> "Não importa de que lado vens, aqui vais poder testemunhar o regateio para comprar a noiva. O padrinho e um amigo escolhido do noivo tentam baixar o preço da noiva. És mais que bem vindo a ajudar qualquer um dos lados a fechar o negócio."
       Rs -> "Bez obzira sa čije ste strane, verujemo da ćete uživati u mladoženjinim pokušajima da se iscenjka za tatinu mezimicu. Dobrodošli ste da učestvujete u nadmetanju na bilo čijoj strani."
 
 twoPM: Lang -> String
@@ -325,28 +311,28 @@ twoPMDesc0: Lang -> String
 twoPMDesc0 lang  =
   case lang of 
       En -> "Church wedding"
-      Pt -> "Cerimónia de igreja @ Igreja da Aparição da Virgem Maria"
+      Pt -> "Cerimónia na igreja"
       Rs -> "Venčanje u crkvi"
 
 twoPMDesc1: Lang -> String
 twoPMDesc1 lang  =
   case lang of 
       En -> "Church of Presentation of Blessed Virgin Mary"
-      Pt -> ""
+      Pt -> "Igreja da Aparição da Virgem Maria"
       Rs -> "Vavedenska crkva"
 
 twoPMDesc2: Lang -> String
 twoPMDesc2 lang  =
   case lang of 
       En -> "Cara Dušana 82"
-      Pt -> ""
+      Pt -> "Cara Dušana 82"
       Rs -> "Cara Dušana 82"
 
 twoPMDesc3: Lang -> String
 twoPMDesc3 lang  =
   case lang of 
-      En -> "Here our couple to be will saying their first “I DOs” of the day in a lovely orthodox church from 1700s. A word of advice, if you are a lady it is respectful to enter with covered shoulders and back and if you are gentleman have sleeves and trousers covering knees. When entering the church women stay on the left side and men on the right."
-      Pt -> ""
+      En -> "Here our couple to be will saying their first “I DOs” of the day in a lovely orthodox church from 1700s. A word of advice, if you are a lady it is respectful to enter with covered shoulders and back and if you are gentleman have sleeves and trousers covering the knees. When entering the church women stay on the left side and men on the right."
+      Pt -> "Aqui, o casal dá o nó religioso numa belíssima igreja do século XVII. Um conselho: por uma questão de respeito, as mulheres devem entrar com os ombros e as costas tapadas e os homens devem trazer manga comprida e calções abaixo dos joelhos. Quando entrarem na igreja, as mulheres vão para o lado esquerdo, e os homens para o lado direito."
       Rs -> "Prvi zvanični zajednički koraci će biti načinjeni u ovoj simpatičnoj pravoslavnoj crkvi podignutoj u XVIII veku. Skrećemo pažnju da bi dame trebale da uđu u crkvu pokrivenih ramena i leđa i da se postave sa leve strane oltara, dok gospoda trebaju da se pojave u pantalonama koje pokrivaju kolena i da zauzmu mesta sa desne strane oltara."
 
 fourPM: Lang -> String
@@ -366,15 +352,15 @@ fourPMDesc0 lang  =
 fourPMDesc1: Lang -> String
 fourPMDesc1 lang  =
   case lang of 
-      En -> "Caste Kaštel, Ečka"
-      Pt -> ""
+      En -> "Castel Kaštel, Ečka"
+      Pt -> "Castelo Kaštel, Ečka"
       Rs -> "Dvorac Kaštel, Ečka"
 
 fourPMDesc2: Lang -> String
 fourPMDesc2 lang  =
   case lang of 
       En -> "Continuing in the “I DO” fashion, our couple becomes joint in the eyes of the state as well. Get the party going while they take some very artistic photos in the gardens and enjoy the traditional appetizers. We are staying here for the rest of this day and night. Be prepared to bust a move, enjoy two dinners and more cake than a human can handle!"
-      Pt -> ""
+      Pt -> "E aqui é onde o casal dá o nó aos olhos do estado. Começa a festa enquanto eles tiram umas fotos super artísticas nos jardins proibídos e disfruta de uns aperitivos e rakija. Ficamos aqui o resto do dia/noite, portanto prepara o pé de dança, prepara-te para dois jantares e bolo até te sair comida pelas orelhas!"
       Rs -> "Nakon državne ceremonije uz nezaboravne stihove Duška Radovića, nadoknadite izgubljenu snagu predjelo i pokrenite proslavu dok se mladenci i sulikaju koji put da bi imali čime da se hvale unucima jednog lepog dana."
 
 travellingHeader: Lang -> String
@@ -395,7 +381,7 @@ travellingSubtitle1: Lang -> String
 travellingSubtitle1 lang  =
   case lang of 
       En -> "If by any chance, you are unable to get your hands on one, there are more rudimentary means of transportation."
-      Pt -> "Se por algum motivo não tiveres acesso a tal aparelho, existem opçōes de transporte mais rudimentares."
+      Pt -> "Se por algum motivo não tiveres acesso a tal aparelho, existem opções de transporte mais rudimentares."
       Rs -> "Ako, kojim slučajem, niste u mogućnosti da pribavite takav uređaj, slobodno se poslužite nekim od zastarelih sistema transporta:"
 
 coordinates: Lang -> String

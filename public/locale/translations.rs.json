@@ -1,6 +1,5 @@
 {
     "title": "Nuno & Oli's Wedsite",
-    "verticallyCenteringInCssIsEasy": "Kaffa sa žirafom!",
     "ourStoryTitle": "Kako nam se sve ovo desilo?",
     "ourStory": [
         "Iza sedam gora,",
@@ -35,7 +34,6 @@
         "Pardon, ljubavnog spoja."
     ],
     "scheduleTitle": "Šta imamo u planu za ovaj dan?",
-    "scheduleSubtitle": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
     "elevenAM": "11h",
     "elevenAMDesc": [
         "Skup mladoženjinih svatova",
