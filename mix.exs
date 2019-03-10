@@ -9,8 +9,8 @@ defmodule Wedsite.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
-      build_path: "/elixir/_build",
-      deps_path: "/elixir/deps",
+      build_path: "_build",
+      deps_path: "deps",
       aliases: aliases(),
       deps: deps()
     ]
@@ -35,7 +35,7 @@ defmodule Wedsite.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.4.0"},
+      {:phoenix, "~> 1.4.1"},
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
@@ -43,7 +43,8 @@ defmodule Wedsite.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:ecto_sql, "~> 3.0"},
-      {:postgrex, ">= 0.0.0"}
+      {:postgrex, ">= 0.0.0"},
+      {:distillery, "~> 2.0"}
     ]
   end
 
@@ -55,5 +56,4 @@ defmodule Wedsite.MixProject do
       test: ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end
-
 end
