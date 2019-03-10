@@ -22,14 +22,14 @@
         "Ono momče, s kojim i tegove beše dizala",
         "Nije on bio samo Popajev dalji rođak,",
         "Ali od muške tetke",
-        "Veće i baratao magijom Terminala.",
+        "Već je i baratao magijom Terminala.",
         "Nekoliko besanih noći kasnije",
         "Kalkulator je rođen,",
         "Devojče pobedi ozloglašeni virus",
-        "Dok joj je momče spremao",
+        "Dok joj je momče spremalo",
         "Užinu za poneti",
         "I na kraju rukovaše se u dogovoru",
-        "Da sve buduće ale pobeđuju zajedno.",
+        "Da sve buduće Ale pobeđuju zajedno.",
         "Zato se priključite slavlju ovog neočekivanog umnog spoja.",
         "Pardon, ljubavnog spoja."
     ],
@@ -37,14 +37,14 @@
     "elevenAM": "11h",
     "elevenAMDesc": [
         "Skup mladoženjinih svatova",
-        "Brigadira Ristića B2 L9",
+        "Brigadira Ristića B2 L9, stan 5",
         "Ako se priključujete veselju sa mladoženjine strane, ovde ćete započeti svoj dan. Uživajte u pogledu na tu zanosnu bradu i pružite trubi Vaših kola zadovoljstvo da peva iz sveg glasa!"
     ],
     "twelveAM": "12h",
     "twelveAMDesc": [
-        "Stižemo po mladu",
+        "Skup mladinih svatova",
         "Prvomajska 64",
-        "Bez obzira sa čije ste strane, verujemo da ćete uživati u mladoženjinim pokušajima da se iscenjka za tatinu mezimicu. Dobrodošli ste da učestvujete u nadmetanju na bilo čijoj strani."
+        "Ukoliko ste sa mladine straane ovo je Vaša prva lokacija! Po dolasku ostatka svatova, verujemo da ćete uživati u mladoženjinim pokušajima da se iscenjka za tatinu mezimicu. Dobrodošli ste da učestvujete u nadmetanju na bilo čijoj strani."
     ],
     "twoPM": "14h",
     "twoPMDesc": [
@@ -57,7 +57,7 @@
     "fourPMDesc": [
         "Opštinsko venčanje",
         "Dvorac Kaštel, Ečka",
-        "Nakon državne ceremonije uz nezaboravne stihove Duška Radovića, nadoknadite izgubljenu snagu predjelo i pokrenite proslavu dok se mladenci i sulikaju koji put da bi imali čime da se hvale unucima jednog lepog dana."
+        "Nakon državne ceremonije uz nezaboravne stihove Duška Radovića, nadoknadite izgubljenu snagu predjelo i pokrenite proslavu dok se mladenci slikaju koji put da bi imali čime da se hvale unucima jednog lepog dana."
     ],
     "travellingHeader": "Kako stići do nas?",
     "travellingSubtitle": [
@@ -130,7 +130,7 @@
         " ili ",
         " u zavisnosti iz kog pravca dolazite.",
         "Autobuski prevoz je čest (na od prilike svakih 60-90min) iz oba grada, a do Zrenjanina će Vam trebati nešto vise od sat vremena putovanja.",
-        "Alternativno, možete koristiti usluge “divljih taksija” koji se obično nalaze ispred autobuske stanice u Novom Sadu ili kod cvetne pijace u Borči.",
+        "Alternativno, možete koristiti usluge “divljih taksija” koji se obično nalaze ispred autobuske stanice u Novom Sadu ili kod Cvetne pijace u Borči.",
         "",
         "",
         "",
@@ -149,7 +149,7 @@
     "motorbikeTitle": "Motocikl & Bicikl",
     "motorbike": [
         "Ako ste avanturističkog duha ovo može biti odlična opcija! Vreme u septembru je generalno toplo i suvo tako da će i sam put biti prijatan. Po dolasku Vas očekuju brufen, voda i šećer u neograničenim količinama.",
-        "Naravno i sva slava ovakovog poduhvata, jer i mi volimo dvotočkaše svih oblika! 🏍🏍🏍"
+        "Naravno i sva slava ovakvog poduhvata, jer i mi volimo dvotočkaše svih oblika! 🏍🏍🏍"
     ],
     "walkAndSwimTitle": "Pešice",
     "walkAndSwim": [
