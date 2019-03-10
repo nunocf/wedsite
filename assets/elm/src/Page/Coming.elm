@@ -149,7 +149,7 @@ viewHowManyQuestion lang form =
             [ p [ class "mb-0-5 pl-1 pr-1 is-size-3 font-amatic font-heavy form-heading-color" ] [ text <| Translations.whoComes lang ]
             , div [ class "textShadow poemTextColor pl-2" ] <|
                 viewGuestsCheckboxes form.guests
-                    ++ viewAdditionalGuestsCheckboxes form.additionalGuests
+                    ++ viewAdditionalGuestsCheckboxes lang form.additionalGuests
             ]
 
     else
@@ -164,11 +164,11 @@ viewGuestsCheckboxes guests =
         |> Array.toList
 
 
-viewAdditionalGuestsCheckboxes : List AdditionalGuest -> List (Html Msg)
-viewAdditionalGuestsCheckboxes guests =
+viewAdditionalGuestsCheckboxes : Lang -> List AdditionalGuest -> List (Html Msg)
+viewAdditionalGuestsCheckboxes lang guests =
     guests
         |> Array.fromList
-        |> Array.indexedMap additionalGuestCheckbox
+        |> Array.indexedMap (additionalGuestCheckbox lang)
         |> Array.toList
 
 
@@ -192,16 +192,30 @@ guestCheckbox index guest =
         ]
 
 
-additionalGuestCheckbox : Int -> AdditionalGuest -> Html Msg
-additionalGuestCheckbox index { coming, name } =
+additionalGuestCheckbox : Lang -> Int -> AdditionalGuest -> Html Msg
+additionalGuestCheckbox lang index { coming, name } =
     let
+        nameValue =
+            if name == Translations.additionalGuest lang then
+                ""
+
+            else
+                name
+
+        placeholderVal =
+            if name == "" then
+                Translations.additionalGuest lang
+
+            else
+                name
+
         nameElement =
             case coming of
                 False ->
                     text name
 
                 True ->
-                    input [ id addGuestInputId, class "input width45", type_ "text", placeholder name, onInput (InputAdditionalGuest index) ] []
+                    input [ id addGuestInputId, class "input width45", type_ "text", placeholder placeholderVal, value nameValue, onInput (InputAdditionalGuest index) ] []
 
         addGuestId =
             "additionalGuest" ++ String.fromInt index
@@ -303,7 +317,16 @@ update msg model =
                 Ready form _ ->
                     let
                         guestArray =
-                            Array.fromList form.additionalGuests
+                            form.additionalGuests
+                                |> List.map
+                                    (\g ->
+                                        if g.name == "" then
+                                            { g | name = Translations.additionalGuest (Session.lang model.session) }
+
+                                        else
+                                            g
+                                    )
+                                |> Array.fromList
 
                         updatedModel =
                             ( index, coming )

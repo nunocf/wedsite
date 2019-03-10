@@ -4,8 +4,7 @@ defmodule WedsiteWeb.ApiController do
   alias Wedsite.Repo
   alias Wedsite.Invitation
   alias Wedsite.Guest
-  import Ecto.Query, only: [from: 2, order_by: 3]
-
+  import Ecto.Query, only: [from: 2]
 
   def rsvp(conn, _params) do
     conn
@@ -14,27 +13,27 @@ defmodule WedsiteWeb.ApiController do
   end
 
   def get_invite(conn, %{"code" => code}) do
+    result =
+      with {:ok, invitation} <- get_invitation_by_code(code),
+           guests <- from(g in Ecto.assoc(invitation, :guests), order_by: g.id) |> Repo.all() do
+        {:ok,
+         %{
+           invitation: invitation,
+           guests: guests
+         }}
+      else
+        {:error, error} ->
+          %{error: error}
+      end
 
-     result = with {:ok, invitation} <- get_invitation_by_code(code),
-          guests <- (from g in Ecto.assoc(invitation, :guests), order_by: g.id) |> Repo.all() do
+    response =
+      case result do
+        {:ok, data} ->
+          %{status: 200, data: data}
 
-          {:ok, %{
-            invitation: invitation,
-            guests: guests
-          }}
-
-         else
-          {:error, error} ->
-            %{error: error}
-    end
-
-    response = case result do
-      {:ok, data} ->
-        %{status: 200, data: data}
-
-      {:err, error} ->
-        %{status: 404, error: error}
-    end
+        {:err, error} ->
+          %{status: 404, error: error}
+      end
 
     conn
     |> put_status(response.status)
@@ -42,38 +41,42 @@ defmodule WedsiteWeb.ApiController do
   end
 
   def get_coming_guests(conn, %{"code" => code}) do
-
-    result = with {:ok, invitation} <- get_invitation_by_code(code),
-        guests <- (from g in Ecto.assoc(invitation, :guests),
-          where: g.coming == true,
-          order_by: g.inserted_at) |> Repo.all() do
-
-         {:ok, %{
+    result =
+      with {:ok, invitation} <- get_invitation_by_code(code),
+           guests <-
+             from(
+               g in Ecto.assoc(invitation, :guests),
+               where: g.coming == true,
+               order_by: g.inserted_at
+             )
+             |> Repo.all() do
+        {:ok,
+         %{
            invitation: invitation,
            guests: guests
          }}
+      else
+        {:error, error} ->
+          %{error: error}
+      end
 
-        else
-         {:error, error} ->
-           %{error: error}
-   end
+    response =
+      case result do
+        {:ok, data} ->
+          %{status: 200, data: data}
 
-   response = case result do
-     {:ok, data} ->
-       %{status: 200, data: data}
+        {:err, error} ->
+          %{status: 404, error: error}
+      end
 
-     {:err, error} ->
-       %{status: 404, error: error}
-   end
+    conn
+    |> put_status(response.status)
+    |> json(response)
+  end
 
-   conn
-   |> put_status(response.status)
-   |> json(response)
- end
-
-  def update_invite(conn, %{"guests" => guests,"invitation" => invitation}) do
-
+  def update_invite(conn, %{"guests" => guests, "invitation" => invitation}) do
     invitation = repo_update_invitation(invitation)
+
     if invitation.accepted == true do
       repo_update_guests(invitation, guests)
     end
@@ -84,16 +87,15 @@ defmodule WedsiteWeb.ApiController do
   end
 
   def update_email(conn, %{"code" => code, "email" => email}) do
+    {:ok, invitation} = get_invitation_by_code(code)
 
-      {:ok, invitation} = get_invitation_by_code(code)
+    invitation
+    |> Ecto.Changeset.change(email: email)
+    |> Repo.update!()
 
-      invitation
-      |> Ecto.Changeset.change(email: email)
-      |> Repo.update!()
-
-      conn
-      |> put_status(200)
-      |> json(%{"status" => "ok"})
+    conn
+    |> put_status(200)
+    |> json(%{"status" => "ok"})
   end
 
   defp repo_update_invitation(%{"id" => id, "accepted" => accepted, "preferedLang" => lang}) do
@@ -108,7 +110,6 @@ defmodule WedsiteWeb.ApiController do
   end
 
   defp upsert_guest(%{"id" => id} = guest, invitation_id) do
-
     if id == nil do
       %Guest{invitation_id: invitation_id}
     else
@@ -119,14 +120,14 @@ defmodule WedsiteWeb.ApiController do
   end
 
   def code(conn, %{"code" => code}) do
+    result =
+      case get_invitation_by_code(code) do
+        {:error, _} ->
+          %{"found" => false}
 
-    result = case get_invitation_by_code(code) do
-      {:error, _} ->
-        %{"found" => false}
-
-      {:ok, _} ->
-        %{"found" => true}
-    end
+        {:ok, _} ->
+          %{"found" => true}
+      end
 
     conn
     |> put_status(200)

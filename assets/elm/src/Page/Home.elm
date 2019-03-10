@@ -33,8 +33,8 @@ init session =
       , activeModal = Nothing
       , activeTab = Location
       , time = Time.millisToPosix 0
-      , zone = Time.utc
-      , weddingDay = Time.millisToPosix 1567846800000
+      , zone = Time.utc 
+      , weddingDay = Time.millisToPosix 1567854000000
       }
     , Cmd.batch
         [ Gmaps.initMaps <| Loc.encode locations
@@ -120,10 +120,13 @@ viewHero model lang =
                 [ text <| Translations.date lang ]
             ]
         , div [ class "landingCountdown" ]
-            [ h1 [ class <| Styles.counterFormatting ++ " has-text-centered mb-2" ]
-                [ p [] [ text <| Translations.timeLeft lang ]
-                , countDown
-                ]
+            [ if Time.posixToMillis model.time == 0 then
+                 h1 [] [] 
+            else 
+                h1 [ class <| Styles.counterFormatting ++ " has-text-centered mb-2" ]
+                    [ p [] [ text <| Translations.timeLeft lang ]
+                    , countDown
+                    ]
             , p [ class <| Styles.landingPageMiddle ++ " has-text-centered mb-2" ]
                 [ text <| Translations.pleaseRSVP lang ]
             ]

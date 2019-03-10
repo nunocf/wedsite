@@ -44,7 +44,7 @@
     "twelveAMDesc": [
         "Skup mladinih svatova",
         "Prvomajska 64",
-        "Ukoliko ste sa mladine straane ovo je Vaša prva lokacija! Po dolasku ostatka svatova, verujemo da ćete uživati u mladoženjinim pokušajima da se iscenjka za tatinu mezimicu. Dobrodošli ste da učestvujete u nadmetanju na bilo čijoj strani."
+        "Ukoliko ste sa mladine strane ovo je Vaša prva lokacija! Po dolasku ostatka svatova, verujemo da ćete uživati u mladoženjinim pokušajima da se iscenjka za tatinu mezimicu. Dobrodošli ste da učestvujete u nadmetanju na bilo čijoj strani."
     ],
     "twoPM": "14h",
     "twoPMDesc": [
@@ -153,7 +153,8 @@
     "motorbikeTitle": "Bicikl",
     "motorbike": [
         "Ako ste avanturističkog duha ovo može biti odlična opcija! Vreme u septembru je generalno toplo i suvo tako da će i sam put biti prijatan. Po dolasku Vas očekuju brufen, voda i šećer u neograničenim količinama.",
-        "Naravno i sva slava ovakvog poduhvata, jer i mi volimo dvotočkaše svih oblika! 🏍🏍🏍"
+        "Naravno i sva slava ovakvog poduhvata, jer i mi volimo dvotočkaše svih oblika! 🏍🏍🏍",
+        ""
     ],
     "walkAndSwimTitle": "Pešice",
     "walkAndSwim": [
@@ -225,7 +226,7 @@
     "joiningUs": ", da li ćete nam se pridružiti?",
     "hellYes": "Naravno da DA 🎉",
     "hellNo": "Ne, ipak imam neodložna posla.",
-    "additionalGuest": "Dodatni gost",
+    "additionalGuest": "Ime gosta",
     "whoComes": "Ko dolazi?",
     "comingSubmit": "Nastavi",
     "lowPrice": "€",

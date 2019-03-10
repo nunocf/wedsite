@@ -172,7 +172,7 @@ ourStory20 lang  =
   case lang of 
       En -> "he also had the ability to do Terminal magic."
       Pt -> "mas também conseguia fazer magia no Terminal."
-      Rs -> "Veće i baratao magijom Terminala."
+      Rs -> "Već je i baratao magijom Terminala."
 
 ourStory21: Lang -> String
 ourStory21 lang  =
@@ -200,7 +200,7 @@ ourStory24 lang  =
   case lang of 
       En -> "with the boy’s additional help"
       Pt -> "com a ajuda do rapaz"
-      Rs -> "Dok joj je momče spremao"
+      Rs -> "Dok joj je momče spremalo"
 
 ourStory25: Lang -> String
 ourStory25 lang  =
@@ -221,7 +221,7 @@ ourStory27 lang  =
   case lang of 
       En -> "to fight against all future monsters together."
       Pt -> "de enfrentar os futuros desafios unidos."
-      Rs -> "Da sve buduće ale pobeđuju zajedno."
+      Rs -> "Da sve buduće Ale pobeđuju zajedno."
 
 ourStory28: Lang -> String
 ourStory28 lang  =
@@ -261,9 +261,9 @@ elevenAMDesc0 lang  =
 elevenAMDesc1: Lang -> String
 elevenAMDesc1 lang  =
   case lang of 
-      En -> "Brigadira Ristica B2 L9"
-      Pt -> "Brigadira Ristica B2 L9"
-      Rs -> "Brigadira Ristića B2 L9"
+      En -> "Brigadira Ristica B2 L9, apt 5"
+      Pt -> "Brigadira Ristica B2 L9, apt 5"
+      Rs -> "Brigadira Ristića B2 L9, stan 5"
 
 elevenAMDesc2: Lang -> String
 elevenAMDesc2 lang  =
@@ -284,7 +284,7 @@ twelveAMDesc0 lang  =
   case lang of 
       En -> "Bride pickup"
       Pt -> "Encontro na casa da noiva"
-      Rs -> "Stižemo po mladu"
+      Rs -> "Skup mladinih svatova"
 
 twelveAMDesc1: Lang -> String
 twelveAMDesc1 lang  =
@@ -298,7 +298,7 @@ twelveAMDesc2 lang  =
   case lang of 
       En -> "Whether you are on Bride’s side starting your day here or you’ve just arrived with the Groom you’ll be able to witness the rowdy haggling where the Best Man and Grooms’ brother try to outsmart the Bride's family to lower her purchasing price. You are welcome to participate with witty ideas for either side."
       Pt -> "Não importa de que lado vens, aqui vais poder testemunhar o regateio para comprar a noiva. O padrinho e um amigo escolhido do noivo tentam baixar o preço da noiva. És mais que bem vindo a ajudar qualquer um dos lados a fechar o negócio."
-      Rs -> "Bez obzira sa čije ste strane, verujemo da ćete uživati u mladoženjinim pokušajima da se iscenjka za tatinu mezimicu. Dobrodošli ste da učestvujete u nadmetanju na bilo čijoj strani."
+      Rs -> "Ukoliko ste sa mladine strane ovo je Vaša prva lokacija! Po dolasku ostatka svatova, verujemo da ćete uživati u mladoženjinim pokušajima da se iscenjka za tatinu mezimicu. Dobrodošli ste da učestvujete u nadmetanju na bilo čijoj strani."
 
 twoPM: Lang -> String
 twoPM lang  =
@@ -361,7 +361,7 @@ fourPMDesc2 lang  =
   case lang of 
       En -> "Continuing in the “I DO” fashion, our couple becomes joint in the eyes of the state as well. Get the party going while they take some very artistic photos in the gardens and enjoy the traditional appetizers. We are staying here for the rest of this day and night. Be prepared to bust a move, enjoy two dinners and more cake than a human can handle!"
       Pt -> "E aqui é onde o casal dá o nó aos olhos do estado. Começa a festa enquanto eles tiram umas fotos super artísticas nos jardins proibídos e disfruta de uns aperitivos e rakija. Ficamos aqui o resto do dia/noite, portanto prepara o pé de dança, prepara-te para dois jantares e bolo até te sair comida pelas orelhas!"
-      Rs -> "Nakon državne ceremonije uz nezaboravne stihove Duška Radovića, nadoknadite izgubljenu snagu predjelo i pokrenite proslavu dok se mladenci i sulikaju koji put da bi imali čime da se hvale unucima jednog lepog dana."
+      Rs -> "Nakon državne ceremonije uz nezaboravne stihove Duška Radovića, nadoknadite izgubljenu snagu predjelo i pokrenite proslavu dok se mladenci slikaju koji put da bi imali čime da se hvale unucima jednog lepog dana."
 
 travellingHeader: Lang -> String
 travellingHeader lang  =
@@ -830,7 +830,7 @@ bus4 lang  =
   case lang of 
       En -> "As there’s no English website choose the date of travel from the drop down menu and specify are you looking for arrivals to Novi Sad (DOLASCI) or departures from Novi Sad (POLASCI) and start typing the name of the city you are interested in. "
       Pt -> "Se não fores fluente em sérvio (compreensível!), para usares o site escolhe a data da viagem e seleciona Chegadas (DOLASCI) ou Partidas (POLASCI) para Novi Sad e escolhe a cidade para que pretendes viajar. "
-      Rs -> "Alternativno, možete koristiti usluge “divljih taksija” koji se obično nalaze ispred autobuske stanice u Novom Sadu ili kod cvetne pijace u Borči."
+      Rs -> "Alternativno, možete koristiti usluge “divljih taksija” koji se obično nalaze ispred autobuske stanice u Novom Sadu ili kod Cvetne pijace u Borči."
 
 bus5: Lang -> String
 bus5 lang  =
@@ -935,7 +935,7 @@ motorbike1 lang  =
   case lang of 
       En -> "Paramedics and sugary water will be available upon reaching the destination. And all the glory of course, we love bikes! 🏍"
       Pt -> "Garantimos médicos, água com açúcar e rakija para ajudar com a recuperação motoqueira, juntamente com um incrível respeito."
-      Rs -> "Naravno i sva slava ovakovog poduhvata, jer i mi volimo dvotočkaše svih oblika! 🏍🏍🏍"
+      Rs -> "Naravno i sva slava ovakvog poduhvata, jer i mi volimo dvotočkaše svih oblika! 🏍🏍🏍"
 
 motorbike2: Lang -> String
 motorbike2 lang  =
@@ -1327,7 +1327,7 @@ additionalGuest lang  =
   case lang of 
       En -> "Additional guest"
       Pt -> "Acompanhante extra"
-      Rs -> "Dodatni gost"
+      Rs -> "Ime gosta"
 
 whoComes: Lang -> String
 whoComes lang  =

@@ -12,8 +12,6 @@ import "../css/svg.css"
 import { Elm } from "../elm/src/Main.elm"
 
 
-
-
 const app = Elm.Main.init({
     flags: { language: getLanguage() },
     node: document.getElementById("elm-main")
