@@ -59,21 +59,21 @@ ourStory4: Lang -> String
 ourStory4 lang  =
   case lang of 
       En -> "who refused to eat her vegetables."
-      Pt -> "que não gostava de legumes."
+      Pt -> "que não gostava de legumes"
       Rs -> "Živela je devojka koja je odbijala da jede povrće."
 
 ourStory5: Lang -> String
 ourStory5 lang  =
   case lang of 
       En -> "And a boy who nearly got broccoli"
-      Pt -> "E um jovem rapaz decidido"
+      Pt -> "e um jovem rapaz decidido"
       Rs -> "I momče koje je jelo spanać,"
 
 ourStory6: Lang -> String
 ourStory6 lang  =
   case lang of 
       En -> "to the point of extinction."
-      Pt -> "a levar os bróculos à extinção."
+      Pt -> "a levar os brócolos à extinção."
       Rs -> "Češće nego Popaj."
 
 ourStory7: Lang -> String
@@ -94,14 +94,14 @@ ourStory9: Lang -> String
 ourStory9 lang  =
   case lang of 
       En -> "but Rapivab didn't work,"
-      Pt -> "mas Rapivab não funcionou"
+      Pt -> "mas o Rapivab não funcionou"
       Rs -> "Kome ni Rapivab nije mogao izaći na megdan"
 
 ourStory10: Lang -> String
 ourStory10 lang  =
   case lang of 
       En -> "So Excalibur was still stuck in the stone."
-      Pt -> "e a Excalibur continua presa na pedra."
+      Pt -> "e a Excalibur continuou presa na pedra."
       Rs -> "Ali avaj! Markovog buzdovana nigde nije bilo."
 
 ourStory11: Lang -> String
@@ -206,7 +206,7 @@ ourStory25: Lang -> String
 ourStory25 lang  =
   case lang of 
       En -> "of counting her macros"
-      Pt -> "a dar apoio nos bastidores."
+      Pt -> "que deu apoio nos bastidores."
       Rs -> "Užinu za poneti"
 
 ourStory26: Lang -> String
@@ -269,7 +269,7 @@ elevenAMDesc2: Lang -> String
 elevenAMDesc2 lang  =
   case lang of 
       En -> "If you are on the Groom’s side this is where you start your day. Marvel at his glorious suit and head over to the Bride’s honking all the way!"
-      Pt -> "Se vens do lado do noivo, aqui é o melhor sítio para começar a festa. Descobre a cor das meias dele e segue para a casa da noiva buzinar que nem um louco!"
+      Pt -> "Se vens do lado do noivo, aqui é o melhor sítio para começar a festa. Descobre a cor das meias dele e segue para a casa da noiva a buzinar que nem um louco!"
       Rs -> "Ako se priključujete veselju sa mladoženjine strane, ovde ćete započeti svoj dan. Uživajte u pogledu na tu zanosnu bradu i pružite trubi Vaših kola zadovoljstvo da peva iz sveg glasa!"
 
 twelveAM: Lang -> String
@@ -331,8 +331,8 @@ twoPMDesc2 lang  =
 twoPMDesc3: Lang -> String
 twoPMDesc3 lang  =
   case lang of 
-      En -> "Here our couple to be will saying their first “I DOs” of the day in a lovely orthodox church from 1700s. A word of advice, if you are a lady it is respectful to enter with covered shoulders and back and if you are gentleman have sleeves and trousers covering the knees. When entering the church women stay on the left side and men on the right."
-      Pt -> "Aqui, o casal dá o nó religioso numa belíssima igreja do século XVII. Um conselho: por uma questão de respeito, as mulheres devem entrar com os ombros e as costas tapadas e os homens devem trazer manga comprida e calções abaixo dos joelhos. Quando entrarem na igreja, as mulheres vão para o lado esquerdo, e os homens para o lado direito."
+      En -> "Here our couple to be will be saying their first “I DOs” of the day in a lovely orthodox church from 1700s. A word of advice, if you are a lady it is respectful to enter with covered shoulders and back and if you are gentleman have sleeves and trousers covering the knees. When entering the church women stay on the left side and men on the right."
+      Pt -> "Aqui, o casal dá o nó religioso numa belíssima igreja do século XVII. Um conselho: por uma questão de respeito, as mulheres devem entrar com os ombros e costas tapadas e os homens devem trazer manga comprida e calças ou calções abaixo dos joelhos. Quando entrarem na igreja, as mulheres ficam do lado esquerdo, e os homens do lado direito."
       Rs -> "Prvi zvanični zajednički koraci će biti načinjeni u ovoj simpatičnoj pravoslavnoj crkvi podignutoj u XVIII veku. Skrećemo pažnju da bi dame trebale da uđu u crkvu pokrivenih ramena i leđa i da se postave sa leve strane oltara, dok gospoda trebaju da se pojave u pantalonama koje pokrivaju kolena i da zauzmu mesta sa desne strane oltara."
 
 fourPM: Lang -> String
@@ -360,7 +360,7 @@ fourPMDesc2: Lang -> String
 fourPMDesc2 lang  =
   case lang of 
       En -> "Continuing in the “I DO” fashion, our couple becomes joint in the eyes of the state as well. Get the party going while they take some very artistic photos in the gardens and enjoy the traditional appetizers. We are staying here for the rest of this day and night. Be prepared to bust a move, enjoy two dinners and more cake than a human can handle!"
-      Pt -> "E aqui é onde o casal dá o nó aos olhos do estado. Começa a festa enquanto eles tiram umas fotos super artísticas nos jardins proibídos e disfruta de uns aperitivos e rakija. Ficamos aqui o resto do dia/noite, portanto prepara o pé de dança, prepara-te para dois jantares e bolo até te sair comida pelas orelhas!"
+      Pt -> "E aqui é onde o casal dá o nó aos olhos do estado. Começa a festa. Enquanto eles tiram umas fotos super artísticas nos jardins proíbidos, disfruta de uns aperitivos e de umas rakijas. Ficamos aqui o resto do dia/noite, portanto prepara o pé de dança, prepara-te para dois jantares e bolo até te sair comida pelas orelhas!"
       Rs -> "Nakon državne ceremonije uz nezaboravne stihove Duška Radovića, nadoknadite izgubljenu snagu predjelo i pokrenite proslavu dok se mladenci slikaju koji put da bi imali čime da se hvale unucima jednog lepog dana."
 
 travellingHeader: Lang -> String
@@ -1389,7 +1389,7 @@ mrMrsFerreira: Lang -> String
 mrMrsFerreira lang  =
   case lang of 
       En -> "After a careful but not too long deliberation, soon to be Mrs. and Mr. Ferreira have decided to tie the knot and are delighted to invite you to their very-much-DIY wedding and all night party."
-      Pt -> "Nós, os futuros Ferreiras decidimos dar o nó e achamos que a ocasião merece farra pela noite dentro. Vem festejar conosco!"
+      Pt -> "Nós, os futuros Ferreiras decidimos dar o nó e achamos que a ocasião merece farra pela noite dentro. Vem festejar connosco!"
       Rs -> "Nakon pažljivog ali ne predugog razmatranja, budući bračni par Ferreira je odlučio da stane na ludi kamen. Ovom prilikom ste toplo pozvani da se priključite činu venčanja i ludoj žurci posle"
 
 date: Lang -> String

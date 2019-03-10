@@ -637,7 +637,6 @@ textarea,
 	grid-area: descText;
 
 	justify-self: center;
-
 }
 
 .textContainerL2 {
@@ -957,8 +956,8 @@ textarea,
 			"board st"
 			"descText descText";
 
-		row-gap: 2rem;
-		padding-left: 2rem;
+		row-gap: 1rem;
+		padding: 0 2rem 0 2rem;
 		
 	}
 	
@@ -969,8 +968,9 @@ textarea,
 		"st board"
 		"descText descText";
 
-		row-gap: 2rem;
-		padding-right: 2rem;
+		row-gap: 1rem;
+		padding: 0 2rem 0 2rem;
+
 	}
 
 	.travellingContent {

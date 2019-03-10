@@ -6,13 +6,13 @@
         "Entre montanhas de cenouras",
         "e bifes mal passados,",
         "havia uma rapariga",
-        "que não gostava de legumes.",
-        "E um jovem rapaz decidido",
-        "a levar os bróculos à extinção.",
+        "que não gostava de legumes",
+        "e um jovem rapaz decidido",
+        "a levar os brócolos à extinção.",
         "Ela tinha uma nobre missão científica:",
         "erradicar a poderosa Hepatite E,",
-        "mas Rapivab não funcionou",
-        "e a Excalibur continua presa na pedra.",
+        "mas o Rapivab não funcionou",
+        "e a Excalibur continuou presa na pedra.",
         "Ela estava desesperada por uma arma,",
         "capaz de funcionar no reino efémero",
         "das distribuiçōes logarítmicas.",
@@ -27,7 +27,7 @@
         "a Calculadora nasceu",
         "e a rapariga lutou contra o vírus",
         "com a ajuda do rapaz",
-        "a dar apoio nos bastidores.",
+        "que deu apoio nos bastidores.",
         "Finalmente, eles chegaram ao acordo",
         "de enfrentar os futuros desafios unidos.",
         "Portanto, vem celebrar esta estória inacabada.",
@@ -38,7 +38,7 @@
     "elevenAMDesc": [
         "Encontro na casa do Noivo",
         "Brigadira Ristica B2 L9, apt 5",
-        "Se vens do lado do noivo, aqui é o melhor sítio para começar a festa. Descobre a cor das meias dele e segue para a casa da noiva buzinar que nem um louco!"
+        "Se vens do lado do noivo, aqui é o melhor sítio para começar a festa. Descobre a cor das meias dele e segue para a casa da noiva a buzinar que nem um louco!"
     ],
     "twelveAM": "12h",
     "twelveAMDesc": [
@@ -51,13 +51,13 @@
         "Cerimónia na igreja",
         "Igreja da Aparição da Virgem Maria",
         "Cara Dušana 82",
-        "Aqui, o casal dá o nó religioso numa belíssima igreja do século XVII. Um conselho: por uma questão de respeito, as mulheres devem entrar com os ombros e as costas tapadas e os homens devem trazer manga comprida e calções abaixo dos joelhos. Quando entrarem na igreja, as mulheres vão para o lado esquerdo, e os homens para o lado direito."
+        "Aqui, o casal dá o nó religioso numa belíssima igreja do século XVII. Um conselho: por uma questão de respeito, as mulheres devem entrar com os ombros e costas tapadas e os homens devem trazer manga comprida e calças ou calções abaixo dos joelhos. Quando entrarem na igreja, as mulheres ficam do lado esquerdo, e os homens do lado direito."
     ],
     "fourPM": "16h",
     "fourPMDesc": [
         "Cerimónia civil",
         "Castelo Kaštel, Ečka",
-        "E aqui é onde o casal dá o nó aos olhos do estado. Começa a festa enquanto eles tiram umas fotos super artísticas nos jardins proibídos e disfruta de uns aperitivos e rakija. Ficamos aqui o resto do dia/noite, portanto prepara o pé de dança, prepara-te para dois jantares e bolo até te sair comida pelas orelhas!"
+        "E aqui é onde o casal dá o nó aos olhos do estado. Começa a festa. Enquanto eles tiram umas fotos super artísticas nos jardins proíbidos, disfruta de uns aperitivos e de umas rakijas. Ficamos aqui o resto do dia/noite, portanto prepara o pé de dança, prepara-te para dois jantares e bolo até te sair comida pelas orelhas!"
     ],
     "travellingHeader": "Como chegar até nós?",
     "travellingSubtitle": [
@@ -235,7 +235,7 @@
     "location": "Coordenadas",
     "coordinatesLink": "https://en.wikipedia.org/wiki/Zrenjanin",
     "doingIt": "Boas notícias!",
-    "mrMrsFerreira": "Nós, os futuros Ferreiras decidimos dar o nó e achamos que a ocasião merece farra pela noite dentro. Vem festejar conosco!",
+    "mrMrsFerreira": "Nós, os futuros Ferreiras decidimos dar o nó e achamos que a ocasião merece farra pela noite dentro. Vem festejar connosco!",
     "date": "7 de setembro de 2019 em Zrenjanin, Sérvia",
     "next": "Próximo!",
     "dietQuestion": ", tens uma dieta predilecta?",

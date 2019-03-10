@@ -2,7 +2,7 @@
   "repository": {},
   "license": "MIT",
   "scripts": {
-    "deploy": "./node_modules/webpack/bin/webpack.js --mode=production",
+    "deploy": "./node_modules/webpack/bin/webpack.js --mode=development",
     "watch": "./node_modules/webpack/bin/webpack.js --mode=development --watch --progress --color"
   },
   "dependencies": {
