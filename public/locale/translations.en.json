@@ -37,7 +37,7 @@
     "elevenAM": "11am",
     "elevenAMDesc": [
         "Groom’s side meetup",
-        "Brigadira Ristica B2 L9",
+        "Brigadira Ristica B2 L9, apt 5",
         "If you are on the Groom’s side this is where you start your day. Marvel at his glorious suit and head over to the Bride’s honking all the way!"
     ],
     "twelveAM": "12am",
@@ -76,6 +76,7 @@
     "londonLuton": "London Luton",
     "londonHeathrow": "London Heathrow",
     "easyJet": "EasyJet",
+    "easyJetUrl": "https://www.easyjet.com/en/",
     "wizzAir": "WizzAir",
     "wizzAirUrl": "https://wizzair.com/en-gb#/",
     "airSerbia": "AirSerbia",
@@ -92,7 +93,7 @@
     "aegaen": "Aegaen",
     "aegaenUrl": "https://www.vueling.com/pt",
     "and": "e",
-    "airSerbiaUrl": "",
+    "airSerbiaUrl": "https://www.airserbia.com/en",
     "ryanAir": "RyanAir",
     "ryanAirUrl": "https://www.ryanair.com/pt/pt/",
     "mainAirportSecondParagraph": [
@@ -107,15 +108,18 @@
     ],
     "etc": "etc.",
     "timisoaraAirport": "Traian Vuia Timisoara Airport",
+    "timisoaraUrl": "https://aerotim.ro/en/",
     "romania": "Romania",
     "budapest": "Budapest",
     "hungary": "Hungary",
     "budapestAirport": "Ferenc Liszt Airport",
+    "budapestUrl": "https://www.bud.hu/en",
     "otherAirports": "Other airports of interest are ",
     "romaniaAirportDistance": " (120 km from the destination) and ",
     "budapestAirportDistance": " (330km from the destination).",
     "publicTravelFromAirport": " In both cases keep in mind that you will need additional transportation service to reach Serbia with fixed price of 15€ from Timisoara and 25€ from Budapest when using ",
     "geaTravel": " GeaTravel Services",
+    "geaTravelUrl": "https://geatravel.rs/",
     "trainsTitle": "Trains",
     "trains": [
         "For easiest coordination please visit the ",
@@ -126,7 +130,7 @@
     "trainTimetableUrl": "http://w3.srbrail.rs/ZSRedVoznje/en",
     "busTitle": "Bus",
     "bus": [
-        "If you are not a big fan of the gentle rocking of the train and prefer to stay on the road, consider checking out the bus service. ",
+        "If you're not a big fan of the gentle rocking of the train and prefer to stay on the road, consider checking out the bus service. ",
         "As for the train, we recommend arriving at either Novi Sad or Belgrade. ",
         "You can have a look at the ",
         " of the Novi Sad bus stop. ",
@@ -146,10 +150,11 @@
         "If you decide to drive we recommend taking some extra time to make stops at some interesting destinations. ",
         "Depending on where are you traveling from it will take you around two full days of driving, if coming from west Europe (eg. London - Zrenjanin distance 2000 km) or a very intense one day if coming from central Europe (eg. Frankfurt - Zrenjanin distance 1200km)."
     ],
-    "motorbikeTitle": "Bike/Motorbike",
+    "motorbikeTitle": "Bike",
     "motorbike": [
         "If feeling super enthusiastic venture out with your two wheeled best friend! Weather in September is warm and dry in the most of Europe and this could easily be a week long trip to tell the grandkids about. ",
-        "Paramedics and sugary water will be available upon reaching the destination. And all the glory of course, we love bikes! 🏍 Don't forget to show us the pictures!"
+        "Paramedics and sugary water will be available upon reaching the destination. And all the glory of course, we love bikes! 🏍",
+        " Don't forget to show us the pictures!"
     ],
     "walkAndSwimTitle": "Walk & swim",
     "walkAndSwim": [
@@ -230,7 +235,7 @@
     "location": "Location",
     "coordinatesLink": "https://en.wikipedia.org/wiki/Zrenjanin",
     "doingIt": "We are doing it!",
-    "mrMrsFerreira": "After a careful but not too long deliberation, soon to be Mrs. and Mr. Ferreira have decided to tie the knot and are delighted to invite you to their very-much-DIY wedding and all night party on the",
+    "mrMrsFerreira": "After a careful but not too long deliberation, soon to be Mrs. and Mr. Ferreira have decided to tie the knot and are delighted to invite you to their very-much-DIY wedding and all night party.",
     "date": "7th of September 2019 in Zrenjanin, Serbia",
     "next": "Next!",
     "dietQuestion": ", what is your prefered diet?",

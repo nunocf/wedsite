@@ -42,7 +42,7 @@ type alias Guest =
 
 
 type alias ID =
-    String
+    Int
 
 
 type alias Name =
@@ -78,7 +78,7 @@ type alias Allergies =
 
 
 type alias Invitation =
-    { id : String
+    { id : ID
     , code : Code
     , preferedLang : Lang
     , maxGuests : Int
@@ -112,7 +112,7 @@ type alias AdditionalGuest =
 decodeInvitation : Decoder Invitation
 decodeInvitation =
     Decode.succeed Invitation
-        |> required "id" Decode.string
+        |> required "id" Decode.int
         |> required "code" Decode.string
         |> required "lang" Language.langDecoder
         |> required "max_guests" Decode.int
@@ -129,7 +129,7 @@ decodeGuest =
         |> required "has_food_allergies" (nullable Decode.bool)
         |> optional "food_allergy_notes" Decode.string ""
         |> required "coming" (nullable Decode.bool)
-        |> optional "id" Decode.string ""
+        |> optional "id" Decode.int 0
         |> resolve
 
 
@@ -276,7 +276,7 @@ encodeGuestsDetailsForm { guests, invitation } =
 
 additionalGuestToGuest : AdditionalGuest -> Guest
 additionalGuestToGuest { name, coming } =
-    Guest "" name Nothing Nothing (Just coming)
+    Guest 0 name Nothing Nothing (Just coming)
 
 
 encodeInvitation : Invitation -> Encode.Value
@@ -291,7 +291,7 @@ encodeInvitation { id, code, preferedLang, accepted } =
                     Encode.null
     in
     Encode.object
-        [ ( "id", Encode.string id )
+        [ ( "id", Encode.int id )
         , ( "code", Encode.string code )
         , ( "preferedLang", Language.langEncoder preferedLang )
         , ( "accepted", encodedAccepted )
@@ -311,11 +311,11 @@ encodeGuest { id, name, diet, allergies, coming } =
     in
     Encode.object
         ([ ( "id"
-           , if id == "" then
+           , if id == 0 then
                 Encode.null
 
              else
-                Encode.string id
+                Encode.int id
            )
          , ( "name", Encode.string name )
          , ( "coming", encodedComing )

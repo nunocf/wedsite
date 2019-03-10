@@ -47,8 +47,7 @@ navbarLink page route linkContent extraClass =
     in
     div
         [ classList
-            [
-             ( "active", active )
+            [ ( "active", active )
             , ( "is-size-2", True )
             , ( "font-amatic", True )
             , ( "font-heavy", True )

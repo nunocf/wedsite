@@ -1,6 +1,7 @@
 module Styles exposing
     ( accomodationGridItem
     , accomodationSection
+    , counterFormatting
     , currentSelection
     , dropdownContainer
     , dropdownContent
@@ -10,6 +11,7 @@ module Styles exposing
     , formSection
     , headingFormatting
     , hero
+    , landingPageHeading
     , landingPageMiddle
     , modalButton
     , ourStory
@@ -22,8 +24,6 @@ module Styles exposing
     , travelMenuItem
     , travelMenuItemLast
     , travellingSection
-    , landingPageHeading
-    , counterFormatting
     )
 
 
@@ -95,35 +95,36 @@ dropdownListItem =
 
 hero : String
 hero =
-    [ "hero", "is-fullheight", "backgroundLanding", "landingContainer"]
+    [ "hero", "is-fullheight", "backgroundLanding", "landingContainer" ]
         |> String.join " "
 
 
 ourStory : String
 ourStory =
-    [ "hero", "is-fullheight"
-     ]
+    [ ]
         |> String.join " "
 
 
 scheduleSection : String
 scheduleSection =
-    [ "hero", "is-fullheight"
+    [ "hero"
+    , "is-fullheight"
     ]
         |> String.join " "
 
 
 travellingSection : String
 travellingSection =
-    [ 
-        ]
+    []
         |> String.join " "
 
 
 accomodationSection : String
 accomodationSection =
-    [ "hero", "is-fullheight"
-    ] |> String.join " "
+    [ "hero"
+    , "is-fullheight"
+    ]
+        |> String.join " "
 
 
 formSection : String
@@ -142,22 +143,28 @@ headingFormatting =
     [ "has-text-weight-semibold"
     , "font-heading"
     , "color-heading"
+    , "lh1-2"
     ]
         |> String.join " "
 
+
 landingPageHeading : String
 landingPageHeading =
-    ["has-text-weight-semibold",
-    "font-size-landing",
-    "color-heading"]
+    [ "has-text-weight-semibold"
+    , "font-size-landing"
+    , "color-heading"
+    ]
         |> String.join " "
+
 
 counterFormatting : String
 counterFormatting =
-    ["has-text-weight-semibold",
-    "font-counter-landing",
-    "color-heading"]
+    [ "has-text-weight-semibold"
+    , "font-counter-landing"
+    , "color-heading"
+    ]
         |> String.join " "
+
 
 landingPageMiddle : String
 landingPageMiddle =

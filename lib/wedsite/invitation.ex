@@ -5,8 +5,6 @@ defmodule Wedsite.Invitation do
 
   @derive {Jason.Encoder, only: [:id, :code, :lang, :max_guests, :guest_count, :children_count, :accepted]}
 
-  @primary_key {:id, :binary_id, autogenerate: true}
-  @foreign_key_type :binary_id
   schema "invitations" do
     field :code, :string
     field :lang, :string, default: "EN"

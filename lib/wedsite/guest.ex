@@ -5,8 +5,6 @@ defmodule Wedsite.Guest do
 
   @derive {Jason.Encoder, only: [:id, :diet_notes, :coming, :food_choice, :diet_type, :has_food_allergies, :food_allergy_notes, :name]}
 
-  @primary_key {:id, :binary_id, autogenerate: true}
-  @foreign_key_type :binary_id
   schema "guests" do
     field :diet_notes, :string
     field :food_choice, :string

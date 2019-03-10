@@ -12,7 +12,7 @@ view : Model -> Lang -> Html Msg
 view model lang =
     div [ class "has-text-centered" ]
         [ div [ class "travellingGrid" ]
-            [ div [ class "travelTitle pb-2" ]
+            [ div [ class "travelTitle mb-2" ]
                 [ h1 [ class <| Styles.headingFormatting ]
                     [ text <| Translations.travellingHeader lang ]
                 ]
@@ -204,16 +204,16 @@ ptCloseAirports lang =
     in
     [ p [ class "text-justified mb-1" ]
         [ text <| Translations.mainAirportSecondParagraph0 lang
-        , a [ target "_blank", href <| Translations.wizzAirUrl lang ] [ text <| Translations.wizzAir lang ]
+        , wizzAirLink lang
         , text <| Translations.mainAirportSecondParagraph1 lang
         ]
     , p [ class "text-justified mb-1" ]
         [ text <| Translations.mainAirportSecondParagraph2 lang
-        , a [ href <| Translations.lufthansaUrl lang, target "_blank" ] [ text <| Translations.lufthansa lang ]
+        , lufthansaLink lang
         , text ", "
-        , a [ href <| Translations.tapUrl lang, target "_blank" ] [ text <| Translations.tap lang ]
+        , tapLink lang
         , text ", "
-        , a [ href <| Translations.airSerbiaUrl lang, target "_blank" ] [ text <| Translations.airSerbia lang ]
+        , airSerbiaLink lang
         , text ", "
         , a [ href <| Translations.vuelingUrl lang, target "_blank" ] [ text <| Translations.vueling lang ]
         , text <| Translations.and lang
@@ -222,20 +222,20 @@ ptCloseAirports lang =
         ]
     , p [ class "text-justified mb-1" ]
         [ text <| Translations.mainAirportSecondParagraph3 lang
-        , a [ href <| Translations.ryanAirUrl lang, target "_blank" ] [ text <| Translations.ryanAir lang ]
+        , ryanAirLink lang
         , text ", "
-        , a [ href <| Translations.wizzAirUrl lang, target "_blank" ] [ text <| Translations.wizzAir lang ]
+        , wizzAirLink lang
         , text ", "
-        , a [ href <| Translations.lufthansaUrl lang, target "_blank" ] [ text <| Translations.lufthansa lang ]
+        , lufthansaLink lang
         , text "."
         ]
     , p [ class "text-justified mb-1" ]
         [ text <| Translations.mainAirportSecondParagraph4 lang
-        , a [ href <| Translations.ryanAirUrl lang, target "_blank" ] [ text <| Translations.ryanAir lang ]
+        , ryanAirLink lang
         , text <| Translations.mainAirportSecondParagraph5 lang
-        , a [ href <| Translations.wizzAirUrl lang, target "_blank" ] [ text <| Translations.wizzAir lang ]
+        , wizzAirLink lang
         , text <| Translations.mainAirportSecondParagraph6 lang
-        , a [ href <| Translations.tapUrl lang, target "_blank" ] [ text <| Translations.tap lang ]
+        , tapLink lang
         , text <| Translations.mainAirportSecondParagraph7 lang
         ]
     ]
@@ -259,26 +259,56 @@ enCloseAirports lang =
     in
     [ p [ class "text-justified mb-1" ]
         [ text start
-        , a [] [ text <| Translations.wizzAir lang ]
+        , wizzAirLink lang
         , text <| closeOpen <| Translations.londonHeathrow lang
-        , a [] [ text <| Translations.airSerbia lang ]
+        , airSerbiaLink lang
         , text <| closeOpen <| Translations.mainAirportSecondParagraph1 lang
-        , a [] [ text <| Translations.wizzAir lang ]
+        , wizzAirLink lang
         , text ", "
-        , a [] [ text <| Translations.easyJet lang ]
+        , a [ href <| Translations.easyJetUrl lang, target "_blank" ] [ text <| Translations.easyJet lang ]
         , text ", "
-        , a [] [ text <| Translations.airSerbia lang ]
+        , airSerbiaLink lang
         , text <| closeOpen <| Translations.brussels lang
-        , a [] [ text <| Translations.airSerbia lang ]
+        , airSerbiaLink lang
         , text <| closeOpen <| Translations.eindhoven lang
-        , a [] [ text <| Translations.wizzAir lang ]
+        , wizzAirLink lang
         , text <| closeOpen <| Translations.luqa lang
-        , a [] [ text <| Translations.wizzAir lang ]
+        , wizzAirLink lang
         , text <| closeOpen <| Translations.parisBeauvais lang
-        , a [] [ text <| Translations.wizzAir lang ]
+        , wizzAirLink lang
         , text end
         ]
     ]
+
+
+wizzAirLink : Lang -> Html msg
+wizzAirLink lang =
+    a [ target "_blank", href <| Translations.wizzAirUrl lang ]
+        [ text <| Translations.wizzAir lang ]
+
+
+airSerbiaLink : Lang -> Html msg
+airSerbiaLink lang =
+    a [ href <| Translations.airSerbiaUrl lang, target "_blank" ]
+        [ text <| Translations.airSerbia lang ]
+
+
+ryanAirLink : Lang -> Html msg
+ryanAirLink lang =
+    a [ href <| Translations.ryanAirUrl lang, target "_blank" ]
+        [ text <| Translations.ryanAir lang ]
+
+
+lufthansaLink : Lang -> Html msg
+lufthansaLink lang =
+    a [ href <| Translations.lufthansaUrl lang, target "_blank" ]
+        [ text <| Translations.lufthansa lang ]
+
+
+tapLink : Lang -> Html msg
+tapLink lang =
+    a [ href <| Translations.tapUrl lang, target "_blank" ]
+        [ text <| Translations.tap lang ]
 
 
 planeTravelThirdParagraph : Lang -> Html msg
@@ -286,9 +316,14 @@ planeTravelThirdParagraph lang =
     div []
         [ p [ class "text-justified mb-1" ]
             [ text <| Translations.otherAirports lang
-            , a [] [ text <| Translations.timisoaraAirport lang ]
+            , a
+                [ href <| Translations.timisoaraUrl lang
+                , target "_blank"
+                ]
+                [ text <| Translations.timisoaraAirport lang ]
             , text <| Translations.romaniaAirportDistance lang
-            , a [] [ text <| Translations.budapestAirport lang ]
+            , a [ href <| Translations.budapestUrl lang, target "_blank" ]
+                [ text <| Translations.budapestAirport lang ]
             , text <|
                 Translations.em lang
                     ++ Translations.budapest lang
@@ -296,7 +331,8 @@ planeTravelThirdParagraph lang =
                     ++ Translations.hungary lang
                     ++ Translations.budapestAirportDistance lang
             , text <| Translations.publicTravelFromAirport lang
-            , a [] [ text <| Translations.geaTravel lang ]
+            , a [ href <| Translations.geaTravelUrl lang, target "_blank" ]
+                [ text <| Translations.geaTravel lang ]
             , text "."
             ]
         ]
@@ -416,6 +452,7 @@ bikeText lang =
     div []
         [ p [ class "text-justified mb-1" ] [ text <| Translations.motorbike0 lang ]
         , p [ class "text-justified mb-1" ] [ text <| Translations.motorbike1 lang ]
+        , p [ class "text-justified mb-1" ] [ text <| Translations.motorbike2 lang ]
         ]
 
 
@@ -429,11 +466,8 @@ walkTravel lang =
 walkText : Lang -> Html msg
 walkText lang =
     div []
-        [ p [ class "text-justified mb-1" ]
-            [ text <|
-                Translations.walkAndSwim0 lang
-                    ++ Translations.walkAndSwim1 lang
-            ]
+        [ p [ class "text-justified mb-1" ] [ text <| Translations.walkAndSwim0 lang ]
+        , p [ class "text-justified mb-1" ] [ text <| Translations.walkAndSwim1 lang ]
         ]
 
 
@@ -449,8 +483,9 @@ rentalText lang =
     div []
         [ p [ class "text-justified mb-1" ]
             [ text <|
-                Translations.carRental0 lang
-                    ++ Translations.carRental1 lang
+                Translations.carRental0 lang]
+        , p [ class "text-justified mb-1" ]
+            [ text <| Translations.carRental1 lang
             , a [] [ text <| Translations.novaRent lang ]
             , text <|
                 Translations.carRental2 lang

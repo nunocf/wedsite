@@ -454,6 +454,13 @@ easyJet lang  =
       Pt -> "EasyJet"
       Rs -> ""
 
+easyJetUrl: Lang -> String
+easyJetUrl lang  =
+  case lang of 
+      En -> "https://www.easyjet.com/en/"
+      Pt -> "https://www.easyjet.com/pt/"
+      Rs -> "https://www.easyjet.com/en/"
+
 wizzAir: Lang -> String
 wizzAir lang  =
   case lang of 
@@ -569,7 +576,7 @@ and lang  =
 airSerbiaUrl: Lang -> String
 airSerbiaUrl lang  =
   case lang of 
-      En -> ""
+      En -> "https://www.airserbia.com/en"
       Pt -> "https://www.airserbia.com/en"
       Rs -> ""
 
@@ -657,6 +664,13 @@ timisoaraAirport lang  =
       Pt -> "aeroporto Traian Vuia Timisoara"
       Rs -> ""
 
+timisoaraUrl: Lang -> String
+timisoaraUrl lang  =
+  case lang of 
+      En -> "https://aerotim.ro/en/"
+      Pt -> "https://aerotim.ro/en/"
+      Rs -> ""
+
 romania: Lang -> String
 romania lang  =
   case lang of 
@@ -684,6 +698,13 @@ budapestAirport lang  =
       En -> "Ferenc Liszt Airport"
       Pt -> "aeroporto Ferenc Liszt"
       Rs -> ""
+
+budapestUrl: Lang -> String
+budapestUrl lang  =
+  case lang of 
+      En -> "https://www.bud.hu/en"
+      Pt -> "https://www.bud.hu/en"
+      Rs -> "https://www.bud.hu/en"
 
 otherAirports: Lang -> String
 otherAirports lang  =
@@ -719,6 +740,13 @@ geaTravel lang  =
       En -> " GeaTravel Services"
       Pt -> " GeaTravel Services"
       Rs -> ""
+
+geaTravelUrl: Lang -> String
+geaTravelUrl lang  =
+  case lang of 
+      En -> "https://geatravel.rs/"
+      Pt -> "https://geatravel.rs/"
+      Rs -> "https://geatravel.rs/"
 
 trainsTitle: Lang -> String
 trainsTitle lang  =
@@ -772,7 +800,7 @@ busTitle lang  =
 bus0: Lang -> String
 bus0 lang  =
   case lang of 
-      En -> "If you are not a big fan of the gentle rocking of the train and prefer to stay on the road, consider checking out the bus service. "
+      En -> "If you're not a big fan of the gentle rocking of the train and prefer to stay on the road, consider checking out the bus service. "
       Pt -> "Se não gostas de comboios e preferes andar na estrada, existe a possibilidade de viajar numa camioneta. "
       Rs -> "Najsigurniji način provere rasporeda autobusa je ili preko sajta "
 
@@ -891,9 +919,9 @@ car1 lang  =
 motorbikeTitle: Lang -> String
 motorbikeTitle lang  =
   case lang of 
-      En -> "Bike/Motorbike"
+      En -> "Bike"
       Pt -> "Mota"
-      Rs -> "Motocikl & Bicikl"
+      Rs -> "Bicikl"
 
 motorbike0: Lang -> String
 motorbike0 lang  =
@@ -905,9 +933,16 @@ motorbike0 lang  =
 motorbike1: Lang -> String
 motorbike1 lang  =
   case lang of 
-      En -> "Paramedics and sugary water will be available upon reaching the destination. And all the glory of course, we love bikes! 🏍 Don't forget to show us the pictures!"
-      Pt -> "Garantimos médicos, água com açúcar e rakija para ajudar com a recuperação motoqueira, juntamente com um incrível respeito. Não te esqueças de mostrar as fotos. Nós adoramos motas! 🏍"
+      En -> "Paramedics and sugary water will be available upon reaching the destination. And all the glory of course, we love bikes! 🏍"
+      Pt -> "Garantimos médicos, água com açúcar e rakija para ajudar com a recuperação motoqueira, juntamente com um incrível respeito."
       Rs -> "Naravno i sva slava ovakovog poduhvata, jer i mi volimo dvotočkaše svih oblika! 🏍🏍🏍"
+
+motorbike2: Lang -> String
+motorbike2 lang  =
+  case lang of 
+      En -> " Don't forget to show us the pictures!"
+      Pt -> "Não te esqueças de mostrar as fotos. Nós adoramos motas! 🏍"
+      Rs -> ""
 
 walkAndSwimTitle: Lang -> String
 walkAndSwimTitle lang  =
@@ -921,14 +956,14 @@ walkAndSwim0 lang  =
   case lang of 
       En -> "Aren't you the enthusiast of the party? "
       Pt -> "Tu é que és maluco, chefe! "
-      Rs -> "Hvale vredan podvig! Nemamo šta da dodamo, osim da na vreme potvrdite dolazak pa put pod noge, da ne zakasnite!"
+      Rs -> "Hvale vredan podvig!"
 
 walkAndSwim1: Lang -> String
 walkAndSwim1 lang  =
   case lang of 
       En -> "If this is how you like it, only thing we can say is scroll down to the RSVP page, confirm your arrival, and get going, you don't want to be late!"
       Pt -> "Bem, mas se quiseres mesmo, confirma o RSVP e toca a despachar, senão chegas atrasado!"
-      Rs -> ""
+      Rs -> "Nemamo šta da dodamo, osim da na vreme potvrdite dolazak pa put pod noge, da ne zakasnite!"
 
 carRentalTitle: Lang -> String
 carRentalTitle lang  =
@@ -1353,8 +1388,8 @@ doingIt lang  =
 mrMrsFerreira: Lang -> String
 mrMrsFerreira lang  =
   case lang of 
-      En -> "After a careful but not too long deliberation, soon to be Mrs. and Mr. Ferreira have decided to tie the knot and are delighted to invite you to their very-much-DIY wedding and all night party on the"
-      Pt -> "Nós, os futuros Ferreiras decidimos dar o nó e achamos que a ocasião merece farra pela noite dentro. Junta-te a nós no dia"
+      En -> "After a careful but not too long deliberation, soon to be Mrs. and Mr. Ferreira have decided to tie the knot and are delighted to invite you to their very-much-DIY wedding and all night party."
+      Pt -> "Nós, os futuros Ferreiras decidimos dar o nó e achamos que a ocasião merece farra pela noite dentro. Vem festejar conosco!"
       Rs -> "Nakon pažljivog ali ne predugog razmatranja, budući bračni par Ferreira je odlučio da stane na ludi kamen. Ovom prilikom ste toplo pozvani da se priključite činu venčanja i ludoj žurci posle"
 
 date: Lang -> String
@@ -1522,15 +1557,15 @@ home: Lang -> String
 home lang  =
   case lang of 
       En -> "Home"
-      Pt -> "Home"
+      Pt -> "Início"
       Rs -> "Početna"
 
 rsvp: Lang -> String
 rsvp lang  =
   case lang of 
       En -> "RSVP"
-      Pt -> "RSVP"
-      Rs -> "Potvrdite dolazak"
+      Pt -> "Vens?"
+      Rs -> "Dolazite?"
 
 timeLeft: Lang -> String
 timeLeft lang  =

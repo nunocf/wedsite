@@ -2,8 +2,7 @@ defmodule Wedsite.Repo.Migrations.CreateInvitations do
   use Ecto.Migration
 
   def change do
-    create table(:invitations, primary_key: false) do
-      add :id, :binary_id, primary_key: true
+    create table(:invitations) do
       add :accepted, :boolean
       add :lang, :string, default: "EN"
       add :max_guests, :integer, default: 2
@@ -12,7 +11,7 @@ defmodule Wedsite.Repo.Migrations.CreateInvitations do
       add :code, :string, null: false
       add :email, :string
 
-      timestamps()
+      timestamps(usec: true)
     end
 
   end

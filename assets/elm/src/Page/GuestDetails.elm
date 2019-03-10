@@ -157,7 +157,7 @@ viewDietQuestion lang index guest =
                 div [] []
 
         labelName =
-            "diet-" ++ guest.id
+            "diet-" ++ String.fromInt guest.id
 
         meatId =
             guest.name ++ "meat"
@@ -231,7 +231,7 @@ viewAllergyQuestion lang index guest =
                     div [] []
 
         labelName =
-            "allergies-" ++ guest.id
+            "allergies-" ++ String.fromInt guest.id
 
         allergiesYesId =
             "allergiesYes"
@@ -277,7 +277,7 @@ courseOption lang index guest =
             guest.diet == (Just <| Normal <| Just Meat2)
 
         labelName =
-            "food-choice-" ++ guest.id
+            "food-choice-" ++ String.fromInt guest.id
 
         foodChoiceId =
             guest.name ++ "-food"

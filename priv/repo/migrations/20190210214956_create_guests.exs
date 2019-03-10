@@ -2,8 +2,7 @@ defmodule Wedsite.Repo.Migrations.CreateGuests do
   use Ecto.Migration
 
   def change do
-    create table(:guests, primary_key: false) do
-      add :id, :binary_id, primary_key: true
+    create table(:guests) do
       add :name, :string
       add :diet_type, :string
       add :diet_notes, :string
@@ -11,11 +10,12 @@ defmodule Wedsite.Repo.Migrations.CreateGuests do
       add :food_allergy_notes, :string
       add :food_choice, :string
       add :coming, :boolean
-      add :invitation_id, references(:invitations, on_delete: :nothing, type: :binary_id)
+      add :invitation_id, references(:invitations, on_delete: :nothing)
 
-      timestamps()
+      timestamps(usec: true)
     end
 
     create index(:guests, [:invitation_id])
   end
 end
+

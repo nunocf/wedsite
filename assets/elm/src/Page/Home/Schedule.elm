@@ -1,16 +1,16 @@
 module Page.Home.Schedule exposing (viewBride, viewChurch, viewGroom, viewHeader, viewVenue)
 
+import Asset
 import Html exposing (..)
 import Html.Attributes exposing (attribute, class, height, id, src, type_, width)
 import Styles
 import Translations
-import Asset
 
 
 viewHeader : Translations.Lang -> Html msg
 viewHeader lang =
-    div [ class "has-text-centered" ]
-        [ p [ class <| Styles.headingFormatting ++ " mb-4" ]
+    div [ class "has-text-centered mb-4 mt-2" ]
+        [ p [ class <| Styles.headingFormatting ]
             [ text <| Translations.scheduleTitle lang
             ]
         ]

@@ -120,12 +120,12 @@ viewHero model lang =
                 [ text <| Translations.date lang ]
             ]
         , div [ class "landingCountdown" ]
-            [ h1 [ class <| Styles.counterFormatting ++ " has-text-centered mb-2"]
+            [ h1 [ class <| Styles.counterFormatting ++ " has-text-centered mb-2" ]
                 [ p [] [ text <| Translations.timeLeft lang ]
                 , countDown
                 ]
-            , p [class <| Styles.landingPageMiddle ++ " has-text-centered mb-2" ] 
-                [text <| Translations.pleaseRSVP lang]
+            , p [ class <| Styles.landingPageMiddle ++ " has-text-centered mb-2" ]
+                [ text <| Translations.pleaseRSVP lang ]
             ]
         ]
 
@@ -142,7 +142,6 @@ remainingTimeLeft lang finalTime currentTime =
         remainingMinutes =
             remainingHours - (hoursLeft * hourInMilis)
 
-
         daysLeft =
             milisLeft // dayInMilis
 
@@ -151,7 +150,6 @@ remainingTimeLeft lang finalTime currentTime =
 
         minutesLeft =
             remainingMinutes // minuteInMilis
-
     in
     div [ class "countdownContainer" ]
         [ div []
@@ -169,32 +167,29 @@ remainingTimeLeft lang finalTime currentTime =
         ]
 
 
-
 viewOurStory : Translations.Lang -> Html msg
 viewOurStory lang =
     div [ class <| Styles.ourStory ]
-        [ div [ class "mb-2" ]
-            [ div [ class "ourStoryContainer" ]
-                [ div [ class "flowerSideLeft desktop" ]
-                    [ object [ type_ "image/svg+xml", attribute "data" "svg/flowerstripleft.svg" ] [ text "Your browser does not support SVGs" ]
-                    ]
-                , div [ class "poemViewFrameContainer" ]
-                    [ div [ class "poemViewFrame poemContent" ]
-                        [ div [ class "has-text-centered poemHeader" ]
-                            [ h1 [ class <| String.join " " [ Styles.headingFormatting, "poemTitle" ] ]
-                                [ text <| Translations.ourStoryTitle lang ]
-                            ]
-                        , div [ class "poem1 mt-2" ] [ Poem.viewPoem1 lang ]
-                        , div [ class "poemPicture is-hidden-mobile" ]
-                            [ img [ class "poemPhoto", Asset.src Asset.stonehenge ] []
-                            ]
-                        , div [ class "poem2" ] [ Poem.viewPoem2 lang ]
-                        , div [ class "poem3" ] [ Poem.viewPoem3 lang ]
+        [ div [ class "ourStoryContainer" ]
+            [ div [ class "flowerSideLeft desktop" ]
+                [ object [ type_ "image/svg+xml", attribute "data" "svg/flowerstripleft.svg" ] [ text "Your browser does not support SVGs" ]
+                ]
+            , div [ class "poemViewFrameContainer" ]
+                [ div [ class "poemViewFrame poemContent" ]
+                    [ div [ class "has-text-centered poemHeader" ]
+                        [ h1 [ class <| String.join " " [ Styles.headingFormatting, "poemTitle" ] ]
+                            [ text <| Translations.ourStoryTitle lang ]
                         ]
+                    , div [ class "poem1" ] [ Poem.viewPoem1 lang ]
+                    , div [ class "poemPicture is-hidden-mobile" ]
+                        [ img [ class "poemPhoto", Asset.src Asset.stonehenge ] []
+                        ]
+                    , div [ class "poem2" ] [ Poem.viewPoem2 lang ]
+                    , div [ class "poem3" ] [ Poem.viewPoem3 lang ]
                     ]
-                , div [ class "flowerSideRight  desktop" ]
-                    [ object [ type_ "image/svg+xml", attribute "data" "svg/flowerstripright.svg" ] [ text "Your browser does not support SVGs" ]
-                    ]
+                ]
+            , div [ class "flowerSideRight desktop" ]
+                [ object [ type_ "image/svg+xml", attribute "data" "svg/flowerstripright.svg" ] [ text "Your browser does not support SVGs" ]
                 ]
             ]
         ]

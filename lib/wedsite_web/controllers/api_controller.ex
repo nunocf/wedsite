@@ -16,7 +16,7 @@ defmodule WedsiteWeb.ApiController do
   def get_invite(conn, %{"code" => code}) do
 
      result = with {:ok, invitation} <- get_invitation_by_code(code),
-          guests <- (from g in Ecto.assoc(invitation, :guests), order_by: g.inserted_at) |> Repo.all() do
+          guests <- (from g in Ecto.assoc(invitation, :guests), order_by: g.id) |> Repo.all() do
 
           {:ok, %{
             invitation: invitation,

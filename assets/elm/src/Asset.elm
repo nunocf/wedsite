@@ -1,4 +1,4 @@
-module Asset exposing (Image, apartments, post12h, complete, post15h, post17h, error, hotelVojvodina, kastel, post13h, luxotel, philadelphia, src, stGeorge, stonehenge)
+module Asset exposing (Image, apartments, complete, error, hotelVojvodina, kastel, luxotel, philadelphia, post12h, post13h, post15h, post17h, src, stGeorge, stonehenge)
 
 {-| Assets, like images.
 We should never expose asset URLs directly; this module should be in charge of
@@ -19,59 +19,63 @@ type Image
 
 error : Image
 error =
-    image "error.jpg"
+    image "https://storage.googleapis.com/gingeroak.com/error.jpg"
 
 
 complete : Image
 complete =
-    image "complete.jpg"
+    image "https://storage.googleapis.com/gingeroak.com/complete.jpg"
 
 
 kastel : Image
 kastel =
-    image "kastel.jpeg"
+    image "https://storage.googleapis.com/gingeroak.com/kastel.jpeg"
 
 
 apartments : Image
 apartments =
-    image "apartments.jpeg"
+    image "https://storage.googleapis.com/gingeroak.com/apartments.jpeg"
 
 
 hotelVojvodina : Image
 hotelVojvodina =
-    image "hotel-vojvodina.jpeg"
+    image "https://storage.googleapis.com/gingeroak.com/hotel-vojvodina.jpeg"
 
 
 luxotel : Image
 luxotel =
-    image "luxotel.jpeg"
+    image "https://storage.googleapis.com/gingeroak.com/luxotel.jpeg"
 
 
 philadelphia : Image
 philadelphia =
-    image "philadelphia.jpeg"
+    image "https://storage.googleapis.com/gingeroak.com/philadelphia.jpeg"
 
 
 stGeorge : Image
 stGeorge =
-    image "stgeorge.jpeg"
+    image "https://storage.googleapis.com/gingeroak.com/stgeorge.jpeg"
 
 
 stonehenge : Image
 stonehenge =
-    image "stonehenge.jpg"
+    image "https://storage.googleapis.com/gingeroak.com/stonehenge.jpg"
+
 
 post12h : String
 post12h =
     svg "post12h.svg"
 
+
 post13h : String
 post13h =
     svg "post13h.svg"
 
+
 post15h : String
 post15h =
     svg "post15h.svg"
+
 
 post17h : String
 post17h =
@@ -80,11 +84,14 @@ post17h =
 
 image : String -> Image
 image filename =
-    Image ("images/" ++ filename)
+    Image filename
+
 
 svg : String -> String
 svg filename =
     "svg/" ++ filename
+
+
 
 -- USING IMAGES
 

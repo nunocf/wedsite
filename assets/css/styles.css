@@ -380,7 +380,7 @@ textarea,
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0.5)
     ),
-		url('/images/stonehenge.jpg');
+		url('https://storage.googleapis.com/gingeroak.com/stonehenge.jpg');
 	background-position: center center;
 	background-size: cover;
 }
@@ -447,6 +447,7 @@ textarea,
 
 	gap: 2rem;
 	column-gap: 1rem;
+
 }
 
 .poemContent {
@@ -455,7 +456,7 @@ textarea,
 	display: grid;
 
 	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 140px 1fr minmax(1fr, 1.3fr);
+	grid-template-rows: auto auto auto;
 
 	grid-template-areas:
 		"poemHeader poemHeader"
@@ -505,6 +506,10 @@ textarea,
 
 .poemTitle {
 	padding: 2rem 0 1rem 0;
+}
+
+.lh1-2 {
+	line-height: 1.2;
 }
 
 .poem1 {
@@ -651,8 +656,18 @@ textarea,
 	align-self: center;
 }
 
-.scheduleContainer > div {
+
+
+.scheduleContainer > .rightMapContainer {
 	margin-bottom: 8rem;
+}
+
+.scheduleContainer > .leftMapContainer {
+	margin-bottom: 8rem;
+}
+
+.scheduleContainer > .leftMapContainer {
+	margin-bottom: 4rem;
 }
 
 .dollars {
@@ -689,8 +704,6 @@ textarea,
 	color: #FAA404;
 	text-shadow: 3px 4px 4px  rgba(0, 0, 0, .7);
 }
-
-
 
 .modalButton {
 	background-color: #FAA404;
@@ -974,7 +987,7 @@ textarea,
 			"travelTitle"
 			"travellingFrame";
 	
-		padding: 1rem 0rem 0rem 1rem;
+		padding: 1rem 1rem 0rem 1rem;
 	}
 
 	.travellingFrame {
@@ -992,6 +1005,9 @@ textarea,
 
 			grid-template-areas: 
 				"poemContent";
+
+			margin-bottom: -6rem;
+
 	}
 
 	.ourStoryContainer > div {
@@ -1004,7 +1020,7 @@ textarea,
 		display: grid;
 	
 		grid-template-columns: 1fr;
-		grid-template-rows: 140px 1fr 1.3fr 1fr;
+		grid-template-rows: auto auto auto auto;
 	
 		grid-template-areas:
 			"poemHeader"
@@ -1076,13 +1092,13 @@ textarea,
 		"........ apartments apartments bigflower luxotel vojvodina vojvodina ........"
 		"flowerBL flowerBL philadelphia philadelphia bee vojvodina vojvodina	........";
 	
-	padding: 2rem 0rem 0rem 1rem;
+	padding: 0rem 0rem 0rem 1rem;
 }
 
 .bookingSquare {
 	grid-area: booking;
-	background-color: #013381ff;
-	display: flex;
+	background-color: #013381;
+	display: flex; 
 	align-content: center; 
 }
 
@@ -1112,7 +1128,7 @@ textarea,
 }
 
 .kastelBG {
-	background: url('/images/kastel.jpeg');
+	background: url('https://storage.googleapis.com/gingeroak.com/kastel.jpeg');
 	background-position: center center;
 	background-size: cover;
 }
@@ -1122,7 +1138,7 @@ textarea,
 }
 
 .luxotelBG {
-	background: url('/images/luxotel.jpeg');
+	background: url('https://storage.googleapis.com/gingeroak.com/luxotel.jpeg');
 	background-position: center center;
 	background-size: cover;
 }
@@ -1132,21 +1148,17 @@ textarea,
 }
 
 .stGeorgeBG {
-	background: url('/images/stgeorge.jpeg');
+	background: url('https://storage.googleapis.com/gingeroak.com/stgeorge.jpeg');
 	background-position: center center;
 	background-size: cover;
 }
 
 .airbnb {
 	grid-area: airbnb;
-
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 1fr;
-	align-content: stretch;
-	justify-content: stretch;
-
+	display: flex; 
+	align-content: center; 
 	background-color: #fe595e;
+
 }
 
 
@@ -1155,7 +1167,7 @@ textarea,
 }
 
 .hotelVojvodinaBG {
-	background: url('/images/hotel-vojvodina.jpeg');
+	background: url('https://storage.googleapis.com/gingeroak.com/hotel-vojvodina.jpeg');
 	background-position: center center;
 	background-size: cover;
 }
@@ -1165,7 +1177,7 @@ textarea,
 }
 
 .philadelphiaBG {
-	background: url('/images/philadelphia.jpeg');
+	background: url('https://storage.googleapis.com/gingeroak.com/philadelphia.jpeg');
 	background-position: center center;
 	background-size: cover;
 }
@@ -1175,7 +1187,7 @@ textarea,
 }
 
 .apartmentsBG {
-	background: url('/images/apartments.jpeg');
+	background: url('https://storage.googleapis.com/gingeroak.com/apartments.jpeg');
 	background-position: center center;
 	background-size: cover;
 }
@@ -1197,7 +1209,7 @@ textarea,
 	grid-area: accTitle;
 	justify-self: center;
 	align-self: center;
-	padding-bottom: 1rem;
+	margin-bottom: 1rem;
 }
 
 .beeSquare {
@@ -1329,6 +1341,12 @@ textarea,
 
 }
 
+/* @media only screen and (max-width: 360px) {
+	.poem1 {
+		margin-top: 6rem;
+	}
+} */
+
 @media only screen and (max-width: 600px) {
 
 	.landingContainer {	
@@ -1387,7 +1405,7 @@ textarea,
 			"airbnb stGeorge"
 			"philadelphia philadelphia";
 		
-			padding: 2rem 0rem 0rem 2.5rem;
+			padding: 0 0 0 2.5rem;
 
 	}
 

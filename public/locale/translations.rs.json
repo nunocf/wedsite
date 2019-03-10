@@ -73,9 +73,13 @@
     "belgradeAirport": "",
     "em": "",
     "belgrade": "",
+    "geaTravelUrl": "https://geatravel.rs/",
     "londonLuton": "",
     "londonHeathrow": "",
     "easyJet": "",
+    "easyJetUrl": "https://www.easyjet.com/en/",
+    "budapestUrl": "https://www.bud.hu/en",
+    "timisoaraUrl": "",
     "wizzAir": "",
     "wizzAirUrl": "",
     "airSerbia": "",
@@ -146,15 +150,15 @@
         "Ako se odlučite da povedete svog mezimca u vožnju, sigurni smo da će biti vrlo srećan jer će osim aktivnog dana dobiti i veselu cvetnu dekoraciju!",
         " Zrenjanin se nalazi na 50km of Novog Sada i 80km od Beograda."
     ],
-    "motorbikeTitle": "Motocikl & Bicikl",
+    "motorbikeTitle": "Bicikl",
     "motorbike": [
         "Ako ste avanturističkog duha ovo može biti odlična opcija! Vreme u septembru je generalno toplo i suvo tako da će i sam put biti prijatan. Po dolasku Vas očekuju brufen, voda i šećer u neograničenim količinama.",
         "Naravno i sva slava ovakvog poduhvata, jer i mi volimo dvotočkaše svih oblika! 🏍🏍🏍"
     ],
     "walkAndSwimTitle": "Pešice",
     "walkAndSwim": [
-        "Hvale vredan podvig! Nemamo šta da dodamo, osim da na vreme potvrdite dolazak pa put pod noge, da ne zakasnite!",
-        ""
+        "Hvale vredan podvig!",
+        "Nemamo šta da dodamo, osim da na vreme potvrdite dolazak pa put pod noge, da ne zakasnite!"
     ],
     "carRentalTitle": "",
     "carRental": [
@@ -255,7 +259,7 @@
     "shocking": "Skandalozno!",
     "changeMind": "Ako se predomislite, ponovo popunite formular do prvog jula.",
     "home": "Početna",
-    "rsvp": "Potvrdite dolazak",
+    "rsvp": "Dolazite?",
     "timeLeft": "Odbrojavanje je počelo:",
     "days": "Dana",
     "hours": "Sati",
