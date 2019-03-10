@@ -20,4 +20,5 @@ fi
 rm -rf /root/.elm
 rm -rf assets/elm/elm-stuff
 cd assets/ && yarn install --no-optional
-cd ../ && exec mix phx.server
+
+cd ../ &&  mix deps.get; exec mix phx.server
