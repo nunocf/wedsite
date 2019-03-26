@@ -268,7 +268,7 @@ elevenAMDesc1 lang  =
 elevenAMDesc2: Lang -> String
 elevenAMDesc2 lang  =
   case lang of 
-      En -> "If you are on the Groom’s side this is where you start your day. Marvel at his glorious suit and head over to the Bride’s honking all the way!"
+      En -> "If you are on the Groom’s side this is where you start your day. Marvel at his glorious suit and head over to the Bride’s, honking all the way!"
       Pt -> "Se vens do lado do noivo, aqui é o melhor sítio para começar a festa. Descobre a cor das meias dele e segue para a casa da noiva a buzinar que nem um louco!"
       Rs -> "Ako se priključujete veselju sa mladoženjine strane, ovde ćete započeti svoj dan. Uživajte u pogledu na tu zanosnu bradu i pružite trubi Vaših kola zadovoljstvo da peva iz sveg glasa!"
 
@@ -345,7 +345,7 @@ fourPM lang  =
 fourPMDesc0: Lang -> String
 fourPMDesc0 lang  =
   case lang of 
-      En -> "Civil Cerimony"
+      En -> "Civil Ceremony"
       Pt -> "Cerimónia civil"
       Rs -> "Opštinsko venčanje"
 
