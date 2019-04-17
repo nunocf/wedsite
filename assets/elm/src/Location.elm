@@ -50,8 +50,8 @@ encode { groomHouse, brideHouse, church, restaurant } =
 
 initLocations : Locations
 initLocations =
-    { groomHouse = GroomHouse (GMPos 45.396072 20.403829)
-    , brideHouse = BrideHouse (GMPos 45.384736 20.377857)
+    { groomHouse = GroomHouse (GMPos 45.384736 20.377857)
+    , brideHouse = BrideHouse (GMPos 45.396072 20.403829)
     , church = Church (GMPos 45.391338 20.392822)
     , restaurant = Restaurant (GMPos 45.321671 20.434525)
     }

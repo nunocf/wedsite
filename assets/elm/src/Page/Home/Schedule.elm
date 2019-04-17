@@ -16,8 +16,8 @@ viewHeader lang =
         ]
 
 
-viewGroom : Translations.Lang -> Html msg
-viewGroom lang =
+viewBride : Translations.Lang -> Html msg
+viewBride lang =
     div [ class "rightMapContainer" ]
         [ div [ class "postLeftContainer" ]
             [ div [ class "st jsl" ]
@@ -32,14 +32,14 @@ viewGroom lang =
                 [ p [ class "font-text is-size-5 text-justified" ] [ text <| Translations.twelveAMDesc2 lang ]
                 ]
             ]
-        , div [ id "groomMap" ] []
+        , div [ id "brideMap" ] []
         ]
 
 
-viewBride : Translations.Lang -> Html msg
-viewBride lang =
+viewGroom : Translations.Lang -> Html msg
+viewGroom lang =
     div [ class "leftMapContainer" ]
-        [ div [ id "brideMap" ] []
+        [ div [ id "groomMap" ] []
         , div [ class "postRightContainer" ]
             [ div [ class "st jsl" ]
                 [ p [ class Styles.scheduleTimeHeader ] [ text <| Translations.elevenAMDesc0 lang ]

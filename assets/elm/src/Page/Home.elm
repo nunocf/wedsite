@@ -33,7 +33,7 @@ init session =
       , activeModal = Nothing
       , activeTab = Location
       , time = Time.millisToPosix 0
-      , zone = Time.utc 
+      , zone = Time.utc
       , weddingDay = Time.millisToPosix 1567854000000
       }
     , Cmd.batch
@@ -121,8 +121,9 @@ viewHero model lang =
             ]
         , div [ class "landingCountdown" ]
             [ if Time.posixToMillis model.time == 0 then
-                 h1 [] [] 
-            else 
+                h1 [] []
+
+              else
                 h1 [ class <| Styles.counterFormatting ++ " has-text-centered mb-2" ]
                     [ p [] [ text <| Translations.timeLeft lang ]
                     , countDown
@@ -203,8 +204,8 @@ viewSchedule lang =
     div [ class Styles.scheduleSection ]
         [ div [ class "scheduleContainer" ]
             [ Schedule.viewHeader lang
-            , Schedule.viewGroom lang
             , Schedule.viewBride lang
+            , Schedule.viewGroom lang
             , Schedule.viewChurch lang
             , Schedule.viewVenue lang
             ]
