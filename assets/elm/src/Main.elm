@@ -15,6 +15,7 @@ import Page.Code as Code
 import Page.Coming as Coming
 import Page.Complete as Complete
 import Page.GuestDetails as GuestDetails
+import Page.Guests as Guests
 import Page.Home as Home
 import Page.Home.Types
 import Page.NotComing as NotComing
@@ -40,6 +41,7 @@ type Model
     | GuestDetails GuestDetails.Model
     | Complete Complete.Model
     | NotComing NotComing.Model
+    | Guests Guests.Model
 
 
 init : Flags -> Url -> Key -> ( Model, Cmd Msg )
@@ -99,6 +101,9 @@ view model =
         NotComing notComingModel ->
             viewPage Page.NotComing GotNotComingMsg (NotComing.view notComingModel)
 
+        Guests guestsModel ->
+            viewPage Page.Guests GotGuestsMsg (Guests.view guestsModel)
+
 
 toSession : Model -> Session
 toSession page =
@@ -126,6 +131,9 @@ toSession page =
 
         NotComing code ->
             NotComing.toSession code
+
+        Guests guests ->
+            Guests.toSession guests
 
 
 changeRouteTo : Maybe Route -> Model -> ( Model, Cmd Msg )
@@ -161,6 +169,10 @@ changeRouteTo maybeRoute model =
         Just (Route.NotComing code) ->
             NotComing.init session code
                 |> updateWith NotComing GotNotComingMsg model
+
+        Just Route.Guests ->
+            Guests.init session
+                |> updateWith Guests GotGuestsMsg model
 
 
 
@@ -224,6 +236,10 @@ update msg model =
             NotComing.update subMsg code
                 |> updateWith NotComing GotNotComingMsg model
 
+        ( GotGuestsMsg subMsg, Guests guests ) ->
+            Guests.update subMsg guests
+                |> updateWith Guests GotGuestsMsg model
+
         ( _, _ ) ->
             -- Disregard messages that arrived for the wrong page.
             ( model, Cmd.none )
@@ -275,6 +291,9 @@ subscriptions model =
         NotComing code ->
             Sub.map GotNotComingMsg (NotComing.subscriptions code)
 
+        Guests guests ->
+            Sub.map GotGuestsMsg (Guests.subscriptions guests)
+
 
 onUrlChange : Url -> Msg
 onUrlChange url =
@@ -308,6 +327,9 @@ updateShowLanguages model value =
         NotComing m ->
             NotComing { m | session = Session.setShowLanguages (toSession model) value }
 
+        Guests m ->
+            Guests { m | session = Session.setShowLanguages (toSession model) value }
+
 
 updateLang : Model -> Translations.Lang -> Model
 updateLang model language =
@@ -335,3 +357,6 @@ updateLang model language =
 
         NotComing m ->
             NotComing { m | session = Session.setLanguage (toSession model) language }
+
+        Guests m ->
+            Guests { m | session = Session.setLanguage (toSession model) language }

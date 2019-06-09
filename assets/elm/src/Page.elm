@@ -21,6 +21,7 @@ type Page
     | GuestDetails
     | Complete
     | NotComing
+    | Guests
 
 
 

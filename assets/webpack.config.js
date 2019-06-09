@@ -1,8 +1,8 @@
-const path = require('path');
-const glob = require('glob');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const path = require("path");
+const glob = require("glob");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = (env, options) => ({
   optimization: {
@@ -12,11 +12,11 @@ module.exports = (env, options) => ({
     ]
   },
   entry: {
-    './js/app.js': ['./js/app.js'].concat(glob.sync('./vendor/**/*.js'))
+    "./js/app.js": ["./js/app.js"].concat(glob.sync("./vendor/**/*.js"))
   },
   output: {
-    filename: 'app.js',
-    path: path.resolve(__dirname, '../priv/static/js')
+    filename: "app.js",
+    path: path.resolve(__dirname, "../priv/static/js")
   },
   module: {
     rules: [
@@ -24,20 +24,20 @@ module.exports = (env, options) => ({
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: "babel-loader"
         }
       },
       {
         test: /\.(sa|sc|c)ss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', "sass-loader"]
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
       },
       {
         test: /\.elm$/,
         exclude: ["/elm-stuff/", "/node_modules"],
         use: [
-          { loader: 'elm-hot-webpack-loader' },
+          { loader: "elm-hot-webpack-loader" },
           {
-            loader: 'elm-webpack-loader',
+            loader: "elm-webpack-loader",
             options: {
               optimize: true,
               debug: false,
@@ -48,7 +48,5 @@ module.exports = (env, options) => ({
       }
     ]
   },
-  plugins: [
-    new MiniCssExtractPlugin({ filename: '../css/app.css' })
-  ]
+  plugins: [new MiniCssExtractPlugin({ filename: "../css/app.css" })]
 });

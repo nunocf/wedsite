@@ -143,4 +143,32 @@ defmodule WedsiteWeb.ApiController do
         {:ok, result}
     end
   end
+
+  def guests(conn, _params) do
+    result = %{
+      coming: Repo.all(guest_query(true)),
+      not_coming: Repo.all(guest_query(false)),
+      pending: Repo.all(guest_query(nil))
+    }
+
+    conn
+    |> put_status(200)
+    |> json(%{data: result})
+  end
+
+  defp guest_query(nil) do
+    from(
+      g in Guest,
+      where: is_nil(g.coming),
+      order_by: g.invitation_id
+    )
+  end
+
+  defp guest_query(coming) do
+    from(
+      g in Guest,
+      where: g.coming == ^coming,
+      order_by: g.invitation_id
+    )
+  end
 end

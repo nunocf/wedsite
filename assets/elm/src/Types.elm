@@ -5,6 +5,7 @@ import Page.Code as Code
 import Page.Coming as Coming
 import Page.Complete as Complete
 import Page.GuestDetails as GuestDetails
+import Page.Guests as Guests
 import Page.Home as Home
 import Page.Home.Types
 import Page.NotComing as NotComing
@@ -28,3 +29,4 @@ type Msg
     | ChangeLanguage Lang
     | CloseAvailableLanguages
     | GotNotComingMsg NotComing.Msg
+    | GotGuestsMsg Guests.Msg

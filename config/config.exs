@@ -11,7 +11,7 @@ config :wedsite, Wedsite.Repo,
   database: "wedsite",
   username: "postgres",
   password: "postgres",
-  hostname: "db"
+  hostname: "localhost"
 
 config :wedsite, ecto_repos: [Wedsite.Repo]
 

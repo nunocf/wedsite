@@ -16,4 +16,8 @@ defmodule WedsiteWeb.PageController do
   def complete(conn, _params) do
     render(conn, "index.html")
   end
+
+  def guests(conn, _params) do
+    render(conn, "index.html")
+  end
 end

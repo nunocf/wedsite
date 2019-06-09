@@ -21,8 +21,8 @@ defmodule WedsiteWeb.Router do
     get "/rsvp", PageController, :code
     get "/rsvp/:invitation", PageController, :form
     get "/complete", PageController, :complete
+    get "/guests", PageController, :guests
   end
-
 
   scope "/api", WedsiteWeb do
     pipe_through :api
@@ -33,5 +33,6 @@ defmodule WedsiteWeb.Router do
     get "/invite-guests/:code", ApiController, :get_coming_guests
     post "/rsvp/:code", ApiController, :update_invite
     post "/complete/:code", ApiController, :update_email
+    get "/guests", ApiController, :guests
   end
 end

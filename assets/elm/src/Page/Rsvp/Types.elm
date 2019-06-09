@@ -9,6 +9,7 @@ module Page.Rsvp.Types exposing
     , Diet(..)
     , DietNeeds
     , Guest
+    , GuestList
     , GuestsDetailsForm
     , ID
     , Invitation
@@ -22,6 +23,7 @@ module Page.Rsvp.Types exposing
     , getDietType
     , getFoodOption
     , guestDecoder
+    , guestListDecoder
     , guestsDetailsDecoder
     )
 
@@ -94,6 +96,13 @@ type alias AcceptForm =
     { guests : List Guest
     , additionalGuests : List AdditionalGuest
     , invitation : Invitation
+    }
+
+
+type alias GuestList =
+    { coming : List Guest
+    , notComing : List Guest
+    , pending : List Guest
     }
 
 
@@ -202,6 +211,11 @@ acceptFormDecoder =
     Decode.field "data" formDecoder
 
 
+guestListDecoder : Decoder GuestList
+guestListDecoder =
+    Decode.field "data" guestListDataDecoder
+
+
 guestsDetailsDecoder : Decoder GuestsDetailsForm
 guestsDetailsDecoder =
     Decode.field "data" guestsDetailsDataDecoder
@@ -222,6 +236,15 @@ formDecoder =
         |> resolve
 
 
+guestListDataDecoder : Decoder GuestList
+guestListDataDecoder =
+    Decode.succeed decodeGuestList
+        |> required "coming" (Decode.list decodeGuest)
+        |> required "not_coming" (Decode.list decodeGuest)
+        |> required "pending" (Decode.list decodeGuest)
+        |> resolve
+
+
 decodeForm : List Guest -> Invitation -> Decoder AcceptForm
 decodeForm guests invitation =
     let
@@ -229,6 +252,11 @@ decodeForm guests invitation =
             generateAdditionalGuests invitation.preferedLang (List.length guests) invitation.maxGuests
     in
     Decode.succeed (AcceptForm guests additionalGuests invitation)
+
+
+decodeGuestList : List Guest -> List Guest -> List Guest -> Decoder GuestList
+decodeGuestList coming notComing pending =
+    Decode.succeed (GuestList coming notComing pending)
 
 
 generateAdditionalGuests : Lang -> Int -> Int -> List AdditionalGuest

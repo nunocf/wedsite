@@ -353,6 +353,10 @@ textarea,
   margin-bottom: 1rem;
 }
 
+.padded {
+  padding: 2rem 2rem 2rem 2rem;
+}
+
 .background {
   background-color: #eae7dc;
   /* background-image: url("https://www.transparenttextures.com/patterns/skulls.png"); */
@@ -832,6 +836,10 @@ textarea,
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   height: 100%;
+}
+
+.fw-500 {
+  font-weight: 500;
 }
 
 .tabSelected {
